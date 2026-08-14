@@ -11,11 +11,11 @@ export default function HandDrawnFlowerBorder({ className = '', style = {} }) {
       fill="none" 
       xmlns="http://www.w3.org/2000/svg"
       className={`w-full ${className}`}
-      style={{ display: 'block', maxHeight: '48px', width: '100%', ...style }}
-      aria-label="Hand-drawn row of small tulips and daisies along bottom border line"
+      style={{ display: 'block', height: '75px', maxHeight: '75px', width: '100%', ...style }}
+      aria-label="Hand-drawn row of tulips and daisies sitting directly on bottom border line"
     >
       {/* Baseline (aligned exactly with y=68, touching hero bottom border line) */}
-      <path d="M0 68 L720 68" stroke="#171515" strokeWidth="1.5" strokeOpacity="0.3" />
+      <path d="M0 68 L720 68" stroke="#171515" strokeWidth="1.5" />
 
       {/* --- FLOWER 1: Small Daisy (Pink Center) --- */}
       <g transform="translate(18, 68)">

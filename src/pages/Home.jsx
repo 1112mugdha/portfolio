@@ -39,8 +39,8 @@ export default function Home() {
           </p>
         </div>
 
-        {/* Hand-Drawn Flower Row along Bottom Border */}
-        <div className="w-full absolute bottom-0 left-0 right-0 pointer-events-none z-10">
+        {/* Hand-Drawn Flower Row sitting directly on the bottom border line on the right side */}
+        <div className="absolute bottom-[-1.5px] right-0 sm:right-6 pointer-events-none z-10 w-[85%] sm:w-[55%] md:w-[45%] max-w-[500px]">
           <HandDrawnFlowerBorder />
         </div>
       </section>
