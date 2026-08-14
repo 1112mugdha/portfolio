@@ -4,6 +4,7 @@ import Breadcrumbs from '../components/ui/Breadcrumbs';
 import ImagePlaceholder from '../components/ui/ImagePlaceholder';
 import ProjectGallery from '../components/ui/ProjectGallery';
 import GameEmbed from '../components/ui/GameEmbed';
+import { getAssetPath } from '../utils/assetPath';
 import { projectsData } from '../data/projects';
 
 export default function ProjectDetail() {
@@ -166,7 +167,7 @@ export default function ProjectDetail() {
             {/* LEFT SIDE: Don't Worry Darling Hero Poster (MAX 280px WIDE) */}
             <div className="w-full md:w-[280px] flex-shrink-0 border-1.5 border-[#171515] bg-[#FAF4EB] p-1 shadow-sm">
               <img 
-                src="/images/assignments/movie-posters/poster-03-sometimes.jpg" 
+                src={getAssetPath("/images/assignments/movie-posters/poster-03-sometimes.jpg")} 
                 alt="Don't Worry Darling Poster Hero"
                 className="movie-poster-hero-img"
               />
@@ -227,7 +228,7 @@ export default function ProjectDetail() {
               <div className="flex flex-col gap-2 items-center w-full">
                 <div className="border-1.5 border-[#171515] bg-[#FAF4EB] p-1 shadow-sm">
                   <img 
-                    src="/images/assignments/movie-posters/poster-03-sometimes.jpg" 
+                    src={getAssetPath("/images/assignments/movie-posters/poster-03-sometimes.jpg")} 
                     alt="Don't Worry Darling Poster"
                     className="movie-poster-gallery-img"
                   />
@@ -241,7 +242,7 @@ export default function ProjectDetail() {
               <div className="flex flex-col gap-2 items-center w-full">
                 <div className="border-1.5 border-[#171515] bg-[#FAF4EB] p-1 shadow-sm">
                   <img 
-                    src="/images/assignments/movie-posters/poster-01-fleur.png" 
+                    src={getAssetPath("/images/assignments/movie-posters/poster-01-fleur.png")} 
                     alt="Inside Out Poster"
                     className="movie-poster-gallery-img"
                   />
@@ -255,7 +256,7 @@ export default function ProjectDetail() {
               <div className="flex flex-col gap-2 items-center w-full">
                 <div className="border-1.5 border-[#171515] bg-[#FAF4EB] p-1 shadow-sm">
                   <img 
-                    src="/images/assignments/movie-posters/poster-02-matcha.png" 
+                    src={getAssetPath("/images/assignments/movie-posters/poster-02-matcha.png")} 
                     alt="La La Land Poster"
                     className="movie-poster-gallery-img"
                   />
@@ -656,12 +657,12 @@ export default function ProjectDetail() {
                 <div className="border-1.5 border-[#171515] bg-[#FAF4EB] p-3 shadow-sm flex justify-center items-center w-full max-w-[580px]">
                   <div className="magazine-spread-container">
                     <img 
-                      src="/images/assignments/others/magazine-page-1.jpg" 
+                      src={getAssetPath("/images/assignments/others/magazine-page-1.jpg")} 
                       alt="Magazine Page 01 (Left)"
                       className="magazine-spread-page"
                     />
                     <img 
-                      src="/images/assignments/others/magazine-page-2.jpg" 
+                      src={getAssetPath("/images/assignments/others/magazine-page-2.jpg")} 
                       alt="Magazine Page 02 (Right)"
                       className="magazine-spread-page"
                     />
@@ -677,7 +678,7 @@ export default function ProjectDetail() {
 
                 <div className="border-1.5 border-[#171515] bg-[#FAF4EB] p-1.5 shadow-sm">
                   <img 
-                    src="/images/assignments/others/quote-typography.png" 
+                    src={getAssetPath("/images/assignments/others/quote-typography.png")} 
                     alt="Quote Typography Poster"
                     className="others-standalone-img"
                   />
@@ -692,7 +693,7 @@ export default function ProjectDetail() {
 
                 <div className="border-1.5 border-[#171515] bg-[#FAF4EB] p-1.5 shadow-sm">
                   <img 
-                    src="/images/assignments/others/matcha-typography.png" 
+                    src={getAssetPath("/images/assignments/others/matcha-typography.png")} 
                     alt="Matcha Typography Poster"
                     className="others-standalone-img"
                   />
@@ -707,7 +708,7 @@ export default function ProjectDetail() {
 
                 <div className="border-1.5 border-[#171515] bg-[#FAF4EB] p-1.5 shadow-sm">
                   <img 
-                    src="/images/assignments/others/magazine-cover.png" 
+                    src={getAssetPath("/images/assignments/others/magazine-cover.png")} 
                     alt="Fleur Magazine Cover"
                     className="others-standalone-img"
                   />
@@ -772,7 +773,7 @@ export default function ProjectDetail() {
             <div className="flex justify-center w-full my-6">
               <div className="border-1.5 border-[#171515] bg-[#FAF4EB] p-1 shadow-sm">
                 <img 
-                  src="/images/assignments/character-design/leo-character-sheet.jpg" 
+                  src={getAssetPath("/images/assignments/character-design/leo-character-sheet.jpg")} 
                   alt="Leo The Overthinking Leopard Character Design Sheet"
                   className="leo-character-sheet-img"
                 />

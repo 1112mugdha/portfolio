@@ -1,3 +1,5 @@
+import { getAssetPath } from '../utils/assetPath';
+
 // Assignments / Work Projects Data
 export const projectsData = [
   {
@@ -13,11 +15,11 @@ export const projectsData = [
     process: 'The process involved exploring different layouts, typography combinations, imagery, colour palettes, and compositions before developing the final posters. I focused on creating designs that feel visually strong while still communicating the central idea clearly.',
     finalWork: 'The final collection includes three poster explorations with distinct visual directions, ranging from editorial and photographic compositions to typography-led designs.',
     tools: ['Canva', 'Adobe Photoshop', 'Adobe Illustrator'],
-    heroImage: '/images/assignments/movie-posters/poster-03-sometimes.jpg',
+    heroImage: getAssetPath('/images/assignments/movie-posters/poster-03-sometimes.jpg'),
     gallery: [
-      { id: 1, title: "DON'T WORRY DARLING", aspect: 'auto', image: '/images/assignments/movie-posters/poster-03-sometimes.jpg' },
-      { id: 2, title: 'INSIDE OUT', aspect: 'auto', image: '/images/assignments/movie-posters/poster-01-fleur.png' },
-      { id: 3, title: 'LA LA LAND', aspect: 'auto', image: '/images/assignments/movie-posters/poster-02-matcha.png' }
+      { id: 1, title: "DON'T WORRY DARLING", aspect: 'auto', image: getAssetPath('/images/assignments/movie-posters/poster-03-sometimes.jpg') },
+      { id: 2, title: 'INSIDE OUT', aspect: 'auto', image: getAssetPath('/images/assignments/movie-posters/poster-01-fleur.png') },
+      { id: 3, title: 'LA LA LAND', aspect: 'auto', image: getAssetPath('/images/assignments/movie-posters/poster-02-matcha.png') }
     ]
   },
   {
@@ -36,43 +38,43 @@ export const projectsData = [
     finalWork: 'The final brand system includes the Cactus logo and brand mark, colour palette, typography, packaging, clothing applications, product tags, and a responsive website concept.',
     contribution: 'Contributed to the visual identity, branding, and design development of the Cactus brand concept.',
     tools: ['CANVA', 'ADOBE ILLUSTRATOR', 'ADOBE PHOTOSHOP'],
-    heroImage: '/images/assignments/cactus/cactus-site.png',
+    heroImage: getAssetPath('/images/assignments/cactus/cactus-site.png'),
     gallery: [
       { 
         id: 'brand-identity', 
         title: 'Brand Identity', 
         description: 'Logo, brand mark, colour palette and typography',
-        image: '/images/assignments/cactus/cactus-brandboard-official.png' 
+        image: getAssetPath('/images/assignments/cactus/cactus-brandboard-official.png') 
       },
       { 
         id: 'website-concept', 
         title: 'Website Concept', 
         description: 'Applying the Cactus visual identity across digital touchpoints',
-        image: '/images/assignments/cactus/cactus-site.png' 
+        image: getAssetPath('/images/assignments/cactus/cactus-site.png') 
       },
       { 
         id: 'visual-direction', 
         title: 'Visual Direction', 
         description: 'Moodboard and visual exploration',
-        image: '/images/assignments/cactus/cactus-mood.png' 
+        image: getAssetPath('/images/assignments/cactus/cactus-mood.png') 
       },
       { 
         id: 'packaging', 
         title: 'Packaging', 
         description: 'Sustainable packaging and product presentation',
-        image: '/images/assignments/cactus/cactus-packaging.png' 
+        image: getAssetPath('/images/assignments/cactus/cactus-packaging.png') 
       },
       { 
         id: 'brand-touchpoints', 
         title: 'Brand Touchpoints', 
         description: 'Product tags and supporting brand details',
-        image: '/images/assignments/cactus/cactus-tag.png' 
+        image: getAssetPath('/images/assignments/cactus/cactus-tag.png') 
       },
       { 
         id: 'clothing-application', 
         title: 'Clothing Application', 
         description: 'Extending the identity onto apparel and fabric',
-        image: '/images/assignments/cactus/cactus-clothing.png' 
+        image: getAssetPath('/images/assignments/cactus/cactus-clothing.png') 
       }
     ]
   },
@@ -95,43 +97,43 @@ export const projectsData = [
         id: 1,
         title: 'CAMPUS THROUGH A FRAME',
         subtitle: 'by: Mugdha Patnaik',
-        image: '/images/assignments/photo-essay/photo-essay-01-cover.jpg'
+        image: getAssetPath('/images/assignments/photo-essay/photo-essay-01-cover.jpg')
       },
       {
         id: 2,
         title: 'In Focus',
         caption: 'Focus during lectures.',
-        image: '/images/assignments/photo-essay/photo-essay-02-in-focus.jpg'
+        image: getAssetPath('/images/assignments/photo-essay/photo-essay-02-in-focus.jpg')
       },
       {
         id: 3,
         title: 'Shelves of Knowledge',
         caption: 'The library; a place for study and growth.',
-        image: '/images/assignments/photo-essay/photo-essay-03-shelves.jpg'
+        image: getAssetPath('/images/assignments/photo-essay/photo-essay-03-shelves.jpg')
       },
       {
         id: 4,
         title: 'A Moment to Pause',
         caption: 'A moment of relaxation and personal space.',
-        image: '/images/assignments/photo-essay/photo-essay-04-moment-to-pause.jpg'
+        image: getAssetPath('/images/assignments/photo-essay/photo-essay-04-moment-to-pause.jpg')
       },
       {
         id: 5,
         title: 'Midday Break',
         caption: 'Social moments at lunch.',
-        image: '/images/assignments/photo-essay/photo-essay-05-midday-break.jpg'
+        image: getAssetPath('/images/assignments/photo-essay/photo-essay-05-midday-break.jpg')
       },
       {
         id: 6,
         title: 'Lost in Thought',
         caption: 'A playful pause in the day.',
-        image: '/images/assignments/photo-essay/photo-essay-06-lost-in-thought.jpg'
+        image: getAssetPath('/images/assignments/photo-essay/photo-essay-06-lost-in-thought.jpg')
       },
       {
         id: 7,
         title: 'Late Night Focus',
         caption: 'Focused moments under the quiet glow.',
-        image: '/images/assignments/photo-essay/photo-essay-07-late-night-focus.jpg'
+        image: getAssetPath('/images/assignments/photo-essay/photo-essay-07-late-night-focus.jpg')
       }
     ]
   },
@@ -161,7 +163,7 @@ export const projectsData = [
     process: 'I developed the game by building the player movement and gravity system first, then adding the pipe obstacles, collision detection, scoring system, game states, and visual elements.',
     tools: ['PYTHON', 'PYGAME'],
     gameEmbed: {
-      src: '/games/sky-hopper/index.html'
+      src: getAssetPath('/games/sky-hopper/index.html')
     }
   },
   {
@@ -177,9 +179,9 @@ export const projectsData = [
     process: 'The project began with initial character sketches and silhouette explorations before developing Leo\'s appearance and personality. I explored different poses, expressions, proportions, clothing, props, and small details such as his backpack and snacks to build a consistent character.',
     finalWork: 'The final character sheet brings together Leo\'s character design, initial sketches, expressions, poses, and props. It shows how his personality was translated into his visual appearance and supporting details.',
     tools: ['Canva', 'Digital Illustration'],
-    heroImage: '/images/assignments/character-design/leo-character-sheet.jpg',
+    heroImage: getAssetPath('/images/assignments/character-design/leo-character-sheet.jpg'),
     gallery: [
-      { id: 1, title: 'LEO — FULL CHARACTER DESIGN SHEET', aspect: 'auto', image: '/images/assignments/character-design/leo-character-sheet.jpg' }
+      { id: 1, title: 'LEO — FULL CHARACTER DESIGN SHEET', aspect: 'auto', image: getAssetPath('/images/assignments/character-design/leo-character-sheet.jpg') }
     ]
   },
   {
@@ -195,7 +197,7 @@ export const projectsData = [
     process: 'Iterative experimentation across print, digital, and interactive formats.',
     finalWork: 'A collection of experimental creative outputs across typography, editorial design, and visual composition.',
     tools: ['CANVA', 'ADOBE ILLUSTRATOR', 'ADOBE PHOTOSHOP'],
-    heroImage: '/images/assignments/others/hero-placeholder.svg',
+    heroImage: getAssetPath('/images/assignments/others/hero-placeholder.svg'),
     gallery: []
   }
 ];

@@ -1,3 +1,5 @@
+import { getAssetPath } from '../utils/assetPath';
+
 // Experience Data
 export const experienceData = [
   {
@@ -17,11 +19,11 @@ export const experienceData = [
     ],
     workCreatedSubtitle: 'A selection of promotional and marketing creatives designed for both digital advertising and print media.',
     workCreated: [
-      { id: 1, title: '01 — PROPERTY PROMOTIONAL AD', aspect: '1/1', image: '/images/experience/modi-builders/01-property-promotional-ad.jpg' },
-      { id: 2, title: '02 — PROPERTY PROMOTIONAL AD', aspect: '1/1', image: '/images/experience/modi-builders/02-property-promotional-ad.jpg' },
-      { id: 3, title: '03 — PROPERTY PROMOTIONAL AD', aspect: '1/1', image: '/images/experience/modi-builders/03-property-promotional-ad.jpg' },
-      { id: 4, title: '04 — PROPERTY PROMOTIONAL AD', aspect: '1/1', image: '/images/experience/modi-builders/04-property-promotional-ad.jpg' },
-      { id: 5, title: '05 — MARKETING INFOGRAPHIC', aspect: '4/5', image: '/images/experience/modi-builders/05-marketing-infographic.png' }
+      { id: 1, title: '01 — PROPERTY PROMOTIONAL AD', aspect: '1/1', image: getAssetPath('/images/experience/modi-builders/01-property-promotional-ad.jpg') },
+      { id: 2, title: '02 — PROPERTY PROMOTIONAL AD', aspect: '1/1', image: getAssetPath('/images/experience/modi-builders/02-property-promotional-ad.jpg') },
+      { id: 3, title: '03 — PROPERTY PROMOTIONAL AD', aspect: '1/1', image: getAssetPath('/images/experience/modi-builders/03-property-promotional-ad.jpg') },
+      { id: 4, title: '04 — PROPERTY PROMOTIONAL AD', aspect: '1/1', image: getAssetPath('/images/experience/modi-builders/04-property-promotional-ad.jpg') },
+      { id: 5, title: '05 — MARKETING INFOGRAPHIC', aspect: '4/5', image: getAssetPath('/images/experience/modi-builders/05-marketing-infographic.png') }
     ]
   },
   {
@@ -61,21 +63,21 @@ export const experienceData = [
       { 
         id: 1, 
         title: '01 — FUNDRAISING POSTER', 
-        image: '/images/experience/white-volunteers/01-fundraising-post.png' 
+        image: getAssetPath('/images/experience/white-volunteers/01-fundraising-post.png') 
       },
       { 
         id: 2, 
         title: '02 — CHARITY PROGRAM INSTAGRAM POST', 
-        image: '/images/experience/white-volunteers/02-charity-program-post.jpg' 
+        image: getAssetPath('/images/experience/white-volunteers/02-charity-program-post.jpg') 
       }
     ],
     outreachVisits: [
-      { id: 1, image: '/images/experience/white-volunteers/outreach-02.jpg' },
-      { id: 2, image: '/images/experience/white-volunteers/outreach-03.jpg' },
-      { id: 3, image: '/images/experience/white-volunteers/outreach-04.jpg' },
-      { id: 4, image: '/images/experience/white-volunteers/outreach-05.jpg' },
-      { id: 5, image: '/images/experience/white-volunteers/outreach-06.jpg' },
-      { id: 6, image: '/images/experience/white-volunteers/outreach-07.jpg' }
+      { id: 1, image: getAssetPath('/images/experience/white-volunteers/outreach-02.jpg') },
+      { id: 2, image: getAssetPath('/images/experience/white-volunteers/outreach-03.jpg') },
+      { id: 3, image: getAssetPath('/images/experience/white-volunteers/outreach-04.jpg') },
+      { id: 4, image: getAssetPath('/images/experience/white-volunteers/outreach-05.jpg') },
+      { id: 5, image: getAssetPath('/images/experience/white-volunteers/outreach-06.jpg') },
+      { id: 6, image: getAssetPath('/images/experience/white-volunteers/outreach-07.jpg') }
     ]
   }
 ];

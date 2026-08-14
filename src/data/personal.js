@@ -1,3 +1,5 @@
+import { getAssetPath } from '../utils/assetPath';
+
 // Personal Work Categories Data
 export const personalData = [
   {
@@ -11,31 +13,31 @@ export const personalData = [
         id: 'bc-1', 
         title: '01 — DAISY GARDEN', 
         category: 'Brand Identity & Stationery', 
-        image: '/images/personal/brand-concepts/01-daisy-garden.jpg' 
+        image: getAssetPath('/images/personal/brand-concepts/01-daisy-garden.jpg') 
       },
       { 
         id: 'bc-2', 
         title: '02 — PLAYDATE', 
         category: 'Children’s Toy Brand Identity', 
-        image: '/images/personal/brand-concepts/02-playdate.jpg' 
+        image: getAssetPath('/images/personal/brand-concepts/02-playdate.jpg') 
       },
       { 
         id: 'bc-3', 
         title: '03 — CIAO! PASTA GOURMET', 
         category: 'Gourmet Italian Food Branding', 
-        image: '/images/personal/brand-concepts/03-ciao-pasta.jpg' 
+        image: getAssetPath('/images/personal/brand-concepts/03-ciao-pasta.jpg') 
       },
       { 
         id: 'bc-4', 
         title: '04 — HOLY SIP', 
         category: 'Cold-Pressed Juice Beverage Branding', 
-        image: '/images/personal/brand-concepts/04-holy-sip.jpg' 
+        image: getAssetPath('/images/personal/brand-concepts/04-holy-sip.jpg') 
       },
       { 
         id: 'bc-5', 
         title: '05 — FLEUR', 
         category: 'Floral & Botanical Brand Identity', 
-        image: '/images/personal/brand-concepts/05-fleur.jpg' 
+        image: getAssetPath('/images/personal/brand-concepts/05-fleur.jpg') 
       }
     ]
   },
@@ -50,21 +52,21 @@ export const personalData = [
         id: 'ot-1', 
         title: '01 — BIRTHDAY HOPPING LIST', 
         category: 'Poster Design', 
-        image: '/images/personal/others/birthday-hopping-list.png', 
+        image: getAssetPath('/images/personal/others/birthday-hopping-list.png'), 
         aspect: '3/4' 
       },
       { 
         id: 'ot-2', 
         title: '02 — MENU DESIGN', 
         category: 'Menu Layout', 
-        image: '/images/personal/others/bakery-menu.png', 
+        image: getAssetPath('/images/personal/others/bakery-menu.png'), 
         aspect: '3/4' 
       },
       { 
         id: 'ot-3', 
         title: '03 — WEDDING INVITATION', 
         category: 'Print / Invitation', 
-        image: '/images/personal/others/wedding-invitation.jpg', 
+        image: getAssetPath('/images/personal/others/wedding-invitation.jpg'), 
         aspect: '3/4' 
       }
     ]
