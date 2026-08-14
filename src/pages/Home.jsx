@@ -22,26 +22,27 @@ export default function Home() {
     <div>
       {/* 1. HERO SECTION */}
       <section className="hero-section">
-        <div className="hero-text-col">
-          
+        <div className="w-full max-w-5xl flex flex-col gap-6">
           <div className="flex items-center gap-3">
             <span className="badge-eyebrow-pink">
               STUDENT · DESIGNER · CURIOUS
             </span>
           </div>
 
-          <h1 className="hero-heading">
-            MUGDHA PATNAIK
-          </h1>
+          {/* Name Header and Flowers Aligned Exactly at Same Horizontal Baseline */}
+          <div className="flex flex-wrap items-end justify-between gap-4 w-full">
+            <h1 className="hero-heading">
+              MUGDHA PATNAIK
+            </h1>
+
+            <div className="pointer-events-none w-full sm:w-[45%] max-w-[460px] pb-[4px]">
+              <HandDrawnFlowerBorder />
+            </div>
+          </div>
 
           <p className="hero-sub-text">
             Computation & Media student exploring design, visual systems, and creative technology.
           </p>
-        </div>
-
-        {/* Hand-Drawn Flower Row sitting directly on the bottom border line on the right side */}
-        <div className="absolute bottom-[-1.5px] right-0 sm:right-6 pointer-events-none z-10 w-[85%] sm:w-[55%] md:w-[45%] max-w-[500px]">
-          <HandDrawnFlowerBorder />
         </div>
       </section>
 
