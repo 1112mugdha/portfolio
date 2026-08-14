@@ -350,6 +350,50 @@ p {
   margin-bottom: -10px !important;
 }
 
+/* Assignments Horizontal Scrollable Row */
+.assignments-horizontal-scroll {
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: nowrap !important;
+  overflow-x: auto !important;
+  overflow-y: hidden !important;
+  gap: 1.5rem !important;
+  padding-top: 0.5rem !important;
+  padding-bottom: 1.5rem !important;
+  padding-left: 0.25rem !important;
+  padding-right: 0.25rem !important;
+  scroll-behavior: smooth !important;
+  -webkit-overflow-scrolling: touch !important;
+}
+
+.assignments-horizontal-scroll::-webkit-scrollbar {
+  height: 6px;
+}
+.assignments-horizontal-scroll::-webkit-scrollbar-track {
+  background: #FAF4EB;
+  border-radius: 3px;
+}
+.assignments-horizontal-scroll::-webkit-scrollbar-thumb {
+  background: #171515;
+  border-radius: 3px;
+}
+
+.assignments-horizontal-scroll .folder-link-wrapper {
+  flex: 0 0 310px !important;
+  width: 310px !important;
+  min-width: 310px !important;
+  max-width: 310px !important;
+}
+
+@media (min-width: 640px) {
+  .assignments-horizontal-scroll .folder-link-wrapper {
+    flex: 0 0 350px !important;
+    width: 350px !important;
+    min-width: 350px !important;
+    max-width: 350px !important;
+  }
+}
+
 .hero-heading {
   font-family: 'Space Grotesk', sans-serif;
   font-weight: 800;

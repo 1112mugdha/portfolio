@@ -138,8 +138,8 @@ export default function Home() {
           </div>
         </div>
 
-        {/* 2-Column Responsive Folder Cards Grid (Identical Layout to Personal Projects & Experience) */}
-        <div className="experience-grid-two">
+        {/* Horizontal Scrollable Row for Assignment Folders */}
+        <div className="assignments-horizontal-scroll">
           {projectsData.map((project) => (
             <FolderCard
               key={project.id}
