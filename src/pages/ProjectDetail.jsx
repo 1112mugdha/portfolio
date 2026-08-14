@@ -386,40 +386,38 @@ export default function ProjectDetail() {
               </span>
             </div>
 
-            {/* Active Photograph Slide Frame with Side Arrow Navigation */}
-            <div className="relative border-1.5 border-[#171515] bg-[#FAF4EB] p-2 shadow-sm flex flex-col items-center">
-              {/* Left Arrow Button */}
+            {/* Active Photograph Flex Carousel: Left Arrow + Image + Right Arrow */}
+            <div className="photo-essay-carousel">
               <button 
                 onClick={prevPhoto}
-                className="absolute left-3 top-[42%] -translate-y-1/2 z-10 w-11 h-11 sm:w-12 sm:h-12 border-1.5 border-[#171515] bg-[#D7F23A] hover:bg-[#E96F98] text-[#171515] font-extrabold text-xl sm:text-2xl flex items-center justify-center transition-all shadow-md cursor-pointer active:scale-95"
+                className="photo-essay-arrow-left"
                 aria-label="Previous photograph"
               >
                 ←
               </button>
 
-              {/* Right Arrow Button */}
+              <div className="photo-essay-image-frame">
+                <img 
+                  src={photoEssayDeliverables[photoIndex].image} 
+                  alt={photoEssayDeliverables[photoIndex].alt}
+                  className="photo-essay-img"
+                />
+              </div>
+
               <button 
                 onClick={nextPhoto}
-                className="absolute right-3 top-[42%] -translate-y-1/2 z-10 w-11 h-11 sm:w-12 sm:h-12 border-1.5 border-[#171515] bg-[#D7F23A] hover:bg-[#E96F98] text-[#171515] font-extrabold text-xl sm:text-2xl flex items-center justify-center transition-all shadow-md cursor-pointer active:scale-95"
+                className="photo-essay-arrow-right"
                 aria-label="Next photograph"
               >
                 →
               </button>
+            </div>
 
-              {/* Active Photograph */}
-              <img 
-                src={photoEssayDeliverables[photoIndex].image} 
-                alt={photoEssayDeliverables[photoIndex].alt}
-                className="w-full h-auto max-h-[75vh] object-contain block mx-auto"
-                style={{ maxHeight: '75vh', objectFit: 'contain', width: '100%', height: 'auto' }}
-              />
-
-              {/* Caption Bar */}
-              <div className="w-full mt-3 pt-3 border-t border-[#171515]/20 text-center px-2">
-                <p className="font-mono text-xs font-bold text-[#171515] uppercase tracking-wider">
-                  {photoEssayDeliverables[photoIndex].alt}
-                </p>
-              </div>
+            {/* Caption Bar */}
+            <div className="w-full mt-3 pt-3 border-t border-[#171515]/20 text-center px-2">
+              <p className="font-mono text-xs font-bold text-[#171515] uppercase tracking-wider">
+                {photoEssayDeliverables[photoIndex].alt}
+              </p>
             </div>
           </div>
         </div>

@@ -834,19 +834,64 @@ img.cactus-gallery-overlay-img {
   margin: 0 auto !important;
 }
 
-/* Photo Essay Instagram-Style Carousel Image */
-.photo-carousel-container {
-  width: 100%;
-  max-width: 680px;
-  margin: 0 auto;
-  position: relative;
+/* Photo Essay Flex Carousel (Strict Horizontal Row: Left Arrow + Image + Right Arrow) */
+.photo-essay-carousel {
+  width: 100% !important;
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 16px !important;
+  margin: 0 auto !important;
 }
 
-img.photo-carousel-img {
+.photo-essay-arrow-left,
+.photo-essay-arrow-right {
+  width: 50px !important;
+  min-width: 50px !important;
+  height: 50px !important;
+  font-size: 32px !important;
+  font-weight: 800 !important;
+  line-height: 1 !important;
+  background-color: #D7F23A !important;
+  color: #171515 !important;
+  border: 1.5px solid #171515 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  cursor: pointer !important;
+  flex-shrink: 0 !important;
+  transition: background-color 0.2s ease, transform 0.1s ease !important;
+  box-shadow: 2px 2px 0px #171515 !important;
+}
+
+.photo-essay-arrow-left:hover,
+.photo-essay-arrow-right:hover {
+  background-color: #E96F98 !important;
+}
+
+.photo-essay-arrow-left:active,
+.photo-essay-arrow-right:active {
+  transform: translateY(1px) !important;
+}
+
+.photo-essay-image-frame {
+  border: 1.5px solid #171515;
+  background-color: #FAF4EB;
+  padding: 8px;
+  box-shadow: 2px 2px 0px #171515;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: calc(100vw - 160px);
+  max-height: calc(100vh - 220px);
+}
+
+img.photo-essay-img {
   width: 100% !important;
-  max-width: 680px !important;
-  height: auto !important;
-  max-height: 460px !important;
+  height: 100% !important;
+  max-width: calc(100vw - 160px) !important;
+  max-height: calc(100vh - 220px) !important;
   object-fit: contain !important;
   display: block !important;
   margin: 0 auto !important;
