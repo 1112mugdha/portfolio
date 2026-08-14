@@ -798,11 +798,11 @@ export default function ProjectDetail() {
            ========================================================================= */
         <div>
           {project.heroImage && (
-            <div className="my-8">
-              <ImagePlaceholder 
+            <div className="my-8 border-1.5 border-[#171515] bg-[#FAF4EB] p-2 shadow-sm flex items-center justify-center">
+              <img 
                 src={project.heroImage} 
                 alt={`${project.title} Hero Artwork`}
-                aspectRatio="auto"
+                className="w-full h-auto max-h-[550px] object-contain block mx-auto"
               />
             </div>
           )}
