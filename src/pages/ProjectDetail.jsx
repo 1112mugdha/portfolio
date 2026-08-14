@@ -7,6 +7,17 @@ import GameEmbed from '../components/ui/GameEmbed';
 import { getAssetPath } from '../utils/assetPath';
 import { projectsData } from '../data/projects';
 
+// Direct ES Imports for Assignment Images
+import posterSometimes from '/public/images/assignments/movie-posters/poster-03-sometimes.jpg';
+import posterFleur from '/public/images/assignments/movie-posters/poster-01-fleur.png';
+import posterMatcha from '/public/images/assignments/movie-posters/poster-02-matcha.png';
+import magPage1 from '/public/images/assignments/others/magazine-page-1.jpg';
+import magPage2 from '/public/images/assignments/others/magazine-page-2.jpg';
+import quoteType from '/public/images/assignments/others/quote-typography.png';
+import matchaType from '/public/images/assignments/others/matcha-typography.png';
+import magCover from '/public/images/assignments/others/magazine-cover.png';
+import leoSheet from '/public/images/assignments/character-design/leo-character-sheet.jpg';
+
 export default function ProjectDetail() {
   const { projectId } = useParams();
   const [photoIndex, setPhotoIndex] = useState(0);
@@ -167,7 +178,7 @@ export default function ProjectDetail() {
             {/* LEFT SIDE: Don't Worry Darling Hero Poster (MAX 280px WIDE) */}
             <div className="w-full md:w-[280px] flex-shrink-0 border-1.5 border-[#171515] bg-[#FAF4EB] p-1 shadow-sm">
               <img 
-                src={getAssetPath("/images/assignments/movie-posters/poster-03-sometimes.jpg")} 
+                src={posterSometimes} 
                 alt="Don't Worry Darling Poster Hero"
                 className="movie-poster-hero-img"
               />
@@ -228,7 +239,7 @@ export default function ProjectDetail() {
               <div className="flex flex-col gap-2 items-center w-full">
                 <div className="border-1.5 border-[#171515] bg-[#FAF4EB] p-1 shadow-sm">
                   <img 
-                    src={getAssetPath("/images/assignments/movie-posters/poster-03-sometimes.jpg")} 
+                    src={posterSometimes} 
                     alt="Don't Worry Darling Poster"
                     className="movie-poster-gallery-img"
                   />
@@ -242,7 +253,7 @@ export default function ProjectDetail() {
               <div className="flex flex-col gap-2 items-center w-full">
                 <div className="border-1.5 border-[#171515] bg-[#FAF4EB] p-1 shadow-sm">
                   <img 
-                    src={getAssetPath("/images/assignments/movie-posters/poster-01-fleur.png")} 
+                    src={posterFleur} 
                     alt="Inside Out Poster"
                     className="movie-poster-gallery-img"
                   />
@@ -256,7 +267,7 @@ export default function ProjectDetail() {
               <div className="flex flex-col gap-2 items-center w-full">
                 <div className="border-1.5 border-[#171515] bg-[#FAF4EB] p-1 shadow-sm">
                   <img 
-                    src={getAssetPath("/images/assignments/movie-posters/poster-02-matcha.png")} 
+                    src={posterMatcha} 
                     alt="La La Land Poster"
                     className="movie-poster-gallery-img"
                   />
@@ -657,12 +668,12 @@ export default function ProjectDetail() {
                 <div className="border-1.5 border-[#171515] bg-[#FAF4EB] p-3 shadow-sm flex justify-center items-center w-full max-w-[580px]">
                   <div className="magazine-spread-container">
                     <img 
-                      src={getAssetPath("/images/assignments/others/magazine-page-1.jpg")} 
+                      src={magPage1} 
                       alt="Magazine Page 01 (Left)"
                       className="magazine-spread-page"
                     />
                     <img 
-                      src={getAssetPath("/images/assignments/others/magazine-page-2.jpg")} 
+                      src={magPage2} 
                       alt="Magazine Page 02 (Right)"
                       className="magazine-spread-page"
                     />
@@ -678,7 +689,7 @@ export default function ProjectDetail() {
 
                 <div className="border-1.5 border-[#171515] bg-[#FAF4EB] p-1.5 shadow-sm">
                   <img 
-                    src={getAssetPath("/images/assignments/others/quote-typography.png")} 
+                    src={quoteType} 
                     alt="Quote Typography Poster"
                     className="others-standalone-img"
                   />
@@ -693,7 +704,7 @@ export default function ProjectDetail() {
 
                 <div className="border-1.5 border-[#171515] bg-[#FAF4EB] p-1.5 shadow-sm">
                   <img 
-                    src={getAssetPath("/images/assignments/others/matcha-typography.png")} 
+                    src={matchaType} 
                     alt="Matcha Typography Poster"
                     className="others-standalone-img"
                   />
@@ -708,7 +719,7 @@ export default function ProjectDetail() {
 
                 <div className="border-1.5 border-[#171515] bg-[#FAF4EB] p-1.5 shadow-sm">
                   <img 
-                    src={getAssetPath("/images/assignments/others/magazine-cover.png")} 
+                    src={magCover} 
                     alt="Fleur Magazine Cover"
                     className="others-standalone-img"
                   />
@@ -773,7 +784,7 @@ export default function ProjectDetail() {
             <div className="flex justify-center w-full my-6">
               <div className="border-1.5 border-[#171515] bg-[#FAF4EB] p-1 shadow-sm">
                 <img 
-                  src={getAssetPath("/images/assignments/character-design/leo-character-sheet.jpg")} 
+                  src={leoSheet} 
                   alt="Leo The Overthinking Leopard Character Design Sheet"
                   className="leo-character-sheet-img"
                 />
