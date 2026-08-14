@@ -284,11 +284,12 @@ export default function ProjectDetail() {
         <div>
           {/* Centered Dominant Hero Image (~85–90% Content Width) */}
           <div className="my-10 flex justify-center w-full">
-            <div className="w-full md:w-[88%] border-1.5 border-[#171515] bg-[#FAF4EB] p-1 shadow-sm">
+            <div className="w-full md:w-[88%] border-1.5 border-[#171515] bg-[#FAF4EB] p-1 shadow-sm flex items-center justify-center">
               <img 
                 src={getAssetPath('images/assignments/cactus/cactus-site.png')} 
                 alt="Cactus Sustainable Clothing Website Concept Hero"
                 className="cactus-hero-85-img"
+                style={{ maxHeight: '85vh', objectFit: 'contain', width: '100%', height: 'auto' }}
               />
             </div>
           </div>
@@ -404,7 +405,8 @@ export default function ProjectDetail() {
               <img 
                 src={photoEssayDeliverables[photoIndex].image} 
                 alt={photoEssayDeliverables[photoIndex].alt}
-                className="w-full h-auto max-h-[550px] object-contain block mx-auto"
+                className="w-full h-auto max-h-[75vh] object-contain block mx-auto"
+                style={{ maxHeight: '75vh', objectFit: 'contain', width: '100%', height: 'auto' }}
               />
 
               {/* Caption Bar */}
