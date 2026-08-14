@@ -319,35 +319,39 @@ p {
   color: #171515;
 }
 
-/* 5. HERO SECTION — 85–90vh HEIGHT, SPACIOUS & EDITORIAL */
+/* 5. HERO SECTION — 80vh HEIGHT, SPACIOUS & EDITORIAL */
 .hero-section {
   min-height: calc(80vh - 80px);
   display: flex;
-  align-items: center;
-  position: relative;
+  flex-direction: column;
+  justify-content: center;
+  position: relative !important;
   padding-top: 3.5rem;
   padding-bottom: 3.5rem;
   border-bottom: 1.5px solid #171515;
   overflow: hidden;
 }
 
-/* Hero Name Row & Side-by-Side Flower Layout */
-.hero-name-row {
-  display: flex !important;
-  flex-direction: row !important;
-  flex-wrap: nowrap !important;
-  align-items: flex-end !important;
-  justify-content: space-between !important;
-  width: 100% !important;
-  gap: 1.5rem !important;
+/* Badge slightly UP */
+.hero-badge-wrap {
+  margin-top: -0.85rem;
+  margin-bottom: 0.85rem;
 }
 
-.hero-flowers {
-  pointer-events: none !important;
-  flex-shrink: 0 !important;
+/* Description slightly DOWN */
+.hero-desc-wrap {
+  margin-top: 1.75rem;
+}
+
+/* Flowers: Positioned directly on the bottom border line of .hero-section */
+.hero-flower-border {
+  position: absolute !important;
+  bottom: -2px !important;
+  right: 1.5rem !important;
   width: 440px !important;
   max-width: 45% !important;
-  margin-bottom: -10px !important;
+  pointer-events: none !important;
+  z-index: 10 !important;
 }
 
 /* Assignments Horizontal Scrollable Row */
