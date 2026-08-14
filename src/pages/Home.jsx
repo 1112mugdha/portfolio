@@ -37,19 +37,6 @@ export default function Home() {
           <p className="hero-sub-text">
             Computation & Media student exploring design, visual systems, and creative technology.
           </p>
-
-          <div className="flex flex-wrap items-center gap-4 pt-2">
-            <a href="#assignments" className="btn-cta-primary">
-              VIEW ASSIGNMENTS
-            </a>
-            <a href="#personal-projects" className="btn-cta-secondary">
-              PERSONAL PROJECTS
-            </a>
-            <a href="#about" className="btn-cta-secondary">
-              ABOUT ME
-            </a>
-          </div>
-
         </div>
 
         {/* Hand-Drawn Flower Row along Bottom Border */}
