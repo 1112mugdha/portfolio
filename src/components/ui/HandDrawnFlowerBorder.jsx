@@ -4,14 +4,14 @@ import React from 'react';
  * HandDrawnFlowerBorder
  * A simple hand-drawn row of small tulips and daisies sitting directly on the bottom horizontal line of the hero section.
  */
-export default function HandDrawnFlowerBorder({ className = '' }) {
+export default function HandDrawnFlowerBorder({ className = '', style = {} }) {
   return (
     <svg 
       viewBox="0 0 720 70" 
       fill="none" 
       xmlns="http://www.w3.org/2000/svg"
-      className={`w-full h-auto ${className}`}
-      style={{ display: 'block' }}
+      className={`w-full ${className}`}
+      style={{ display: 'block', maxHeight: '48px', width: '100%', ...style }}
       aria-label="Hand-drawn row of small tulips and daisies along bottom border line"
     >
       {/* Baseline (aligned exactly with y=68, touching hero bottom border line) */}
