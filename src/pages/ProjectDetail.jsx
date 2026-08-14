@@ -386,8 +386,27 @@ export default function ProjectDetail() {
               </span>
             </div>
 
-            {/* Active Photograph Slide Frame */}
+            {/* Active Photograph Slide Frame with Side Arrow Navigation */}
             <div className="relative border-1.5 border-[#171515] bg-[#FAF4EB] p-2 shadow-sm flex flex-col items-center">
+              {/* Left Arrow Button */}
+              <button 
+                onClick={prevPhoto}
+                className="absolute left-3 top-[42%] -translate-y-1/2 z-10 w-11 h-11 sm:w-12 sm:h-12 border-1.5 border-[#171515] bg-[#D7F23A] hover:bg-[#E96F98] text-[#171515] font-extrabold text-xl sm:text-2xl flex items-center justify-center transition-all shadow-md cursor-pointer active:scale-95"
+                aria-label="Previous photograph"
+              >
+                ←
+              </button>
+
+              {/* Right Arrow Button */}
+              <button 
+                onClick={nextPhoto}
+                className="absolute right-3 top-[42%] -translate-y-1/2 z-10 w-11 h-11 sm:w-12 sm:h-12 border-1.5 border-[#171515] bg-[#D7F23A] hover:bg-[#E96F98] text-[#171515] font-extrabold text-xl sm:text-2xl flex items-center justify-center transition-all shadow-md cursor-pointer active:scale-95"
+                aria-label="Next photograph"
+              >
+                →
+              </button>
+
+              {/* Active Photograph */}
               <img 
                 src={photoEssayDeliverables[photoIndex].image} 
                 alt={photoEssayDeliverables[photoIndex].alt}
@@ -400,24 +419,6 @@ export default function ProjectDetail() {
                 <p className="font-mono text-xs font-bold text-[#171515] uppercase tracking-wider">
                   {photoEssayDeliverables[photoIndex].alt}
                 </p>
-              </div>
-
-              {/* Centered Large Navigation Bar */}
-              <div className="flex justify-center items-center gap-8 sm:gap-12 w-full mt-6 mb-2">
-                <button 
-                  onClick={prevPhoto}
-                  className="px-6 py-2.5 border-1.5 border-[#171515] bg-[#D7F23A] hover:bg-[#E96F98] text-[#171515] font-mono font-bold text-sm tracking-wider transition-all shadow-sm cursor-pointer active:translate-y-0.5"
-                  aria-label="Previous photograph"
-                >
-                  ← PREV
-                </button>
-                <button 
-                  onClick={nextPhoto}
-                  className="px-6 py-2.5 border-1.5 border-[#171515] bg-[#D7F23A] hover:bg-[#E96F98] text-[#171515] font-mono font-bold text-sm tracking-wider transition-all shadow-sm cursor-pointer active:translate-y-0.5"
-                  aria-label="Next photograph"
-                >
-                  NEXT →
-                </button>
               </div>
             </div>
           </div>
