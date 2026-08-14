@@ -959,3 +959,27 @@ img.white-volunteers-outreach-thumb {
   display: block !important;
   margin: 0 auto !important;
 }
+
+/* 10. ASSIGNMENT BOTTOM NAVIGATION (FULL WIDTH SPACE BETWEEN) */
+.assignment-bottom-nav {
+  width: 100% !important;
+  display: flex !important;
+  flex-direction: row !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  box-sizing: border-box !important;
+  margin-top: 3rem !important;
+  padding-top: 1.5rem !important;
+  padding-bottom: 1.5rem !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  border-top: 1.5px solid #171515 !important;
+}
+
+.assignment-bottom-nav .prev-link {
+  margin-right: auto !important;
+}
+
+.assignment-bottom-nav .next-link {
+  margin-left: auto !important;
+}
