@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import ExperienceFolder from '../components/ui/ExperienceFolder';
 import FolderCard from '../components/ui/FolderCard';
-import HandDrawnFlowerBorder from '../components/ui/HandDrawnFlowerBorder';
 import { projectsData } from '../data/projects';
 import { personalData } from '../data/personal';
 import { experienceData } from '../data/experience';
@@ -22,31 +21,23 @@ export default function Home() {
     <div>
       {/* 1. HERO SECTION */}
       <section className="hero-section">
-        <div className="w-full flex flex-col">
-          {/* Eyebrow Badge (Moved Slightly UP) */}
-          <div className="hero-badge-wrap flex items-center gap-3">
+        <div className="hero-content-col">
+          {/* Eyebrow Badge */}
+          <div className="flex items-center gap-3">
             <span className="badge-eyebrow-pink">
               STUDENT · DESIGNER · CURIOUS
             </span>
           </div>
 
-          {/* Row containing Name on Left & Flowers on Right */}
-          <div className="hero-name-flower-row">
-            <h1 className="hero-heading">
-              MUGDHA PATNAIK
-            </h1>
+          {/* MUGDHA PATNAIK Heading */}
+          <h1 className="hero-heading">
+            MUGDHA PATNAIK
+          </h1>
 
-            <div className="hero-flower-container">
-              <HandDrawnFlowerBorder />
-            </div>
-          </div>
-
-          {/* Description (Moved Slightly DOWN) */}
-          <div className="hero-desc-wrap">
-            <p className="hero-sub-text">
-              Computation & Media student exploring design, visual systems, and creative technology.
-            </p>
-          </div>
+          {/* Description */}
+          <p className="hero-sub-text">
+            Computation & Media student exploring design, visual systems, and creative technology.
+          </p>
         </div>
       </section>
 

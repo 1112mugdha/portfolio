@@ -323,40 +323,18 @@ p {
 .hero-section {
   display: flex;
   flex-direction: column;
-  position: relative !important;
-  padding-top: 3rem;
-  padding-bottom: 2.5rem;
+  justify-content: center;
+  position: relative;
+  padding-top: 4rem;
+  padding-bottom: 4rem;
   border-bottom: 1.5px solid #171515;
 }
 
-/* Badge slightly UP */
-.hero-badge-wrap {
-  margin-top: -0.75rem;
-  margin-bottom: 1.25rem;
-}
-
-/* Row containing Name on Left & Flowers on Right */
-.hero-name-flower-row {
-  display: flex !important;
-  flex-direction: row !important;
-  flex-wrap: nowrap !important;
-  align-items: flex-end !important;
-  justify-content: space-between !important;
-  width: 100% !important;
-  gap: 1.5rem !important;
-}
-
-.hero-flower-container {
-  pointer-events: none !important;
-  flex-shrink: 0 !important;
-  width: 440px !important;
-  max-width: 45% !important;
-  margin-bottom: -2px !important;
-}
-
-/* Description slightly DOWN */
-.hero-desc-wrap {
-  margin-top: 1.75rem;
+.hero-content-col {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+  max-width: 800px;
 }
 
 /* Assignments Horizontal Scrollable Row */
