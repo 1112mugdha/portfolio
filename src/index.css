@@ -813,21 +813,11 @@ img.leo-character-sheet-img {
 }
 
 /* Cactus Assignment Compact Viewport-Responsive Image Sizing */
-img.cactus-hero-85-img {
-  width: 100% !important;
-  max-width: 100% !important;
-  height: auto !important;
-  max-height: 58vh !important;
-  object-fit: contain !important;
-  display: block !important;
-  margin: 0 auto !important;
-}
-
+img.cactus-hero-85-img,
 img.cactus-gallery-img {
   width: 100% !important;
-  max-width: 100% !important;
-  height: auto !important;
-  max-height: 58vh !important;
+  height: 100% !important;
+  max-height: calc(100vh - 220px) !important;
   object-fit: contain !important;
   display: block !important;
   margin: 0 auto !important;

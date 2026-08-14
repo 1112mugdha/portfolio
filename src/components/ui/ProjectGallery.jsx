@@ -3,6 +3,8 @@ import React from 'react';
 export default function ProjectGallery({ items = [], title = 'PROJECT GALLERY & DELIVERABLES', imgClassName = 'w-full h-auto max-h-[620px] object-contain block mx-auto' }) {
   if (!items || items.length === 0) return null;
 
+  const isCompactView = imgClassName && imgClassName.includes('cactus');
+
   return (
     <div className="my-12">
       <h3 className="font-heading font-bold text-lg uppercase tracking-wider text-[#171515] mb-6 flex items-center gap-3">
@@ -13,11 +15,15 @@ export default function ProjectGallery({ items = [], title = 'PROJECT GALLERY & 
       <div className="flex flex-col gap-12">
         {items.map((item, idx) => (
           <div key={item.id || idx} className="flex flex-col gap-3">
-            <div className="border-1.5 border-[#171515] bg-[#FAF4EB] p-2 shadow-sm flex items-center justify-center w-full">
+            <div 
+              className="border-1.5 border-[#171515] bg-[#FAF4EB] p-2 shadow-sm flex items-center justify-center w-full"
+              style={isCompactView ? { height: 'calc(100vh - 220px)', maxHeight: 'calc(100vh - 220px)' } : {}}
+            >
               <img 
                 src={item.image} 
                 alt={item.title || 'Project Deliverable'} 
                 className={imgClassName}
+                style={isCompactView ? { width: '100%', height: '100%', maxHeight: 'calc(100vh - 220px)', objectFit: 'contain' } : {}}
               />
             </div>
             {item.title && (

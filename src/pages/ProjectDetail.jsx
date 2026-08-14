@@ -267,12 +267,15 @@ export default function ProjectDetail() {
         <div>
           {/* Centered Dominant Hero Image (~85–90% Content Width) */}
           <div className="my-10 flex justify-center w-full">
-            <div className="w-full md:w-[88%] border-1.5 border-[#171515] bg-[#FAF4EB] p-1 shadow-sm flex items-center justify-center">
+            <div 
+              className="w-full md:w-[88%] border-1.5 border-[#171515] bg-[#FAF4EB] p-1 shadow-sm flex items-center justify-center"
+              style={{ height: 'calc(100vh - 220px)', maxHeight: 'calc(100vh - 220px)' }}
+            >
               <img 
                 src={getAssetPath('images/assignments/cactus/cactus-site.png')} 
                 alt="Cactus Sustainable Clothing Website Concept Hero"
                 className="cactus-hero-85-img"
-                style={{ maxHeight: '58vh', objectFit: 'contain', width: '100%', height: 'auto' }}
+                style={{ width: '100%', height: '100%', maxHeight: 'calc(100vh - 220px)', objectFit: 'contain' }}
               />
             </div>
           </div>
