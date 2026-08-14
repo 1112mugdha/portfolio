@@ -1,10 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import ProjectCard from '../components/ui/ProjectCard';
 import ExperienceFolder from '../components/ui/ExperienceFolder';
 import FolderCard from '../components/ui/FolderCard';
 import HandDrawnFlowerBorder from '../components/ui/HandDrawnFlowerBorder';
-import FlowerGardenIllustration from '../components/ui/FlowerGardenIllustration';
 import { projectsData } from '../data/projects';
 import { personalData } from '../data/personal';
 import { experienceData } from '../data/experience';
@@ -52,11 +50,6 @@ export default function Home() {
             </a>
           </div>
 
-        </div>
-
-        {/* Decorative Wildflower Patch Illustration */}
-        <div className="hero-flower-border-container hidden lg:block">
-          <FlowerGardenIllustration />
         </div>
 
         {/* Hand-Drawn Flower Row along Bottom Border */}
@@ -137,30 +130,34 @@ export default function Home() {
 
       </section>
 
-      {/* 3. ASSIGNMENTS SECTION — HORIZONTALLY SCROLLABLE SHELF */}
+      {/* 3. ASSIGNMENTS SECTION — 2-COLUMN RESPONSIVE FOLDER CARDS GRID */}
       <section id="assignments" className="section-block">
         
         <div className="section-header-flex">
           <div>
             <div className="section-num-label">
               <span>02 / COURSEWORK</span>
-              <span className="section-caption-tag">6 PROJECTS</span>
+              <span className="section-caption-tag">6 FOLDERS</span>
             </div>
             <h2 className="section-title">
               ASSIGNMENTS
             </h2>
           </div>
-          <div className="hidden sm:block text-xs font-mono font-bold text-[#57534E] uppercase tracking-wider">
-            SCROLL HORIZONTALLY →
-          </div>
         </div>
 
-        {/* Scroll Shelf */}
-        <div className="assignments-scroll-shelf">
+        {/* 2-Column Responsive Folder Cards Grid (Identical Layout to Personal Projects & Experience) */}
+        <div className="experience-grid-two">
           {projectsData.map((project) => (
-            <div key={project.id} className="assignment-folder-item">
-              <ProjectCard project={project} />
-            </div>
+            <FolderCard
+              key={project.id}
+              number={project.number}
+              title={`${project.number} — ${project.title}`}
+              category={project.category}
+              description={project.shortDescription}
+              to={`/work/${project.id}`}
+              tabLabel={`${project.number} — ASSIGNMENT`}
+              tabColor="lime"
+            />
           ))}
         </div>
 
