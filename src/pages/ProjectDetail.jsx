@@ -114,29 +114,12 @@ export default function ProjectDetail() {
       {/* 1. Subtle Editorial Breadcrumb */}
       <Breadcrumbs items={[{ label: 'HOME', path: '/' }, { label: 'ASSIGNMENTS', path: '/#assignments' }, { label: project.title }]} />
 
-      {/* 2. Top Header Navigation (Prev / Next & Back to Assignments) */}
-      <div className="flex flex-wrap items-center justify-between gap-4 py-4 mb-6 border-b-1.5 border-[#171515]">
+      {/* 2. Top Header Navigation (Back to Assignments Only) */}
+      <div className="flex items-center justify-between py-4 mb-6 border-b-1.5 border-[#171515]">
         <Link to="/#assignments" className="inline-flex items-center gap-2 text-xs font-mono font-bold text-[#171515] uppercase tracking-wider hover:opacity-75 transition-opacity">
           <span>←</span>
           <span>BACK TO ASSIGNMENTS</span>
         </Link>
-
-        <div className="flex flex-wrap items-center gap-8 sm:gap-12 text-xs font-mono font-bold">
-          {prevProject ? (
-            <Link to={`/work/${prevProject.id}`} className="text-[#171515] hover:underline uppercase tracking-wider">
-              ← PREV: {prevProject.title}
-            </Link>
-          ) : (
-            <span className="text-gray-400 uppercase tracking-wider cursor-not-allowed">← PREV</span>
-          )}
-          {nextProject ? (
-            <Link to={`/work/${nextProject.id}`} className="text-[#171515] hover:underline uppercase tracking-wider">
-              NEXT: {nextProject.title} →
-            </Link>
-          ) : (
-            <span className="text-gray-400 uppercase tracking-wider cursor-not-allowed">NEXT →</span>
-          )}
-        </div>
       </div>
 
       {/* 3. Project Title Header */}
@@ -719,29 +702,33 @@ export default function ProjectDetail() {
         </div>
       )}
 
-      {/* 11. Bottom Header Navigation */}
-      <div className="flex flex-wrap items-center justify-between gap-4 py-6 mt-12 border-t-1.5 border-[#171515]">
-        <Link to="/#assignments" className="inline-flex items-center gap-2 text-xs font-mono font-bold text-[#171515] uppercase tracking-wider hover:opacity-75 transition-opacity">
-          <span>←</span>
-          <span>BACK TO ASSIGNMENTS</span>
-        </Link>
+      {/* 11. Bottom PREV / NEXT Navigation Bar (Positioned at Opposite Ends of Content Area) */}
+      <div className="flex items-center justify-between gap-4 py-6 mt-12 border-t-1.5 border-[#171515]">
+        {prevProject ? (
+          <Link 
+            to={`/work/${prevProject.id}`} 
+            className="px-5 sm:px-6 py-2.5 border-1.5 border-[#171515] bg-[#D7F23A] hover:bg-[#E96F98] text-[#171515] font-mono font-bold text-xs sm:text-sm tracking-wider uppercase transition-all shadow-sm flex items-center gap-2 cursor-pointer active:translate-y-0.5"
+          >
+            <span>← PREV: {prevProject.title}</span>
+          </Link>
+        ) : (
+          <span className="px-5 sm:px-6 py-2.5 border-1.5 border-gray-300 bg-gray-100 text-gray-400 font-mono font-bold text-xs sm:text-sm tracking-wider uppercase cursor-not-allowed">
+            ← PREV
+          </span>
+        )}
 
-        <div className="flex flex-wrap items-center gap-8 sm:gap-12 text-xs font-mono font-bold">
-          {prevProject ? (
-            <Link to={`/work/${prevProject.id}`} className="text-[#171515] hover:underline uppercase tracking-wider">
-              ← PREV: {prevProject.title}
-            </Link>
-          ) : (
-            <span className="text-gray-400 uppercase tracking-wider cursor-not-allowed">← PREV</span>
-          )}
-          {nextProject ? (
-            <Link to={`/work/${nextProject.id}`} className="text-[#171515] hover:underline uppercase tracking-wider">
-              NEXT: {nextProject.title} →
-            </Link>
-          ) : (
-            <span className="text-gray-400 uppercase tracking-wider cursor-not-allowed">NEXT →</span>
-          )}
-        </div>
+        {nextProject ? (
+          <Link 
+            to={`/work/${nextProject.id}`} 
+            className="px-5 sm:px-6 py-2.5 border-1.5 border-[#171515] bg-[#D7F23A] hover:bg-[#E96F98] text-[#171515] font-mono font-bold text-xs sm:text-sm tracking-wider uppercase transition-all shadow-sm flex items-center gap-2 cursor-pointer active:translate-y-0.5 ml-auto"
+          >
+            <span>NEXT: {nextProject.title} →</span>
+          </Link>
+        ) : (
+          <span className="px-5 sm:px-6 py-2.5 border-1.5 border-gray-300 bg-gray-100 text-gray-400 font-mono font-bold text-xs sm:text-sm tracking-wider uppercase cursor-not-allowed ml-auto">
+            NEXT →
+          </span>
+        )}
       </div>
     </div>
   );
