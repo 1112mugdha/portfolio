@@ -702,17 +702,18 @@ export default function ProjectDetail() {
         </div>
       )}
 
-      {/* 11. Bottom PREV / NEXT Navigation Bar (Positioned at Opposite Ends of Content Area) */}
-      <div className="flex items-center justify-between gap-4 py-6 mt-12 border-t-1.5 border-[#171515]">
+      {/* 11. Bottom PREV / NEXT Navigation Bar (Far Left & Far Right of Content Container) */}
+      <div className="flex items-center justify-between gap-4 py-6 mt-12 border-t-1.5 border-[#171515] w-full">
         {prevProject ? (
           <Link 
             to={`/work/${prevProject.id}`} 
-            className="px-5 sm:px-6 py-2.5 border-1.5 border-[#171515] bg-[#D7F23A] hover:bg-[#E96F98] text-[#171515] font-mono font-bold text-xs sm:text-sm tracking-wider uppercase transition-all shadow-sm flex items-center gap-2 cursor-pointer active:translate-y-0.5"
+            className="px-6 py-3 border-1.5 border-[#171515] bg-[#D7F23A] hover:bg-[#E96F98] text-[#171515] font-mono font-bold text-sm tracking-wider uppercase transition-all shadow-sm flex items-center justify-center cursor-pointer active:translate-y-0.5"
+            aria-label={`Go to previous project: ${prevProject.title}`}
           >
-            <span>← PREV: {prevProject.title}</span>
+            ← PREV
           </Link>
         ) : (
-          <span className="px-5 sm:px-6 py-2.5 border-1.5 border-gray-300 bg-gray-100 text-gray-400 font-mono font-bold text-xs sm:text-sm tracking-wider uppercase cursor-not-allowed">
+          <span className="px-6 py-3 border-1.5 border-gray-300 bg-gray-100 text-gray-400 font-mono font-bold text-sm tracking-wider uppercase cursor-not-allowed">
             ← PREV
           </span>
         )}
@@ -720,12 +721,13 @@ export default function ProjectDetail() {
         {nextProject ? (
           <Link 
             to={`/work/${nextProject.id}`} 
-            className="px-5 sm:px-6 py-2.5 border-1.5 border-[#171515] bg-[#D7F23A] hover:bg-[#E96F98] text-[#171515] font-mono font-bold text-xs sm:text-sm tracking-wider uppercase transition-all shadow-sm flex items-center gap-2 cursor-pointer active:translate-y-0.5 ml-auto"
+            className="px-6 py-3 border-1.5 border-[#171515] bg-[#D7F23A] hover:bg-[#E96F98] text-[#171515] font-mono font-bold text-sm tracking-wider uppercase transition-all shadow-sm flex items-center justify-center cursor-pointer active:translate-y-0.5 ml-auto"
+            aria-label={`Go to next project: ${nextProject.title}`}
           >
-            <span>NEXT: {nextProject.title} →</span>
+            NEXT →
           </Link>
         ) : (
-          <span className="px-5 sm:px-6 py-2.5 border-1.5 border-gray-300 bg-gray-100 text-gray-400 font-mono font-bold text-xs sm:text-sm tracking-wider uppercase cursor-not-allowed ml-auto">
+          <span className="px-6 py-3 border-1.5 border-gray-300 bg-gray-100 text-gray-400 font-mono font-bold text-sm tracking-wider uppercase cursor-not-allowed ml-auto">
             NEXT →
           </span>
         )}
