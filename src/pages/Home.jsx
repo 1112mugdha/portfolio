@@ -29,13 +29,13 @@ export default function Home() {
             </span>
           </div>
 
-          {/* Name Header and Flowers Aligned Exactly at Same Horizontal Baseline */}
-          <div className="flex flex-wrap items-end justify-between gap-4 w-full">
-            <h1 className="hero-heading">
+          {/* Name Header Left & Flowers Right — Strictly Side-by-Side on Same Horizontal Baseline */}
+          <div className="flex items-end justify-between w-full overflow-hidden">
+            <h1 className="hero-heading pr-4 shrink">
               MUGDHA PATNAIK
             </h1>
 
-            <div className="pointer-events-none w-full sm:w-[45%] max-w-[460px] pb-[4px]">
+            <div className="pointer-events-none w-[320px] sm:w-[400px] md:w-[460px] pb-[6px] shrink-0">
               <HandDrawnFlowerBorder />
             </div>
           </div>
