@@ -30,11 +30,15 @@ export default function Home() {
             </span>
           </div>
 
-          {/* MUGDHA PATNAIK Heading */}
-          <div className="hero-title-wrap">
+          {/* Row containing Name on Left & Flowers on Right */}
+          <div className="hero-name-flower-row">
             <h1 className="hero-heading">
               MUGDHA PATNAIK
             </h1>
+
+            <div className="hero-flower-container">
+              <HandDrawnFlowerBorder />
+            </div>
           </div>
 
           {/* Description (Moved Slightly DOWN) */}
@@ -43,11 +47,6 @@ export default function Home() {
               Computation & Media student exploring design, visual systems, and creative technology.
             </p>
           </div>
-        </div>
-
-        {/* FLOWERS: Positioned directly on the .hero-section bottom border line */}
-        <div className="hero-flower-border">
-          <HandDrawnFlowerBorder />
         </div>
       </section>
 
