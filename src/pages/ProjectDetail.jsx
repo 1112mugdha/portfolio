@@ -459,8 +459,30 @@ export default function ProjectDetail() {
             </div>
           </div>
 
-          {/* Interactive Playable Game Embed */}
-          <GameEmbed gameSrc={project.gameEmbed?.src} title="SKY HOPPER — PLAYABLE GAME DEMO" />
+          {/* Real Playable Sky Hopper Arcade Game Embed */}
+          <div className="my-10 pt-8 border-t-1.5 border-[#171515]">
+            <h2 className="font-heading font-extrabold text-xl uppercase tracking-tight text-[#171515] mb-6 flex items-center gap-3">
+              <span className="w-3 h-3 bg-[#E96F98] border border-[#171515] inline-block"></span>
+              PLAY THE GAME
+            </h2>
+
+            <div className="flex flex-col items-center justify-center w-full my-4">
+              <div className="sky-hopper-iframe-container shadow-sm">
+                <iframe 
+                  src={getAssetPath('/games/sky-hopper/index.html')} 
+                  title="Sky Hopper Playable Arcade Game" 
+                  className="sky-hopper-iframe"
+                  allow="autoplay; keyboard"
+                />
+              </div>
+
+              <div className="mt-4 px-4 py-2 bg-[#FAF4EB] border-1.5 border-[#171515] text-center shadow-xs">
+                <p className="font-mono text-xs font-bold text-[#171515] uppercase tracking-wider">
+                  🎮 CONTROLS: SPACE OR CLICK/TAP TO JUMP | R KEY TO RESTART
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
       ) : project.id === 'character-design' ? (
         /* =========================================================================
