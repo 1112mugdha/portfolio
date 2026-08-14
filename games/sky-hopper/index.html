@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sky Hopper</title>
+<style>
+  html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    background: #f7f2e9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+  }
+  #wrap {
+    width: min(500px, 92vw);
+    aspect-ratio: 5 / 6;
+    position: relative;
+  }
+  canvas {
+    width: 100%;
+    height: 100%;
+    display: block;
+    border: 2px solid #111;
+    box-sizing: border-box;
+    cursor: pointer;
+    touch-action: manipulation;
+  }
+</style>
+</head>
+<body>
+<div id="wrap">
+  <canvas id="game" width="500" height="600" aria-label="Sky Hopper playable game"></canvas>
+</div>
+
+<script>
+const canvas = document.getElementById("game");
+const ctx = canvas.getContext("2d");
+
+const WIDTH = 500;
+const HEIGHT = 600;
+
+const skyBlue = "rgb(135,206,235)";
+const yellow = "rgb(255,255,0)";
+const green = "rgb(0,200,0)";
+const white = "rgb(255,255,255)";
+const black = "rgb(0,0,0)";
+
+let birdX = 100;
+let birdY = 250;
+const birdSize = 20;
+const gravity = 0.5;
+let birdSpeed = 0;
+
+let pipeX = 500;
+const pipeWidth = 70;
+const pipeGap = 180;
+let pipeHeight = randomPipeHeight();
+
+let score = 0;
+let passedPipe = false;
+
+const clouds = [
+  [100, 80],
+  [300, 150],
+  [450, 100]
+];
+
+let gameStarted = false;
+let gameOver = false;
+
+function randomPipeHeight() {
+  return Math.floor(Math.random() * 301) + 100; // 100..400
+}
+
+function resetGame() {
+  birdY = 250;
+  birdSpeed = 0;
+  pipeX = 500;
+  pipeHeight = randomPipeHeight();
+  score = 0;
+  passedPipe = false;
+  gameOver = false;
+  gameStarted = false;
+}
+
+function startOrJump() {
+  if (!gameStarted) {
+    gameStarted = true;
+  } else if (!gameOver) {
+    birdSpeed = -8;
+  }
+}
+
+function keyDown(e) {
+  if (e.code === "Space") {
+    e.preventDefault();
+    startOrJump();
+  } else if (e.key.toLowerCase() === "r" && gameOver) {
+    resetGame();
+  }
+}
+
+window.addEventListener("keydown", keyDown);
+
+canvas.addEventListener("pointerdown", () => {
+  if (gameOver) {
+    resetGame();
+  } else {
+    startOrJump();
+  }
+});
+
+function drawCloud(x, y) {
+  ctx.fillStyle = white;
+  ctx.beginPath();
+  ctx.arc(x, y, 25, 0, Math.PI * 2);
+  ctx.arc(x + 25, y, 30, 0, Math.PI * 2);
+  ctx.arc(x + 50, y, 25, 0, Math.PI * 2);
+  ctx.fill();
+}
+
+function drawText(text, x, y, size, align = "left", weight = "bold") {
+  ctx.font = `${weight} ${size}px Arial Rounded MT Bold, Arial, sans-serif`;
+  ctx.fillStyle = white;
+  ctx.textAlign = align;
+  ctx.textBaseline = "top";
+  ctx.fillText(text, x, y);
+}
+
+function draw() {
+  ctx.clearRect(0, 0, WIDTH, HEIGHT);
+  ctx.fillStyle = skyBlue;
+  ctx.fillRect(0, 0, WIDTH, HEIGHT);
+
+  // Clouds
+  for (const cloud of clouds) {
+    drawCloud(cloud[0], cloud[1]);
+  }
+
+  if (gameStarted) {
+    // Pipes
+    ctx.fillStyle = green;
+    roundRect(ctx, pipeX, 0, pipeWidth, pipeHeight, 10);
+    ctx.fill();
+    roundRect(ctx, pipeX, pipeHeight + pipeGap, pipeWidth,
+              HEIGHT - (pipeHeight + pipeGap), 10);
+    ctx.fill();
+
+    // Bird body
+    ctx.fillStyle = yellow;
+    ctx.beginPath();
+    ctx.arc(birdX, Math.round(birdY), birdSize, 0, Math.PI * 2);
+    ctx.fill();
+
+    // Eye
+    ctx.fillStyle = white;
+    ctx.beginPath();
+    ctx.arc(birdX + 8, Math.round(birdY - 5), 6, 0, Math.PI * 2);
+    ctx.fill();
+
+    ctx.fillStyle = black;
+    ctx.beginPath();
+    ctx.arc(birdX + 10, Math.round(birdY - 5), 3, 0, Math.PI * 2);
+    ctx.fill();
+
+    // Wing
+    ctx.fillStyle = "rgb(255,220,0)";
+    ctx.beginPath();
+    ctx.ellipse(birdX, Math.round(birdY + 6), 10, 6, 0, 0, Math.PI * 2);
+    ctx.fill();
+
+    // Score
+    drawText("Score: " + score, 20, 20, 30);
+
+    if (gameOver) {
+      ctx.fillStyle = "rgba(0,0,0,0.47)";
+      ctx.fillRect(0, 0, WIDTH, HEIGHT);
+
+      drawText("GAME OVER", WIDTH / 2, 220, 45, "center");
+      drawText("Final Score: " + score, WIDTH / 2, 300, 30, "center");
+      drawText("Press R to Restart", WIDTH / 2, 350, 22, "center");
+    }
+  } else {
+    drawText("SKY HOPPER", WIDTH / 2, 200, 45, "center");
+    drawText("Press SPACE to Start", WIDTH / 2, 300, 22, "center");
+    drawText("Press SPACE to Jump", WIDTH / 2, 340, 22, "center");
+  }
+}
+
+function update() {
+  // Match the original cloud movement.
+  for (const cloud of clouds) {
+    cloud[0] -= 1;
+    if (cloud[0] < -60) cloud[0] = WIDTH + 50;
+  }
+
+  if (gameStarted && !gameOver) {
+    birdSpeed += gravity;
+    birdY += birdSpeed;
+
+    pipeX -= 5;
+
+    if (pipeX < -pipeWidth) {
+      pipeX = 500;
+      pipeHeight = randomPipeHeight();
+      passedPipe = false;
+    }
+
+    if (pipeX + pipeWidth < birdX && !passedPipe) {
+      score += 1;
+      passedPipe = true;
+    }
+
+    if (birdY <= 0 || birdY >= HEIGHT) {
+      gameOver = true;
+    }
+
+    if (
+      birdX + birdSize > pipeX &&
+      birdX - birdSize < pipeX + pipeWidth
+    ) {
+      if (
+        birdY - birdSize < pipeHeight ||
+        birdY + birdSize > pipeHeight + pipeGap
+      ) {
+        gameOver = true;
+      }
+    }
+  }
+}
+
+function roundRect(ctx, x, y, w, h, r) {
+  r = Math.min(r, Math.abs(w) / 2, Math.abs(h) / 2);
+  ctx.beginPath();
+  ctx.moveTo(x + r, y);
+  ctx.arcTo(x + w, y, x + w, y + h, r);
+  ctx.arcTo(x + w, y + h, x, y + h, r);
+  ctx.arcTo(x, y + h, x, y, r);
+  ctx.arcTo(x, y, x + w, y, r);
+  ctx.closePath();
+}
+
+function loop() {
+  update();
+  draw();
+  requestAnimationFrame(loop);
+}
+
+loop();
+</script>
+</body>
+</html>
