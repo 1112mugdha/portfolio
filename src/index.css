@@ -358,11 +358,12 @@ p {
 .hero-heading {
   font-family: 'Space Grotesk', sans-serif;
   font-weight: 800;
-  font-size: clamp(3.2rem, 6.8vw, 5.8rem);
+  font-size: clamp(2.4rem, 5.2vw, 4.8rem);
   letter-spacing: -0.035em;
   text-transform: uppercase;
   line-height: 1.02;
   color: #171515;
+  white-space: nowrap;
 }
 
 .hero-sub-text {

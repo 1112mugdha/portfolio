@@ -31,7 +31,7 @@ export default function Home() {
           </div>
 
           <h1 className="hero-heading">
-            MUGDHA<br />PATNAIK
+            MUGDHA PATNAIK
           </h1>
 
           <p className="hero-sub-text">
