@@ -812,12 +812,22 @@ img.leo-character-sheet-img {
   margin: 0 auto !important;
 }
 
-/* 85-90% Content Width Hero Image */
+/* Cactus Assignment Compact Viewport-Responsive Image Sizing */
 img.cactus-hero-85-img {
   width: 100% !important;
   max-width: 100% !important;
   height: auto !important;
-  max-height: 85vh !important;
+  max-height: 58vh !important;
+  object-fit: contain !important;
+  display: block !important;
+  margin: 0 auto !important;
+}
+
+img.cactus-gallery-img {
+  width: 100% !important;
+  max-width: 100% !important;
+  height: auto !important;
+  max-height: 58vh !important;
   object-fit: contain !important;
   display: block !important;
   margin: 0 auto !important;

@@ -272,7 +272,7 @@ export default function ProjectDetail() {
                 src={getAssetPath('images/assignments/cactus/cactus-site.png')} 
                 alt="Cactus Sustainable Clothing Website Concept Hero"
                 className="cactus-hero-85-img"
-                style={{ maxHeight: '85vh', objectFit: 'contain', width: '100%', height: 'auto' }}
+                style={{ maxHeight: '58vh', objectFit: 'contain', width: '100%', height: 'auto' }}
               />
             </div>
           </div>
@@ -330,7 +330,7 @@ export default function ProjectDetail() {
           </div>
 
           {/* Project Deliverables Gallery */}
-          <ProjectGallery items={cactusGalleryDeliverables} title="BRAND SYSTEM & DELIVERABLES" />
+          <ProjectGallery items={cactusGalleryDeliverables} title="BRAND SYSTEM & DELIVERABLES" imgClassName="cactus-gallery-img" />
         </div>
       ) : project.id === 'photo-essay' ? (
         /* =========================================================================

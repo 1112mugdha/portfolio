@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function ProjectGallery({ items = [], title = 'PROJECT GALLERY & DELIVERABLES' }) {
+export default function ProjectGallery({ items = [], title = 'PROJECT GALLERY & DELIVERABLES', imgClassName = 'w-full h-auto max-h-[620px] object-contain block mx-auto' }) {
   if (!items || items.length === 0) return null;
 
   return (
@@ -17,7 +17,7 @@ export default function ProjectGallery({ items = [], title = 'PROJECT GALLERY & 
               <img 
                 src={item.image} 
                 alt={item.title || 'Project Deliverable'} 
-                className="w-full h-auto max-h-[620px] object-contain block mx-auto"
+                className={imgClassName}
               />
             </div>
             {item.title && (
