@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import ProjectCard from '../components/ui/ProjectCard';
 import ExperienceFolder from '../components/ui/ExperienceFolder';
 import FolderCard from '../components/ui/FolderCard';
+import HandDrawnFlowerBorder from '../components/ui/HandDrawnFlowerBorder';
+import FlowerGardenIllustration from '../components/ui/FlowerGardenIllustration';
 import { projectsData } from '../data/projects';
 import { personalData } from '../data/personal';
 import { experienceData } from '../data/experience';
@@ -52,13 +54,14 @@ export default function Home() {
 
         </div>
 
-        {/* Decorative Flower Graphic */}
+        {/* Decorative Wildflower Patch Illustration */}
         <div className="hero-flower-border-container hidden lg:block">
-          <img 
-            src="/images/decorations/flower-border-desktop.svg" 
-            alt="Floral Illustration" 
-            className="w-full h-auto opacity-90"
-          />
+          <FlowerGardenIllustration />
+        </div>
+
+        {/* Hand-Drawn Flower Row along Bottom Border */}
+        <div className="w-full absolute bottom-0 left-0 right-0 pointer-events-none z-10">
+          <HandDrawnFlowerBorder />
         </div>
       </section>
 
