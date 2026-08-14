@@ -121,7 +121,7 @@ export default function ProjectDetail() {
           <span>BACK TO ASSIGNMENTS</span>
         </Link>
 
-        <div className="flex items-center gap-4 text-xs font-mono font-bold">
+        <div className="flex flex-wrap items-center gap-8 sm:gap-12 text-xs font-mono font-bold">
           {prevProject ? (
             <Link to={`/work/${prevProject.id}`} className="text-[#171515] hover:underline uppercase tracking-wider">
               ← PREV: {prevProject.title}
@@ -129,7 +129,6 @@ export default function ProjectDetail() {
           ) : (
             <span className="text-gray-400 uppercase tracking-wider cursor-not-allowed">← PREV</span>
           )}
-          <span className="text-[#78716C]">|</span>
           {nextProject ? (
             <Link to={`/work/${nextProject.id}`} className="text-[#171515] hover:underline uppercase tracking-wider">
               NEXT: {nextProject.title} →
@@ -725,7 +724,7 @@ export default function ProjectDetail() {
           <span>BACK TO ASSIGNMENTS</span>
         </Link>
 
-        <div className="flex items-center gap-4 text-xs font-mono font-bold">
+        <div className="flex flex-wrap items-center gap-8 sm:gap-12 text-xs font-mono font-bold">
           {prevProject ? (
             <Link to={`/work/${prevProject.id}`} className="text-[#171515] hover:underline uppercase tracking-wider">
               ← PREV: {prevProject.title}
@@ -733,7 +732,6 @@ export default function ProjectDetail() {
           ) : (
             <span className="text-gray-400 uppercase tracking-wider cursor-not-allowed">← PREV</span>
           )}
-          <span className="text-[#78716C]">|</span>
           {nextProject ? (
             <Link to={`/work/${nextProject.id}`} className="text-[#171515] hover:underline uppercase tracking-wider">
               NEXT: {nextProject.title} →
