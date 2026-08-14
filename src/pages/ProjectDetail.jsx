@@ -18,6 +18,23 @@ import matchaType from '/public/images/assignments/others/matcha-typography.png'
 import magCover from '/public/images/assignments/others/magazine-cover.png';
 import leoSheet from '/public/images/assignments/character-design/leo-character-sheet.jpg';
 
+// Cactus ES Imports
+import cactusSite from '/public/images/assignments/cactus/cactus-site.png';
+import cactusBrandboard from '/public/images/assignments/cactus/cactus-brandboard-official.png';
+import cactusMood from '/public/images/assignments/cactus/cactus-mood.png';
+import cactusPackaging from '/public/images/assignments/cactus/cactus-packaging.png';
+import cactusTag from '/public/images/assignments/cactus/cactus-tag.png';
+import cactusClothing from '/public/images/assignments/cactus/cactus-clothing.png';
+
+// Photo Essay ES Imports
+import photoCover from '/public/images/assignments/photo-essay/photo-essay-01-cover.jpg';
+import photoFocus from '/public/images/assignments/photo-essay/photo-essay-02-in-focus.jpg';
+import photoShelves from '/public/images/assignments/photo-essay/photo-essay-03-shelves.jpg';
+import photoPause from '/public/images/assignments/photo-essay/photo-essay-04-moment-to-pause.jpg';
+import photoBreak from '/public/images/assignments/photo-essay/photo-essay-05-midday-break.jpg';
+import photoThought from '/public/images/assignments/photo-essay/photo-essay-06-lost-in-thought.jpg';
+import photoNight from '/public/images/assignments/photo-essay/photo-essay-07-late-night-focus.jpg';
+
 export default function ProjectDetail() {
   const { projectId } = useParams();
   const [photoIndex, setPhotoIndex] = useState(0);
@@ -39,37 +56,37 @@ export default function ProjectDetail() {
       id: 'brand-identity',
       title: 'Brand Identity',
       description: 'Logo, brand mark, colour palette and typography',
-      image: '/images/assignments/cactus/cactus-brandboard-official.png'
+      image: cactusBrandboard
     },
     {
       id: 'website-concept',
       title: 'Website Concept',
       description: 'Applying the Cactus visual identity across digital touchpoints',
-      image: '/images/assignments/cactus/cactus-site.png'
+      image: cactusSite
     },
     {
       id: 'visual-direction',
       title: 'Visual Direction',
       description: 'Moodboard and visual exploration',
-      image: '/images/assignments/cactus/cactus-mood.png'
+      image: cactusMood
     },
     {
       id: 'packaging',
       title: 'Packaging',
       description: 'Sustainable packaging and product presentation',
-      image: '/images/assignments/cactus/cactus-packaging.png'
+      image: cactusPackaging
     },
     {
       id: 'brand-touchpoints',
       title: 'Brand Touchpoints',
       description: 'Product tags and supporting brand details',
-      image: '/images/assignments/cactus/cactus-tag.png'
+      image: cactusTag
     },
     {
       id: 'clothing-application',
       title: 'Clothing Application',
       description: 'Extending the identity onto apparel and fabric',
-      image: '/images/assignments/cactus/cactus-clothing.png'
+      image: cactusClothing
     }
   ];
 
@@ -77,37 +94,37 @@ export default function ProjectDetail() {
   const photoEssayDeliverables = [
     {
       id: 1,
-      image: '/images/assignments/photo-essay/photo-essay-01-cover.jpg',
+      image: photoCover,
       alt: 'Campus Through a Frame by Mugdha Patnaik'
     },
     {
       id: 2,
-      image: '/images/assignments/photo-essay/photo-essay-02-in-focus.jpg',
+      image: photoFocus,
       alt: 'In Focus: Focus during lectures.'
     },
     {
       id: 3,
-      image: '/images/assignments/photo-essay/photo-essay-03-shelves.jpg',
+      image: photoShelves,
       alt: 'Shelves of Knowledge: The library; a place for study and growth.'
     },
     {
       id: 4,
-      image: '/images/assignments/photo-essay/photo-essay-04-moment-to-pause.jpg',
+      image: photoPause,
       alt: 'A Moment to Pause: A moment of relaxation and personal space.'
     },
     {
       id: 5,
-      image: '/images/assignments/photo-essay/photo-essay-05-midday-break.jpg',
+      image: photoBreak,
       alt: 'Midday Break: Social moments at lunch.'
     },
     {
       id: 6,
-      image: '/images/assignments/photo-essay/photo-essay-06-lost-in-thought.jpg',
+      image: photoThought,
       alt: 'Lost in Thought: A playful pause in the day.'
     },
     {
       id: 7,
-      image: '/images/assignments/photo-essay/photo-essay-07-late-night-focus.jpg',
+      image: photoNight,
       alt: 'Late Night Focus: Focused moments under the quiet glow.'
     }
   ];
@@ -288,7 +305,7 @@ export default function ProjectDetail() {
           <div className="my-10 flex justify-center w-full">
             <div className="w-full md:w-[88%] border-1.5 border-[#171515] bg-[#FAF4EB] p-1 shadow-sm">
               <img 
-                src="/images/assignments/cactus/cactus-site.png" 
+                src={cactusSite} 
                 alt="Cactus Sustainable Clothing Website Concept Hero"
                 className="cactus-hero-85-img"
               />
