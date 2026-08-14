@@ -321,38 +321,14 @@ p {
 
 /* 5. HERO SECTION — 85–90vh HEIGHT, SPACIOUS & EDITORIAL */
 .hero-section {
-  min-height: calc(86vh - 80px);
+  min-height: calc(80vh - 80px);
   display: flex;
   align-items: center;
   position: relative;
-  padding-top: 5rem;
+  padding-top: 3.5rem;
   padding-bottom: 3.5rem;
   border-bottom: 1.5px solid #171515;
   overflow: hidden;
-}
-
-.hero-text-col {
-  display: flex;
-  flex-direction: column;
-  gap: 2.25rem;
-  max-width: 720px;
-  padding-bottom: 2.5rem;
-}
-
-.hero-flower-border-container {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  width: 100%;
-  max-width: 720px;
-  pointer-events: none;
-  z-index: 2;
-}
-
-@media (min-width: 1024px) {
-  .hero-flower-border-container {
-    max-width: 760px;
-  }
 }
 
 /* Hero Name Row & Side-by-Side Flower Layout */
@@ -369,7 +345,7 @@ p {
 .hero-flowers {
   pointer-events: none !important;
   flex-shrink: 0 !important;
-  width: 425px !important;
+  width: 440px !important;
   max-width: 45% !important;
   margin-bottom: -10px !important;
 }
@@ -377,7 +353,7 @@ p {
 .hero-heading {
   font-family: 'Space Grotesk', sans-serif;
   font-weight: 800;
-  font-size: clamp(2.2rem, 4.8vw, 4.4rem);
+  font-size: clamp(2.6rem, 5.5vw, 5.2rem);
   letter-spacing: -0.035em;
   text-transform: uppercase;
   line-height: 1.02;
@@ -386,11 +362,11 @@ p {
 }
 
 .hero-sub-text {
-  font-size: 0.9rem !important;
+  font-size: 0.975rem !important;
   color: #57534E;
   font-weight: 500;
-  line-height: 1.55;
-  max-width: 580px;
+  line-height: 1.6;
+  max-width: 600px;
 }
 
 /* 6. EDITORIAL SECTION HEADERS & RHYTHM (WITH STICKY NAVBAR SCROLL MARGIN) */

@@ -21,28 +21,33 @@ export default function Home() {
   return (
     <div>
       {/* 1. HERO SECTION */}
-      <section className="hero-section">
-        <div className="w-full flex flex-col gap-6">
-          <div className="flex items-center gap-3">
+      <section className="hero-section relative">
+        <div className="w-full flex flex-col pt-2 pb-14">
+          {/* Eyebrow Badge (Moved Slightly UP) */}
+          <div className="flex items-center gap-3 mb-4">
             <span className="badge-eyebrow-pink">
               STUDENT · DESIGNER · CURIOUS
             </span>
           </div>
 
-          {/* Hero Name Left & Flowers Right — Strictly Side-by-Side on Same Horizontal Baseline */}
-          <div className="hero-name-row">
+          {/* MUGDHA PATNAIK Heading (Single Line, Slightly Bigger, Moved Slightly UP) */}
+          <div className="w-full mb-8">
             <h1 className="hero-heading">
               MUGDHA PATNAIK
             </h1>
-
-            <div className="hero-flowers">
-              <HandDrawnFlowerBorder />
-            </div>
           </div>
 
-          <p className="hero-sub-text">
-            Computation & Media student exploring design, visual systems, and creative technology.
-          </p>
+          {/* Description (Moved Slightly DOWN, Slightly Bigger Body Text) */}
+          <div className="mt-2">
+            <p className="hero-sub-text">
+              Computation & Media student exploring design, visual systems, and creative technology.
+            </p>
+          </div>
+        </div>
+
+        {/* FLOWERS: Positioned to the RIGHT of MUGDHA PATNAIK, ground line aligned EXACTLY with the bottom hero line */}
+        <div className="absolute bottom-[-1.5px] right-0 sm:right-4 pointer-events-none z-10 w-[85%] sm:w-[50%] md:w-[42%] max-w-[480px]">
+          <HandDrawnFlowerBorder />
         </div>
       </section>
 
