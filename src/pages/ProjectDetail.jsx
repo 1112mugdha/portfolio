@@ -475,12 +475,6 @@ export default function ProjectDetail() {
                   allow="autoplay; keyboard"
                 />
               </div>
-
-              <div className="mt-4 px-4 py-2 bg-[#FAF4EB] border-1.5 border-[#171515] text-center shadow-xs">
-                <p className="font-mono text-xs font-bold text-[#171515] uppercase tracking-wider">
-                  🎮 CONTROLS: SPACE OR CLICK/TAP TO JUMP | R KEY TO RESTART
-                </p>
-              </div>
             </div>
           </div>
         </div>
