@@ -369,9 +369,9 @@ p {
 .hero-flowers {
   pointer-events: none !important;
   flex-shrink: 0 !important;
-  width: 360px !important;
-  max-width: 42% !important;
-  margin-bottom: -2px !important;
+  width: 425px !important;
+  max-width: 45% !important;
+  margin-bottom: -10px !important;
 }
 
 .hero-heading {
