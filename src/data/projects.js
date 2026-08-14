@@ -1,30 +1,5 @@
 import { getAssetPath } from '../utils/assetPath';
 
-// Movie Posters Images
-import posterSometimes from '/public/images/assignments/movie-posters/poster-03-sometimes.jpg';
-import posterFleur from '/public/images/assignments/movie-posters/poster-01-fleur.png';
-import posterMatcha from '/public/images/assignments/movie-posters/poster-02-matcha.png';
-
-// Cactus Images
-import cactusSite from '/public/images/assignments/cactus/cactus-site.png';
-import cactusBrandboard from '/public/images/assignments/cactus/cactus-brandboard-official.png';
-import cactusMood from '/public/images/assignments/cactus/cactus-mood.png';
-import cactusPackaging from '/public/images/assignments/cactus/cactus-packaging.png';
-import cactusTag from '/public/images/assignments/cactus/cactus-tag.png';
-import cactusClothing from '/public/images/assignments/cactus/cactus-clothing.png';
-
-// Photo Essay Images
-import photoCover from '/public/images/assignments/photo-essay/photo-essay-01-cover.jpg';
-import photoFocus from '/public/images/assignments/photo-essay/photo-essay-02-in-focus.jpg';
-import photoShelves from '/public/images/assignments/photo-essay/photo-essay-03-shelves.jpg';
-import photoPause from '/public/images/assignments/photo-essay/photo-essay-04-moment-to-pause.jpg';
-import photoBreak from '/public/images/assignments/photo-essay/photo-essay-05-midday-break.jpg';
-import photoThought from '/public/images/assignments/photo-essay/photo-essay-06-lost-in-thought.jpg';
-import photoNight from '/public/images/assignments/photo-essay/photo-essay-07-late-night-focus.jpg';
-
-// Character Design Image
-import leoSheet from '/public/images/assignments/character-design/leo-character-sheet.jpg';
-
 // Assignments / Work Projects Data
 export const projectsData = [
   {
@@ -40,11 +15,11 @@ export const projectsData = [
     process: 'The process involved exploring different layouts, typography combinations, imagery, colour palettes, and compositions before developing the final posters. I focused on creating designs that feel visually strong while still communicating the central idea clearly.',
     finalWork: 'The final collection includes three poster explorations with distinct visual directions, ranging from editorial and photographic compositions to typography-led designs.',
     tools: ['Canva', 'Adobe Photoshop', 'Adobe Illustrator'],
-    heroImage: posterSometimes,
+    heroImage: getAssetPath('images/assignments/movie-posters/poster-03-sometimes.jpg'),
     gallery: [
-      { id: 1, title: "DON'T WORRY DARLING", aspect: 'auto', image: posterSometimes },
-      { id: 2, title: 'INSIDE OUT', aspect: 'auto', image: posterFleur },
-      { id: 3, title: 'LA LA LAND', aspect: 'auto', image: posterMatcha }
+      { id: 1, title: "DON'T WORRY DARLING", aspect: 'auto', image: getAssetPath('images/assignments/movie-posters/poster-03-sometimes.jpg') },
+      { id: 2, title: 'INSIDE OUT', aspect: 'auto', image: getAssetPath('images/assignments/movie-posters/poster-01-fleur.png') },
+      { id: 3, title: 'LA LA LAND', aspect: 'auto', image: getAssetPath('images/assignments/movie-posters/poster-02-matcha.png') }
     ]
   },
   {
@@ -63,43 +38,43 @@ export const projectsData = [
     finalWork: 'The final brand system includes the Cactus logo and brand mark, colour palette, typography, packaging, clothing applications, product tags, and a responsive website concept.',
     contribution: 'Contributed to the visual identity, branding, and design development of the Cactus brand concept.',
     tools: ['CANVA', 'ADOBE ILLUSTRATOR', 'ADOBE PHOTOSHOP'],
-    heroImage: cactusSite,
+    heroImage: getAssetPath('images/assignments/cactus/cactus-site.png'),
     gallery: [
       { 
         id: 'brand-identity', 
         title: 'Brand Identity', 
         description: 'Logo, brand mark, colour palette and typography',
-        image: cactusBrandboard 
+        image: getAssetPath('images/assignments/cactus/cactus-brandboard-official.png') 
       },
       { 
         id: 'website-concept', 
         title: 'Website Concept', 
         description: 'Applying the Cactus visual identity across digital touchpoints',
-        image: cactusSite 
+        image: getAssetPath('images/assignments/cactus/cactus-site.png') 
       },
       { 
         id: 'visual-direction', 
         title: 'Visual Direction', 
         description: 'Moodboard and visual exploration',
-        image: cactusMood 
+        image: getAssetPath('images/assignments/cactus/cactus-mood.png') 
       },
       { 
         id: 'packaging', 
         title: 'Packaging', 
         description: 'Sustainable packaging and product presentation',
-        image: cactusPackaging 
+        image: getAssetPath('images/assignments/cactus/cactus-packaging.png') 
       },
       { 
         id: 'brand-touchpoints', 
         title: 'Brand Touchpoints', 
         description: 'Product tags and supporting brand details',
-        image: cactusTag 
+        image: getAssetPath('images/assignments/cactus/cactus-tag.png') 
       },
       { 
         id: 'clothing-application', 
         title: 'Clothing Application', 
         description: 'Extending the identity onto apparel and fabric',
-        image: cactusClothing 
+        image: getAssetPath('images/assignments/cactus/cactus-clothing.png') 
       }
     ]
   },
@@ -116,49 +91,49 @@ export const projectsData = [
     process: 'The project involved planning and capturing the photographs, selecting and sequencing the strongest images, and refining the final visual presentation so that the photographs work together as a continuous narrative.',
     finalWork: 'A photo essay presented as a sequential visual narrative, with each photograph contributing to the overall story and emotional progression.',
     tools: ['DIGITAL PHOTOGRAPHY', 'ADOBE LIGHTROOM'],
-    heroImage: photoCover,
+    heroImage: getAssetPath('images/assignments/photo-essay/photo-essay-01-cover.jpg'),
     gallery: [
       {
         id: 1,
         title: 'CAMPUS THROUGH A FRAME',
         subtitle: 'by: Mugdha Patnaik',
-        image: photoCover
+        image: getAssetPath('images/assignments/photo-essay/photo-essay-01-cover.jpg')
       },
       {
         id: 2,
         title: 'In Focus',
         caption: 'Focus during lectures.',
-        image: photoFocus
+        image: getAssetPath('images/assignments/photo-essay/photo-essay-02-in-focus.jpg')
       },
       {
         id: 3,
         title: 'Shelves of Knowledge',
         caption: 'The library; a place for study and growth.',
-        image: photoShelves
+        image: getAssetPath('images/assignments/photo-essay/photo-essay-03-shelves.jpg')
       },
       {
         id: 4,
         title: 'A Moment to Pause',
         caption: 'A moment of relaxation and personal space.',
-        image: photoPause
+        image: getAssetPath('images/assignments/photo-essay/photo-essay-04-moment-to-pause.jpg')
       },
       {
         id: 5,
         title: 'Midday Break',
         caption: 'Social moments at lunch.',
-        image: photoBreak
+        image: getAssetPath('images/assignments/photo-essay/photo-essay-05-midday-break.jpg')
       },
       {
         id: 6,
         title: 'Lost in Thought',
         caption: 'A playful pause in the day.',
-        image: photoThought
+        image: getAssetPath('images/assignments/photo-essay/photo-essay-06-lost-in-thought.jpg')
       },
       {
         id: 7,
         title: 'Late Night Focus',
         caption: 'Focused moments under the quiet glow.',
-        image: photoNight
+        image: getAssetPath('images/assignments/photo-essay/photo-essay-07-late-night-focus.jpg')
       }
     ]
   },
@@ -204,9 +179,9 @@ export const projectsData = [
     process: 'The project began with initial character sketches and silhouette explorations before developing Leo\'s appearance and personality. I explored different poses, expressions, proportions, clothing, props, and small details such as his backpack and snacks to build a consistent character.',
     finalWork: 'The final character sheet brings together Leo\'s character design, initial sketches, expressions, poses, and props. It shows how his personality was translated into his visual appearance and supporting details.',
     tools: ['Canva', 'Digital Illustration'],
-    heroImage: leoSheet,
+    heroImage: getAssetPath('images/assignments/character-design/leo-character-sheet.jpg'),
     gallery: [
-      { id: 1, title: 'LEO — FULL CHARACTER DESIGN SHEET', aspect: 'auto', image: leoSheet }
+      { id: 1, title: 'LEO — FULL CHARACTER DESIGN SHEET', aspect: 'auto', image: getAssetPath('images/assignments/character-design/leo-character-sheet.jpg') }
     ]
   },
   {

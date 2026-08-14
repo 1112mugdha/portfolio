@@ -7,34 +7,6 @@ import GameEmbed from '../components/ui/GameEmbed';
 import { getAssetPath } from '../utils/assetPath';
 import { projectsData } from '../data/projects';
 
-// Direct ES Imports for Assignment Images
-import posterSometimes from '/public/images/assignments/movie-posters/poster-03-sometimes.jpg';
-import posterFleur from '/public/images/assignments/movie-posters/poster-01-fleur.png';
-import posterMatcha from '/public/images/assignments/movie-posters/poster-02-matcha.png';
-import magPage1 from '/public/images/assignments/others/magazine-page-1.jpg';
-import magPage2 from '/public/images/assignments/others/magazine-page-2.jpg';
-import quoteType from '/public/images/assignments/others/quote-typography.png';
-import matchaType from '/public/images/assignments/others/matcha-typography.png';
-import magCover from '/public/images/assignments/others/magazine-cover.png';
-import leoSheet from '/public/images/assignments/character-design/leo-character-sheet.jpg';
-
-// Cactus ES Imports
-import cactusSite from '/public/images/assignments/cactus/cactus-site.png';
-import cactusBrandboard from '/public/images/assignments/cactus/cactus-brandboard-official.png';
-import cactusMood from '/public/images/assignments/cactus/cactus-mood.png';
-import cactusPackaging from '/public/images/assignments/cactus/cactus-packaging.png';
-import cactusTag from '/public/images/assignments/cactus/cactus-tag.png';
-import cactusClothing from '/public/images/assignments/cactus/cactus-clothing.png';
-
-// Photo Essay ES Imports
-import photoCover from '/public/images/assignments/photo-essay/photo-essay-01-cover.jpg';
-import photoFocus from '/public/images/assignments/photo-essay/photo-essay-02-in-focus.jpg';
-import photoShelves from '/public/images/assignments/photo-essay/photo-essay-03-shelves.jpg';
-import photoPause from '/public/images/assignments/photo-essay/photo-essay-04-moment-to-pause.jpg';
-import photoBreak from '/public/images/assignments/photo-essay/photo-essay-05-midday-break.jpg';
-import photoThought from '/public/images/assignments/photo-essay/photo-essay-06-lost-in-thought.jpg';
-import photoNight from '/public/images/assignments/photo-essay/photo-essay-07-late-night-focus.jpg';
-
 export default function ProjectDetail() {
   const { projectId } = useParams();
   const [photoIndex, setPhotoIndex] = useState(0);
@@ -56,37 +28,37 @@ export default function ProjectDetail() {
       id: 'brand-identity',
       title: 'Brand Identity',
       description: 'Logo, brand mark, colour palette and typography',
-      image: cactusBrandboard
+      image: getAssetPath('images/assignments/cactus/cactus-brandboard-official.png')
     },
     {
       id: 'website-concept',
       title: 'Website Concept',
       description: 'Applying the Cactus visual identity across digital touchpoints',
-      image: cactusSite
+      image: getAssetPath('images/assignments/cactus/cactus-site.png')
     },
     {
       id: 'visual-direction',
       title: 'Visual Direction',
       description: 'Moodboard and visual exploration',
-      image: cactusMood
+      image: getAssetPath('images/assignments/cactus/cactus-mood.png')
     },
     {
       id: 'packaging',
       title: 'Packaging',
       description: 'Sustainable packaging and product presentation',
-      image: cactusPackaging
+      image: getAssetPath('images/assignments/cactus/cactus-packaging.png')
     },
     {
       id: 'brand-touchpoints',
       title: 'Brand Touchpoints',
       description: 'Product tags and supporting brand details',
-      image: cactusTag
+      image: getAssetPath('images/assignments/cactus/cactus-tag.png')
     },
     {
       id: 'clothing-application',
       title: 'Clothing Application',
       description: 'Extending the identity onto apparel and fabric',
-      image: cactusClothing
+      image: getAssetPath('images/assignments/cactus/cactus-clothing.png')
     }
   ];
 
@@ -94,37 +66,37 @@ export default function ProjectDetail() {
   const photoEssayDeliverables = [
     {
       id: 1,
-      image: photoCover,
+      image: getAssetPath('images/assignments/photo-essay/photo-essay-01-cover.jpg'),
       alt: 'Campus Through a Frame by Mugdha Patnaik'
     },
     {
       id: 2,
-      image: photoFocus,
+      image: getAssetPath('images/assignments/photo-essay/photo-essay-02-in-focus.jpg'),
       alt: 'In Focus: Focus during lectures.'
     },
     {
       id: 3,
-      image: photoShelves,
+      image: getAssetPath('images/assignments/photo-essay/photo-essay-03-shelves.jpg'),
       alt: 'Shelves of Knowledge: The library; a place for study and growth.'
     },
     {
       id: 4,
-      image: photoPause,
+      image: getAssetPath('images/assignments/photo-essay/photo-essay-04-moment-to-pause.jpg'),
       alt: 'A Moment to Pause: A moment of relaxation and personal space.'
     },
     {
       id: 5,
-      image: photoBreak,
+      image: getAssetPath('images/assignments/photo-essay/photo-essay-05-midday-break.jpg'),
       alt: 'Midday Break: Social moments at lunch.'
     },
     {
       id: 6,
-      image: photoThought,
+      image: getAssetPath('images/assignments/photo-essay/photo-essay-06-lost-in-thought.jpg'),
       alt: 'Lost in Thought: A playful pause in the day.'
     },
     {
       id: 7,
-      image: photoNight,
+      image: getAssetPath('images/assignments/photo-essay/photo-essay-07-late-night-focus.jpg'),
       alt: 'Late Night Focus: Focused moments under the quiet glow.'
     }
   ];
@@ -140,156 +112,166 @@ export default function ProjectDetail() {
   return (
     <div className="py-6 max-w-4xl mx-auto">
       {/* 1. Subtle Editorial Breadcrumb */}
-      <Breadcrumbs items={[
-        { label: 'HOME', path: '/' },
-        { label: 'ASSIGNMENTS', path: '/work' },
-        { label: project.title }
-      ]} />
+      <Breadcrumbs items={[{ label: 'HOME', path: '/' }, { label: 'ASSIGNMENTS', path: '/#assignments' }, { label: project.title }]} />
 
-      {/* Back to Assignments Link */}
-      <div className="mt-1 mb-6">
-        <Link 
-          to="/work" 
-          className="inline-flex items-center gap-2 font-heading font-bold text-xs uppercase tracking-widest text-[#171515] hover:text-[#E96F98] transition-colors"
-        >
-          ← BACK TO ASSIGNMENTS
+      {/* 2. Top Header Navigation (Prev / Next & Back to Assignments) */}
+      <div className="flex flex-wrap items-center justify-between gap-4 py-4 mb-6 border-b-1.5 border-[#171515]">
+        <Link to="/#assignments" className="inline-flex items-center gap-2 text-xs font-mono font-bold text-[#171515] uppercase tracking-wider hover:opacity-75 transition-opacity">
+          <span>←</span>
+          <span>BACK TO ASSIGNMENTS</span>
         </Link>
-      </div>
 
-      {/* 2. Global Header Layout Across ALL Assignments */}
-      <div className="border-b-1.5 border-[#171515] pb-6 mb-8">
-        <div className="flex items-center gap-3 mb-3">
-          <span className="badge-eyebrow-pink">
-            ASSIGNMENT {project.number}
-          </span>
-          {project.isGroupProject && (
-            <span className="badge-group-project">
-              GROUP PROJECT
-            </span>
+        <div className="flex items-center gap-4 text-xs font-mono font-bold">
+          {prevProject ? (
+            <Link to={`/work/${prevProject.id}`} className="text-[#171515] hover:underline uppercase tracking-wider">
+              ← PREV: {prevProject.title}
+            </Link>
+          ) : (
+            <span className="text-gray-400 uppercase tracking-wider cursor-not-allowed">← PREV</span>
+          )}
+          <span className="text-[#78716C]">|</span>
+          {nextProject ? (
+            <Link to={`/work/${nextProject.id}`} className="text-[#171515] hover:underline uppercase tracking-wider">
+              NEXT: {nextProject.title} →
+            </Link>
+          ) : (
+            <span className="text-gray-400 uppercase tracking-wider cursor-not-allowed">NEXT →</span>
           )}
         </div>
+      </div>
 
-        <h1 className="font-heading font-extrabold text-4xl sm:text-5xl uppercase tracking-tight text-[#171515]">
+      {/* 3. Project Title Header */}
+      <div className="mb-8">
+        <div className="flex items-center gap-3 mb-3">
+          <span className="badge-eyebrow-pink" style={{ fontSize: '0.7rem' }}>
+            {project.number} — ASSIGNMENT
+          </span>
+          <span className="text-xs font-mono font-bold text-[#57534E] uppercase tracking-wider">
+            {project.category}
+          </span>
+        </div>
+
+        <h1 className="font-heading font-extrabold text-3xl sm:text-4xl md:text-5xl uppercase tracking-tight text-[#171515] mb-2">
           {project.title}
         </h1>
-        {project.id === 'pygame' && (
-          <h2 className="font-heading font-extrabold text-xl sm:text-2xl uppercase tracking-wider text-[#E96F98] mt-1">
-            SKY HOPPER
+
+        {project.subTitle && (
+          <h2 className="font-heading font-bold text-lg sm:text-xl uppercase tracking-wider text-[#E96F98] mb-3">
+            {project.subTitle}
           </h2>
         )}
 
-        {/* Brief Intro Description directly under title */}
-        <p className="font-body text-base text-[#57534E] leading-relaxed mt-4 max-w-2xl">
+        <p className="font-body text-base text-[#57534E] max-w-2xl mt-2">
           {project.shortDescription}
         </p>
       </div>
 
       {/* =========================================================================
-         1. MOVIE POSTERS — COMPACT HERO & GALLERY
+         4. SPECIAL CUSTOM CASE STUDY FOR MOVIE POSTERS (01)
          ========================================================================= */}
       {project.id === 'movie-posters' ? (
         <div>
-          {/* 2-Column Intro Section */}
+          {/* Top Section: Hero Image Left + Details Right */}
           <div className="flex flex-col md:flex-row gap-8 items-start my-8">
-            
             {/* LEFT SIDE: Don't Worry Darling Hero Poster (MAX 280px WIDE) */}
             <div className="w-full md:w-[280px] flex-shrink-0 border-1.5 border-[#171515] bg-[#FAF4EB] p-1 shadow-sm">
               <img 
-                src={posterSometimes} 
+                src={getAssetPath('images/assignments/movie-posters/poster-03-sometimes.jpg')} 
                 alt="Don't Worry Darling Poster Hero"
                 className="movie-poster-hero-img"
               />
             </div>
 
-            {/* RIGHT SIDE: Text Column Beside Poster */}
-            <div className="flex-1 flex flex-col gap-6 max-w-xl">
-              <div className="border-l-3 border-[#171515] pl-5">
+            {/* RIGHT SIDE: Structured Project Details */}
+            <div className="flex-1 flex flex-col gap-6">
+              <div>
                 <h2 className="font-heading font-bold text-xs uppercase tracking-widest text-[#171515] mb-1.5">
                   ABOUT THE PROJECT
                 </h2>
                 <p className="font-body text-sm text-[#171515] leading-relaxed">
-                  A collection of poster design explorations created to experiment with typography, composition, visual hierarchy, imagery, and different visual moods. Each poster explores a different approach to communicating an idea through layout and visual storytelling.
+                  {project.about}
                 </p>
               </div>
 
-              <div className="border-l-3 border-[#E96F98] pl-5">
+              <div>
                 <h2 className="font-heading font-bold text-xs uppercase tracking-widest text-[#171515] mb-1.5">
                   THE IDEA
                 </h2>
-                <p className="font-body text-sm text-[#57534E] leading-relaxed">
-                  The projects focus on turning simple concepts into visually engaging posters. I experimented with type as a visual element, image placement, colour palettes, scale, and composition to create distinct visual identities for each piece.
+                <p className="font-body text-sm text-[#171515] leading-relaxed">
+                  {project.idea}
                 </p>
               </div>
 
-              <div className="border-l-3 border-[#D7F23A] pl-5">
+              <div>
                 <h2 className="font-heading font-bold text-xs uppercase tracking-widest text-[#171515] mb-1.5">
-                  PROCESS
+                  PROCESS & EXPLORATION
                 </h2>
-                <p className="font-body text-sm text-[#57534E] leading-relaxed">
-                  The process involved exploring different layouts, typography combinations, imagery, colour palettes, and compositions before developing the final posters. I focused on creating designs that feel visually strong while still communicating the central idea clearly.
+                <p className="font-body text-sm text-[#171515] leading-relaxed">
+                  {project.process}
                 </p>
               </div>
 
-              <div className="pt-2 border-t border-[#171515]/15">
-                <span className="font-heading font-bold text-xs uppercase tracking-widest text-[#171515] block mb-2">
+              <div>
+                <h2 className="font-heading font-bold text-xs uppercase tracking-widest text-[#171515] mb-2">
                   TOOLS USED
-                </span>
+                </h2>
                 <div className="flex flex-wrap gap-2">
-                  <span className="tag-pill-element text-xs py-1 px-3">Canva</span>
-                  <span className="tag-pill-element text-xs py-1 px-3">Adobe Photoshop</span>
-                  <span className="tag-pill-element text-xs py-1 px-3">Adobe Illustrator</span>
+                  {project.tools?.map((tool) => (
+                    <span key={tool} className="tag-pill-element text-xs py-1 px-3">
+                      {tool}
+                    </span>
+                  ))}
                 </div>
               </div>
             </div>
-
           </div>
 
-          {/* FINAL WORK GALLERY (Don't Worry Darling, Inside Out, La La Land) */}
+          {/* Bottom Section: 3-Column Equal Grid of Poster Explorations */}
           <div className="my-12 pt-8 border-t-1.5 border-[#171515]">
             <h2 className="font-heading font-extrabold text-xl uppercase tracking-tight text-[#171515] mb-8 flex items-center gap-3">
               <span className="w-3 h-3 bg-[#E96F98] border border-[#171515] inline-block"></span>
-              FINAL WORK
+              POSTER EXPLORATIONS
             </h2>
-            
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 items-start justify-items-center">
-              {/* Don't Worry Darling */}
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+              {/* Poster 1 */}
               <div className="flex flex-col gap-2 items-center w-full">
                 <div className="border-1.5 border-[#171515] bg-[#FAF4EB] p-1 shadow-sm">
                   <img 
-                    src={posterSometimes} 
+                    src={getAssetPath('images/assignments/movie-posters/poster-03-sometimes.jpg')} 
                     alt="Don't Worry Darling Poster"
                     className="movie-poster-gallery-img"
                   />
                 </div>
-                <p className="text-xs font-mono font-bold text-[#57534E] uppercase tracking-wider mt-1 text-center">
+                <p className="text-xs font-mono font-bold text-[#171515] uppercase tracking-wider mt-1">
                   DON'T WORRY DARLING
                 </p>
               </div>
 
-              {/* Inside Out */}
+              {/* Poster 2 */}
               <div className="flex flex-col gap-2 items-center w-full">
                 <div className="border-1.5 border-[#171515] bg-[#FAF4EB] p-1 shadow-sm">
                   <img 
-                    src={posterFleur} 
+                    src={getAssetPath('images/assignments/movie-posters/poster-01-fleur.png')} 
                     alt="Inside Out Poster"
                     className="movie-poster-gallery-img"
                   />
                 </div>
-                <p className="text-xs font-mono font-bold text-[#57534E] uppercase tracking-wider mt-1 text-center">
+                <p className="text-xs font-mono font-bold text-[#171515] uppercase tracking-wider mt-1">
                   INSIDE OUT
                 </p>
               </div>
 
-              {/* La La Land */}
+              {/* Poster 3 */}
               <div className="flex flex-col gap-2 items-center w-full">
                 <div className="border-1.5 border-[#171515] bg-[#FAF4EB] p-1 shadow-sm">
                   <img 
-                    src={posterMatcha} 
+                    src={getAssetPath('images/assignments/movie-posters/poster-02-matcha.png')} 
                     alt="La La Land Poster"
                     className="movie-poster-gallery-img"
                   />
                 </div>
-                <p className="text-xs font-mono font-bold text-[#57534E] uppercase tracking-wider mt-1 text-center">
+                <p className="text-xs font-mono font-bold text-[#171515] uppercase tracking-wider mt-1">
                   LA LA LAND
                 </p>
               </div>
@@ -298,14 +280,14 @@ export default function ProjectDetail() {
         </div>
       ) : project.id === 'cactus' ? (
         /* =========================================================================
-           2. CACTUS — LARGE CENTERED HERO (85-90%) & OVERLAY GALLERY LAYOUT
+           5. SPECIAL CUSTOM CASE STUDY FOR CACTUS (02)
            ========================================================================= */
         <div>
           {/* Centered Dominant Hero Image (~85–90% Content Width) */}
           <div className="my-10 flex justify-center w-full">
             <div className="w-full md:w-[88%] border-1.5 border-[#171515] bg-[#FAF4EB] p-1 shadow-sm">
               <img 
-                src={cactusSite} 
+                src={getAssetPath('images/assignments/cactus/cactus-site.png')} 
                 alt="Cactus Sustainable Clothing Website Concept Hero"
                 className="cactus-hero-85-img"
               />
@@ -323,467 +305,214 @@ export default function ProjectDetail() {
               </p>
             </div>
 
-            <div className="border-l-3 border-[#E96F98] pl-5">
+            <div className="border-l-3 border-[#171515] pl-5">
               <h2 className="font-heading font-bold text-xs uppercase tracking-widest text-[#171515] mb-1.5">
                 THE IDEA
               </h2>
-              <p className="font-body text-sm text-[#57534E] leading-relaxed">
+              <p className="font-body text-sm text-[#171515] leading-relaxed">
                 {project.idea}
               </p>
             </div>
 
-            <div className="border-l-3 border-[#D7F23A] pl-5">
+            <div className="border-l-3 border-[#171515] pl-5">
               <h2 className="font-heading font-bold text-xs uppercase tracking-widest text-[#171515] mb-1.5">
-                PROCESS
+                PROCESS & BRAND SYSTEM
               </h2>
-              <p className="font-body text-sm text-[#57534E] leading-relaxed">
+              <p className="font-body text-sm text-[#171515] leading-relaxed">
                 {project.process}
               </p>
             </div>
 
             <div className="border-l-3 border-[#171515] pl-5">
               <h2 className="font-heading font-bold text-xs uppercase tracking-widest text-[#171515] mb-1.5">
-                FINAL WORK
-              </h2>
-              <p className="font-body text-sm text-[#171515] leading-relaxed">
-                {project.finalWork}
-              </p>
-            </div>
-
-            <div className="border-l-3 border-[#E96F98] pl-5 bg-[#FAF0F4] py-3 pr-4">
-              <h2 className="font-heading font-bold text-xs uppercase tracking-widest text-[#171515] mb-1">
                 MY CONTRIBUTION
               </h2>
-              <p className="font-body text-sm text-[#171515] leading-relaxed font-medium">
+              <p className="font-body text-sm text-[#171515] leading-relaxed">
                 {project.contribution}
               </p>
             </div>
 
-            <div className="pt-2 border-t border-[#171515]/15">
-              <span className="font-heading font-bold text-xs uppercase tracking-widest text-[#171515] block mb-2">
+            <div className="border-l-3 border-[#171515] pl-5">
+              <h2 className="font-heading font-bold text-xs uppercase tracking-widest text-[#171515] mb-2">
                 TOOLS USED
-              </span>
+              </h2>
               <div className="flex flex-wrap gap-2">
-                <span className="tag-pill-element text-xs py-1 px-3">CANVA</span>
-                <span className="tag-pill-element text-xs py-1 px-3">ADOBE ILLUSTRATOR</span>
-                <span className="tag-pill-element text-xs py-1 px-3">ADOBE PHOTOSHOP</span>
+                {project.tools?.map((tool) => (
+                  <span key={tool} className="tag-pill-element text-xs py-1 px-3">
+                    {tool}
+                  </span>
+                ))}
               </div>
             </div>
           </div>
 
-          {/* EDITORIAL GALLERY WITH OVERLAY TITLES & DESCRIPTIONS ON TOP OF IMAGES */}
-          <div className="my-14 pt-8 border-t-1.5 border-[#171515]">
-            <h2 className="font-heading font-extrabold text-xl uppercase tracking-tight text-[#171515] mb-8 flex items-center gap-3">
-              <span className="w-3 h-3 bg-[#E96F98] border border-[#171515] inline-block"></span>
-              BRANDING CASE STUDY & DELIVERABLES
-            </h2>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start justify-items-center">
-              {cactusGalleryDeliverables.map((item) => (
-                <div 
-                  key={item.id} 
-                  className="relative w-full max-w-[440px] border-1.5 border-[#171515] bg-[#FAF4EB] p-1 shadow-sm overflow-hidden group"
-                >
-                  {/* Overlaid Title & Description Box ON TOP of the image */}
-                  <div className="absolute top-3 left-3 right-3 z-10 bg-[#171515]/90 text-[#F7F3EA] p-3 border border-[#171515] shadow-md backdrop-blur-sm">
-                    <h3 className="font-heading font-extrabold text-xs uppercase tracking-wider text-[#F7F3EA] mb-0.5">
-                      {item.title}
-                    </h3>
-                    <p className="font-body text-[0.725rem] text-[#F7F3EA]/90 leading-snug">
-                      {item.description}
-                    </p>
-                  </div>
-
-                  {/* Image Element */}
-                  <img 
-                    src={item.image} 
-                    alt={item.title}
-                    className="cactus-gallery-overlay-img"
-                  />
-                </div>
-              ))}
-            </div>
-          </div>
+          {/* Project Deliverables Gallery */}
+          <ProjectGallery items={cactusGalleryDeliverables} title="BRAND SYSTEM & DELIVERABLES" />
         </div>
       ) : project.id === 'photo-essay' ? (
         /* =========================================================================
-           3. PHOTO ESSAY — INSTAGRAM-STYLE HORIZONTAL CAROUSEL / SLIDESHOW
+           6. SPECIAL CUSTOM CASE STUDY FOR PHOTO ESSAY (03)
            ========================================================================= */
         <div>
-          {/* Project Information */}
+          {/* Project Overview */}
           <div className="flex flex-col gap-6 my-8 max-w-3xl">
             <div className="border-l-3 border-[#171515] pl-5">
               <h2 className="font-heading font-bold text-xs uppercase tracking-widest text-[#171515] mb-1.5">
-                ABOUT THE PROJECT
+                ABOUT THE ESSAY
               </h2>
               <p className="font-body text-sm text-[#171515] leading-relaxed">
                 {project.about}
               </p>
             </div>
 
-            <div className="border-l-3 border-[#E96F98] pl-5">
+            <div className="border-l-3 border-[#171515] pl-5">
               <h2 className="font-heading font-bold text-xs uppercase tracking-widest text-[#171515] mb-1.5">
-                THE IDEA
+                THE CONCEPT
               </h2>
-              <p className="font-body text-sm text-[#57534E] leading-relaxed">
+              <p className="font-body text-sm text-[#171515] leading-relaxed">
                 {project.idea}
               </p>
             </div>
 
-            <div className="border-l-3 border-[#D7F23A] pl-5">
-              <h2 className="font-heading font-bold text-xs uppercase tracking-widest text-[#171515] mb-1.5">
-                PROCESS
-              </h2>
-              <p className="font-body text-sm text-[#57534E] leading-relaxed">
-                {project.process}
-              </p>
-            </div>
-
             <div className="border-l-3 border-[#171515] pl-5">
-              <h2 className="font-heading font-bold text-xs uppercase tracking-widest text-[#171515] mb-1.5">
-                FINAL WORK
-              </h2>
-              <p className="font-body text-sm text-[#171515] leading-relaxed">
-                {project.finalWork}
-              </p>
-            </div>
-
-            <div className="pt-2 border-t border-[#171515]/15">
-              <span className="font-heading font-bold text-xs uppercase tracking-widest text-[#171515] block mb-2">
+              <h2 className="font-heading font-bold text-xs uppercase tracking-widest text-[#171515] mb-2">
                 TOOLS USED
-              </span>
+              </h2>
               <div className="flex flex-wrap gap-2">
-                <span className="tag-pill-element text-xs py-1 px-3">DIGITAL PHOTOGRAPHY</span>
-                <span className="tag-pill-element text-xs py-1 px-3">ADOBE LIGHTROOM</span>
+                {project.tools?.map((tool) => (
+                  <span key={tool} className="tag-pill-element text-xs py-1 px-3">
+                    {tool}
+                  </span>
+                ))}
               </div>
             </div>
           </div>
 
-          {/* INSTAGRAM-STYLE HORIZONTAL PHOTO VIEWER / CAROUSEL */}
-          <div className="my-12 pt-8 border-t-1.5 border-[#171515]">
-            <h2 className="font-heading font-extrabold text-xl uppercase tracking-tight text-[#171515] mb-6 flex items-center gap-3">
-              <span className="w-3 h-3 bg-[#E96F98] border border-[#171515] inline-block"></span>
-              PHOTO ESSAY SLIDESHOW
-            </h2>
+          {/* Interactive Carousel Viewer */}
+          <div className="my-10 pt-8 border-t-1.5 border-[#171515]">
+            <div className="flex items-center justify-between mb-6">
+              <h2 className="font-heading font-extrabold text-xl uppercase tracking-tight text-[#171515] flex items-center gap-3">
+                <span className="w-3 h-3 bg-[#E96F98] border border-[#171515] inline-block"></span>
+                PHOTO SEQUENTIAL GALLERY
+              </h2>
+              <span className="font-mono text-xs font-bold text-[#57534E]">
+                {photoIndex + 1} / {photoEssayDeliverables.length}
+              </span>
+            </div>
 
-            <div className="photo-carousel-container flex flex-col items-center">
-              
-              {/* Single Image Display Area with Left & Right Arrow Controls */}
-              <div className="relative w-full flex items-center justify-center bg-[#FAF4EB] border-1.5 border-[#171515] p-2 shadow-sm min-h-[380px] sm:min-h-[440px]">
+            {/* Active Photograph Slide Frame */}
+            <div className="relative border-1.5 border-[#171515] bg-[#FAF4EB] p-2 shadow-sm flex flex-col items-center">
+              <img 
+                src={photoEssayDeliverables[photoIndex].image} 
+                alt={photoEssayDeliverables[photoIndex].alt}
+                className="w-full h-auto max-h-[550px] object-contain block mx-auto"
+              />
+
+              {/* Caption Bar */}
+              <div className="w-full mt-3 pt-3 border-t border-[#171515]/20 flex items-center justify-between px-2">
+                <p className="font-mono text-xs font-bold text-[#171515] uppercase tracking-wider">
+                  {photoEssayDeliverables[photoIndex].alt}
+                </p>
                 
-                {/* Left Previous Button */}
-                <button 
-                  onClick={prevPhoto}
-                  className="absolute left-3 z-20 bg-[#171515] text-[#F7F3EA] hover:bg-[#E96F98] hover:text-[#171515] transition-colors py-2 px-3 font-heading font-bold text-xs uppercase tracking-wider border border-[#171515] shadow-md flex items-center gap-1 cursor-pointer"
-                  aria-label="Previous photograph"
-                >
-                  <span>←</span>
-                  <span className="hidden sm:inline">PREVIOUS</span>
-                </button>
-
-                {/* Displayed Photograph — EXACTLY ONE AT A TIME */}
-                <div className="w-full flex justify-center items-center overflow-hidden">
-                  <img 
-                    key={photoEssayDeliverables[photoIndex].id}
-                    src={photoEssayDeliverables[photoIndex].image} 
-                    alt={photoEssayDeliverables[photoIndex].alt}
-                    className="photo-carousel-img transition-opacity duration-300 ease-in-out"
-                  />
-                </div>
-
-                {/* Right Next Button */}
-                <button 
-                  onClick={nextPhoto}
-                  className="absolute right-3 z-20 bg-[#171515] text-[#F7F3EA] hover:bg-[#E96F98] hover:text-[#171515] transition-colors py-2 px-3 font-heading font-bold text-xs uppercase tracking-wider border border-[#171515] shadow-md flex items-center gap-1 cursor-pointer"
-                  aria-label="Next photograph"
-                >
-                  <span className="hidden sm:inline">NEXT</span>
-                  <span>→</span>
-                </button>
-
-              </div>
-
-              {/* Counter & Slide Indicator Bar */}
-              <div className="mt-4 flex items-center justify-between w-full max-w-[680px] px-2 font-mono text-xs font-bold text-[#171515]">
-                <span className="bg-[#E96F98] px-3 py-1 border border-[#171515]">
-                  {String(photoIndex + 1).padStart(2, '0')} / 07
-                </span>
-                
-                <div className="flex gap-1.5">
-                  {photoEssayDeliverables.map((_, idx) => (
-                    <button
-                      key={idx}
-                      onClick={() => setPhotoIndex(idx)}
-                      className={`w-3 h-3 border border-[#171515] transition-colors ${
-                        idx === photoIndex ? 'bg-[#171515]' : 'bg-[#FAF4EB] hover:bg-[#D7F23A]'
-                      }`}
-                      aria-label={`Go to photograph ${idx + 1}`}
-                    />
-                  ))}
+                {/* Arrow Navigation */}
+                <div className="flex items-center gap-2">
+                  <button 
+                    onClick={prevPhoto}
+                    className="p-1.5 border border-[#171515] bg-[#F7F3EA] hover:bg-[#E96F98] text-[#171515] font-bold text-xs transition-colors cursor-pointer"
+                    aria-label="Previous photo"
+                  >
+                    ←
+                  </button>
+                  <button 
+                    onClick={nextPhoto}
+                    className="p-1.5 border border-[#171515] bg-[#F7F3EA] hover:bg-[#E96F98] text-[#171515] font-bold text-xs transition-colors cursor-pointer"
+                    aria-label="Next photo"
+                  >
+                    →
+                  </button>
                 </div>
               </div>
-
             </div>
           </div>
         </div>
       ) : project.id === 'pygame' ? (
         /* =========================================================================
-           4. PYGAME — BALANCED 2-COLUMN & SHORTER PLAYABLE GAME LAYOUT
+           7. SPECIAL CUSTOM CASE STUDY FOR PYGAME (04)
            ========================================================================= */
         <div>
-          {/* TOP 2-COLUMN INTRO SECTION (ABOUT & IDEA SIDE-BY-SIDE) */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 my-6">
-            <div className="border-l-3 border-[#171515] pl-4">
-              <h2 className="font-heading font-bold text-xs uppercase tracking-widest text-[#171515] mb-1.5">
-                ABOUT THE PROJECT
-              </h2>
-              <p className="font-body text-sm text-[#171515] leading-relaxed">
-                A 2D arcade-style game developed using Python and Pygame, exploring basic game mechanics, player movement, collision detection, scoring, and interactive game states.
-              </p>
-            </div>
-
-            <div className="border-l-3 border-[#E96F98] pl-4">
-              <h2 className="font-heading font-bold text-xs uppercase tracking-widest text-[#171515] mb-1.5">
-                THE IDEA
-              </h2>
-              <p className="font-body text-sm text-[#57534E] leading-relaxed">
-                A simple arcade game where the player controls a bird navigating through moving pipes while trying to achieve the highest possible score.
-              </p>
-            </div>
-          </div>
-
-          {/* PLAYABLE GAME FRAME — COMPACT 380–420PX HEIGHT */}
-          <div className="my-8 pt-4 border-t border-[#171515]/15 flex flex-col items-center">
-            <p className="font-mono text-[0.7rem] font-bold text-[#57534E] mb-3 uppercase tracking-wider text-center">
-              CONTROLS: <span className="bg-[#D7F23A] px-1.5 py-0.5 border border-[#171515] text-[#171515]">SPACE</span> = START / JUMP &nbsp;|&nbsp; <span className="bg-[#E96F98] px-1.5 py-0.5 border border-[#171515] text-[#171515]">R</span> = RESTART
-            </p>
-
-            {/* Centered Shorter Game Frame (335px * 402px) */}
-            <div className="sky-hopper-iframe-container">
-              <iframe 
-                src="/games/sky-hopper/index.html" 
-                title="Sky Hopper Playable Pygame Game"
-                className="sky-hopper-iframe"
-                scrolling="no"
-              />
-            </div>
-          </div>
-
-          {/* BOTTOM 2-COLUMN DETAILS SECTION (FEATURES & PROCESS SIDE-BY-SIDE) */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 my-8 pt-6 border-t border-[#171515]/15 items-start">
-            {/* LEFT: FEATURES */}
-            <div className="border-l-3 border-[#D7F23A] pl-4 bg-[#FAF4EB] p-3 border border-[#171515]">
-              <h2 className="font-heading font-bold text-xs uppercase tracking-widest text-[#171515] mb-2">
-                FEATURES
-              </h2>
-              <ul className="list-disc list-inside font-body text-xs text-[#171515] space-y-1 leading-snug">
-                <li>Player-controlled jumping</li>
-                <li>Gravity-based movement</li>
-                <li>Moving obstacles</li>
-                <li>Collision detection</li>
-                <li>Score tracking</li>
-                <li>Start screen</li>
-                <li>Game-over state</li>
-                <li>Restart functionality</li>
-                <li>Moving clouds and a simple illustrated game environment</li>
-              </ul>
-            </div>
-
-            {/* RIGHT: PROCESS & TOOLS */}
-            <div className="flex flex-col gap-6">
-              <div className="border-l-3 border-[#171515] pl-4">
-                <h2 className="font-heading font-bold text-xs uppercase tracking-widest text-[#171515] mb-1.5">
-                  PROCESS
-                </h2>
-                <p className="font-body text-sm text-[#57534E] leading-relaxed">
-                  I developed the game by building the player movement and gravity system first, then adding the pipe obstacles, collision detection, scoring system, game states, and visual elements.
-                </p>
-              </div>
-
-              <div className="pt-2 border-t border-[#171515]/15">
-                <span className="font-heading font-bold text-xs uppercase tracking-widest text-[#171515] block mb-2">
-                  TOOLS USED
-                </span>
-                <div className="flex flex-wrap gap-2">
-                  <span className="tag-pill-element text-xs py-1 px-3">PYTHON</span>
-                  <span className="tag-pill-element text-xs py-1 px-3">PYGAME</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      ) : project.id === 'others' ? (
-        /* =========================================================================
-           5. ASSIGNMENT 06 — OTHERS CREATIVE EXPERIMENTS CASE STUDY
-           ========================================================================= */
-        <div>
-          {/* Project Information */}
           <div className="flex flex-col gap-6 my-8 max-w-3xl">
             <div className="border-l-3 border-[#171515] pl-5">
               <h2 className="font-heading font-bold text-xs uppercase tracking-widest text-[#171515] mb-1.5">
-                ABOUT THE PROJECT
+                ABOUT THE GAME
               </h2>
               <p className="font-body text-sm text-[#171515] leading-relaxed">
-                A collection of miscellaneous course assignments and creative experiments.
-              </p>
-            </div>
-
-            <div className="border-l-3 border-[#E96F98] pl-5">
-              <h2 className="font-heading font-bold text-xs uppercase tracking-widest text-[#171515] mb-1.5">
-                THE IDEA
-              </h2>
-              <p className="font-body text-sm text-[#57534E] leading-relaxed">
-                Exploring diverse mediums, visual briefs, and hands-on exercises.
-              </p>
-            </div>
-
-            <div className="border-l-3 border-[#D7F23A] pl-5">
-              <h2 className="font-heading font-bold text-xs uppercase tracking-widest text-[#171515] mb-1.5">
-                PROCESS
-              </h2>
-              <p className="font-body text-sm text-[#57534E] leading-relaxed">
-                Iterative experimentation across print, digital, and interactive formats.
+                {project.about}
               </p>
             </div>
 
             <div className="border-l-3 border-[#171515] pl-5">
               <h2 className="font-heading font-bold text-xs uppercase tracking-widest text-[#171515] mb-1.5">
-                FINAL WORK
+                GAMEPLAY MECHANICS
               </h2>
               <p className="font-body text-sm text-[#171515] leading-relaxed">
-                A collection of experimental creative outputs across typography, editorial design, and visual composition.
+                {project.idea}
               </p>
             </div>
 
-            <div className="pt-2 border-t border-[#171515]/15">
-              <span className="font-heading font-bold text-xs uppercase tracking-widest text-[#171515] block mb-2">
-                TOOLS USED
-              </span>
+            <div className="border-l-3 border-[#171515] pl-5">
+              <h2 className="font-heading font-bold text-xs uppercase tracking-widest text-[#171515] mb-2">
+                TOOLS & LANGUAGE
+              </h2>
               <div className="flex flex-wrap gap-2">
-                <span className="tag-pill-element text-xs py-1 px-3">CANVA</span>
-                <span className="tag-pill-element text-xs py-1 px-3">ADOBE ILLUSTRATOR</span>
-                <span className="tag-pill-element text-xs py-1 px-3">ADOBE PHOTOSHOP</span>
+                {project.tools?.map((tool) => (
+                  <span key={tool} className="tag-pill-element text-xs py-1 px-3">
+                    {tool}
+                  </span>
+                ))}
               </div>
             </div>
           </div>
 
-          {/* OTHERS CREATIVE WORKS GALLERY */}
-          <div className="my-14 pt-8 border-t-1.5 border-[#171515]">
-            <h2 className="font-heading font-extrabold text-xl uppercase tracking-tight text-[#171515] mb-10 flex items-center gap-3">
-              <span className="w-3 h-3 bg-[#E96F98] border border-[#171515] inline-block"></span>
-              CREATIVE EXPERIMENTS & DELIVERABLES
-            </h2>
-
-            <div className="flex flex-col gap-14 items-center">
-              
-              {/* WORK 1: MAGAZINE SPREAD (Strict 2-Page Horizontal Open Magazine Layout) */}
-              <div className="w-full flex flex-col items-center gap-3">
-                <span className="font-heading font-bold text-xs uppercase tracking-widest text-[#171515] bg-[#FAF0F4] px-3 py-1 border border-[#171515]">
-                  MAGAZINE SPREAD
-                </span>
-
-                <div className="border-1.5 border-[#171515] bg-[#FAF4EB] p-3 shadow-sm flex justify-center items-center w-full max-w-[580px]">
-                  <div className="magazine-spread-container">
-                    <img 
-                      src={magPage1} 
-                      alt="Magazine Page 01 (Left)"
-                      className="magazine-spread-page"
-                    />
-                    <img 
-                      src={magPage2} 
-                      alt="Magazine Page 02 (Right)"
-                      className="magazine-spread-page"
-                    />
-                  </div>
-                </div>
-              </div>
-
-              {/* WORK 2: QUOTE TYPOGRAPHY */}
-              <div className="w-full flex flex-col items-center gap-3">
-                <span className="font-heading font-bold text-xs uppercase tracking-widest text-[#171515] bg-[#FAF0F4] px-3 py-1 border border-[#171515]">
-                  QUOTE TYPOGRAPHY
-                </span>
-
-                <div className="border-1.5 border-[#171515] bg-[#FAF4EB] p-1.5 shadow-sm">
-                  <img 
-                    src={quoteType} 
-                    alt="Quote Typography Poster"
-                    className="others-standalone-img"
-                  />
-                </div>
-              </div>
-
-              {/* WORK 3: MATCHA TYPOGRAPHY */}
-              <div className="w-full flex flex-col items-center gap-3">
-                <span className="font-heading font-bold text-xs uppercase tracking-widest text-[#171515] bg-[#FAF0F4] px-3 py-1 border border-[#171515]">
-                  MATCHA TYPOGRAPHY
-                </span>
-
-                <div className="border-1.5 border-[#171515] bg-[#FAF4EB] p-1.5 shadow-sm">
-                  <img 
-                    src={matchaType} 
-                    alt="Matcha Typography Poster"
-                    className="others-standalone-img"
-                  />
-                </div>
-              </div>
-
-              {/* WORK 4: MAGAZINE COVER */}
-              <div className="w-full flex flex-col items-center gap-3">
-                <span className="font-heading font-bold text-xs uppercase tracking-widest text-[#171515] bg-[#FAF0F4] px-3 py-1 border border-[#171515]">
-                  MAGAZINE COVER
-                </span>
-
-                <div className="border-1.5 border-[#171515] bg-[#FAF4EB] p-1.5 shadow-sm">
-                  <img 
-                    src={magCover} 
-                    alt="Fleur Magazine Cover"
-                    className="others-standalone-img"
-                  />
-                </div>
-              </div>
-
-            </div>
-          </div>
+          {/* Interactive Playable Game Embed */}
+          <GameEmbed gameSrc={project.gameEmbed?.src} title="SKY HOPPER — PLAYABLE GAME DEMO" />
         </div>
       ) : project.id === 'character-design' ? (
         /* =========================================================================
-           6. CHARACTER DESIGN — NO TOP HERO IMAGE, TEXT-FIRST & MAX 600PX BOTTOM SHEET
+           8. SPECIAL CUSTOM CASE STUDY FOR CHARACTER DESIGN (05)
            ========================================================================= */
         <div>
-          {/* Clean Text-Focused Introduction (Immediately Below Title) */}
-          <div className="flex flex-col gap-6 my-8 max-w-2xl">
+          <div className="flex flex-col gap-6 my-8 max-w-3xl">
             <div className="border-l-3 border-[#171515] pl-5">
               <h2 className="font-heading font-bold text-xs uppercase tracking-widest text-[#171515] mb-1.5">
-                ABOUT THE PROJECT
+                ABOUT LEO
               </h2>
               <p className="font-body text-sm text-[#171515] leading-relaxed">
-                Leo is an original character created as an exploration of personality-driven character design. He is an overthinking, slightly stressed leopard who copes with life through food. His chubby appearance, messy details, expressions, and snack-filled backpack were designed to reflect his personality.
+                {project.about}
               </p>
             </div>
 
-            <div className="border-l-3 border-[#E96F98] pl-5">
+            <div className="border-l-3 border-[#171515] pl-5">
               <h2 className="font-heading font-bold text-xs uppercase tracking-widest text-[#171515] mb-1.5">
-                THE IDEA
+                CHARACTER CONCEPT
               </h2>
-              <p className="font-body text-sm text-[#57534E] leading-relaxed">
-                The character was built around the idea of an anxious overthinker who is usually caught in his own thoughts. His love for snacks became an important part of his personality and visual identity, helping make him feel more relatable, humorous, and recognisable.
+              <p className="font-body text-sm text-[#171515] leading-relaxed">
+                {project.idea}
               </p>
             </div>
 
-            <div className="border-l-3 border-[#D7F23A] pl-5">
+            <div className="border-l-3 border-[#171515] pl-5">
               <h2 className="font-heading font-bold text-xs uppercase tracking-widest text-[#171515] mb-1.5">
-                PROCESS
+                DESIGN PROCESS
               </h2>
-              <p className="font-body text-sm text-[#57534E] leading-relaxed">
-                The project began with initial character sketches and silhouette explorations before developing Leo's appearance and personality. I explored different poses, expressions, proportions, clothing, props, and small details such as his backpack and snacks to build a consistent character.
+              <p className="font-body text-sm text-[#171515] leading-relaxed">
+                {project.process}
               </p>
             </div>
 
-            <div className="pt-2 border-t border-[#171515]/15">
-              <span className="font-heading font-bold text-xs uppercase tracking-widest text-[#171515] block mb-2">
+            <div className="border-l-3 border-[#171515] pl-5">
+              <h2 className="font-heading font-bold text-xs uppercase tracking-widest text-[#171515] mb-2">
                 TOOLS USED
-              </span>
+              </h2>
               <div className="flex flex-wrap gap-2">
                 <span className="tag-pill-element text-xs py-1 px-3">Canva</span>
                 <span className="tag-pill-element text-xs py-1 px-3">Digital Illustration</span>
@@ -801,7 +530,7 @@ export default function ProjectDetail() {
             <div className="flex justify-center w-full my-6">
               <div className="border-1.5 border-[#171515] bg-[#FAF4EB] p-1 shadow-sm">
                 <img 
-                  src={leoSheet} 
+                  src={getAssetPath('images/assignments/character-design/leo-character-sheet.jpg')} 
                   alt="Leo The Overthinking Leopard Character Design Sheet"
                   className="leo-character-sheet-img"
                 />
@@ -809,9 +538,120 @@ export default function ProjectDetail() {
             </div>
           </div>
         </div>
+      ) : project.id === 'others' ? (
+        /* =========================================================================
+           9. SPECIAL CUSTOM CASE STUDY FOR OTHERS (06)
+           ========================================================================= */
+        <div>
+          <div className="flex flex-col gap-6 my-8 max-w-3xl">
+            <div className="border-l-3 border-[#171515] pl-5">
+              <h2 className="font-heading font-bold text-xs uppercase tracking-widest text-[#171515] mb-1.5">
+                ABOUT THIS COLLECTION
+              </h2>
+              <p className="font-body text-sm text-[#171515] leading-relaxed">
+                {project.about}
+              </p>
+            </div>
+
+            <div className="border-l-3 border-[#171515] pl-5">
+              <h2 className="font-heading font-bold text-xs uppercase tracking-widest text-[#171515] mb-1.5">
+                CREATIVE EXPLORATION
+              </h2>
+              <p className="font-body text-sm text-[#171515] leading-relaxed">
+                {project.idea}
+              </p>
+            </div>
+
+            <div className="border-l-3 border-[#171515] pl-5">
+              <h2 className="font-heading font-bold text-xs uppercase tracking-widest text-[#171515] mb-2">
+                TOOLS USED
+              </h2>
+              <div className="flex flex-wrap gap-2">
+                {project.tools?.map((tool) => (
+                  <span key={tool} className="tag-pill-element text-xs py-1 px-3">
+                    {tool}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* Deliverables Section */}
+          <div className="my-12 pt-8 border-t-1.5 border-[#171515]">
+            <h2 className="font-heading font-extrabold text-xl uppercase tracking-tight text-[#171515] mb-8 flex items-center gap-3">
+              <span className="w-3 h-3 bg-[#E96F98] border border-[#171515] inline-block"></span>
+              EDITORIAL & TYPOGRAPHY EXPLORATIONS
+            </h2>
+
+            <div className="flex flex-col gap-12">
+              {/* Item 1: Magazine Spread (Horizontal 2-Page Spread) */}
+              <div className="flex flex-col gap-3 items-center">
+                <div className="border-1.5 border-[#171515] bg-[#FAF4EB] p-3 shadow-sm flex justify-center items-center w-full max-w-[580px]">
+                  <div className="magazine-spread-container">
+                    <img 
+                      src={getAssetPath('images/assignments/others/magazine-page-1.jpg')} 
+                      alt="Magazine Page 01 (Left)"
+                      className="magazine-spread-page"
+                    />
+                    <img 
+                      src={getAssetPath('images/assignments/others/magazine-page-2.jpg')} 
+                      alt="Magazine Page 02 (Right)"
+                      className="magazine-spread-page"
+                    />
+                  </div>
+                </div>
+                <p className="text-xs font-mono font-bold text-[#171515] uppercase tracking-wider">
+                  EDITORIAL DESIGN — 2-PAGE MAGAZINE SPREAD
+                </p>
+              </div>
+
+              {/* Item 2: Standalone Quote Typography Poster */}
+              <div className="flex flex-col gap-3 items-center">
+                <div className="border-1.5 border-[#171515] bg-[#FAF4EB] p-1.5 shadow-sm">
+                  <img 
+                    src={getAssetPath('images/assignments/others/quote-typography.png')} 
+                    alt="Quote Typography Poster"
+                    className="others-standalone-img"
+                  />
+                </div>
+                <p className="text-xs font-mono font-bold text-[#171515] uppercase tracking-wider">
+                  TYPOGRAPHY EXPLORATION — QUOTE POSTER
+                </p>
+              </div>
+
+              {/* Item 3: Standalone Matcha Typography Poster */}
+              <div className="flex flex-col gap-3 items-center">
+                <div className="border-1.5 border-[#171515] bg-[#FAF4EB] p-1.5 shadow-sm">
+                  <img 
+                    src={getAssetPath('images/assignments/others/matcha-typography.png')} 
+                    alt="Matcha Typography Poster"
+                    className="others-standalone-img"
+                  />
+                </div>
+                <p className="text-xs font-mono font-bold text-[#171515] uppercase tracking-wider">
+                  TYPOGRAPHY EXPLORATION — MATCHA POSTER
+                </p>
+              </div>
+
+              {/* Item 4: Standalone Fleur Magazine Cover */}
+              <div className="flex flex-col gap-3 items-center">
+                <div className="border-1.5 border-[#171515] bg-[#FAF4EB] p-1.5 shadow-sm">
+                  <img 
+                    src={getAssetPath('images/assignments/others/magazine-cover.png')} 
+                    alt="Fleur Magazine Cover"
+                    className="others-standalone-img"
+                  />
+                </div>
+                <p className="text-xs font-mono font-bold text-[#171515] uppercase tracking-wider">
+                  EDITORIAL DESIGN — FLEUR MAGAZINE COVER
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
       ) : (
         /* =========================================================================
-           7. STANDARD CASE STUDY LAYOUT FOR OTHER PROJECTS
+           10. STANDARD CASE STUDY LAYOUT FOR OTHER PROJECTS
            ========================================================================= */
         <div>
           {project.heroImage && (
@@ -824,66 +664,48 @@ export default function ProjectDetail() {
             </div>
           )}
 
-          {project.isGameProject && project.gameEmbed && (
-            <GameEmbed gameConfig={project.gameEmbed} />
-          )}
-
-          <div className="flex flex-col gap-10 my-12 py-4">
-            <div className="border-l-3 border-[#171515] pl-6">
-              <h2 className="font-heading font-bold text-lg uppercase tracking-wider text-[#171515] mb-2">
-                ABOUT THE PROJECT
-              </h2>
-              <p className="font-body text-base text-[#171515] leading-relaxed">
-                {project.about}
-              </p>
-            </div>
-
-            <div className="border-l-3 border-[#E96F98] pl-6">
-              <h2 className="font-heading font-bold text-lg uppercase tracking-wider text-[#171515] mb-2">
-                THE IDEA
-              </h2>
-              <p className="font-body text-base text-[#57534E] leading-relaxed">
-                {project.idea}
-              </p>
-            </div>
-
-            <div className="border-l-3 border-[#D7F23A] pl-6">
-              <h2 className="font-heading font-bold text-lg uppercase tracking-wider text-[#171515] mb-2">
-                PROCESS
-              </h2>
-              <p className="font-body text-base text-[#57534E] leading-relaxed">
-                {project.process}
-              </p>
-            </div>
-
-            {project.whatILearned && (
-              <div className="border-l-3 border-[#171515] pl-6">
-                <h2 className="font-heading font-bold text-lg uppercase tracking-wider text-[#171515] mb-2">
-                  WHAT I LEARNED
+          <div className="flex flex-col gap-6 my-8 max-w-3xl">
+            {project.about && (
+              <div className="border-l-3 border-[#171515] pl-5">
+                <h2 className="font-heading font-bold text-xs uppercase tracking-widest text-[#171515] mb-1.5">
+                  ABOUT THE PROJECT
                 </h2>
-                <p className="font-body text-base text-[#57534E] leading-relaxed">
-                  {project.whatILearned}
+                <p className="font-body text-sm text-[#171515] leading-relaxed">
+                  {project.about}
                 </p>
               </div>
             )}
 
-            <div className="border-l-3 border-[#171515] pl-6">
-              <h2 className="font-heading font-bold text-lg uppercase tracking-wider text-[#171515] mb-2">
-                FINAL WORK
-              </h2>
-              <p className="font-body text-base text-[#171515] leading-relaxed">
-                {project.finalWork}
-              </p>
-            </div>
+            {project.idea && (
+              <div className="border-l-3 border-[#171515] pl-5">
+                <h2 className="font-heading font-bold text-xs uppercase tracking-widest text-[#171515] mb-1.5">
+                  THE IDEA
+                </h2>
+                <p className="font-body text-sm text-[#171515] leading-relaxed">
+                  {project.idea}
+                </p>
+              </div>
+            )}
+
+            {project.process && (
+              <div className="border-l-3 border-[#171515] pl-5">
+                <h2 className="font-heading font-bold text-xs uppercase tracking-widest text-[#171515] mb-1.5">
+                  PROCESS & DEVELOPMENT
+                </h2>
+                <p className="font-body text-sm text-[#171515] leading-relaxed">
+                  {project.process}
+                </p>
+              </div>
+            )}
 
             {project.tools && project.tools.length > 0 && (
-              <div className="pt-4 border-t border-[#171515]/15">
-                <span className="font-heading font-bold text-xs uppercase tracking-widest text-[#171515] block mb-3">
+              <div className="border-l-3 border-[#171515] pl-5">
+                <h2 className="font-heading font-bold text-xs uppercase tracking-widest text-[#171515] mb-2">
                   TOOLS USED
-                </span>
+                </h2>
                 <div className="flex flex-wrap gap-2">
-                  {project.tools.map((tool, idx) => (
-                    <span key={idx} className="tag-pill-element text-xs">
+                  {project.tools.map((tool) => (
+                    <span key={tool} className="tag-pill-element text-xs py-1 px-3">
                       {tool}
                     </span>
                   ))}
@@ -892,41 +714,35 @@ export default function ProjectDetail() {
             )}
           </div>
 
-          {project.gallery && project.gallery.length > 0 && (
-            <ProjectGallery items={project.gallery} title="PROJECT GALLERY & DELIVERABLES" />
-          )}
+          <ProjectGallery items={project.gallery} />
         </div>
       )}
 
-      {/* =========================================================================
-         CLEAN & SPACIOUS PREVIOUS / NEXT NAVIGATION ROW AT THE BOTTOM
-         ========================================================================= */}
-      <div className="mt-20 pt-10 pb-12 border-t-1.5 border-[#171515] flex flex-row items-center justify-between gap-8 font-heading font-bold text-xs uppercase tracking-widest text-[#171515] w-full">
-        <div>
-          {prevProject ? (
-            <Link 
-              to={`/work/${prevProject.id}`}
-              className="group flex items-center gap-2 text-[#171515] hover:text-[#E96F98] transition-colors"
-            >
-              <span className="transition-transform group-hover:-translate-x-1">←</span>
-              <span>PREVIOUS: {prevProject.title}</span>
-            </Link>
-          ) : null}
-        </div>
+      {/* 11. Bottom Header Navigation */}
+      <div className="flex flex-wrap items-center justify-between gap-4 py-6 mt-12 border-t-1.5 border-[#171515]">
+        <Link to="/#assignments" className="inline-flex items-center gap-2 text-xs font-mono font-bold text-[#171515] uppercase tracking-wider hover:opacity-75 transition-opacity">
+          <span>←</span>
+          <span>BACK TO ASSIGNMENTS</span>
+        </Link>
 
-        <div>
-          {nextProject ? (
-            <Link 
-              to={`/work/${nextProject.id}`}
-              className="group flex items-center gap-2 text-[#171515] hover:text-[#E96F98] transition-colors text-right"
-            >
-              <span>NEXT: {nextProject.title}</span>
-              <span className="transition-transform group-hover:translate-x-1">→</span>
+        <div className="flex items-center gap-4 text-xs font-mono font-bold">
+          {prevProject ? (
+            <Link to={`/work/${prevProject.id}`} className="text-[#171515] hover:underline uppercase tracking-wider">
+              ← PREV: {prevProject.title}
             </Link>
-          ) : null}
+          ) : (
+            <span className="text-gray-400 uppercase tracking-wider cursor-not-allowed">← PREV</span>
+          )}
+          <span className="text-[#78716C]">|</span>
+          {nextProject ? (
+            <Link to={`/work/${nextProject.id}`} className="text-[#171515] hover:underline uppercase tracking-wider">
+              NEXT: {nextProject.title} →
+            </Link>
+          ) : (
+            <span className="text-gray-400 uppercase tracking-wider cursor-not-allowed">NEXT →</span>
+          )}
         </div>
       </div>
-
     </div>
   );
 }
