@@ -28,7 +28,7 @@ export default function Home() {
           
           <div className="flex items-center gap-3">
             <span className="badge-eyebrow-pink">
-              PORTFOLIO 2026
+              STUDENT · DESIGNER · CURIOUS
             </span>
           </div>
 
