@@ -410,28 +410,28 @@ export default function ProjectDetail() {
               />
 
               {/* Caption Bar */}
-              <div className="w-full mt-3 pt-3 border-t border-[#171515]/20 flex items-center justify-between px-2">
+              <div className="w-full mt-3 pt-3 border-t border-[#171515]/20 text-center px-2">
                 <p className="font-mono text-xs font-bold text-[#171515] uppercase tracking-wider">
                   {photoEssayDeliverables[photoIndex].alt}
                 </p>
-                
-                {/* Arrow Navigation */}
-                <div className="flex items-center gap-2">
-                  <button 
-                    onClick={prevPhoto}
-                    className="p-1.5 border border-[#171515] bg-[#F7F3EA] hover:bg-[#E96F98] text-[#171515] font-bold text-xs transition-colors cursor-pointer"
-                    aria-label="Previous photo"
-                  >
-                    ←
-                  </button>
-                  <button 
-                    onClick={nextPhoto}
-                    className="p-1.5 border border-[#171515] bg-[#F7F3EA] hover:bg-[#E96F98] text-[#171515] font-bold text-xs transition-colors cursor-pointer"
-                    aria-label="Next photo"
-                  >
-                    →
-                  </button>
-                </div>
+              </div>
+
+              {/* Centered Large Navigation Bar */}
+              <div className="flex justify-center items-center gap-8 sm:gap-12 w-full mt-6 mb-2">
+                <button 
+                  onClick={prevPhoto}
+                  className="px-6 py-2.5 border-1.5 border-[#171515] bg-[#D7F23A] hover:bg-[#E96F98] text-[#171515] font-mono font-bold text-sm tracking-wider transition-all shadow-sm cursor-pointer active:translate-y-0.5"
+                  aria-label="Previous photograph"
+                >
+                  ← PREV
+                </button>
+                <button 
+                  onClick={nextPhoto}
+                  className="px-6 py-2.5 border-1.5 border-[#171515] bg-[#D7F23A] hover:bg-[#E96F98] text-[#171515] font-mono font-bold text-sm tracking-wider transition-all shadow-sm cursor-pointer active:translate-y-0.5"
+                  aria-label="Next photograph"
+                >
+                  NEXT →
+                </button>
               </div>
             </div>
           </div>
