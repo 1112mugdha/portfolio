@@ -22,20 +22,20 @@ export default function Home() {
     <div>
       {/* 1. HERO SECTION */}
       <section className="hero-section">
-        <div className="w-full max-w-5xl flex flex-col gap-6">
+        <div className="w-full flex flex-col gap-6">
           <div className="flex items-center gap-3">
             <span className="badge-eyebrow-pink">
               STUDENT · DESIGNER · CURIOUS
             </span>
           </div>
 
-          {/* Name Header Left & Flowers Right — Strictly Side-by-Side on Same Horizontal Baseline */}
-          <div className="flex items-end justify-between w-full overflow-hidden">
-            <h1 className="hero-heading pr-4 shrink">
+          {/* Hero Name Left & Flowers Right — Strictly Side-by-Side on Same Horizontal Baseline */}
+          <div className="hero-name-row">
+            <h1 className="hero-heading">
               MUGDHA PATNAIK
             </h1>
 
-            <div className="pointer-events-none w-[320px] sm:w-[400px] md:w-[460px] pb-[6px] shrink-0">
+            <div className="hero-flowers">
               <HandDrawnFlowerBorder />
             </div>
           </div>
