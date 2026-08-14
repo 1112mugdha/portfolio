@@ -702,8 +702,19 @@ export default function ProjectDetail() {
         </div>
       )}
 
-      {/* 11. Bottom PREV / NEXT Navigation Bar (Far Left & Far Right of Content Container) */}
-      <div className="flex items-center justify-between gap-4 py-6 mt-12 border-t-1.5 border-[#171515] w-full">
+      {/* 11. Bottom PREV / NEXT Navigation Bar (Full-Width Flex Space Between) */}
+      <div 
+        style={{
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'center',
+          width: '100%',
+          paddingTop: '1.5rem',
+          paddingBottom: '1.5rem',
+          marginTop: '3rem',
+          borderTop: '1.5px solid #171515'
+        }}
+      >
         {prevProject ? (
           <Link 
             to={`/work/${prevProject.id}`} 
@@ -721,13 +732,13 @@ export default function ProjectDetail() {
         {nextProject ? (
           <Link 
             to={`/work/${nextProject.id}`} 
-            className="px-6 py-3 border-1.5 border-[#171515] bg-[#D7F23A] hover:bg-[#E96F98] text-[#171515] font-mono font-bold text-sm tracking-wider uppercase transition-all shadow-sm flex items-center justify-center cursor-pointer active:translate-y-0.5 ml-auto"
+            className="px-6 py-3 border-1.5 border-[#171515] bg-[#D7F23A] hover:bg-[#E96F98] text-[#171515] font-mono font-bold text-sm tracking-wider uppercase transition-all shadow-sm flex items-center justify-center cursor-pointer active:translate-y-0.5"
             aria-label={`Go to next project: ${nextProject.title}`}
           >
             NEXT →
           </Link>
         ) : (
-          <span className="px-6 py-3 border-1.5 border-gray-300 bg-gray-100 text-gray-400 font-mono font-bold text-sm tracking-wider uppercase cursor-not-allowed ml-auto">
+          <span className="px-6 py-3 border-1.5 border-gray-300 bg-gray-100 text-gray-400 font-mono font-bold text-sm tracking-wider uppercase cursor-not-allowed">
             NEXT →
           </span>
         )}
