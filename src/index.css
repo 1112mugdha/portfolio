@@ -323,10 +323,11 @@ p {
 .hero-section {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   position: relative;
-  padding-top: 4rem;
-  padding-bottom: 4rem;
+  min-height: 85vh;
+  padding-top: 5rem;
+  padding-bottom: 3rem;
   border-bottom: 1.5px solid #171515;
 }
 
