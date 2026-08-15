@@ -63,11 +63,16 @@ export default function PersonalDetail() {
            ========================================================================= */
         <div className="detail-major-section-block flex flex-col items-center">
           
-          {/* Active Concept Title Directly Above Frame */}
+          {/* Active Concept Title & Description Directly Above Frame */}
           <div className="w-full max-w-4xl text-center mb-4">
             <h2 className="font-heading font-extrabold text-xl sm:text-2xl uppercase tracking-wider text-[#171515]">
               {category.items[slideIndex].title}
             </h2>
+            {category.items[slideIndex].description && (
+              <p className="font-body text-xs sm:text-sm text-[#57534E] leading-tight mt-1.5 truncate max-w-full block" title={category.items[slideIndex].description}>
+                {category.items[slideIndex].description}
+              </p>
+            )}
           </div>
 
           {/* Carousel Frame Container */}

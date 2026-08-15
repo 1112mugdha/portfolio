@@ -13,30 +13,35 @@ export const personalData = [
         id: 'bc-1', 
         title: '01 — DAISY GARDEN', 
         category: 'Brand Identity & Stationery', 
+        description: 'A stationery brand concept inspired by handwritten notes, playful florals, and thoughtful paper goods.',
         image: getAssetPath('/images/personal/brand-concepts/01-daisy-garden.jpg') 
       },
       { 
         id: 'bc-2', 
         title: '02 — PLAYDATE', 
         category: 'Children’s Toy Brand Identity', 
+        description: 'A kids’ toy brand concept creating playful, imaginative toys designed with more thoughtful and sustainable materials.',
         image: getAssetPath('/images/personal/brand-concepts/02-playdate.jpg') 
       },
       { 
         id: 'bc-3', 
         title: '03 — CIAO! PASTA GOURMET', 
         category: 'Gourmet Italian Food Branding', 
+        description: 'An Italian gourmet food brand concept bringing together pasta, sauces, olive oils, and the joy of Italian dining.',
         image: getAssetPath('/images/personal/brand-concepts/03-ciao-pasta.jpg') 
       },
       { 
         id: 'bc-4', 
         title: '04 — HOLY SIP', 
         category: 'Cold-Pressed Juice Beverage Branding', 
+        description: 'A fresh juice brand concept serving vibrant, refreshing juices in reusable glass bottles.',
         image: getAssetPath('/images/personal/brand-concepts/04-holy-sip.jpg') 
       },
       { 
         id: 'bc-5', 
         title: '05 — FLEUR', 
         category: 'Floral & Botanical Brand Identity', 
+        description: 'A modern florist brand concept bringing together fresh blooms, thoughtful arrangements, and an elegant floral identity.',
         image: getAssetPath('/images/personal/brand-concepts/05-fleur.jpg') 
       }
     ]
