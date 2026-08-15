@@ -25,7 +25,7 @@ export const personalData = [
       },
       { 
         id: 'bc-3', 
-        title: '03 — CIAO! PASTA GOURMET', 
+        title: '03 — CIAO!', 
         category: 'Gourmet Italian Food Branding', 
         description: 'An Italian gourmet food brand concept bringing together pasta, sauces, olive oils, and the joy of Italian dining.',
         image: getAssetPath('/images/personal/brand-concepts/03-ciao-pasta.jpg') 
