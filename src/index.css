@@ -1301,12 +1301,28 @@ img.others-gallery-img {
   margin: 0 auto !important;
 }
 
-/* Brand Concept Carousel Image Sizing */
+/* Brand Concept Carousel Image Sizing & Bounded Frame */
+.brand-concept-image-frame {
+  border: 1.5px solid #171515;
+  background-color: #FAF4EB;
+  padding: 8px;
+  box-shadow: 2px 2px 0px #171515;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 520px;
+  max-height: 440px;
+  box-sizing: border-box;
+  overflow: hidden;
+  flex: 0 1 auto;
+}
+
 img.brand-concept-carousel-img {
   width: 100% !important;
-  max-width: 560px !important;
+  max-width: 100% !important;
   height: auto !important;
-  max-height: 440px !important;
+  max-height: 420px !important;
   object-fit: contain !important;
   display: block !important;
   margin: 0 auto !important;

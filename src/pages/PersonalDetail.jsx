@@ -1,12 +1,12 @@
-import React, { useState } from 'react';
-import { useParams, Link, Navigate } from 'react-router-dom';
+import React from 'react';
+import { useParams, Link, Navigate, useSearchParams } from 'react-router-dom';
 import Breadcrumbs from '../components/ui/Breadcrumbs';
 import ImagePlaceholder from '../components/ui/ImagePlaceholder';
 import { personalData } from '../data/personal';
 
 export default function PersonalDetail() {
   const { categoryId } = useParams();
-  const [slideIndex, setSlideIndex] = useState(0);
+  const [searchParams, setSearchParams] = useSearchParams();
   
   const category = personalData.find(c => c.id === categoryId);
   if (!category) {
@@ -15,12 +15,27 @@ export default function PersonalDetail() {
 
   const isBrandConcepts = category.id === 'brand-concepts';
 
+  // Read 1-indexed slide parameter from URL (e.g. ?slide=3 -> index 2)
+  const slideParam = searchParams.get('slide');
+  const parsedSlide = slideParam ? parseInt(slideParam, 10) - 1 : 0;
+  
+  // Safe bounds check
+  const slideIndex = (isNaN(parsedSlide) || parsedSlide < 0 || parsedSlide >= category.items.length)
+    ? 0
+    : parsedSlide;
+
+  const updateSlideIndex = (newIndex) => {
+    setSearchParams({ slide: (newIndex + 1).toString() }, { replace: false });
+  };
+
   const nextSlide = () => {
-    setSlideIndex((prev) => (prev + 1) % category.items.length);
+    const nextIdx = (slideIndex + 1) % category.items.length;
+    updateSlideIndex(nextIdx);
   };
 
   const prevSlide = () => {
-    setSlideIndex((prev) => (prev - 1 + category.items.length) % category.items.length);
+    const prevIdx = (slideIndex - 1 + category.items.length) % category.items.length;
+    updateSlideIndex(prevIdx);
   };
 
   return (
@@ -95,7 +110,7 @@ export default function PersonalDetail() {
                 {category.items.map((item, idx) => (
                   <button
                     key={idx}
-                    onClick={() => setSlideIndex(idx)}
+                    onClick={() => updateSlideIndex(idx)}
                     className={`h-3 transition-all border border-[#171515] cursor-pointer ${
                       idx === slideIndex ? 'w-8 bg-[#171515]' : 'w-3 bg-[#FAF4EB] hover:bg-[#D7F23A]'
                     }`}
@@ -117,8 +132,8 @@ export default function PersonalDetail() {
                   ←
                 </button>
 
-                {/* Displayed Brand Board Image Frame (Scaled proportionally) */}
-                <div className="photo-essay-image-frame max-w-full overflow-hidden">
+                {/* Displayed Brand Board Image Frame (Bounded & Proportional) */}
+                <div className="brand-concept-image-frame max-w-full overflow-hidden">
                   <img 
                     key={category.items[slideIndex].id}
                     src={category.items[slideIndex].image} 
