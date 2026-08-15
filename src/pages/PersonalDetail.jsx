@@ -32,8 +32,8 @@ export default function PersonalDetail() {
         { label: category.title }
       ]} />
 
-      {/* Back Link */}
-      <div className="mt-1 mb-6">
+      {/* Back Link (28px bottom margin) */}
+      <div className="detail-back-nav mt-3">
         <Link 
           to="/personal" 
           className="inline-flex items-center gap-2 font-heading font-bold text-xs uppercase tracking-widest text-[#171515] hover:text-[#E96F98] transition-colors"
@@ -42,14 +42,14 @@ export default function PersonalDetail() {
         </Link>
       </div>
 
-      {/* Header */}
-      <div className="border-b-1.5 border-[#171515] pb-6 mb-8">
+      {/* Header (32px bottom border block) */}
+      <div className="detail-title-header-block">
         <div className="flex items-center gap-2 mb-3">
           <span className="badge-eyebrow-pink">
             COLLECTION {category.number}
           </span>
         </div>
-        <h1 className="font-heading font-extrabold text-4xl sm:text-5xl uppercase tracking-tight text-[#171515] mb-2">
+        <h1 className="font-heading font-extrabold text-4xl sm:text-5xl uppercase tracking-tight text-[#171515] mb-3">
           {category.title}
         </h1>
         <p className="font-body text-base text-[#57534E] max-w-2xl leading-relaxed">
@@ -61,7 +61,7 @@ export default function PersonalDetail() {
         /* =========================================================================
            BRAND CONCEPTS — INSTAGRAM-STYLE CAROUSEL / SLIDESHOW (1 BOARD AT A TIME)
            ========================================================================= */
-        <div className="my-8 flex flex-col items-center">
+        <div className="detail-major-section-block flex flex-col items-center">
           
           {/* Active Concept Title Directly Above Frame */}
           <div className="w-full max-w-4xl text-center mb-4">
@@ -130,16 +130,21 @@ export default function PersonalDetail() {
         /* =========================================================================
            OTHERS — 3-ITEM HORIZONTAL GALLERY LAYOUT (TITLES DIRECTLY ABOVE IMAGES)
            ========================================================================= */
-        <div className="my-8">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 items-start justify-items-center">
+        <div className="detail-major-section-block">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 sm:gap-10 items-start justify-items-center">
             {category.items.map((item) => (
-              <div key={item.id} className="flex flex-col gap-2.5 w-full max-w-[340px] group">
+              <div key={item.id} className="flex flex-col gap-3 w-full max-w-[340px] group">
                 
-                {/* Clean Image Title Label directly ABOVE image */}
+                {/* Clean Image Title Label & One-line Description directly ABOVE image */}
                 <div>
                   <h3 className="font-heading font-extrabold text-xs uppercase tracking-wider text-[#171515]">
                     {item.title}
                   </h3>
+                  {item.description && (
+                    <p className="font-body text-xs text-[#57534E] leading-tight mt-1 truncate max-w-full block" title={item.description}>
+                      {item.description}
+                    </p>
+                  )}
                 </div>
 
                 {/* Contained Image Frame with subtle border & background */}

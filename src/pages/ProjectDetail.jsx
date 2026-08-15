@@ -114,17 +114,17 @@ export default function ProjectDetail() {
       {/* 1. Subtle Editorial Breadcrumb */}
       <Breadcrumbs items={[{ label: 'HOME', path: '/' }, { label: 'ASSIGNMENTS', path: '/#assignments' }, { label: project.title }]} />
 
-      {/* 2. Top Header Navigation (Back to Assignments Only) */}
-      <div className="flex items-center justify-between py-4 mb-6 border-b-1.5 border-[#171515]">
+      {/* 2. Top Header Navigation (Back to Assignments Only) (28px bottom margin) */}
+      <div className="detail-back-nav flex items-center justify-between py-3 border-b-1.5 border-[#171515]">
         <Link to="/#assignments" className="inline-flex items-center gap-2 text-xs font-mono font-bold text-[#171515] uppercase tracking-wider hover:opacity-75 transition-opacity">
           <span>←</span>
           <span>BACK TO ASSIGNMENTS</span>
         </Link>
       </div>
 
-      {/* 3. Project Title Header */}
-      <div className="mb-8">
-        <div className="flex items-center gap-3 mb-3">
+      {/* 3. Project Title Header (32px bottom border block) */}
+      <div className="detail-title-header-block">
+        <div className="flex items-center gap-3 mb-4">
           <span className="badge-eyebrow-pink" style={{ fontSize: '0.7rem' }}>
             {project.number} — ASSIGNMENT
           </span>
@@ -133,17 +133,17 @@ export default function ProjectDetail() {
           </span>
         </div>
 
-        <h1 className="font-heading font-extrabold text-3xl sm:text-4xl md:text-5xl uppercase tracking-tight text-[#171515] mb-2">
+        <h1 className="font-heading font-extrabold text-3xl sm:text-4xl md:text-5xl uppercase tracking-tight text-[#171515] mb-3">
           {project.title}
         </h1>
 
         {project.subTitle && (
-          <h2 className="font-heading font-bold text-lg sm:text-xl uppercase tracking-wider text-[#E96F98] mb-3">
+          <h2 className="font-heading font-bold text-lg sm:text-xl uppercase tracking-wider text-[#E96F98] mb-4">
             {project.subTitle}
           </h2>
         )}
 
-        <p className="font-body text-base text-[#57534E] max-w-2xl mt-2">
+        <p className="font-body text-base text-[#57534E] max-w-2xl leading-[1.65]">
           {project.shortDescription}
         </p>
       </div>

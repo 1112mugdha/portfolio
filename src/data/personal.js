@@ -6,8 +6,8 @@ export const personalData = [
     id: 'brand-concepts',
     number: '01',
     title: 'BRAND CONCEPTS',
-    subtitle: 'Independent explorations of branding, visual identity, and creative concepts.',
-    shortDescription: 'Independent explorations of branding, visual identity, and creative concepts.',
+    subtitle: 'Exploring visual identities, branding systems, and creative directions for imagined brands.',
+    shortDescription: 'Exploring visual identities, branding systems, and creative directions for imagined brands.',
     items: [
       { 
         id: 'bc-1', 
@@ -45,13 +45,14 @@ export const personalData = [
     id: 'others',
     number: '02',
     title: 'OTHERS',
-    subtitle: 'A collection of independent creative experiments and personal design projects.',
-    shortDescription: 'A collection of independent creative experiments and personal design projects.',
+    subtitle: 'A collection of visual design experiments across invitations, menus, and illustrated print designs.',
+    shortDescription: 'A collection of visual design experiments across invitations, menus, and illustrated print designs.',
     items: [
       { 
         id: 'ot-1', 
         title: '01 — BIRTHDAY HOPPING LIST', 
         category: 'Poster Design', 
+        description: 'An illustrated restaurant-hopping guide designed as a playful birthday experience.',
         image: getAssetPath('/images/personal/others/birthday-hopping-list.png'), 
         aspect: '3/4' 
       },
@@ -59,6 +60,7 @@ export const personalData = [
         id: 'ot-2', 
         title: '02 — MENU DESIGN', 
         category: 'Menu Layout', 
+        description: 'A playful bakery menu combining hand-drawn food illustrations with clean visual layout.',
         image: getAssetPath('/images/personal/others/bakery-menu.png'), 
         aspect: '3/4' 
       },
@@ -66,6 +68,7 @@ export const personalData = [
         id: 'ot-3', 
         title: '03 — WEDDING INVITATION', 
         category: 'Print / Invitation', 
+        description: 'A floral wedding invitation exploring elegant typography, illustration, and composition.',
         image: getAssetPath('/images/personal/others/wedding-invitation.jpg'), 
         aspect: '3/4' 
       }
