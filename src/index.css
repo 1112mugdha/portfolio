@@ -423,9 +423,60 @@ p {
 @media (prefers-reduced-motion: reduce) {
   .butterfly-group-1,
   .butterfly-group-2,
+  .butterfly-group-mobile-1,
+  .butterfly-group-mobile-2,
   .butterfly-wing-left,
   .butterfly-wing-right {
     animation: none !important;
+  }
+}
+
+/* Mobile Butterfly Floating Animations */
+@keyframes butterflyFloatMobile1 {
+  0%, 100% {
+    transform: translate(50px, 15px) rotate(0deg);
+  }
+  25% {
+    transform: translate(90px, -10px) rotate(5deg);
+  }
+  50% {
+    transform: translate(120px, 10px) rotate(-4deg);
+  }
+  75% {
+    transform: translate(75px, -15px) rotate(3deg);
+  }
+}
+
+@keyframes butterflyFloatMobile2 {
+  0%, 100% {
+    transform: translate(270px, 15px) rotate(0deg);
+  }
+  25% {
+    transform: translate(240px, -15px) rotate(-6deg);
+  }
+  50% {
+    transform: translate(210px, 5px) rotate(4deg);
+  }
+  75% {
+    transform: translate(250px, -10px) rotate(-3deg);
+  }
+}
+
+.butterfly-group-mobile-1 {
+  animation: butterflyFloatMobile1 7s ease-in-out infinite;
+}
+
+.butterfly-group-mobile-2 {
+  animation: butterflyFloatMobile2 8.5s ease-in-out infinite;
+}
+
+/* Mobile Responsive Hero Heading Wrapping */
+@media (max-width: 639px) {
+  .hero-heading {
+    white-space: normal !important;
+    word-break: break-word !important;
+    font-size: clamp(2.4rem, 10vw, 3.4rem) !important;
+    line-height: 1.05 !important;
   }
 }
 
