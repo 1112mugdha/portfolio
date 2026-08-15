@@ -347,8 +347,8 @@ p {
   left: 0;
   right: 0;
   width: 100%;
-  height: 85px;
-  max-height: 85px;
+  height: 120px;
+  max-height: 120px;
   pointer-events: none;
   z-index: 10;
   overflow: hidden;
@@ -356,8 +356,8 @@ p {
 
 @media (max-width: 639px) {
   .hero-doodle-garden-container {
-    height: 75px;
-    max-height: 75px;
+    height: 105px;
+    max-height: 105px;
   }
 }
 
