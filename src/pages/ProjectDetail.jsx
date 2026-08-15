@@ -501,7 +501,7 @@ export default function ProjectDetail() {
         </div>
       ) : project.id === 'others' ? (
         /* =========================================================================
-           8. SPECIAL CUSTOM CASE STUDY FOR OTHERS (06)
+           8. SPECIAL CUSTOM CASE STUDY FOR OTHERS (06 — MISCELLANEOUS COLLECTION)
            ========================================================================= */
         <div>
           <div className="flex flex-col gap-8 max-w-4xl my-6">
@@ -517,11 +517,32 @@ export default function ProjectDetail() {
 
           <div className="detail-major-section-block">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-start justify-items-center">
-              {/* Item 1 */}
+              
+              {/* Item 1 — MAGAZINE COVER */}
               <div className="w-full max-w-[480px] flex flex-col gap-3">
                 <div className="pb-1.5 border-b-1.5 border-[#171515]">
                   <h3 className="font-heading font-extrabold text-xs uppercase tracking-wider text-[#171515]">
-                    01 — EDITORIAL MAGAZINE SPREAD
+                    01 — MAGAZINE COVER
+                  </h3>
+                  <p className="font-body text-xs text-[#57534E] leading-tight mt-1">
+                    A magazine cover design exploring editorial typography and visual hierarchy.
+                  </p>
+                </div>
+
+                <div className="border-1.5 border-[#171515] bg-[#FAF4EB] p-2 shadow-sm flex items-center justify-center min-h-[280px] sm:min-h-[360px] w-full">
+                  <img 
+                    src={getAssetPath('images/assignments/others/magazine-cover.png')} 
+                    alt="Magazine Cover"
+                    className="others-standalone-img"
+                  />
+                </div>
+              </div>
+
+              {/* Item 2 — EDITORIAL MAGAZINE SPREAD */}
+              <div className="w-full max-w-[480px] flex flex-col gap-3">
+                <div className="pb-1.5 border-b-1.5 border-[#171515]">
+                  <h3 className="font-heading font-extrabold text-xs uppercase tracking-wider text-[#171515]">
+                    02 — EDITORIAL MAGAZINE SPREAD
                   </h3>
                   <p className="font-body text-xs text-[#57534E] leading-tight mt-1">
                     An open magazine spread featuring typography and editorial layout.
@@ -531,12 +552,12 @@ export default function ProjectDetail() {
                 <div className="border-1.5 border-[#171515] bg-[#FAF4EB] p-2 shadow-sm flex items-center justify-center min-h-[280px] sm:min-h-[360px] w-full">
                   <div className="magazine-spread-container">
                     <img 
-                      src={getAssetPath('images/assignments/others/01-magazine-spread-left.png')} 
+                      src={getAssetPath('images/assignments/others/magazine-page-1.jpg')} 
                       alt="Magazine Spread Page 1"
                       className="magazine-spread-page"
                     />
                     <img 
-                      src={getAssetPath('images/assignments/others/01-magazine-spread-right.png')} 
+                      src={getAssetPath('images/assignments/others/magazine-page-2.jpg')} 
                       alt="Magazine Spread Page 2"
                       className="magazine-spread-page"
                     />
@@ -544,11 +565,11 @@ export default function ProjectDetail() {
                 </div>
               </div>
 
-              {/* Item 2 */}
+              {/* Item 3 — CREATIVE TYPOGRAPHY POSTER */}
               <div className="w-full max-w-[480px] flex flex-col gap-3">
                 <div className="pb-1.5 border-b-1.5 border-[#171515]">
                   <h3 className="font-heading font-extrabold text-xs uppercase tracking-wider text-[#171515]">
-                    02 — CREATIVE TYPOGRAPHY POSTER
+                    03 — CREATIVE TYPOGRAPHY POSTER
                   </h3>
                   <p className="font-body text-xs text-[#57534E] leading-tight mt-1">
                     A standalone poster exploring expressive typography and composition.
@@ -557,12 +578,33 @@ export default function ProjectDetail() {
 
                 <div className="border-1.5 border-[#171515] bg-[#FAF4EB] p-2 shadow-sm flex items-center justify-center min-h-[280px] sm:min-h-[360px] w-full">
                   <img 
-                    src={getAssetPath('images/assignments/others/02-typography-poster.png')} 
+                    src={getAssetPath('images/assignments/others/matcha-typography.png')} 
                     alt="Creative Typography Poster"
                     className="others-standalone-img"
                   />
                 </div>
               </div>
+
+              {/* Item 4 — TYPOGRAPHY EXPERIMENT */}
+              <div className="w-full max-w-[480px] flex flex-col gap-3">
+                <div className="pb-1.5 border-b-1.5 border-[#171515]">
+                  <h3 className="font-heading font-extrabold text-xs uppercase tracking-wider text-[#171515]">
+                    04 — TYPOGRAPHY EXPERIMENT
+                  </h3>
+                  <p className="font-body text-xs text-[#57534E] leading-tight mt-1">
+                    An experimental typography composition exploring scale, layout, and visual rhythm.
+                  </p>
+                </div>
+
+                <div className="border-1.5 border-[#171515] bg-[#FAF4EB] p-2 shadow-sm flex items-center justify-center min-h-[280px] sm:min-h-[360px] w-full">
+                  <img 
+                    src={getAssetPath('images/assignments/others/quote-typography.png')} 
+                    alt="Typography Experiment"
+                    className="others-standalone-img"
+                  />
+                </div>
+              </div>
+
             </div>
           </div>
         </div>
