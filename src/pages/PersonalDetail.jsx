@@ -1,6 +1,5 @@
 import React from 'react';
 import { useParams, Link, Navigate, useSearchParams } from 'react-router-dom';
-import Breadcrumbs from '../components/ui/Breadcrumbs';
 import ImagePlaceholder from '../components/ui/ImagePlaceholder';
 import { personalData } from '../data/personal';
 
@@ -10,7 +9,7 @@ export default function PersonalDetail() {
   
   const category = personalData.find(c => c.id === categoryId);
   if (!category) {
-    return <Navigate to="/personal" replace />;
+    return <Navigate to="/#personal-projects" replace />;
   }
 
   const isBrandConcepts = category.id === 'brand-concepts';
@@ -41,7 +40,7 @@ export default function PersonalDetail() {
   return (
     <div className="py-6 max-w-6xl mx-auto">
       {/* Back Link (28px bottom margin) */}
-      <div className="detail-back-nav mt-3">
+      <div className="exp-back-nav mt-3">
         <Link 
           to="/#personal-projects" 
           className="inline-flex items-center gap-2 font-heading font-bold text-xs uppercase tracking-widest text-[#171515] hover:text-[#E96F98] transition-colors"
@@ -50,25 +49,33 @@ export default function PersonalDetail() {
         </Link>
       </div>
 
-      {/* Header (32px bottom border block) */}
-      <div className="detail-title-header-block">
-        <div className="flex items-center gap-2 mb-3">
-          <span className="badge-eyebrow-pink">
-            COLLECTION {category.number}
+      {/* Header Block (Matching Experience Page Template & Spacing) */}
+      <div className="exp-header-border-block border-b-1.5 border-[#171515] mb-8">
+        {/* Collection Badge */}
+        <div className="exp-role-badge-wrap flex flex-wrap items-center gap-3">
+          <span className="font-mono text-xs font-bold bg-[#FAF4EB] text-[#171515] px-3.5 py-1.5 border border-[#171515]">
+            COLLECTION {category.number} — PERSONAL PROJECT
           </span>
         </div>
-        <h1 className="font-heading font-extrabold text-4xl sm:text-5xl uppercase tracking-tight text-[#171515] mb-3">
-          {category.title}
-        </h1>
-        <p className="font-body text-base text-[#57534E] max-w-2xl leading-relaxed">
-          {category.subtitle}
-        </p>
+        
+        {/* Highlighted Main Personal Project Collection Name */}
+        <div className="exp-company-highlight-container">
+          <h1 className="exp-company-name-text">
+            {category.title}
+          </h1>
+        </div>
+
+        {category.subtitle && (
+          <p className="exp-about-paragraph font-body text-base text-[#57534E] max-w-2xl leading-relaxed mb-6">
+            {category.subtitle}
+          </p>
+        )}
       </div>
 
       {isBrandConcepts ? (
         /* =========================================================================
            BRAND CONCEPTS — 2-COLUMN SIDE-BY-SIDE LAYOUT (DESKTOP) & STACKED (MOBILE)
-           Left Column: Concept Number, Title, Category, Description & Indicators
+           Left Column: Concept Number, Highlighted Brand Name, Category, Description & Indicators
            Right Column: Previous Arrow (Left) + Contained Image Frame + Next Arrow (Right)
            ========================================================================= */
         <div className="detail-major-section-block">
@@ -83,9 +90,13 @@ export default function PersonalDetail() {
               </div>
 
               <div>
-                <h2 className="font-heading font-extrabold text-2xl sm:text-3xl uppercase tracking-wider text-[#171515] mb-2">
-                  {category.items[slideIndex].title}
-                </h2>
+                {/* Highlighted Main Brand Name of current concept */}
+                <div className="exp-company-highlight-container mb-3" style={{ marginBottom: '0.75rem' }}>
+                  <h2 className="exp-company-name-text" style={{ fontSize: 'clamp(1.35rem, 2.5vw, 1.85rem)' }}>
+                    {category.items[slideIndex].title}
+                  </h2>
+                </div>
+
                 {category.items[slideIndex].category && (
                   <p className="font-mono text-xs font-bold text-[#E96F98] uppercase tracking-wider mb-3">
                     {category.items[slideIndex].category}
