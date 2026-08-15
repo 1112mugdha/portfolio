@@ -6,15 +6,29 @@ export default function ProjectGallery({ items = [], title = 'PROJECT GALLERY & 
   const isCompactView = imgClassName && imgClassName.includes('cactus');
 
   return (
-    <div className="my-12">
-      <h3 className="font-heading font-bold text-lg uppercase tracking-wider text-[#171515] mb-6 flex items-center gap-3">
-        <span className="w-3 h-3 bg-[#E96F98] border border-[#171515] inline-block"></span>
+    <div className="detail-major-section-block">
+      <h3 className="font-heading font-extrabold text-xl uppercase tracking-tight text-[#171515] mb-8 flex items-center gap-3">
+        <span className="w-3.5 h-3.5 bg-[#E96F98] border border-[#171515] inline-block"></span>
         {title}
       </h3>
       
-      <div className="flex flex-col gap-12">
+      <div className="flex flex-col gap-14">
         {items.map((item, idx) => (
           <div key={item.id || idx} className="flex flex-col gap-3">
+            {/* Title & Description ALWAYS rendered ABOVE the image */}
+            {item.title && (
+              <div className="pb-1.5 border-b-1.5 border-[#171515]">
+                <h4 className="font-heading font-extrabold text-xs uppercase tracking-wider text-[#171515]">
+                  {item.title}
+                </h4>
+                {item.description && (
+                  <p className="font-body text-xs text-[#57534E] mt-0.5">
+                    {item.description}
+                  </p>
+                )}
+              </div>
+            )}
+            
             <div 
               className="border-1.5 border-[#171515] bg-[#FAF4EB] p-2 shadow-sm flex items-center justify-center w-full"
               style={isCompactView ? { height: 'calc(100vh - 220px)', maxHeight: 'calc(100vh - 220px)' } : {}}
@@ -26,16 +40,6 @@ export default function ProjectGallery({ items = [], title = 'PROJECT GALLERY & 
                 style={isCompactView ? { width: '100%', height: '100%', maxHeight: 'calc(100vh - 220px)', objectFit: 'contain' } : {}}
               />
             </div>
-            {item.title && (
-              <p className="text-xs font-mono font-bold text-[#57534E] uppercase tracking-wider pl-1 border-l-2 border-[#171515]">
-                {item.title}
-              </p>
-            )}
-            {item.description && (
-              <p className="font-body text-sm text-[#57534E] pl-1">
-                {item.description}
-              </p>
-            )}
           </div>
         ))}
       </div>

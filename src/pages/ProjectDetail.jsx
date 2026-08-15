@@ -153,109 +153,97 @@ export default function ProjectDetail() {
          ========================================================================= */}
       {project.id === 'movie-posters' ? (
         <div>
-          {/* Top Section: Hero Image Left + Details Right */}
-          <div className="flex flex-col md:flex-row gap-8 items-start my-8">
-            {/* LEFT SIDE: Don't Worry Darling Hero Poster (MAX 280px WIDE) */}
-            <div className="w-full md:w-[280px] flex-shrink-0 border-1.5 border-[#171515] bg-[#FAF4EB] p-1 shadow-sm">
-              <img 
-                src={getAssetPath('images/assignments/movie-posters/poster-03-sometimes.jpg')} 
-                alt="Don't Worry Darling Poster Hero"
-                className="movie-poster-hero-img"
-              />
+          {/* Top Section: Structured Project Details (No top hero image) */}
+          <div className="flex flex-col gap-8 max-w-3xl my-6">
+            <div className="border-l-3 border-[#171515] pl-6 py-1">
+              <h2 className="exp-about-heading font-heading font-bold text-xs uppercase tracking-widest text-[#171515]">
+                ABOUT THE PROJECT
+              </h2>
+              <p className="exp-about-paragraph font-body text-base text-[#171515]">
+                {project.about}
+              </p>
             </div>
 
-            {/* RIGHT SIDE: Structured Project Details */}
-            <div className="flex-1 flex flex-col gap-6">
-              <div>
-                <h2 className="font-heading font-bold text-xs uppercase tracking-widest text-[#171515] mb-1.5">
-                  ABOUT THE PROJECT
-                </h2>
-                <p className="font-body text-sm text-[#171515] leading-relaxed">
-                  {project.about}
-                </p>
-              </div>
+            <div className="border-l-3 border-[#171515] pl-6 py-1">
+              <h2 className="exp-about-heading font-heading font-bold text-xs uppercase tracking-widest text-[#171515]">
+                THE IDEA
+              </h2>
+              <p className="exp-about-paragraph font-body text-base text-[#171515]">
+                {project.idea}
+              </p>
+            </div>
 
-              <div>
-                <h2 className="font-heading font-bold text-xs uppercase tracking-widest text-[#171515] mb-1.5">
-                  THE IDEA
-                </h2>
-                <p className="font-body text-sm text-[#171515] leading-relaxed">
-                  {project.idea}
-                </p>
-              </div>
+            <div className="border-l-3 border-[#171515] pl-6 py-1">
+              <h2 className="exp-about-heading font-heading font-bold text-xs uppercase tracking-widest text-[#171515]">
+                PROCESS & EXPLORATION
+              </h2>
+              <p className="exp-about-paragraph font-body text-base text-[#171515]">
+                {project.process}
+              </p>
+            </div>
 
-              <div>
-                <h2 className="font-heading font-bold text-xs uppercase tracking-widest text-[#171515] mb-1.5">
-                  PROCESS & EXPLORATION
-                </h2>
-                <p className="font-body text-sm text-[#171515] leading-relaxed">
-                  {project.process}
-                </p>
-              </div>
-
-              <div>
-                <h2 className="font-heading font-bold text-xs uppercase tracking-widest text-[#171515] mb-2">
-                  TOOLS USED
-                </h2>
-                <div className="flex flex-wrap gap-2">
-                  {project.tools?.map((tool) => (
-                    <span key={tool} className="tag-pill-element text-xs py-1 px-3">
-                      {tool}
-                    </span>
-                  ))}
-                </div>
+            <div className="border-l-3 border-[#171515] pl-6 py-1">
+              <h2 className="font-heading font-bold text-xs uppercase tracking-widest text-[#171515] mb-3">
+                TOOLS USED
+              </h2>
+              <div className="flex flex-wrap gap-2">
+                {project.tools?.map((tool) => (
+                  <span key={tool} className="tag-pill-element text-xs py-1 px-3">
+                    {tool}
+                  </span>
+                ))}
               </div>
             </div>
           </div>
 
-          {/* Bottom Section: 3-Column Equal Grid of Poster Explorations */}
-          <div className="my-12 pt-8 border-t-1.5 border-[#171515]">
+          {/* Bottom Section: 3-Column Equal Grid of Poster Explorations (TITLES ALWAYS ABOVE IMAGES) */}
+          <div className="detail-major-section-block">
             <h2 className="font-heading font-extrabold text-xl uppercase tracking-tight text-[#171515] mb-8 flex items-center gap-3">
-              <span className="w-3 h-3 bg-[#E96F98] border border-[#171515] inline-block"></span>
+              <span className="w-3.5 h-3.5 bg-[#E96F98] border border-[#171515] inline-block"></span>
               POSTER EXPLORATIONS
             </h2>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-              {/* Poster 1 */}
-              <div className="flex flex-col gap-2 items-center w-full">
-                <div className="border-1.5 border-[#171515] bg-[#FAF4EB] p-1 shadow-sm">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+              {/* Poster 1 — Title ABOVE image */}
+              <div className="flex flex-col gap-2.5 items-center w-full">
+                <p className="text-xs font-mono font-bold text-[#171515] uppercase tracking-wider mb-0.5 text-center">
+                  DON'T WORRY DARLING
+                </p>
+                <div className="border-1.5 border-[#171515] bg-[#FAF4EB] p-1 shadow-sm w-full">
                   <img 
                     src={getAssetPath('images/assignments/movie-posters/poster-03-sometimes.jpg')} 
                     alt="Don't Worry Darling Poster"
                     className="movie-poster-gallery-img"
                   />
                 </div>
-                <p className="text-xs font-mono font-bold text-[#171515] uppercase tracking-wider mt-1">
-                  DON'T WORRY DARLING
-                </p>
               </div>
 
-              {/* Poster 2 */}
-              <div className="flex flex-col gap-2 items-center w-full">
-                <div className="border-1.5 border-[#171515] bg-[#FAF4EB] p-1 shadow-sm">
+              {/* Poster 2 — Title ABOVE image */}
+              <div className="flex flex-col gap-2.5 items-center w-full">
+                <p className="text-xs font-mono font-bold text-[#171515] uppercase tracking-wider mb-0.5 text-center">
+                  INSIDE OUT
+                </p>
+                <div className="border-1.5 border-[#171515] bg-[#FAF4EB] p-1 shadow-sm w-full">
                   <img 
                     src={getAssetPath('images/assignments/movie-posters/poster-01-fleur.png')} 
                     alt="Inside Out Poster"
                     className="movie-poster-gallery-img"
                   />
                 </div>
-                <p className="text-xs font-mono font-bold text-[#171515] uppercase tracking-wider mt-1">
-                  INSIDE OUT
-                </p>
               </div>
 
-              {/* Poster 3 */}
-              <div className="flex flex-col gap-2 items-center w-full">
-                <div className="border-1.5 border-[#171515] bg-[#FAF4EB] p-1 shadow-sm">
+              {/* Poster 3 — Title ABOVE image */}
+              <div className="flex flex-col gap-2.5 items-center w-full">
+                <p className="text-xs font-mono font-bold text-[#171515] uppercase tracking-wider mb-0.5 text-center">
+                  LA LA LAND
+                </p>
+                <div className="border-1.5 border-[#171515] bg-[#FAF4EB] p-1 shadow-sm w-full">
                   <img 
                     src={getAssetPath('images/assignments/movie-posters/poster-02-matcha.png')} 
                     alt="La La Land Poster"
                     className="movie-poster-gallery-img"
                   />
                 </div>
-                <p className="text-xs font-mono font-bold text-[#171515] uppercase tracking-wider mt-1">
-                  LA LA LAND
-                </p>
               </div>
             </div>
           </div>
@@ -265,61 +253,46 @@ export default function ProjectDetail() {
            5. SPECIAL CUSTOM CASE STUDY FOR CACTUS (02)
            ========================================================================= */
         <div>
-          {/* Centered Dominant Hero Image (~85–90% Content Width) */}
-          <div className="my-10 flex justify-center w-full">
-            <div 
-              className="w-full md:w-[88%] border-1.5 border-[#171515] bg-[#FAF4EB] p-1 shadow-sm flex items-center justify-center"
-              style={{ height: 'calc(100vh - 220px)', maxHeight: 'calc(100vh - 220px)' }}
-            >
-              <img 
-                src={getAssetPath('images/assignments/cactus/cactus-site.png')} 
-                alt="Cactus Sustainable Clothing Website Concept Hero"
-                className="cactus-hero-85-img"
-                style={{ width: '100%', height: '100%', maxHeight: 'calc(100vh - 220px)', objectFit: 'contain' }}
-              />
-            </div>
-          </div>
-
-          {/* Project Information Case Study */}
-          <div className="flex flex-col gap-6 my-10 max-w-3xl">
-            <div className="border-l-3 border-[#171515] pl-5">
-              <h2 className="font-heading font-bold text-xs uppercase tracking-widest text-[#171515] mb-1.5">
+          {/* Project Information Case Study (No top hero image; moves up naturally) */}
+          <div className="flex flex-col gap-8 max-w-3xl my-6">
+            <div className="border-l-3 border-[#171515] pl-6 py-1">
+              <h2 className="exp-about-heading font-heading font-bold text-xs uppercase tracking-widest text-[#171515]">
                 ABOUT THE PROJECT
               </h2>
-              <p className="font-body text-sm text-[#171515] leading-relaxed">
+              <p className="exp-about-paragraph font-body text-base text-[#171515]">
                 {project.about}
               </p>
             </div>
 
-            <div className="border-l-3 border-[#171515] pl-5">
-              <h2 className="font-heading font-bold text-xs uppercase tracking-widest text-[#171515] mb-1.5">
+            <div className="border-l-3 border-[#171515] pl-6 py-1">
+              <h2 className="exp-about-heading font-heading font-bold text-xs uppercase tracking-widest text-[#171515]">
                 THE IDEA
               </h2>
-              <p className="font-body text-sm text-[#171515] leading-relaxed">
+              <p className="exp-about-paragraph font-body text-base text-[#171515]">
                 {project.idea}
               </p>
             </div>
 
-            <div className="border-l-3 border-[#171515] pl-5">
-              <h2 className="font-heading font-bold text-xs uppercase tracking-widest text-[#171515] mb-1.5">
+            <div className="border-l-3 border-[#171515] pl-6 py-1">
+              <h2 className="exp-about-heading font-heading font-bold text-xs uppercase tracking-widest text-[#171515]">
                 PROCESS & BRAND SYSTEM
               </h2>
-              <p className="font-body text-sm text-[#171515] leading-relaxed">
+              <p className="exp-about-paragraph font-body text-base text-[#171515]">
                 {project.process}
               </p>
             </div>
 
-            <div className="border-l-3 border-[#171515] pl-5">
-              <h2 className="font-heading font-bold text-xs uppercase tracking-widest text-[#171515] mb-1.5">
+            <div className="border-l-3 border-[#171515] pl-6 py-1">
+              <h2 className="exp-about-heading font-heading font-bold text-xs uppercase tracking-widest text-[#171515]">
                 MY CONTRIBUTION
               </h2>
-              <p className="font-body text-sm text-[#171515] leading-relaxed">
+              <p className="exp-about-paragraph font-body text-base text-[#171515]">
                 {project.contribution}
               </p>
             </div>
 
-            <div className="border-l-3 border-[#171515] pl-5">
-              <h2 className="font-heading font-bold text-xs uppercase tracking-widest text-[#171515] mb-2">
+            <div className="border-l-3 border-[#171515] pl-6 py-1">
+              <h2 className="font-heading font-bold text-xs uppercase tracking-widest text-[#171515] mb-3">
                 TOOLS USED
               </h2>
               <div className="flex flex-wrap gap-2">
@@ -332,7 +305,7 @@ export default function ProjectDetail() {
             </div>
           </div>
 
-          {/* Project Deliverables Gallery */}
+          {/* Project Deliverables Gallery (Titles ABOVE images) */}
           <ProjectGallery items={cactusGalleryDeliverables} title="BRAND SYSTEM & DELIVERABLES" imgClassName="cactus-gallery-img" />
         </div>
       ) : project.id === 'photo-essay' ? (
@@ -341,27 +314,27 @@ export default function ProjectDetail() {
            ========================================================================= */
         <div>
           {/* Project Overview */}
-          <div className="flex flex-col gap-6 my-8 max-w-3xl">
-            <div className="border-l-3 border-[#171515] pl-5">
-              <h2 className="font-heading font-bold text-xs uppercase tracking-widest text-[#171515] mb-1.5">
+          <div className="flex flex-col gap-8 max-w-3xl my-6">
+            <div className="border-l-3 border-[#171515] pl-6 py-1">
+              <h2 className="exp-about-heading font-heading font-bold text-xs uppercase tracking-widest text-[#171515]">
                 ABOUT THE ESSAY
               </h2>
-              <p className="font-body text-sm text-[#171515] leading-relaxed">
+              <p className="exp-about-paragraph font-body text-base text-[#171515]">
                 {project.about}
               </p>
             </div>
 
-            <div className="border-l-3 border-[#171515] pl-5">
-              <h2 className="font-heading font-bold text-xs uppercase tracking-widest text-[#171515] mb-1.5">
+            <div className="border-l-3 border-[#171515] pl-6 py-1">
+              <h2 className="exp-about-heading font-heading font-bold text-xs uppercase tracking-widest text-[#171515]">
                 THE CONCEPT
               </h2>
-              <p className="font-body text-sm text-[#171515] leading-relaxed">
+              <p className="exp-about-paragraph font-body text-base text-[#171515]">
                 {project.idea}
               </p>
             </div>
 
-            <div className="border-l-3 border-[#171515] pl-5">
-              <h2 className="font-heading font-bold text-xs uppercase tracking-widest text-[#171515] mb-2">
+            <div className="border-l-3 border-[#171515] pl-6 py-1">
+              <h2 className="font-heading font-bold text-xs uppercase tracking-widest text-[#171515] mb-3">
                 TOOLS USED
               </h2>
               <div className="flex flex-wrap gap-2">
@@ -374,16 +347,23 @@ export default function ProjectDetail() {
             </div>
           </div>
 
-          {/* Interactive Carousel Viewer */}
-          <div className="my-10 pt-8 border-t-1.5 border-[#171515]">
-            <div className="flex items-center justify-between mb-6">
+          {/* Interactive Carousel Viewer (Title/Caption ALWAYS ABOVE image) */}
+          <div className="detail-major-section-block">
+            <div className="flex items-center justify-between mb-4">
               <h2 className="font-heading font-extrabold text-xl uppercase tracking-tight text-[#171515] flex items-center gap-3">
-                <span className="w-3 h-3 bg-[#E96F98] border border-[#171515] inline-block"></span>
+                <span className="w-3.5 h-3.5 bg-[#E96F98] border border-[#171515] inline-block"></span>
                 PHOTO SEQUENTIAL GALLERY
               </h2>
               <span className="font-mono text-xs font-bold text-[#57534E]">
                 {photoIndex + 1} / {photoEssayDeliverables.length}
               </span>
+            </div>
+
+            {/* Caption Bar ALWAYS rendered ABOVE the carousel frame */}
+            <div className="w-full mb-3 pb-2 border-b border-[#171515]/20 text-center px-2">
+              <p className="font-mono text-xs font-bold text-[#171515] uppercase tracking-wider">
+                {photoEssayDeliverables[photoIndex].alt}
+              </p>
             </div>
 
             {/* Active Photograph Flex Carousel: Left Arrow + Image + Right Arrow */}
@@ -412,13 +392,6 @@ export default function ProjectDetail() {
                 →
               </button>
             </div>
-
-            {/* Caption Bar */}
-            <div className="w-full mt-3 pt-3 border-t border-[#171515]/20 text-center px-2">
-              <p className="font-mono text-xs font-bold text-[#171515] uppercase tracking-wider">
-                {photoEssayDeliverables[photoIndex].alt}
-              </p>
-            </div>
           </div>
         </div>
       ) : project.id === 'pygame' ? (
@@ -426,27 +399,27 @@ export default function ProjectDetail() {
            7. SPECIAL CUSTOM CASE STUDY FOR PYGAME (04)
            ========================================================================= */
         <div>
-          <div className="flex flex-col gap-6 my-8 max-w-3xl">
-            <div className="border-l-3 border-[#171515] pl-5">
-              <h2 className="font-heading font-bold text-xs uppercase tracking-widest text-[#171515] mb-1.5">
+          <div className="flex flex-col gap-8 max-w-3xl my-6">
+            <div className="border-l-3 border-[#171515] pl-6 py-1">
+              <h2 className="exp-about-heading font-heading font-bold text-xs uppercase tracking-widest text-[#171515]">
                 ABOUT THE GAME
               </h2>
-              <p className="font-body text-sm text-[#171515] leading-relaxed">
+              <p className="exp-about-paragraph font-body text-base text-[#171515]">
                 {project.about}
               </p>
             </div>
 
-            <div className="border-l-3 border-[#171515] pl-5">
-              <h2 className="font-heading font-bold text-xs uppercase tracking-widest text-[#171515] mb-1.5">
+            <div className="border-l-3 border-[#171515] pl-6 py-1">
+              <h2 className="exp-about-heading font-heading font-bold text-xs uppercase tracking-widest text-[#171515]">
                 GAMEPLAY MECHANICS
               </h2>
-              <p className="font-body text-sm text-[#171515] leading-relaxed">
+              <p className="exp-about-paragraph font-body text-base text-[#171515]">
                 {project.idea}
               </p>
             </div>
 
-            <div className="border-l-3 border-[#171515] pl-5">
-              <h2 className="font-heading font-bold text-xs uppercase tracking-widest text-[#171515] mb-2">
+            <div className="border-l-3 border-[#171515] pl-6 py-1">
+              <h2 className="font-heading font-bold text-xs uppercase tracking-widest text-[#171515] mb-3">
                 TOOLS & LANGUAGE
               </h2>
               <div className="flex flex-wrap gap-2">
@@ -460,9 +433,9 @@ export default function ProjectDetail() {
           </div>
 
           {/* Real Playable Sky Hopper Arcade Game Embed */}
-          <div className="my-10 pt-8 border-t-1.5 border-[#171515]">
+          <div className="detail-major-section-block">
             <h2 className="font-heading font-extrabold text-xl uppercase tracking-tight text-[#171515] mb-6 flex items-center gap-3">
-              <span className="w-3 h-3 bg-[#E96F98] border border-[#171515] inline-block"></span>
+              <span className="w-3.5 h-3.5 bg-[#E96F98] border border-[#171515] inline-block"></span>
               PLAY THE GAME
             </h2>
 
@@ -483,36 +456,36 @@ export default function ProjectDetail() {
            8. SPECIAL CUSTOM CASE STUDY FOR CHARACTER DESIGN (05)
            ========================================================================= */
         <div>
-          <div className="flex flex-col gap-6 my-8 max-w-3xl">
-            <div className="border-l-3 border-[#171515] pl-5">
-              <h2 className="font-heading font-bold text-xs uppercase tracking-widest text-[#171515] mb-1.5">
+          <div className="flex flex-col gap-8 max-w-3xl my-6">
+            <div className="border-l-3 border-[#171515] pl-6 py-1">
+              <h2 className="exp-about-heading font-heading font-bold text-xs uppercase tracking-widest text-[#171515]">
                 ABOUT LEO
               </h2>
-              <p className="font-body text-sm text-[#171515] leading-relaxed">
+              <p className="exp-about-paragraph font-body text-base text-[#171515]">
                 {project.about}
               </p>
             </div>
 
-            <div className="border-l-3 border-[#171515] pl-5">
-              <h2 className="font-heading font-bold text-xs uppercase tracking-widest text-[#171515] mb-1.5">
+            <div className="border-l-3 border-[#171515] pl-6 py-1">
+              <h2 className="exp-about-heading font-heading font-bold text-xs uppercase tracking-widest text-[#171515]">
                 CHARACTER CONCEPT
               </h2>
-              <p className="font-body text-sm text-[#171515] leading-relaxed">
+              <p className="exp-about-paragraph font-body text-base text-[#171515]">
                 {project.idea}
               </p>
             </div>
 
-            <div className="border-l-3 border-[#171515] pl-5">
-              <h2 className="font-heading font-bold text-xs uppercase tracking-widest text-[#171515] mb-1.5">
+            <div className="border-l-3 border-[#171515] pl-6 py-1">
+              <h2 className="exp-about-heading font-heading font-bold text-xs uppercase tracking-widest text-[#171515]">
                 DESIGN PROCESS
               </h2>
-              <p className="font-body text-sm text-[#171515] leading-relaxed">
+              <p className="exp-about-paragraph font-body text-base text-[#171515]">
                 {project.process}
               </p>
             </div>
 
-            <div className="border-l-3 border-[#171515] pl-5">
-              <h2 className="font-heading font-bold text-xs uppercase tracking-widest text-[#171515] mb-2">
+            <div className="border-l-3 border-[#171515] pl-6 py-1">
+              <h2 className="font-heading font-bold text-xs uppercase tracking-widest text-[#171515] mb-3">
                 TOOLS USED
               </h2>
               <div className="flex flex-wrap gap-2">
@@ -522,14 +495,17 @@ export default function ProjectDetail() {
             </div>
           </div>
 
-          {/* FINAL WORK — Centered Full Leo Character Sheet (MAX 600PX WIDE) */}
-          <div className="my-12 pt-8 border-t-1.5 border-[#171515]">
+          {/* FINAL WORK — Centered Full Leo Character Sheet (Title ALWAYS ABOVE image) */}
+          <div className="detail-major-section-block">
             <h2 className="font-heading font-extrabold text-xl uppercase tracking-tight text-[#171515] mb-8 flex items-center gap-3">
-              <span className="w-3 h-3 bg-[#E96F98] border border-[#171515] inline-block"></span>
+              <span className="w-3.5 h-3.5 bg-[#E96F98] border border-[#171515] inline-block"></span>
               FINAL WORK
             </h2>
 
-            <div className="flex justify-center w-full my-6">
+            <div className="flex flex-col items-center justify-center w-full my-4 gap-2.5">
+              <p className="text-xs font-mono font-bold text-[#171515] uppercase tracking-wider text-center">
+                LEO THE OVERTHINKING LEOPARD — CHARACTER DESIGN SHEET
+              </p>
               <div className="border-1.5 border-[#171515] bg-[#FAF4EB] p-1 shadow-sm">
                 <img 
                   src={getAssetPath('images/assignments/character-design/leo-character-sheet.jpg')} 
@@ -545,27 +521,27 @@ export default function ProjectDetail() {
            9. SPECIAL CUSTOM CASE STUDY FOR OTHERS (06)
            ========================================================================= */
         <div>
-          <div className="flex flex-col gap-6 my-8 max-w-3xl">
-            <div className="border-l-3 border-[#171515] pl-5">
-              <h2 className="font-heading font-bold text-xs uppercase tracking-widest text-[#171515] mb-1.5">
+          <div className="flex flex-col gap-8 max-w-3xl my-6">
+            <div className="border-l-3 border-[#171515] pl-6 py-1">
+              <h2 className="exp-about-heading font-heading font-bold text-xs uppercase tracking-widest text-[#171515]">
                 ABOUT THIS COLLECTION
               </h2>
-              <p className="font-body text-sm text-[#171515] leading-relaxed">
+              <p className="exp-about-paragraph font-body text-base text-[#171515]">
                 {project.about}
               </p>
             </div>
 
-            <div className="border-l-3 border-[#171515] pl-5">
-              <h2 className="font-heading font-bold text-xs uppercase tracking-widest text-[#171515] mb-1.5">
+            <div className="border-l-3 border-[#171515] pl-6 py-1">
+              <h2 className="exp-about-heading font-heading font-bold text-xs uppercase tracking-widest text-[#171515]">
                 CREATIVE EXPLORATION
               </h2>
-              <p className="font-body text-sm text-[#171515] leading-relaxed">
+              <p className="exp-about-paragraph font-body text-base text-[#171515]">
                 {project.idea}
               </p>
             </div>
 
-            <div className="border-l-3 border-[#171515] pl-5">
-              <h2 className="font-heading font-bold text-xs uppercase tracking-widest text-[#171515] mb-2">
+            <div className="border-l-3 border-[#171515] pl-6 py-1">
+              <h2 className="font-heading font-bold text-xs uppercase tracking-widest text-[#171515] mb-3">
                 TOOLS USED
               </h2>
               <div className="flex flex-wrap gap-2">
@@ -578,16 +554,21 @@ export default function ProjectDetail() {
             </div>
           </div>
 
-          {/* Deliverables Section */}
-          <div className="my-12 pt-8 border-t-1.5 border-[#171515]">
+          {/* Deliverables Section (Titles ALWAYS rendered ABOVE images) */}
+          <div className="detail-major-section-block">
             <h2 className="font-heading font-extrabold text-xl uppercase tracking-tight text-[#171515] mb-8 flex items-center gap-3">
-              <span className="w-3 h-3 bg-[#E96F98] border border-[#171515] inline-block"></span>
+              <span className="w-3.5 h-3.5 bg-[#E96F98] border border-[#171515] inline-block"></span>
               EDITORIAL & TYPOGRAPHY EXPLORATIONS
             </h2>
 
-            <div className="flex flex-col gap-12">
-              {/* Item 1: Magazine Spread (Horizontal 2-Page Spread) */}
+            <div className="flex flex-col gap-14">
+              {/* Item 1: Magazine Spread (Title ABOVE image) */}
               <div className="flex flex-col gap-3 items-center">
+                <div className="pb-1 border-b-1.5 border-[#171515] w-full max-w-[580px]">
+                  <p className="text-xs font-mono font-bold text-[#171515] uppercase tracking-wider">
+                    EDITORIAL DESIGN — 2-PAGE MAGAZINE SPREAD
+                  </p>
+                </div>
                 <div className="border-1.5 border-[#171515] bg-[#FAF4EB] p-3 shadow-sm flex justify-center items-center w-full max-w-[580px]">
                   <div className="magazine-spread-container">
                     <img 
@@ -602,13 +583,15 @@ export default function ProjectDetail() {
                     />
                   </div>
                 </div>
-                <p className="text-xs font-mono font-bold text-[#171515] uppercase tracking-wider">
-                  EDITORIAL DESIGN — 2-PAGE MAGAZINE SPREAD
-                </p>
               </div>
 
-              {/* Item 2: Standalone Quote Typography Poster */}
+              {/* Item 2: Standalone Quote Typography Poster (Title ABOVE image) */}
               <div className="flex flex-col gap-3 items-center">
+                <div className="pb-1 border-b-1.5 border-[#171515] w-full max-w-[420px]">
+                  <p className="text-xs font-mono font-bold text-[#171515] uppercase tracking-wider">
+                    TYPOGRAPHY EXPLORATION — QUOTE POSTER
+                  </p>
+                </div>
                 <div className="border-1.5 border-[#171515] bg-[#FAF4EB] p-1.5 shadow-sm">
                   <img 
                     src={getAssetPath('images/assignments/others/quote-typography.png')} 
@@ -616,13 +599,15 @@ export default function ProjectDetail() {
                     className="others-standalone-img"
                   />
                 </div>
-                <p className="text-xs font-mono font-bold text-[#171515] uppercase tracking-wider">
-                  TYPOGRAPHY EXPLORATION — QUOTE POSTER
-                </p>
               </div>
 
-              {/* Item 3: Standalone Matcha Typography Poster */}
+              {/* Item 3: Standalone Matcha Typography Poster (Title ABOVE image) */}
               <div className="flex flex-col gap-3 items-center">
+                <div className="pb-1 border-b-1.5 border-[#171515] w-full max-w-[420px]">
+                  <p className="text-xs font-mono font-bold text-[#171515] uppercase tracking-wider">
+                    TYPOGRAPHY EXPLORATION — MATCHA POSTER
+                  </p>
+                </div>
                 <div className="border-1.5 border-[#171515] bg-[#FAF4EB] p-1.5 shadow-sm">
                   <img 
                     src={getAssetPath('images/assignments/others/matcha-typography.png')} 
@@ -630,13 +615,15 @@ export default function ProjectDetail() {
                     className="others-standalone-img"
                   />
                 </div>
-                <p className="text-xs font-mono font-bold text-[#171515] uppercase tracking-wider">
-                  TYPOGRAPHY EXPLORATION — MATCHA POSTER
-                </p>
               </div>
 
-              {/* Item 4: Standalone Fleur Magazine Cover */}
+              {/* Item 4: Standalone Fleur Magazine Cover (Title ABOVE image) */}
               <div className="flex flex-col gap-3 items-center">
+                <div className="pb-1 border-b-1.5 border-[#171515] w-full max-w-[420px]">
+                  <p className="text-xs font-mono font-bold text-[#171515] uppercase tracking-wider">
+                    EDITORIAL DESIGN — FLEUR MAGAZINE COVER
+                  </p>
+                </div>
                 <div className="border-1.5 border-[#171515] bg-[#FAF4EB] p-1.5 shadow-sm">
                   <img 
                     src={getAssetPath('images/assignments/others/magazine-cover.png')} 
@@ -644,9 +631,6 @@ export default function ProjectDetail() {
                     className="others-standalone-img"
                   />
                 </div>
-                <p className="text-xs font-mono font-bold text-[#171515] uppercase tracking-wider">
-                  EDITORIAL DESIGN — FLEUR MAGAZINE COVER
-                </p>
               </div>
             </div>
           </div>
