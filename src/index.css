@@ -343,7 +343,7 @@ p {
 /* Hero Hand-Drawn Doodle Garden Container */
 .hero-doodle-garden-container {
   position: absolute;
-  bottom: 0;
+  bottom: 10px; /* Lifted slightly higher above bottom horizontal line on desktop */
   left: 0;
   right: 0;
   width: 100%;
@@ -356,8 +356,38 @@ p {
 
 @media (max-width: 639px) {
   .hero-doodle-garden-container {
-    height: 105px;
-    max-height: 105px;
+    bottom: 6px;
+    height: 110px;
+    max-height: 110px;
+  }
+
+  /* Mobile Responsive Hero Content Scaling & Spacing (Hero Page Only) */
+  .hero-section {
+    padding-top: 4.5rem !important;
+    padding-bottom: 3rem !important;
+  }
+
+  .hero-content-col {
+    gap: 1.5rem !important;
+  }
+
+  .hero-section .badge-eyebrow-pink {
+    font-size: 0.825rem !important;
+    padding: 0.4rem 0.85rem !important;
+  }
+
+  /* Mobile Hero Title: Wraps MUGDHA PATNAIK into two prominent lines on Hero page only */
+  .hero-section .hero-heading {
+    white-space: normal !important;
+    word-break: break-word !important;
+    font-size: clamp(3.2rem, 13.5vw, 4.4rem) !important;
+    line-height: 0.98 !important;
+    letter-spacing: -0.035em !important;
+  }
+
+  .hero-section .hero-sub-text {
+    font-size: 1.05rem !important;
+    line-height: 1.6 !important;
   }
 }
 
@@ -475,16 +505,6 @@ p {
 
 .butterfly-group-mobile-2 {
   animation: butterflyFloatMobile2 8.5s ease-in-out infinite;
-}
-
-/* Mobile Responsive Hero Heading Wrapping */
-@media (max-width: 639px) {
-  .hero-heading {
-    white-space: normal !important;
-    word-break: break-word !important;
-    font-size: clamp(2.4rem, 10vw, 3.4rem) !important;
-    line-height: 1.05 !important;
-  }
 }
 
 /* Assignments Horizontal Scrollable Row — Equal Card Heights & Alignment */
