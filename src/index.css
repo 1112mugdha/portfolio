@@ -384,19 +384,19 @@ p {
 }
 
 @keyframes wingFlutterLeft {
-  0%, 100% {
+  0% {
     transform: scaleX(1);
   }
-  50% {
+  100% {
     transform: scaleX(0.25);
   }
 }
 
 @keyframes wingFlutterRight {
-  0%, 100% {
+  0% {
     transform: scaleX(1);
   }
-  50% {
+  100% {
     transform: scaleX(0.25);
   }
 }
@@ -409,24 +409,22 @@ p {
   animation: butterflyFloat2 9s ease-in-out infinite;
 }
 
-.butterfly-wing-left {
-  transform-origin: center center;
-  animation: wingFlutterLeft 0.35s ease-in-out infinite;
+.butterfly-wing-l {
+  transform-origin: 0px -1px;
+  animation: wingFlutterLeft 0.35s ease-in-out infinite alternate;
 }
 
-.butterfly-wing-right {
-  transform-origin: center center;
-  animation: wingFlutterRight 0.35s ease-in-out infinite;
+.butterfly-wing-r {
+  transform-origin: 0px -1px;
+  animation: wingFlutterRight 0.35s ease-in-out infinite alternate;
 }
 
 /* Respect user's preferred reduced motion setting */
 @media (prefers-reduced-motion: reduce) {
   .butterfly-group-1,
   .butterfly-group-2,
-  .butterfly-group-mobile-1,
-  .butterfly-group-mobile-2,
-  .butterfly-wing-left,
-  .butterfly-wing-right {
+  .butterfly-wing-l,
+  .butterfly-wing-r {
     animation: none !important;
   }
 }
