@@ -133,7 +133,7 @@ export default function ExperienceDetail() {
       ]} />
 
       {/* Back Link */}
-      <div className="mt-1 mb-6">
+      <div className="mt-3 mb-8 sm:mb-10">
         <Link 
           to="/experience" 
           className="inline-flex items-center gap-2 font-heading font-bold text-xs uppercase tracking-widest text-[#171515] hover:text-[#E96F98] transition-colors"
@@ -143,41 +143,44 @@ export default function ExperienceDetail() {
       </div>
 
       {/* Experience Header */}
-      <div className="border-b-1.5 border-[#171515] pb-6 mb-8">
-        <div className="flex flex-wrap items-center gap-3 mb-3">
-          <span className="font-mono text-xs font-bold bg-[#D7F23A] text-[#171515] px-2.5 py-1 border border-[#171515]">
+      <div className="border-b-1.5 border-[#171515] pb-8 mb-12 sm:mb-14">
+        <div className="flex flex-wrap items-center gap-3 mb-5">
+          <span className="font-mono text-xs font-bold bg-[#D7F23A] text-[#171515] px-3 py-1.5 border border-[#171515]">
             EXPERIENCE {exp.number} — {exp.role}
           </span>
         </div>
         
-        <h1 className="font-heading font-extrabold text-4xl sm:text-5xl uppercase tracking-tight text-[#171515] mb-2">
-          {exp.title}
-        </h1>
+        {/* Highlighted Company Name Block */}
+        <div className="inline-block bg-[#E96F98] text-[#171515] px-4 py-2 sm:px-6 sm:py-3 border-1.5 border-[#171515] shadow-[4px_4px_0px_0px_#171515]">
+          <h1 className="font-heading font-extrabold text-3xl sm:text-4xl md:text-5xl uppercase tracking-tight text-[#171515] leading-none">
+            {exp.title}
+          </h1>
+        </div>
       </div>
 
       {/* Content Breakdown */}
-      <div className="flex flex-col gap-8 my-8 max-w-4xl">
+      <div className="flex flex-col gap-12 sm:gap-14 my-10 max-w-4xl">
         
         {/* ABOUT THE ROLE */}
-        <div className="border-l-3 border-[#171515] pl-5">
-          <h2 className="font-heading font-bold text-xs uppercase tracking-widest text-[#171515] mb-2">
+        <div className="border-l-3 border-[#171515] pl-6 py-1">
+          <h2 className="font-heading font-bold text-xs uppercase tracking-widest text-[#171515] mb-4">
             ABOUT THE ROLE
           </h2>
-          <p className="font-body text-sm text-[#171515] leading-relaxed">
+          <p className="font-body text-sm sm:text-base text-[#171515] leading-relaxed sm:leading-[1.8]">
             {exp.about}
           </p>
         </div>
 
         {/* WHAT I DID - Clean Bullet Point List */}
-        <div className="border-l-3 border-[#E96F98] pl-5">
-          <h2 className="font-heading font-bold text-xs uppercase tracking-widest text-[#171515] mb-3">
+        <div className="border-l-3 border-[#E96F98] pl-6 py-1">
+          <h2 className="font-heading font-bold text-xs uppercase tracking-widest text-[#171515] mb-5">
             WHAT I DID
           </h2>
-          <ul className="flex flex-col gap-2 font-body text-sm text-[#57534E]">
+          <ul className="flex flex-col gap-3.5 sm:gap-4 font-body text-sm sm:text-base text-[#57534E]">
             {exp.whatIDid.map((item, idx) => (
-              <li key={idx} className="flex items-start gap-2.5">
+              <li key={idx} className="flex items-start gap-3">
                 <span className="w-1.5 h-1.5 bg-[#171515] rounded-full mt-2 shrink-0" />
-                <span className="leading-relaxed">{item}</span>
+                <span className="leading-relaxed sm:leading-[1.8]">{item}</span>
               </li>
             ))}
           </ul>
@@ -189,20 +192,20 @@ export default function ExperienceDetail() {
          MODI BUILDERS: WORK CREATED SECTION (2-COLUMN COMPACT GRID)
          ========================================================================= */}
       {exp.workCreated && (
-        <div className="my-12 pt-8 border-t-1.5 border-[#171515]">
-          <div className="mb-8">
-            <h2 className="font-heading font-extrabold text-xl uppercase tracking-tight text-[#171515] mb-1.5 flex items-center gap-3">
-              <span className="w-3 h-3 bg-[#E96F98] border border-[#171515] inline-block"></span>
+        <div className="mt-16 sm:mt-20 pt-10 sm:pt-12 border-t-1.5 border-[#171515]">
+          <div className="mb-10 sm:mb-12">
+            <h2 className="font-heading font-extrabold text-xl sm:text-2xl uppercase tracking-tight text-[#171515] mb-3 flex items-center gap-3">
+              <span className="w-3.5 h-3.5 bg-[#E96F98] border border-[#171515] inline-block"></span>
               WORK CREATED
             </h2>
             {exp.workCreatedSubtitle && (
-              <p className="font-body text-sm text-[#57534E] leading-relaxed">
+              <p className="font-body text-sm sm:text-base text-[#57534E] leading-relaxed">
                 {exp.workCreatedSubtitle}
               </p>
             )}
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start justify-items-center">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-10 items-start justify-items-center">
             {exp.workCreated.map((item) => (
               <div key={item.id} className="w-full max-w-[460px] flex flex-col gap-2.5">
                 <div className="pb-1 border-b-1.5 border-[#171515]">
@@ -228,9 +231,9 @@ export default function ExperienceDetail() {
          WHITE VOLUNTEERS FOUNDATION: WORK SECTION (TWO CLICKABLE CARDS)
          ========================================================================= */}
       {exp.folders && (
-        <div className="my-12 pt-8 border-t-1.5 border-[#171515]">
-          <h2 className="font-heading font-extrabold text-xl uppercase tracking-tight text-[#171515] mb-8 flex items-center gap-3">
-            <span className="w-3 h-3 bg-[#E96F98] border border-[#171515] inline-block"></span>
+        <div className="mt-16 sm:mt-20 pt-10 sm:pt-12 border-t-1.5 border-[#171515]">
+          <h2 className="font-heading font-extrabold text-xl sm:text-2xl uppercase tracking-tight text-[#171515] mb-10 sm:mb-12 flex items-center gap-3">
+            <span className="w-3.5 h-3.5 bg-[#E96F98] border border-[#171515] inline-block"></span>
             WORK
           </h2>
 
