@@ -1,14 +1,10 @@
 import React, { Component, useEffect } from 'react';
-import { HashRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route, useLocation, Navigate } from 'react-router-dom';
 import Navbar from './components/layout/Navbar';
 import Footer from './components/layout/Footer';
 import Home from './pages/Home';
-import About from './pages/About';
-import Work from './pages/Work';
 import ProjectDetail from './pages/ProjectDetail';
-import Personal from './pages/Personal';
 import PersonalDetail from './pages/PersonalDetail';
-import Experience from './pages/Experience';
 import ExperienceDetail from './pages/ExperienceDetail';
 import Contact from './pages/Contact';
 
@@ -51,12 +47,24 @@ class ErrorBoundary extends Component {
   }
 }
 
-// Scroll to top helper on route change
+// Scroll handler supporting both route changes and section hash anchors (#assignments, #personal-projects, #experience)
 function ScrollToTop() {
-  const { pathname } = useLocation();
+  const { pathname, hash } = useLocation();
+
   useEffect(() => {
+    if (hash) {
+      const targetId = hash.replace('#', '');
+      const element = document.getElementById(targetId);
+      if (element) {
+        setTimeout(() => {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }, 100);
+        return;
+      }
+    }
     window.scrollTo(0, 0);
-  }, [pathname]);
+  }, [pathname, hash]);
+
   return null;
 }
 
@@ -70,12 +78,12 @@ export default function App() {
           <main className="main-content-area page-container">
             <Routes>
               <Route path="/" element={<Home />} />
-              <Route path="/about" element={<About />} />
-              <Route path="/work" element={<Work />} />
+              <Route path="/about" element={<Navigate to="/#about" replace />} />
+              <Route path="/work" element={<Navigate to="/#assignments" replace />} />
               <Route path="/work/:projectId" element={<ProjectDetail />} />
-              <Route path="/personal" element={<Personal />} />
+              <Route path="/personal" element={<Navigate to="/#personal-projects" replace />} />
               <Route path="/personal/:categoryId" element={<PersonalDetail />} />
-              <Route path="/experience" element={<Experience />} />
+              <Route path="/experience" element={<Navigate to="/#experience" replace />} />
               <Route path="/experience/:id" element={<ExperienceDetail />} />
               <Route path="/experience/:id/:subFolder" element={<ExperienceDetail />} />
               <Route path="/contact" element={<Contact />} />

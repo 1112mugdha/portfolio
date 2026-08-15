@@ -158,14 +158,14 @@ export default function ExperienceDetail() {
       {/* Breadcrumbs */}
       <Breadcrumbs items={[
         { label: 'HOME', path: '/' },
-        { label: 'EXPERIENCE', path: '/experience' },
+        { label: 'EXPERIENCE', path: '/#experience' },
         { label: exp.title }
       ]} />
 
       {/* Back Link (margin-bottom: 28px) */}
       <div className="exp-back-nav mt-3">
         <Link 
-          to="/experience" 
+          to="/#experience" 
           className="inline-flex items-center gap-2 font-heading font-bold text-xs uppercase tracking-widest text-[#171515] hover:text-[#E96F98] transition-colors"
         >
           ← BACK TO EXPERIENCE

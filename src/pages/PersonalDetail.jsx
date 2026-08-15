@@ -43,17 +43,17 @@ export default function PersonalDetail() {
       {/* Breadcrumb */}
       <Breadcrumbs items={[
         { label: 'HOME', path: '/' },
-        { label: 'PERSONAL WORK', path: '/personal' },
+        { label: 'PERSONAL PROJECTS', path: '/#personal-projects' },
         { label: category.title }
       ]} />
 
       {/* Back Link (28px bottom margin) */}
       <div className="detail-back-nav mt-3">
         <Link 
-          to="/personal" 
+          to="/#personal-projects" 
           className="inline-flex items-center gap-2 font-heading font-bold text-xs uppercase tracking-widest text-[#171515] hover:text-[#E96F98] transition-colors"
         >
-          ← BACK TO PERSONAL WORK
+          ← BACK TO PERSONAL PROJECTS
         </Link>
       </div>
 
