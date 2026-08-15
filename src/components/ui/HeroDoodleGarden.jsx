@@ -123,14 +123,14 @@ export default function HeroDoodleGarden() {
   return (
     <div className="hero-doodle-garden-container">
       {/* =========================================================================
-         DESKTOP SVG (Screen Width >= 768px)
+         DESKTOP SVG (Screen Width >= 769px)
          viewBox="0 0 1200 160" — Exactly as approved on desktop.
          ========================================================================= */}
       <svg
         viewBox="0 0 1200 160"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
-        className="hidden md:block w-full h-full pointer-events-none"
+        className="desktop-doodle-svg w-full h-full pointer-events-none"
         preserveAspectRatio="none"
       >
         {/* Ground Baseline Line at Y=160 connecting all stems */}
@@ -183,7 +183,7 @@ export default function HeroDoodleGarden() {
               <path d="M 0 -1 C -6 -7 -10 1 -3 3 C -8 5 -6 11 0 2 Z" stroke="#171515" strokeWidth="1" fill="#E96F98" fillOpacity="0.85" strokeLinejoin="round" />
             </g>
             <g className="butterfly-wing-r">
-              <path d="M 0 -1 C 6 -7 10 1 3 3 C 8 5 6 11 0 2 Z" stroke="#171515" strokeWidth="1" fill="#E96F98" fillOpacity="0.85" strokeLinejoin="round" />
+              <path d="M 0 -1 C -6 -7 -10 1 -3 3 C -8 5 -6 11 0 2 Z" stroke="#171515" strokeWidth="1" fill="#E96F98" fillOpacity="0.85" strokeLinejoin="round" />
             </g>
           </g>
         </g>
@@ -203,15 +203,15 @@ export default function HeroDoodleGarden() {
       </svg>
 
       {/* =========================================================================
-         DEDICATED OPTIMIZED MOBILE SVG (Screen Width < 768px)
+         DEDICATED OPTIMIZED MOBILE SVG (Screen Width <= 768px)
          viewBox="0 0 420 160" — Gives ~95-110px of actual physical flower height on mobile screens!
-         1.7-1.8x larger rendered scale!
+         EXACTLY ONE LARGER FLOWER GARDEN ON MOBILE!
          ========================================================================= */}
       <svg
         viewBox="0 0 420 160"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
-        className="block md:hidden w-full h-full pointer-events-none"
+        className="mobile-doodle-svg w-full h-full pointer-events-none"
         preserveAspectRatio="none"
       >
         <line x1="0" y1="160" x2="420" y2="160" stroke="#171515" strokeWidth="1.5" strokeLinecap="square" />

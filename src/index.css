@@ -354,7 +354,21 @@ p {
   overflow: visible;
 }
 
+.desktop-doodle-svg {
+  display: block !important;
+}
+.mobile-doodle-svg {
+  display: none !important;
+}
+
 @media (max-width: 768px) {
+  .desktop-doodle-svg {
+    display: none !important;
+  }
+  .mobile-doodle-svg {
+    display: block !important;
+  }
+
   .hero-doodle-garden-container {
     position: relative !important;
     bottom: 0 !important;
