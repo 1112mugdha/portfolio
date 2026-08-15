@@ -356,9 +356,9 @@ p {
 
 @media (max-width: 639px) {
   .hero-doodle-garden-container {
-    bottom: 0;
-    height: 145px;
-    max-height: 145px;
+    bottom: 25px;
+    height: 185px;
+    max-height: 185px;
   }
 
   /* Mobile Responsive Hero Content Scaling & Spacing (Hero Page Only) */
