@@ -155,13 +155,6 @@ export default function ExperienceDetail() {
   // =========================================================================
   return (
     <div className="py-6 max-w-5xl mx-auto">
-      {/* Breadcrumbs */}
-      <Breadcrumbs items={[
-        { label: 'HOME', path: '/' },
-        { label: 'EXPERIENCE', path: '/#experience' },
-        { label: exp.title }
-      ]} />
-
       {/* Back Link (margin-bottom: 28px) */}
       <div className="exp-back-nav mt-3">
         <Link 

@@ -40,13 +40,6 @@ export default function PersonalDetail() {
 
   return (
     <div className="py-6 max-w-6xl mx-auto">
-      {/* Breadcrumb */}
-      <Breadcrumbs items={[
-        { label: 'HOME', path: '/' },
-        { label: 'PERSONAL PROJECTS', path: '/#personal-projects' },
-        { label: category.title }
-      ]} />
-
       {/* Back Link (28px bottom margin) */}
       <div className="detail-back-nav mt-3">
         <Link 

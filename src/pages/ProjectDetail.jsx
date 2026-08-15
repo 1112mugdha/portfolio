@@ -111,12 +111,9 @@ export default function ProjectDetail() {
 
   return (
     <div className="py-6 max-w-4xl mx-auto">
-      {/* 1. Subtle Editorial Breadcrumb */}
-      <Breadcrumbs items={[{ label: 'HOME', path: '/' }, { label: 'ASSIGNMENTS', path: '/#assignments' }, { label: project.title }]} />
-
-      {/* 2. Top Header Navigation (Back to Assignments Only) (28px bottom margin) */}
+      {/* Top Header Navigation (Back to Assignments Only) */}
       <div className="detail-back-nav flex items-center justify-between py-3 border-b-1.5 border-[#171515]">
-        <Link to="/#assignments" className="inline-flex items-center gap-2 text-xs font-mono font-bold text-[#171515] uppercase tracking-wider hover:opacity-75 transition-opacity">
+        <Link to="/#assignments" className="inline-flex items-center gap-2 font-heading font-bold text-xs text-[#171515] uppercase tracking-wider hover:text-[#E96F98] transition-colors">
           <span>←</span>
           <span>BACK TO ASSIGNMENTS</span>
         </Link>
