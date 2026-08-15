@@ -337,11 +337,12 @@ p {
   max-width: 800px;
 }
 
-/* Assignments Horizontal Scrollable Row */
+/* Assignments Horizontal Scrollable Row — Equal Card Heights & Alignment */
 .assignments-horizontal-scroll {
   display: flex !important;
   flex-direction: row !important;
   flex-wrap: nowrap !important;
+  align-items: stretch !important;
   overflow-x: auto !important;
   overflow-y: hidden !important;
   gap: 1.5rem !important;
@@ -370,6 +371,9 @@ p {
   width: 310px !important;
   min-width: 310px !important;
   max-width: 310px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  height: 100% !important;
 }
 
 @media (min-width: 640px) {
@@ -379,6 +383,34 @@ p {
     min-width: 350px !important;
     max-width: 350px !important;
   }
+}
+
+.assignments-horizontal-scroll .folder-card-box {
+  height: 270px !important;
+  min-height: 270px !important;
+  max-height: 270px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+}
+
+.assignments-horizontal-scroll .folder-card-content-area {
+  flex: 1 1 auto !important;
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+.assignments-horizontal-scroll .folder-role-text {
+  display: -webkit-box !important;
+  -webkit-line-clamp: 3 !important;
+  -webkit-box-orient: vertical !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  margin-top: 0.35rem !important;
+}
+
+.assignments-horizontal-scroll .folder-action-bar {
+  margin-top: auto !important;
 }
 
 .hero-heading {

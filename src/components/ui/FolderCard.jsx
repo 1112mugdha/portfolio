@@ -23,8 +23,8 @@ export default function FolderCard({
           <span>{tabLabel || `${number} — FOLDER`}</span>
         </div>
 
-        {/* Content */}
-        <div>
+        {/* Content Area */}
+        <div className="folder-card-content-area">
           {category && (
             <span className="badge-category" style={{ backgroundColor: '#171515', color: '#F7F3EA' }}>
               {category}
