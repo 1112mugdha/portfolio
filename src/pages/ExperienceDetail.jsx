@@ -1,17 +1,17 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useParams, Link, Navigate } from 'react-router-dom';
-import Breadcrumbs from '../components/ui/Breadcrumbs';
 import FolderCard from '../components/ui/FolderCard';
 import ImagePlaceholder from '../components/ui/ImagePlaceholder';
 import { experienceData } from '../data/experience';
+import { useLightbox } from '../context/LightboxContext';
 
 export default function ExperienceDetail() {
   const { id, subFolder } = useParams();
-  const [lightboxImage, setLightboxImage] = useState(null);
+  const { openLightbox } = useLightbox();
   
   const exp = experienceData.find(e => e.id === id);
   if (!exp) {
-    return <Navigate to="/experience" replace />;
+    return <Navigate to="/#experience" replace />;
   }
 
   const currentIndex = experienceData.findIndex(e => e.id === id);
@@ -34,37 +34,6 @@ export default function ExperienceDetail() {
 
     return (
       <div className="py-6 max-w-5xl mx-auto">
-        {/* Lightbox Modal for Full Image View (Creatives & Outreach) */}
-        {lightboxImage && (
-          <div 
-            className="fixed inset-0 z-50 bg-[#171515]/90 backdrop-blur-sm flex flex-col items-center justify-center p-4 sm:p-6"
-            onClick={() => setLightboxImage(null)}
-          >
-            <div className="relative max-w-5xl max-h-[90vh] flex flex-col items-center gap-3" onClick={(e) => e.stopPropagation()}>
-              <button 
-                onClick={() => setLightboxImage(null)}
-                className="self-end bg-[#E96F98] text-[#171515] hover:bg-[#D7F23A] transition-colors py-1.5 px-3 font-heading font-bold text-xs uppercase tracking-wider border border-[#171515] cursor-pointer"
-              >
-                ✕ CLOSE PREVIEW
-              </button>
-
-              <div className="border-1.5 border-[#171515] bg-[#FAF4EB] p-2 shadow-2xl overflow-hidden">
-                <img 
-                  src={lightboxImage.image} 
-                  alt={lightboxImage.title || 'Outreach Photograph'} 
-                  className="max-h-[80vh] w-auto max-w-[90vw] object-contain block mx-auto"
-                />
-              </div>
-
-              {isCreatives && lightboxImage.title && (
-                <p className="font-heading font-extrabold text-xs uppercase tracking-wider text-[#F7F3EA] bg-[#171515] px-3 py-1 border border-[#F7F3EA]/30">
-                  {lightboxImage.title}
-                </p>
-              )}
-            </div>
-          </div>
-        )}
-
         {/* Back Link */}
         <div className="mt-1 mb-6">
           <Link 
@@ -82,13 +51,13 @@ export default function ExperienceDetail() {
           </h1>
         </div>
 
-        {/* Compact 2-Column Grid Gallery (2 photos/posters on desktop, 1 on mobile) */}
+        {/* Compact 2-Column Grid Gallery */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-10 my-6 justify-items-center">
           {currentItems.map((item, idx) => (
             <div 
               key={item.id || idx} 
               className={`w-full ${isOutreach ? 'max-w-[340px]' : 'max-w-[380px]'} flex flex-col gap-2 group cursor-pointer`}
-              onClick={() => setLightboxImage(item)}
+              onClick={() => openLightbox(item.image, item.title || (isCreatives ? 'Creatives Designed' : 'Outreach Photograph'))}
             >
               {/* Creatives Designed shows title; Outreach Visits has NO title, caption, or text */}
               {isCreatives && item.title && (
@@ -174,7 +143,7 @@ export default function ExperienceDetail() {
           </span>
         </div>
         
-        {/* Highlighted Company Name Label (padding: 10px 16px, margin-bottom: 40px, bg: #D7F23A LIME) */}
+        {/* Highlighted Company Name Label */}
         <div className="exp-company-highlight-container">
           <h1 className="exp-company-name-text">
             {exp.title}
@@ -185,25 +154,21 @@ export default function ExperienceDetail() {
       {/* Content Breakdown */}
       <div className="max-w-4xl">
         
-        {/* ABOUT THE ROLE (margin-bottom: 40px) */}
+        {/* ABOUT THE ROLE */}
         <div className="exp-about-block border-l-3 border-[#171515] pl-6 py-1">
-          {/* Heading (margin-bottom: 32px) */}
           <h2 className="exp-about-heading font-heading font-bold text-xs sm:text-sm uppercase tracking-widest text-[#171515]">
             ABOUT THE ROLE
           </h2>
-          {/* Paragraph (margin-bottom: 40px, line-height: 1.65) */}
           <p className="exp-about-paragraph font-body text-base text-[#171515]">
             {exp.about}
           </p>
         </div>
 
-        {/* WHAT I DID - Clean Bullet List */}
+        {/* WHAT I DID */}
         <div className="border-l-3 border-[#E96F98] pl-6 py-1">
-          {/* Heading (margin-bottom: 24px) */}
           <h2 className="exp-what-heading font-heading font-bold text-xs sm:text-sm uppercase tracking-widest text-[#171515]">
             WHAT I DID
           </h2>
-          {/* Bullet List (gap: 16px between items, line-height: 1.65) */}
           <ul className="exp-bullet-list font-body">
             {exp.whatIDid.map((item, idx) => (
               <li key={idx} className="exp-bullet-item">
@@ -216,9 +181,7 @@ export default function ExperienceDetail() {
 
       </div>
 
-      {/* =========================================================================
-         MODI BUILDERS: WORK CREATED SECTION (margin-top: 48px, heading margin-bottom: 20px)
-         ========================================================================= */}
+      {/* MODI BUILDERS: WORK CREATED SECTION */}
       {exp.workCreated && (
         <div className="exp-work-section-container">
           <div className="exp-work-heading-block">
@@ -235,7 +198,11 @@ export default function ExperienceDetail() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-start justify-items-center">
             {exp.workCreated.map((item) => (
-              <div key={item.id} className="w-full max-w-[460px] flex flex-col gap-3">
+              <div 
+                key={item.id} 
+                className="w-full max-w-[460px] flex flex-col gap-3 cursor-pointer"
+                onClick={() => openLightbox(item.image, item.title || 'Modi Builders Work')}
+              >
                 <div className="pb-1.5 border-b-1.5 border-[#171515]">
                   <h3 className="font-heading font-extrabold text-xs uppercase tracking-wider text-[#171515]">
                     {item.title}
@@ -255,9 +222,7 @@ export default function ExperienceDetail() {
         </div>
       )}
 
-      {/* =========================================================================
-         WHITE VOLUNTEERS FOUNDATION: WORK SECTION (margin-top: 48px)
-         ========================================================================= */}
+      {/* WHITE VOLUNTEERS FOUNDATION: WORK SECTION */}
       {exp.folders && (
         <div className="exp-work-section-container">
           <div className="exp-work-heading-block">

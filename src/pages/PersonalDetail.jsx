@@ -2,10 +2,12 @@ import React from 'react';
 import { useParams, Link, Navigate, useSearchParams } from 'react-router-dom';
 import ImagePlaceholder from '../components/ui/ImagePlaceholder';
 import { personalData } from '../data/personal';
+import { useLightbox } from '../context/LightboxContext';
 
 export default function PersonalDetail() {
   const { categoryId } = useParams();
   const [searchParams, setSearchParams] = useSearchParams();
+  const { openLightbox } = useLightbox();
   
   const category = personalData.find(c => c.id === categoryId);
   if (!category) {
@@ -139,7 +141,10 @@ export default function PersonalDetail() {
                 </button>
 
                 {/* Displayed Brand Board Image Frame (Bounded & Proportional) */}
-                <div className="brand-concept-image-frame max-w-full overflow-hidden">
+                <div 
+                  className="brand-concept-image-frame max-w-full overflow-hidden cursor-pointer"
+                  onClick={() => openLightbox(category.items[slideIndex].image, category.items[slideIndex].title)}
+                >
                   <img 
                     key={category.items[slideIndex].id}
                     src={category.items[slideIndex].image} 
@@ -183,7 +188,10 @@ export default function PersonalDetail() {
                 </div>
 
                 {/* Contained Image Frame with subtle border & background */}
-                <div className="border-1.5 border-[#171515] bg-[#FAF4EB] p-2 shadow-sm flex items-center justify-center min-h-[340px] sm:min-h-[410px] w-full">
+                <div 
+                  className="border-1.5 border-[#171515] bg-[#FAF4EB] p-2 shadow-sm flex items-center justify-center min-h-[340px] sm:min-h-[410px] w-full cursor-pointer"
+                  onClick={() => openLightbox(item.image, item.title)}
+                >
                   {item.image.endsWith('.svg') ? (
                     <ImagePlaceholder
                       src={item.image}
