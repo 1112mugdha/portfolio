@@ -124,7 +124,7 @@ export default function ExperienceDetail() {
   // MAIN EXPERIENCE DETAIL VIEW
   // =========================================================================
   return (
-    <div className="py-6 max-w-5xl mx-auto">
+    <div className="py-8 max-w-5xl mx-auto">
       {/* Breadcrumbs */}
       <Breadcrumbs items={[
         { label: 'HOME', path: '/' },
@@ -133,7 +133,7 @@ export default function ExperienceDetail() {
       ]} />
 
       {/* Back Link */}
-      <div className="mt-3 mb-8 sm:mb-10">
+      <div className="mt-4 mb-12 sm:mb-14">
         <Link 
           to="/experience" 
           className="inline-flex items-center gap-2 font-heading font-bold text-xs uppercase tracking-widest text-[#171515] hover:text-[#E96F98] transition-colors"
@@ -143,44 +143,44 @@ export default function ExperienceDetail() {
       </div>
 
       {/* Experience Header */}
-      <div className="border-b-1.5 border-[#171515] pb-8 mb-12 sm:mb-14">
-        <div className="flex flex-wrap items-center gap-3 mb-5">
-          <span className="font-mono text-xs font-bold bg-[#D7F23A] text-[#171515] px-3 py-1.5 border border-[#171515]">
+      <div className="border-b-1.5 border-[#171515] pb-10 sm:pb-12 mb-16 sm:mb-20">
+        <div className="flex flex-wrap items-center gap-3 mb-6">
+          <span className="font-mono text-xs font-bold bg-[#FAF4EB] text-[#171515] px-3.5 py-1.5 border border-[#171515]">
             EXPERIENCE {exp.number} — {exp.role}
           </span>
         </div>
         
-        {/* Highlighted Company Name Block */}
-        <div className="inline-block bg-[#E96F98] text-[#171515] px-4 py-2 sm:px-6 sm:py-3 border-1.5 border-[#171515] shadow-[4px_4px_0px_0px_#171515]">
+        {/* Visually Prominent LIME Highlighted Company Name Label */}
+        <div className="inline-block bg-[#D7F23A] text-[#171515] px-5 py-3 sm:px-8 sm:py-4 border-2 border-[#171515] shadow-[5px_5px_0px_0px_#171515]">
           <h1 className="font-heading font-extrabold text-3xl sm:text-4xl md:text-5xl uppercase tracking-tight text-[#171515] leading-none">
             {exp.title}
           </h1>
         </div>
       </div>
 
-      {/* Content Breakdown */}
-      <div className="flex flex-col gap-12 sm:gap-14 my-10 max-w-4xl">
+      {/* Content Breakdown with Generous Spacing */}
+      <div className="flex flex-col gap-16 sm:gap-20 max-w-4xl">
         
         {/* ABOUT THE ROLE */}
-        <div className="border-l-3 border-[#171515] pl-6 py-1">
-          <h2 className="font-heading font-bold text-xs uppercase tracking-widest text-[#171515] mb-4">
+        <div className="border-l-3 border-[#171515] pl-6 sm:pl-8 py-2">
+          <h2 className="font-heading font-bold text-xs sm:text-sm uppercase tracking-widest text-[#171515] mb-6">
             ABOUT THE ROLE
           </h2>
-          <p className="font-body text-sm sm:text-base text-[#171515] leading-relaxed sm:leading-[1.8]">
+          <p className="font-body text-base sm:text-lg text-[#171515] leading-[1.85] sm:leading-[1.9]">
             {exp.about}
           </p>
         </div>
 
-        {/* WHAT I DID - Clean Bullet Point List */}
-        <div className="border-l-3 border-[#E96F98] pl-6 py-1">
-          <h2 className="font-heading font-bold text-xs uppercase tracking-widest text-[#171515] mb-5">
+        {/* WHAT I DID - Clean Bullet Point List with Generous Spacing */}
+        <div className="border-l-3 border-[#E96F98] pl-6 sm:pl-8 py-2">
+          <h2 className="font-heading font-bold text-xs sm:text-sm uppercase tracking-widest text-[#171515] mb-6 sm:mb-8">
             WHAT I DID
           </h2>
-          <ul className="flex flex-col gap-3.5 sm:gap-4 font-body text-sm sm:text-base text-[#57534E]">
+          <ul className="flex flex-col gap-6 sm:gap-7 font-body text-base sm:text-lg text-[#423E3B]">
             {exp.whatIDid.map((item, idx) => (
-              <li key={idx} className="flex items-start gap-3">
-                <span className="w-1.5 h-1.5 bg-[#171515] rounded-full mt-2 shrink-0" />
-                <span className="leading-relaxed sm:leading-[1.8]">{item}</span>
+              <li key={idx} className="flex items-start gap-3.5 sm:gap-4">
+                <span className="w-2 h-2 bg-[#171515] rounded-full mt-2.5 shrink-0" />
+                <span className="leading-[1.85] sm:leading-[1.9]">{item}</span>
               </li>
             ))}
           </ul>
@@ -192,23 +192,23 @@ export default function ExperienceDetail() {
          MODI BUILDERS: WORK CREATED SECTION (2-COLUMN COMPACT GRID)
          ========================================================================= */}
       {exp.workCreated && (
-        <div className="mt-16 sm:mt-20 pt-10 sm:pt-12 border-t-1.5 border-[#171515]">
-          <div className="mb-10 sm:mb-12">
-            <h2 className="font-heading font-extrabold text-xl sm:text-2xl uppercase tracking-tight text-[#171515] mb-3 flex items-center gap-3">
+        <div className="mt-24 sm:mt-28 pt-14 sm:pt-16 border-t-1.5 border-[#171515]">
+          <div className="mb-12 sm:mb-16">
+            <h2 className="font-heading font-extrabold text-xl sm:text-2xl uppercase tracking-tight text-[#171515] mb-4 flex items-center gap-3">
               <span className="w-3.5 h-3.5 bg-[#E96F98] border border-[#171515] inline-block"></span>
               WORK CREATED
             </h2>
             {exp.workCreatedSubtitle && (
-              <p className="font-body text-sm sm:text-base text-[#57534E] leading-relaxed">
+              <p className="font-body text-base text-[#57534E] leading-relaxed">
                 {exp.workCreatedSubtitle}
               </p>
             )}
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-10 items-start justify-items-center">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 sm:gap-12 items-start justify-items-center">
             {exp.workCreated.map((item) => (
-              <div key={item.id} className="w-full max-w-[460px] flex flex-col gap-2.5">
-                <div className="pb-1 border-b-1.5 border-[#171515]">
+              <div key={item.id} className="w-full max-w-[460px] flex flex-col gap-3">
+                <div className="pb-1.5 border-b-1.5 border-[#171515]">
                   <h3 className="font-heading font-extrabold text-xs uppercase tracking-wider text-[#171515]">
                     {item.title}
                   </h3>
@@ -231,8 +231,8 @@ export default function ExperienceDetail() {
          WHITE VOLUNTEERS FOUNDATION: WORK SECTION (TWO CLICKABLE CARDS)
          ========================================================================= */}
       {exp.folders && (
-        <div className="mt-16 sm:mt-20 pt-10 sm:pt-12 border-t-1.5 border-[#171515]">
-          <h2 className="font-heading font-extrabold text-xl sm:text-2xl uppercase tracking-tight text-[#171515] mb-10 sm:mb-12 flex items-center gap-3">
+        <div className="mt-24 sm:mt-28 pt-14 sm:pt-16 border-t-1.5 border-[#171515]">
+          <h2 className="font-heading font-extrabold text-xl sm:text-2xl uppercase tracking-tight text-[#171515] mb-12 sm:mb-16 flex items-center gap-3">
             <span className="w-3.5 h-3.5 bg-[#E96F98] border border-[#171515] inline-block"></span>
             WORK
           </h2>
