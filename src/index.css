@@ -396,6 +396,7 @@ p {
 
   /* Mobile Hero Title: Wraps MUGDHA PATNAIK into two prominent lines on Hero page only */
   .hero-section .hero-heading {
+    margin-top: 0 !important;
     white-space: normal !important;
     word-break: break-word !important;
     font-size: clamp(3.2rem, 13.5vw, 4.4rem) !important;
@@ -406,6 +407,16 @@ p {
   .hero-section .hero-sub-text {
     font-size: 1.05rem !important;
     line-height: 1.6 !important;
+  }
+}
+
+/* Desktop Only Hero Heading Refinement (7% Larger Font Size & Subtle Downward Shift) */
+@media (min-width: 769px) {
+  .hero-section .hero-heading {
+    font-size: clamp(3.85rem, 7.3vw, 5.75rem) !important;
+    margin-top: 0.75rem;
+    line-height: 1.05;
+    letter-spacing: -0.025em;
   }
 }
 
