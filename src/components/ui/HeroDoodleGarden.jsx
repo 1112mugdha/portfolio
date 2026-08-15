@@ -135,7 +135,7 @@ export default function HeroDoodleGarden() {
         preserveAspectRatio="none"
       >
         {/* Ground Baseline Line at Y=160 connecting all stems */}
-        <line x1="0" y1="160" x2="1200" y2="160" stroke="#171515" strokeWidth="1.2" strokeLinecap="square" />
+        <line x1="0" y1="160" x2="1200" y2="160" stroke="#171515" strokeWidth="1.5" strokeLinecap="square" />
 
         {/* Continuous organic garden across width (Anchored at Y=160) */}
         <Tulip x={25} h={52} curve={-3} color="#E96F98" />

@@ -328,7 +328,7 @@ p {
   min-height: 85vh;
   padding-top: 5rem;
   padding-bottom: 3rem;
-  border-bottom: 1.5px solid #171515;
+  border-bottom: none;
 }
 
 .hero-content-col {
