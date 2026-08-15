@@ -31,13 +31,13 @@ export default function ProjectGallery({ items = [], title = 'PROJECT GALLERY & 
             
             <div 
               className="border-1.5 border-[#171515] bg-[#FAF4EB] p-2 shadow-sm flex items-center justify-center w-full"
-              style={isCompactView ? { height: 'calc(100vh - 220px)', maxHeight: 'calc(100vh - 220px)' } : {}}
+              style={isCompactView ? { height: 'calc(100vh - 140px)', maxHeight: 'calc(100vh - 140px)' } : {}}
             >
               <img 
                 src={item.image} 
                 alt={item.title || 'Project Deliverable'} 
                 className={imgClassName}
-                style={isCompactView ? { width: '100%', height: '100%', maxHeight: 'calc(100vh - 220px)', objectFit: 'contain' } : {}}
+                style={isCompactView ? { width: '100%', height: '100%', maxHeight: 'calc(100vh - 140px)', objectFit: 'contain' } : {}}
               />
             </div>
           </div>

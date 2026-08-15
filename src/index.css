@@ -1157,11 +1157,12 @@ img.cactus-hero-85-img,
 img.cactus-gallery-img {
   width: 100% !important;
   height: 100% !important;
-  max-height: calc(100vh - 220px) !important;
+  max-height: calc(100vh - 140px) !important;
   object-fit: contain !important;
   display: block !important;
   margin: 0 auto !important;
 }
+
 
 /* Compact Overlay Gallery Image */
 img.cactus-gallery-overlay-img {
