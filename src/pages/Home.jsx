@@ -23,13 +23,6 @@ export default function Home() {
       {/* 1. HERO SECTION */}
       <section className="hero-section">
         <div className="hero-content-col">
-          {/* Eyebrow Badge */}
-          <div className="flex items-center gap-3">
-            <span className="badge-eyebrow-pink">
-              STUDENT · DESIGNER · CURIOUS
-            </span>
-          </div>
-
           {/* MUGDHA PATNAIK Heading */}
           <h1 className="hero-heading">
             MUGDHA PATNAIK
