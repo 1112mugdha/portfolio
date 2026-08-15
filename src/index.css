@@ -1304,9 +1304,9 @@ img.others-gallery-img {
 /* Brand Concept Carousel Image Sizing */
 img.brand-concept-carousel-img {
   width: 100% !important;
-  max-width: 860px !important;
+  max-width: 560px !important;
   height: auto !important;
-  max-height: 480px !important;
+  max-height: 440px !important;
   object-fit: contain !important;
   display: block !important;
   margin: 0 auto !important;

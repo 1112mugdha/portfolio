@@ -24,7 +24,7 @@ export default function PersonalDetail() {
   };
 
   return (
-    <div className="py-6 max-w-5xl mx-auto">
+    <div className="py-6 max-w-6xl mx-auto">
       {/* Breadcrumb */}
       <Breadcrumbs items={[
         { label: 'HOME', path: '/' },
@@ -59,75 +59,86 @@ export default function PersonalDetail() {
 
       {isBrandConcepts ? (
         /* =========================================================================
-           BRAND CONCEPTS — CAROUSEL WITH PHOTO SEQUENTIAL GALLERY NAVIGATION SYSTEM
+           BRAND CONCEPTS — 2-COLUMN SIDE-BY-SIDE LAYOUT (DESKTOP) & STACKED (MOBILE)
+           Left Column: Concept Number, Title, Category, Description & Indicators
+           Right Column: Previous Arrow (Left) + Contained Image Frame + Next Arrow (Right)
            ========================================================================= */
-        <div className="detail-major-section-block flex flex-col items-center">
-          
-          {/* Active Concept Title & Description Directly Above Frame */}
-          <div className="w-full max-w-4xl text-center mb-4">
-            <h2 className="font-heading font-extrabold text-xl sm:text-2xl uppercase tracking-wider text-[#171515]">
-              {category.items[slideIndex].title}
-            </h2>
-            {category.items[slideIndex].description && (
-              <p className="font-body text-xs sm:text-sm text-[#57534E] leading-tight mt-1.5 truncate max-w-full block" title={category.items[slideIndex].description}>
-                {category.items[slideIndex].description}
-              </p>
-            )}
-          </div>
-
-          {/* Photo Sequential Gallery Component Navigation: Left Arrow + Image Frame + Right Arrow */}
-          <div className="photo-essay-carousel">
+        <div className="detail-major-section-block">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
             
-            {/* Left Arrow Button (Matching Photo Sequential Gallery System) */}
-            <button 
-              onClick={prevSlide}
-              className="photo-essay-arrow-left"
-              aria-label="Previous brand concept"
-            >
-              ←
-            </button>
+            {/* LEFT COLUMN: Text Info & Indicators */}
+            <div className="lg:col-span-5 flex flex-col gap-4 text-left">
+              <div className="flex items-center gap-2">
+                <span className="bg-[#E96F98] text-[#171515] px-3 py-1 border border-[#171515] font-mono text-xs font-bold">
+                  CONCEPT {String(slideIndex + 1).padStart(2, '0')} / {String(category.items.length).padStart(2, '0')}
+                </span>
+              </div>
 
-            {/* Displayed Brand Board Image Frame */}
-            <div className="photo-essay-image-frame">
-              <img 
-                key={category.items[slideIndex].id}
-                src={category.items[slideIndex].image} 
-                alt={category.items[slideIndex].title}
-                className="brand-concept-carousel-img transition-opacity duration-300 ease-in-out"
-              />
+              <div>
+                <h2 className="font-heading font-extrabold text-2xl sm:text-3xl uppercase tracking-wider text-[#171515] mb-2">
+                  {category.items[slideIndex].title}
+                </h2>
+                {category.items[slideIndex].category && (
+                  <p className="font-mono text-xs font-bold text-[#E96F98] uppercase tracking-wider mb-3">
+                    {category.items[slideIndex].category}
+                  </p>
+                )}
+                {category.items[slideIndex].description && (
+                  <p className="font-body text-sm sm:text-base text-[#57534E] leading-relaxed">
+                    {category.items[slideIndex].description}
+                  </p>
+                )}
+              </div>
+
+              {/* Indicator Pills & Progress */}
+              <div className="flex items-center gap-2 mt-2 pt-4 border-t border-[#171515]/15">
+                {category.items.map((item, idx) => (
+                  <button
+                    key={idx}
+                    onClick={() => setSlideIndex(idx)}
+                    className={`h-3 transition-all border border-[#171515] cursor-pointer ${
+                      idx === slideIndex ? 'w-8 bg-[#171515]' : 'w-3 bg-[#FAF4EB] hover:bg-[#D7F23A]'
+                    }`}
+                    aria-label={`Go to brand concept ${idx + 1}`}
+                  />
+                ))}
+              </div>
             </div>
 
-            {/* Right Arrow Button (Matching Photo Sequential Gallery System) */}
-            <button 
-              onClick={nextSlide}
-              className="photo-essay-arrow-right"
-              aria-label="Next brand concept"
-            >
-              →
-            </button>
+            {/* RIGHT COLUMN: Previous Arrow + Image Frame + Next Arrow */}
+            <div className="lg:col-span-7 flex items-center justify-center">
+              <div className="photo-essay-carousel w-full justify-center">
+                {/* Left Arrow Button (Vertically centered against image frame) */}
+                <button 
+                  onClick={prevSlide}
+                  className="photo-essay-arrow-left"
+                  aria-label="Previous brand concept"
+                >
+                  ←
+                </button>
 
-          </div>
+                {/* Displayed Brand Board Image Frame (Scaled proportionally) */}
+                <div className="photo-essay-image-frame max-w-full overflow-hidden">
+                  <img 
+                    key={category.items[slideIndex].id}
+                    src={category.items[slideIndex].image} 
+                    alt={category.items[slideIndex].title}
+                    className="brand-concept-carousel-img transition-opacity duration-300 ease-in-out"
+                  />
+                </div>
 
-          {/* Counter & Indicator Bar */}
-          <div className="mt-4 flex items-center justify-between w-full max-w-4xl px-2 font-mono text-xs font-bold text-[#171515]">
-            <span className="bg-[#E96F98] px-3 py-1 border border-[#171515]">
-              {String(slideIndex + 1).padStart(2, '0')} / {String(category.items.length).padStart(2, '0')}
-            </span>
-            
-            <div className="flex gap-1.5">
-              {category.items.map((_, idx) => (
-                <button
-                  key={idx}
-                  onClick={() => setSlideIndex(idx)}
-                  className={`w-3.5 h-3.5 border border-[#171515] transition-colors ${
-                    idx === slideIndex ? 'bg-[#171515]' : 'bg-[#FAF4EB] hover:bg-[#D7F23A]'
-                  }`}
-                  aria-label={`Go to brand concept ${idx + 1}`}
-                />
-              ))}
+                {/* Right Arrow Button (Vertically centered against image frame) */}
+                <button 
+                  onClick={nextSlide}
+                  className="photo-essay-arrow-right"
+                  aria-label="Next brand concept"
+                >
+                  →
+                </button>
+              </div>
             </div>
-          </div>
 
+          </div>
         </div>
       ) : (
         /* =========================================================================
