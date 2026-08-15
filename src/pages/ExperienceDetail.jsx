@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { useParams, Link, Navigate } from 'react-router-dom';
 import Breadcrumbs from '../components/ui/Breadcrumbs';
 import FolderCard from '../components/ui/FolderCard';
-import ProjectGallery from '../components/ui/ProjectGallery';
 import ImagePlaceholder from '../components/ui/ImagePlaceholder';
 import { experienceData } from '../data/experience';
 
@@ -14,6 +13,10 @@ export default function ExperienceDetail() {
   if (!exp) {
     return <Navigate to="/experience" replace />;
   }
+
+  const currentIndex = experienceData.findIndex(e => e.id === id);
+  const prevExp = currentIndex > 0 ? experienceData[currentIndex - 1] : null;
+  const nextExp = currentIndex >= 0 && currentIndex < experienceData.length - 1 ? experienceData[currentIndex + 1] : null;
 
   // =========================================================================
   // SUB-FOLDER VIEW (CREATIVES DESIGNED / OUTREACH VISITS)
@@ -115,6 +118,33 @@ export default function ExperienceDetail() {
               </div>
             </div>
           ))}
+        </div>
+
+        {/* Bottom PREV / NEXT Navigation Bar for White Volunteers Sub-Folders */}
+        <div className="assignment-bottom-nav">
+          {isOutreach ? (
+            <Link 
+              to="/experience/white-volunteers/creatives-designed" 
+              className="prev-link px-5 sm:px-6 py-2.5 border-1.5 border-[#171515] bg-[#D7F23A] hover:bg-[#E96F98] text-[#171515] font-mono font-bold text-xs sm:text-sm tracking-wider uppercase transition-all shadow-sm flex items-center justify-center cursor-pointer active:translate-y-0.5"
+              aria-label="Go to previous folder: Creatives Designed"
+            >
+              ← PREV: CREATIVES DESIGNED
+            </Link>
+          ) : (
+            <div className="prev-link" />
+          )}
+
+          {isCreatives ? (
+            <Link 
+              to="/experience/white-volunteers/outreach-visits" 
+              className="next-link px-5 sm:px-6 py-2.5 border-1.5 border-[#171515] bg-[#D7F23A] hover:bg-[#E96F98] text-[#171515] font-mono font-bold text-xs sm:text-sm tracking-wider uppercase transition-all shadow-sm flex items-center justify-center cursor-pointer active:translate-y-0.5"
+              aria-label="Go to next folder: Outreach Visits"
+            >
+              NEXT: OUTREACH VISITS →
+            </Link>
+          ) : (
+            <div className="next-link" />
+          )}
         </div>
       </div>
     );
@@ -260,6 +290,33 @@ export default function ExperienceDetail() {
           </div>
         </div>
       )}
+
+      {/* Bottom PREV / NEXT Navigation Bar for Top-Level Experience Folders */}
+      <div className="assignment-bottom-nav">
+        {prevExp ? (
+          <Link 
+            to={`/experience/${prevExp.id}`} 
+            className="prev-link px-5 sm:px-6 py-2.5 border-1.5 border-[#171515] bg-[#D7F23A] hover:bg-[#E96F98] text-[#171515] font-mono font-bold text-xs sm:text-sm tracking-wider uppercase transition-all shadow-sm flex items-center justify-center cursor-pointer active:translate-y-0.5"
+            aria-label={`Go to previous experience: ${prevExp.title}`}
+          >
+            ← PREV: {prevExp.title}
+          </Link>
+        ) : (
+          <div className="prev-link" />
+        )}
+
+        {nextExp ? (
+          <Link 
+            to={`/experience/${nextExp.id}`} 
+            className="next-link px-5 sm:px-6 py-2.5 border-1.5 border-[#171515] bg-[#D7F23A] hover:bg-[#E96F98] text-[#171515] font-mono font-bold text-xs sm:text-sm tracking-wider uppercase transition-all shadow-sm flex items-center justify-center cursor-pointer active:translate-y-0.5"
+            aria-label={`Go to next experience: ${nextExp.title}`}
+          >
+            NEXT: {nextExp.title} →
+          </Link>
+        ) : (
+          <div className="next-link" />
+        )}
+      </div>
 
     </div>
   );
