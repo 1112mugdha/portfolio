@@ -12,6 +12,10 @@ export default function PersonalDetail() {
     return <Navigate to="/#personal-projects" replace />;
   }
 
+  const categoryIndex = personalData.findIndex(c => c.id === categoryId);
+  const prevCategory = categoryIndex > 0 ? personalData[categoryIndex - 1] : null;
+  const nextCategory = categoryIndex >= 0 && categoryIndex < personalData.length - 1 ? personalData[categoryIndex + 1] : null;
+
   const isBrandConcepts = category.id === 'brand-concepts';
 
   // Read 1-indexed slide parameter from URL (e.g. ?slide=3 -> index 2)
@@ -203,6 +207,33 @@ export default function PersonalDetail() {
           </div>
         </div>
       )}
+
+      {/* Bottom PREV / NEXT Navigation Bar for Personal Projects */}
+      <div className="assignment-bottom-nav">
+        {prevCategory ? (
+          <Link 
+            to={`/personal/${prevCategory.id}`} 
+            className="prev-link px-5 sm:px-6 py-2.5 border-1.5 border-[#171515] bg-[#D7F23A] hover:bg-[#E96F98] text-[#171515] font-mono font-bold text-xs sm:text-sm tracking-wider uppercase transition-all shadow-sm flex items-center justify-center cursor-pointer active:translate-y-0.5"
+            aria-label={`Go to previous personal project: ${prevCategory.title}`}
+          >
+            ← PREV: {prevCategory.title}
+          </Link>
+        ) : (
+          <div className="prev-link" />
+        )}
+
+        {nextCategory ? (
+          <Link 
+            to={`/personal/${nextCategory.id}`} 
+            className="next-link px-5 sm:px-6 py-2.5 border-1.5 border-[#171515] bg-[#D7F23A] hover:bg-[#E96F98] text-[#171515] font-mono font-bold text-xs sm:text-sm tracking-wider uppercase transition-all shadow-sm flex items-center justify-center cursor-pointer active:translate-y-0.5"
+            aria-label={`Go to next personal project: ${nextCategory.title}`}
+          >
+            NEXT: {nextCategory.title} →
+          </Link>
+        ) : (
+          <div className="next-link" />
+        )}
+      </div>
     </div>
   );
 }
