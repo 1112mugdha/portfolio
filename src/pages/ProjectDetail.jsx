@@ -3,12 +3,10 @@ import { useParams, Link, Navigate } from 'react-router-dom';
 import ProjectGallery from '../components/ui/ProjectGallery';
 import { projectsData } from '../data/projects';
 import { getAssetPath } from '../utils/assetPath';
-import { useLightbox } from '../context/LightboxContext';
 
 export default function ProjectDetail() {
   const { projectId } = useParams();
   const [photoIndex, setPhotoIndex] = useState(0);
-  const { openLightbox } = useLightbox();
 
   const project = projectsData.find(p => p.id === projectId);
   if (!project) {
@@ -208,10 +206,7 @@ export default function ProjectDetail() {
                 <p className="text-xs font-mono font-bold text-[#171515] uppercase tracking-wider mb-0.5 text-center">
                   DON'T WORRY DARLING
                 </p>
-                <div 
-                  className="border-1.5 border-[#171515] bg-[#FAF4EB] p-1 shadow-sm w-full cursor-pointer"
-                  onClick={() => openLightbox(getAssetPath('images/assignments/movie-posters/poster-03-sometimes.jpg'), "Don't Worry Darling Poster")}
-                >
+                <div className="border-1.5 border-[#171515] bg-[#FAF4EB] p-1 shadow-sm w-full">
                   <img 
                     src={getAssetPath('images/assignments/movie-posters/poster-03-sometimes.jpg')} 
                     alt="Don't Worry Darling Poster"
@@ -225,10 +220,7 @@ export default function ProjectDetail() {
                 <p className="text-xs font-mono font-bold text-[#171515] uppercase tracking-wider mb-0.5 text-center">
                   INSIDE OUT
                 </p>
-                <div 
-                  className="border-1.5 border-[#171515] bg-[#FAF4EB] p-1 shadow-sm w-full cursor-pointer"
-                  onClick={() => openLightbox(getAssetPath('images/assignments/movie-posters/poster-01-fleur.png'), "Inside Out Poster")}
-                >
+                <div className="border-1.5 border-[#171515] bg-[#FAF4EB] p-1 shadow-sm w-full">
                   <img 
                     src={getAssetPath('images/assignments/movie-posters/poster-01-fleur.png')} 
                     alt="Inside Out Poster"
@@ -242,10 +234,7 @@ export default function ProjectDetail() {
                 <p className="text-xs font-mono font-bold text-[#171515] uppercase tracking-wider mb-0.5 text-center">
                   LA LA LAND
                 </p>
-                <div 
-                  className="border-1.5 border-[#171515] bg-[#FAF4EB] p-1 shadow-sm w-full cursor-pointer"
-                  onClick={() => openLightbox(getAssetPath('images/assignments/movie-posters/poster-02-matcha.png'), "La La Land Poster")}
-                >
+                <div className="border-1.5 border-[#171515] bg-[#FAF4EB] p-1 shadow-sm w-full">
                   <img 
                     src={getAssetPath('images/assignments/movie-posters/poster-02-matcha.png')} 
                     alt="La La Land Poster"
@@ -384,10 +373,7 @@ export default function ProjectDetail() {
                 ←
               </button>
 
-              <div 
-                className="photo-essay-image-frame cursor-pointer"
-                onClick={() => openLightbox(photoEssayDeliverables[photoIndex].image, photoEssayDeliverables[photoIndex].alt)}
-              >
+              <div className="photo-essay-image-frame">
                 <img 
                   src={photoEssayDeliverables[photoIndex].image} 
                   alt={photoEssayDeliverables[photoIndex].alt}
@@ -504,10 +490,7 @@ export default function ProjectDetail() {
               <span className="w-3.5 h-3.5 bg-[#E96F98] border border-[#171515] inline-block"></span>
               CHARACTER TURNAROUND SHEET
             </h2>
-            <div 
-              className="border-1.5 border-[#171515] bg-[#FAF4EB] p-2 shadow-sm flex items-center justify-center min-h-[300px] sm:min-h-[420px] w-full cursor-pointer"
-              onClick={() => openLightbox(getAssetPath('images/assignments/character-design/leo-character-sheet.jpg'), "Leo Character Turnaround Sheet")}
-            >
+            <div className="border-1.5 border-[#171515] bg-[#FAF4EB] p-2 shadow-sm flex items-center justify-center min-h-[300px] sm:min-h-[420px] w-full">
               <img 
                 src={getAssetPath('images/assignments/character-design/leo-character-sheet.jpg')} 
                 alt="Leo Character Turnaround Sheet"
@@ -546,10 +529,7 @@ export default function ProjectDetail() {
                   </p>
                 </div>
 
-                <div 
-                  className="border-1.5 border-[#171515] bg-[#FAF4EB] p-2 shadow-sm flex items-center justify-center min-h-[280px] sm:min-h-[360px] w-full cursor-pointer"
-                  onClick={() => openLightbox(getAssetPath('images/assignments/others/magazine-cover.png'), "Magazine Cover")}
-                >
+                <div className="border-1.5 border-[#171515] bg-[#FAF4EB] p-2 shadow-sm flex items-center justify-center min-h-[280px] sm:min-h-[360px] w-full">
                   <img 
                     src={getAssetPath('images/assignments/others/magazine-cover.png')} 
                     alt="Magazine Cover"
@@ -574,14 +554,12 @@ export default function ProjectDetail() {
                     <img 
                       src={getAssetPath('images/assignments/others/magazine-page-1.jpg')} 
                       alt="Magazine Spread Page 1"
-                      className="magazine-spread-page cursor-pointer"
-                      onClick={() => openLightbox(getAssetPath('images/assignments/others/magazine-page-1.jpg'), "Magazine Spread Page 1")}
+                      className="magazine-spread-page"
                     />
                     <img 
                       src={getAssetPath('images/assignments/others/magazine-page-2.jpg')} 
                       alt="Magazine Spread Page 2"
-                      className="magazine-spread-page cursor-pointer"
-                      onClick={() => openLightbox(getAssetPath('images/assignments/others/magazine-page-2.jpg'), "Magazine Spread Page 2")}
+                      className="magazine-spread-page"
                     />
                   </div>
                 </div>
@@ -598,10 +576,7 @@ export default function ProjectDetail() {
                   </p>
                 </div>
 
-                <div 
-                  className="border-1.5 border-[#171515] bg-[#FAF4EB] p-2 shadow-sm flex items-center justify-center min-h-[280px] sm:min-h-[360px] w-full cursor-pointer"
-                  onClick={() => openLightbox(getAssetPath('images/assignments/others/matcha-typography.png'), "Creative Typography Poster")}
-                >
+                <div className="border-1.5 border-[#171515] bg-[#FAF4EB] p-2 shadow-sm flex items-center justify-center min-h-[280px] sm:min-h-[360px] w-full">
                   <img 
                     src={getAssetPath('images/assignments/others/matcha-typography.png')} 
                     alt="Creative Typography Poster"
@@ -621,10 +596,7 @@ export default function ProjectDetail() {
                   </p>
                 </div>
 
-                <div 
-                  className="border-1.5 border-[#171515] bg-[#FAF4EB] p-2 shadow-sm flex items-center justify-center min-h-[280px] sm:min-h-[360px] w-full cursor-pointer"
-                  onClick={() => openLightbox(getAssetPath('images/assignments/others/quote-typography.png'), "Typography Experiment")}
-                >
+                <div className="border-1.5 border-[#171515] bg-[#FAF4EB] p-2 shadow-sm flex items-center justify-center min-h-[280px] sm:min-h-[360px] w-full">
                   <img 
                     src={getAssetPath('images/assignments/others/quote-typography.png')} 
                     alt="Typography Experiment"

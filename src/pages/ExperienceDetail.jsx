@@ -3,11 +3,9 @@ import { useParams, Link, Navigate } from 'react-router-dom';
 import FolderCard from '../components/ui/FolderCard';
 import ImagePlaceholder from '../components/ui/ImagePlaceholder';
 import { experienceData } from '../data/experience';
-import { useLightbox } from '../context/LightboxContext';
 
 export default function ExperienceDetail() {
   const { id, subFolder } = useParams();
-  const { openLightbox } = useLightbox();
   
   const exp = experienceData.find(e => e.id === id);
   if (!exp) {
@@ -56,8 +54,7 @@ export default function ExperienceDetail() {
           {currentItems.map((item, idx) => (
             <div 
               key={item.id || idx} 
-              className={`w-full ${isOutreach ? 'max-w-[340px]' : 'max-w-[380px]'} flex flex-col gap-2 group cursor-pointer`}
-              onClick={() => openLightbox(item.image, item.title || (isCreatives ? 'Creatives Designed' : 'Outreach Photograph'))}
+              className={`w-full ${isOutreach ? 'max-w-[340px]' : 'max-w-[380px]'} flex flex-col gap-2 group`}
             >
               {/* Creatives Designed shows title; Outreach Visits has NO title, caption, or text */}
               {isCreatives && item.title && (
@@ -200,8 +197,7 @@ export default function ExperienceDetail() {
             {exp.workCreated.map((item) => (
               <div 
                 key={item.id} 
-                className="w-full max-w-[460px] flex flex-col gap-3 cursor-pointer"
-                onClick={() => openLightbox(item.image, item.title || 'Modi Builders Work')}
+                className="w-full max-w-[460px] flex flex-col gap-3"
               >
                 <div className="pb-1.5 border-b-1.5 border-[#171515]">
                   <h3 className="font-heading font-extrabold text-xs uppercase tracking-wider text-[#171515]">

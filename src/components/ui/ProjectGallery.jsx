@@ -1,9 +1,6 @@
 import React from 'react';
-import { useLightbox } from '../../context/LightboxContext';
 
 export default function ProjectGallery({ items = [], title = 'PROJECT GALLERY & DELIVERABLES', imgClassName = 'w-full h-auto max-h-[620px] object-contain block mx-auto' }) {
-  const { openLightbox } = useLightbox();
-
   if (!items || items.length === 0) return null;
 
   const isCompactView = imgClassName && imgClassName.includes('cactus');
@@ -33,9 +30,8 @@ export default function ProjectGallery({ items = [], title = 'PROJECT GALLERY & 
             )}
             
             <div 
-              className="border-1.5 border-[#171515] bg-[#FAF4EB] p-2 shadow-sm flex items-center justify-center w-full cursor-pointer"
+              className="border-1.5 border-[#171515] bg-[#FAF4EB] p-2 shadow-sm flex items-center justify-center w-full"
               style={isCompactView ? { height: 'calc(100vh - 220px)', maxHeight: 'calc(100vh - 220px)' } : {}}
-              onClick={() => openLightbox(item.image, item.title || 'Project Deliverable')}
             >
               <img 
                 src={item.image} 
