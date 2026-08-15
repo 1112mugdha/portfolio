@@ -123,15 +123,14 @@ export default function HeroDoodleGarden() {
   return (
     <div className="hero-doodle-garden-container">
       {/* =========================================================================
-         EXACTLY ONE SINGLE RESPONSIVE SVG IN THE ENTIRE DOM
-         viewBox="0 0 1200 160" — All stems anchored to Y=160.
-         Explicit baseline line at Y=160 ensures zero gaps & zero floating stems.
+         DESKTOP SVG (Screen Width >= 768px)
+         viewBox="0 0 1200 160" — Exactly as approved on desktop.
          ========================================================================= */}
       <svg
         viewBox="0 0 1200 160"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
-        className="w-full h-full pointer-events-none block"
+        className="hidden md:block w-full h-full pointer-events-none"
         preserveAspectRatio="none"
       >
         {/* Ground Baseline Line at Y=160 connecting all stems */}
@@ -174,12 +173,7 @@ export default function HeroDoodleGarden() {
         <Sprig x={1125} h={40} curve={1} />
         <Tulip x={1158} h={65} curve={-2} color="#E96F98" />
 
-        {/* =========================================================================
-           EXACTLY 2 TINY ANIMATED BUTTERFLIES IN THE ENTIRE DOM
-           Grouped body + left wing + right wing moving together
-           ========================================================================= */}
-        
-        {/* BUTTERFLY 1 */}
+        {/* DESKTOP BUTTERFLIES */}
         <g className="butterfly-group-1" transform="translate(240, 58)">
           <g transform="translate(0, 0)">
             <path d="M 0 -6 L 0 5" stroke="#171515" strokeWidth="1.2" strokeLinecap="round" />
@@ -193,9 +187,68 @@ export default function HeroDoodleGarden() {
             </g>
           </g>
         </g>
-
-        {/* BUTTERFLY 2 */}
         <g className="butterfly-group-2" transform="translate(820, 52)">
+          <g transform="translate(0, 0)">
+            <path d="M 0 -6 L 0 5" stroke="#171515" strokeWidth="1.2" strokeLinecap="round" />
+            <path d="M 0 -6 C -2 -9 -3 -11 -4 -12" stroke="#171515" strokeWidth="0.9" strokeLinecap="round" fill="none" />
+            <path d="M 0 -6 C 2 -9 3 -11 4 -12" stroke="#171515" strokeWidth="0.9" strokeLinecap="round" fill="none" />
+            <g className="butterfly-wing-l">
+              <path d="M 0 -1 C -6 -7 -10 1 -3 3 C -8 5 -6 11 0 2 Z" stroke="#171515" strokeWidth="1" fill="#D7F23A" fillOpacity="0.85" strokeLinejoin="round" />
+            </g>
+            <g className="butterfly-wing-r">
+              <path d="M 0 -1 C 6 -7 10 1 3 3 C 8 5 6 11 0 2 Z" stroke="#171515" strokeWidth="1" fill="#D7F23A" fillOpacity="0.85" strokeLinejoin="round" />
+            </g>
+          </g>
+        </g>
+      </svg>
+
+      {/* =========================================================================
+         DEDICATED OPTIMIZED MOBILE SVG (Screen Width < 768px)
+         viewBox="0 0 420 160" — Gives ~95-110px of actual physical flower height on mobile screens!
+         1.7-1.8x larger rendered scale!
+         ========================================================================= */}
+      <svg
+        viewBox="0 0 420 160"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        className="block md:hidden w-full h-full pointer-events-none"
+        preserveAspectRatio="none"
+      >
+        <line x1="0" y1="160" x2="420" y2="160" stroke="#171515" strokeWidth="1.5" strokeLinecap="square" />
+
+        <Tulip x={20} h={56} curve={-2} color="#E96F98" />
+        <Daisy x={48} h={78} curve={3} color="#D7F23A" />
+        <Wildflower x={76} h={38} curve={-1} color="#E96F98" />
+        <Sprig x={102} h={52} curve={2} />
+        <Daisy x={130} h={82} curve={-3} color="#E96F98" />
+        <BudFlower x={158} h={44} curve={1} color="#D7F23A" />
+        <Tulip x={185} h={72} curve={-2} color="#E96F98" />
+        <Daisy x={215} h={50} curve={3} color="#D7F23A" />
+        <Wildflower x={242} h={84} curve={-2} color="#E96F98" />
+        <Sprig x={270} h={40} curve={1} />
+        <Tulip x={298} h={76} curve={-3} color="#D7F23A" />
+        <Daisy x={326} h={52} curve={3} color="#E96F98" />
+        <Wildflower x={354} h={68} curve={-2} color="#E96F98" />
+        <BudFlower x={382} h={45} curve={2} color="#D7F23A" />
+        <Tulip x={402} h={60} curve={-2} color="#E96F98" />
+
+        {/* MOBILE BUTTERFLY 1 */}
+        <g className="butterfly-group-mobile-1" transform="translate(80, 50)">
+          <g transform="translate(0, 0)">
+            <path d="M 0 -6 L 0 5" stroke="#171515" strokeWidth="1.2" strokeLinecap="round" />
+            <path d="M 0 -6 C -2 -9 -3 -11 -4 -12" stroke="#171515" strokeWidth="0.9" strokeLinecap="round" fill="none" />
+            <path d="M 0 -6 C 2 -9 3 -11 4 -12" stroke="#171515" strokeWidth="0.9" strokeLinecap="round" fill="none" />
+            <g className="butterfly-wing-l">
+              <path d="M 0 -1 C -6 -7 -10 1 -3 3 C -8 5 -6 11 0 2 Z" stroke="#171515" strokeWidth="1" fill="#E96F98" fillOpacity="0.85" strokeLinejoin="round" />
+            </g>
+            <g className="butterfly-wing-r">
+              <path d="M 0 -1 C 6 -7 10 1 3 3 C 8 5 6 11 0 2 Z" stroke="#171515" strokeWidth="1" fill="#E96F98" fillOpacity="0.85" strokeLinejoin="round" />
+            </g>
+          </g>
+        </g>
+
+        {/* MOBILE BUTTERFLY 2 */}
+        <g className="butterfly-group-mobile-2" transform="translate(310, 45)">
           <g transform="translate(0, 0)">
             <path d="M 0 -6 L 0 5" stroke="#171515" strokeWidth="1.2" strokeLinecap="round" />
             <path d="M 0 -6 C -2 -9 -3 -11 -4 -12" stroke="#171515" strokeWidth="0.9" strokeLinecap="round" fill="none" />

@@ -354,18 +354,21 @@ p {
   overflow: visible;
 }
 
-@media (max-width: 639px) {
+@media (max-width: 768px) {
   .hero-doodle-garden-container {
+    position: relative !important;
     bottom: 0 !important;
-    height: 165px !important;
-    max-height: 165px !important;
+    margin-top: 60px !important;
+    height: 140px !important;
+    max-height: 140px !important;
+    width: 100% !important;
   }
 
   /* Mobile Responsive Hero Content Scaling & Spacing (Hero Page Only) */
   .hero-section {
     min-height: auto !important;
     padding-top: 4.25rem !important;
-    padding-bottom: 135px !important;
+    padding-bottom: 70px !important;
   }
 
   .hero-content-col {
