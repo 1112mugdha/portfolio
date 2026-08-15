@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState, useEffect, useCallback } from 'react';
+import React, { createContext, useContext, useState, useEffect, useCallback, useRef } from 'react';
 import ImageLightbox from '../components/ui/ImageLightbox';
 
 const LightboxContext = createContext({
@@ -33,18 +33,20 @@ export function LightboxProvider({ children }) {
         !target.closest('[data-no-lightbox="true"]') &&
         !target.classList.contains('no-lightbox')
       ) {
-        // Prevent default if inside a link wrapping an image only if link is just an anchor to itself
         const imgSrc = target.currentSrc || target.src;
         const imgAlt = target.alt || '';
         if (imgSrc) {
-          openLightbox(imgSrc, imgAlt);
+          // Open lightbox on next tick so the current click event loop completes before modal backdrop mounts
+          setTimeout(() => {
+            openLightbox(imgSrc, imgAlt);
+          }, 10);
         }
       }
     };
 
-    document.addEventListener('click', handleDocumentClick, true);
+    document.addEventListener('click', handleDocumentClick, false);
     return () => {
-      document.removeEventListener('click', handleDocumentClick, true);
+      document.removeEventListener('click', handleDocumentClick, false);
     };
   }, [openLightbox]);
 

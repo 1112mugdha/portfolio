@@ -6,11 +6,13 @@ export default function ImageLightbox({ activeImage, onClose }) {
   const [isDragging, setIsDragging] = useState(false);
   const dragStartRef = useRef({ x: 0, y: 0 });
   const touchDistanceRef = useRef(null);
+  const mountTimeRef = useRef(Date.now());
 
   // Reset scale and position whenever activeImage changes
   useEffect(() => {
     setScale(1);
     setPosition({ x: 0, y: 0 });
+    mountTimeRef.current = Date.now();
   }, [activeImage]);
 
   // Lock body scroll when active
@@ -48,6 +50,13 @@ export default function ImageLightbox({ activeImage, onClose }) {
   const resetZoom = () => {
     setScale(1);
     setPosition({ x: 0, y: 0 });
+  };
+
+  // Safe backdrop click dismissal (only close if target is backdrop container and 150ms has elapsed since mount)
+  const handleBackdropClick = (e) => {
+    if (e.target === e.currentTarget && Date.now() - mountTimeRef.current > 150) {
+      onClose();
+    }
   };
 
   // Mouse wheel zoom
@@ -125,8 +134,8 @@ export default function ImageLightbox({ activeImage, onClose }) {
 
   return (
     <div 
-      className="fixed inset-0 z-[99999] bg-black/90 backdrop-blur-sm flex items-center justify-center p-4 sm:p-6 select-none overflow-hidden"
-      onClick={onClose}
+      className="fixed inset-0 z-[999999] bg-black/90 backdrop-blur-sm flex items-center justify-center p-4 sm:p-6 select-none overflow-hidden"
+      onClick={handleBackdropClick}
       onWheel={handleWheel}
       onTouchStart={handleTouchStart}
       onTouchMove={handleTouchMove}
