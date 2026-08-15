@@ -17,7 +17,7 @@ export default function ProjectDetail() {
   const prevProject = currentIndex > 0 ? projectsData[currentIndex - 1] : null;
   const nextProject = currentIndex >= 0 && currentIndex < projectsData.length - 1 ? projectsData[currentIndex + 1] : null;
 
-  // Exact 6 Cactus gallery deliverables
+  // Exact 6 Cactus gallery deliverables matching files on disk in public/images/assignments/cactus/
   const cactusGalleryDeliverables = [
     {
       id: 'brand-identity',
@@ -44,49 +44,54 @@ export default function ProjectDetail() {
       image: getAssetPath('images/assignments/cactus/cactus-packaging.png')
     },
     {
-      id: 'app-concept',
-      title: 'App Concept',
-      description: 'Mobile interface concept for community and product catalog',
-      image: getAssetPath('images/assignments/cactus/cactus-mobile-concept.jpg')
+      id: 'brand-touchpoints',
+      title: 'Brand Touchpoints',
+      description: 'Product tags and supporting brand details',
+      image: getAssetPath('images/assignments/cactus/cactus-tag.png')
     },
     {
-      id: 'stationery-print',
-      title: 'Stationery & Print',
-      description: 'Business cards, letterheads, and print collateral',
-      image: getAssetPath('images/assignments/cactus/cactus-stationery.png')
+      id: 'clothing-application',
+      title: 'Clothing Application',
+      description: 'Extending the identity onto apparel and fabric',
+      image: getAssetPath('images/assignments/cactus/cactus-clothing.png')
     }
   ];
 
-  // Exact 6 Photo Essay photograph deliverables
+  // Exact Photo Essay photograph deliverables matching files on disk in public/images/assignments/photo-essay/
   const photoEssayDeliverables = [
     {
       id: 'photo-01',
-      image: getAssetPath('images/assignments/photo-essay/01-shadows-stairwell.jpg'),
-      alt: 'Shadows & Geometry: Sunlit angles across urban architecture.'
+      image: getAssetPath('images/assignments/photo-essay/photo-essay-01-cover.jpg'),
+      alt: 'CAMPUS THROUGH A FRAME: Cover photograph.'
     },
     {
       id: 'photo-02',
-      image: getAssetPath('images/assignments/photo-essay/02-framing-archway.jpg'),
-      alt: 'Framing Motion: Looking through traditional corridors.'
+      image: getAssetPath('images/assignments/photo-essay/photo-essay-02-in-focus.jpg'),
+      alt: 'In Focus: Focus during lectures.'
     },
     {
       id: 'photo-03',
-      image: getAssetPath('images/assignments/photo-essay/03-reflections-window.jpg'),
-      alt: 'Quiet Reflection: Still moments captured in glass and light.'
+      image: getAssetPath('images/assignments/photo-essay/photo-essay-03-shelves.jpg'),
+      alt: 'Shelves of Knowledge: The library; a place for study and growth.'
     },
     {
       id: 'photo-04',
-      image: getAssetPath('images/assignments/photo-essay/04-textural-details.jpg'),
-      alt: 'Textural Contrast: Weathered stone meeting modern metal.'
+      image: getAssetPath('images/assignments/photo-essay/photo-essay-04-moment-to-pause.jpg'),
+      alt: 'A Moment to Pause: A moment of relaxation and personal space.'
     },
     {
       id: 'photo-05',
-      image: getAssetPath('images/assignments/photo-essay/05-solitude-bench.jpg'),
-      alt: 'Solitude & Scale: Human presence amidst wide open spaces.'
+      image: getAssetPath('images/assignments/photo-essay/photo-essay-05-midday-break.jpg'),
+      alt: 'Midday Break: Social moments at lunch.'
     },
     {
       id: 'photo-06',
-      image: getAssetPath('images/assignments/photo-essay/06-night-lights.jpg'),
+      image: getAssetPath('images/assignments/photo-essay/photo-essay-06-lost-in-thought.jpg'),
+      alt: 'Lost in Thought: A playful pause in the day.'
+    },
+    {
+      id: 'photo-07',
+      image: getAssetPath('images/assignments/photo-essay/photo-essay-07-late-night-focus.jpg'),
       alt: 'Late Night Focus: Focused moments under the quiet glow.'
     }
   ];
@@ -406,16 +411,7 @@ export default function ProjectDetail() {
                 GAMEPLAY MECHANICS
               </h2>
               <p className="exp-about-paragraph font-body text-base text-[#171515]">
-                {project.mechanics}
-              </p>
-            </div>
-
-            <div className="border-l-3 border-[#171515] pl-6 py-1">
-              <h2 className="exp-about-heading font-heading font-bold text-xs sm:text-sm uppercase tracking-widest text-[#171515]">
-                TECHNICAL IMPLEMENTATION
-              </h2>
-              <p className="exp-about-paragraph font-body text-base text-[#171515]">
-                {project.implementation}
+                {project.idea}
               </p>
             </div>
 
@@ -434,7 +430,7 @@ export default function ProjectDetail() {
           </div>
 
           {/* Embedded Pygame HTML5 Canvas Frame */}
-          {project.demoIframe && (
+          {(project.gameEmbed?.src || project.demoIframe) && (
             <div className="detail-major-section-block flex flex-col items-center">
               <h2 className="font-heading font-extrabold text-xl uppercase tracking-tight text-[#171515] mb-4 flex items-center gap-3 w-full max-w-md">
                 <span className="w-3.5 h-3.5 bg-[#D7F23A] border border-[#171515] inline-block"></span>
@@ -442,7 +438,7 @@ export default function ProjectDetail() {
               </h2>
               <div className="sky-hopper-iframe-container">
                 <iframe 
-                  src={project.demoIframe} 
+                  src={project.gameEmbed?.src || project.demoIframe || getAssetPath('games/sky-hopper/index.html')} 
                   title="Sky Hopper Pygame WebGL Demo" 
                   className="sky-hopper-iframe"
                 />
@@ -470,16 +466,7 @@ export default function ProjectDetail() {
                 CHARACTER BACKSTORY
               </h2>
               <p className="exp-about-paragraph font-body text-base text-[#171515]">
-                {project.backstory}
-              </p>
-            </div>
-
-            <div className="border-l-3 border-[#171515] pl-6 py-1">
-              <h2 className="exp-about-heading font-heading font-bold text-xs sm:text-sm uppercase tracking-widest text-[#171515]">
-                DESIGN PROCESS & EXPRESSIONS
-              </h2>
-              <p className="exp-about-paragraph font-body text-base text-[#171515]">
-                {project.designProcess}
+                {project.idea}
               </p>
             </div>
 
@@ -505,7 +492,7 @@ export default function ProjectDetail() {
             </h2>
             <div className="border-1.5 border-[#171515] bg-[#FAF4EB] p-2 shadow-sm flex items-center justify-center min-h-[300px] sm:min-h-[420px] w-full">
               <img 
-                src={getAssetPath('images/assignments/character-design/leo-character-sheet.png')} 
+                src={getAssetPath('images/assignments/character-design/leo-character-sheet.jpg')} 
                 alt="Leo Character Turnaround Sheet"
                 className="leo-character-sheet-img"
               />
