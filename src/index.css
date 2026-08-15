@@ -1384,3 +1384,9 @@ img.white-volunteers-outreach-thumb {
 .assignment-bottom-nav .next-link {
   margin-left: auto !important;
 }
+
+/* Universal Lightbox Image Pointer */
+img:not([data-no-lightbox="true"]):not(.no-lightbox) {
+  cursor: pointer !important;
+}
+

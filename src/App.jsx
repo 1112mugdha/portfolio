@@ -7,6 +7,7 @@ import ProjectDetail from './pages/ProjectDetail';
 import PersonalDetail from './pages/PersonalDetail';
 import ExperienceDetail from './pages/ExperienceDetail';
 import Contact from './pages/Contact';
+import { LightboxProvider } from './context/LightboxContext';
 
 // Safety Error Boundary to prevent blank screen crashes
 class ErrorBoundary extends Component {
@@ -73,25 +74,27 @@ export default function App() {
     <Router>
       <ScrollToTop />
       <ErrorBoundary>
-        <div className="page-wrapper">
-          <Navbar />
-          <main className="main-content-area page-container">
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/about" element={<Navigate to="/#about" replace />} />
-              <Route path="/work" element={<Navigate to="/#assignments" replace />} />
-              <Route path="/work/:projectId" element={<ProjectDetail />} />
-              <Route path="/personal" element={<Navigate to="/#personal-projects" replace />} />
-              <Route path="/personal/:categoryId" element={<PersonalDetail />} />
-              <Route path="/experience" element={<Navigate to="/#experience" replace />} />
-              <Route path="/experience/:id" element={<ExperienceDetail />} />
-              <Route path="/experience/:id/:subFolder" element={<ExperienceDetail />} />
-              <Route path="/contact" element={<Contact />} />
-              <Route path="*" element={<Home />} />
-            </Routes>
-          </main>
-          <Footer />
-        </div>
+        <LightboxProvider>
+          <div className="page-wrapper">
+            <Navbar />
+            <main className="main-content-area page-container">
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/about" element={<Navigate to="/#about" replace />} />
+                <Route path="/work" element={<Navigate to="/#assignments" replace />} />
+                <Route path="/work/:projectId" element={<ProjectDetail />} />
+                <Route path="/personal" element={<Navigate to="/#personal-projects" replace />} />
+                <Route path="/personal/:categoryId" element={<PersonalDetail />} />
+                <Route path="/experience" element={<Navigate to="/#experience" replace />} />
+                <Route path="/experience/:id" element={<ExperienceDetail />} />
+                <Route path="/experience/:id/:subFolder" element={<ExperienceDetail />} />
+                <Route path="/contact" element={<Contact />} />
+                <Route path="*" element={<Home />} />
+              </Routes>
+            </main>
+            <Footer />
+          </div>
+        </LightboxProvider>
       </ErrorBoundary>
     </Router>
   );
