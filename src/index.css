@@ -414,10 +414,15 @@ p {
   margin-top: auto !important;
 }
 
+.hero-section .badge-eyebrow-pink {
+  font-size: 0.8125rem !important;
+  padding: 0.4rem 0.95rem !important;
+}
+
 .hero-heading {
   font-family: 'Space Grotesk', sans-serif;
   font-weight: 800;
-  font-size: clamp(3.0rem, 6.4vw, 5.8rem);
+  font-size: clamp(3.25rem, 6.8vw, 6.25rem);
   letter-spacing: -0.035em;
   text-transform: uppercase;
   line-height: 1.02;
@@ -426,11 +431,11 @@ p {
 }
 
 .hero-sub-text {
-  font-size: 0.975rem !important;
+  font-size: 1.0625rem !important;
   color: #57534E;
   font-weight: 500;
   line-height: 1.6;
-  max-width: 600px;
+  max-width: 640px;
 }
 
 /* 6. EDITORIAL SECTION HEADERS & RHYTHM (WITH STICKY NAVBAR SCROLL MARGIN) */
