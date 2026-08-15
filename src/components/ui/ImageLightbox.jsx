@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import ReactDOM from 'react-dom';
 
 export default function ImageLightbox({ activeImage, onClose }) {
   const [scale, setScale] = useState(1);
@@ -6,13 +7,11 @@ export default function ImageLightbox({ activeImage, onClose }) {
   const [isDragging, setIsDragging] = useState(false);
   const dragStartRef = useRef({ x: 0, y: 0 });
   const touchDistanceRef = useRef(null);
-  const mountTimeRef = useRef(Date.now());
 
   // Reset scale and position whenever activeImage changes
   useEffect(() => {
     setScale(1);
     setPosition({ x: 0, y: 0 });
-    mountTimeRef.current = Date.now();
   }, [activeImage]);
 
   // Lock body scroll when active
@@ -35,11 +34,13 @@ export default function ImageLightbox({ activeImage, onClose }) {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [onClose]);
 
-  const zoomIn = () => {
+  const zoomIn = (e) => {
+    if (e) e.stopPropagation();
     setScale((prev) => Math.min(prev + 0.5, 4));
   };
 
-  const zoomOut = () => {
+  const zoomOut = (e) => {
+    if (e) e.stopPropagation();
     setScale((prev) => {
       const next = Math.max(prev - 0.5, 1);
       if (next === 1) setPosition({ x: 0, y: 0 });
@@ -47,14 +48,15 @@ export default function ImageLightbox({ activeImage, onClose }) {
     });
   };
 
-  const resetZoom = () => {
+  const resetZoom = (e) => {
+    if (e) e.stopPropagation();
     setScale(1);
     setPosition({ x: 0, y: 0 });
   };
 
-  // Safe backdrop click dismissal (only close if target is backdrop container and 150ms has elapsed since mount)
+  // Safe backdrop click dismissal
   const handleBackdropClick = (e) => {
-    if (e.target === e.currentTarget && Date.now() - mountTimeRef.current > 150) {
+    if (e.target === e.currentTarget) {
       onClose();
     }
   };
@@ -132,9 +134,9 @@ export default function ImageLightbox({ activeImage, onClose }) {
     touchDistanceRef.current = null;
   };
 
-  return (
+  const portalContent = (
     <div 
-      className="fixed inset-0 z-[999999] bg-black/90 backdrop-blur-sm flex items-center justify-center p-4 sm:p-6 select-none overflow-hidden"
+      className="fixed inset-0 z-[9999999] bg-black/95 backdrop-blur-md flex items-center justify-center p-4 sm:p-6 select-none overflow-hidden"
       onClick={handleBackdropClick}
       onWheel={handleWheel}
       onTouchStart={handleTouchStart}
@@ -143,7 +145,7 @@ export default function ImageLightbox({ activeImage, onClose }) {
     >
       {/* Top Floating Control Toolbar */}
       <div 
-        className="absolute top-4 left-4 sm:left-6 z-10 flex items-center gap-2 bg-[#171515]/90 text-[#FAF4EB] border border-[#FAF4EB]/20 px-3 py-1.5 rounded-full shadow-2xl font-mono text-xs"
+        className="absolute top-4 left-4 sm:left-6 z-[10000000] flex items-center gap-2 bg-[#171515]/90 text-[#FAF4EB] border border-[#FAF4EB]/20 px-3 py-1.5 rounded-full shadow-2xl font-mono text-xs"
         onClick={(e) => e.stopPropagation()}
       >
         <button 
@@ -175,7 +177,7 @@ export default function ImageLightbox({ activeImage, onClose }) {
       {/* Top Right Prominent Close Button (✕) */}
       <button
         onClick={onClose}
-        className="absolute top-4 right-4 sm:right-6 z-10 w-10 h-10 flex items-center justify-center bg-[#171515]/90 hover:bg-[#E96F98] text-[#FAF4EB] hover:text-[#171515] border border-[#FAF4EB]/20 rounded-full shadow-2xl transition-all font-mono font-bold text-xl cursor-pointer"
+        className="absolute top-4 right-4 sm:right-6 z-[10000000] w-10 h-10 flex items-center justify-center bg-[#171515]/90 hover:bg-[#E96F98] text-[#FAF4EB] hover:text-[#171515] border border-[#FAF4EB]/20 rounded-full shadow-2xl transition-all font-mono font-bold text-xl cursor-pointer"
         aria-label="Close full-screen image preview"
       >
         ✕
@@ -208,4 +210,6 @@ export default function ImageLightbox({ activeImage, onClose }) {
       </div>
     </div>
   );
+
+  return ReactDOM.createPortal(portalContent, document.body);
 }

@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState, useEffect, useCallback, useRef } from 'react';
+import React, { createContext, useContext, useState, useEffect, useCallback } from 'react';
 import ImageLightbox from '../components/ui/ImageLightbox';
 
 const LightboxContext = createContext({
@@ -23,30 +23,28 @@ export function LightboxProvider({ children }) {
     setActiveImage(null);
   }, []);
 
-  // Global click event listener to automatically attach Lightbox behavior to all site-wide <img> elements
+  // Global click listener as a fallback catch-all for any site-wide <img> elements
   useEffect(() => {
     const handleDocumentClick = (e) => {
       const target = e.target;
+      const img = target.tagName === 'IMG' ? target : target.querySelector ? target.querySelector('img') : null;
+      
       if (
-        target && 
-        target.tagName === 'IMG' && 
-        !target.closest('[data-no-lightbox="true"]') &&
-        !target.classList.contains('no-lightbox')
+        img && 
+        !img.closest('[data-no-lightbox="true"]') &&
+        !img.classList.contains('no-lightbox')
       ) {
-        const imgSrc = target.currentSrc || target.src;
-        const imgAlt = target.alt || '';
-        if (imgSrc) {
-          // Open lightbox on next tick so the current click event loop completes before modal backdrop mounts
-          setTimeout(() => {
-            openLightbox(imgSrc, imgAlt);
-          }, 10);
+        const imgSrc = img.currentSrc || img.src;
+        const imgAlt = img.alt || '';
+        if (imgSrc && !imgSrc.endsWith('.svg')) {
+          openLightbox(imgSrc, imgAlt);
         }
       }
     };
 
-    document.addEventListener('click', handleDocumentClick, false);
+    document.addEventListener('click', handleDocumentClick);
     return () => {
-      document.removeEventListener('click', handleDocumentClick, false);
+      document.removeEventListener('click', handleDocumentClick);
     };
   }, [openLightbox]);
 
