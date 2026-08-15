@@ -356,15 +356,16 @@ p {
 
 @media (max-width: 639px) {
   .hero-doodle-garden-container {
-    bottom: 25px;
-    height: 185px;
-    max-height: 185px;
+    bottom: 0 !important;
+    height: 240px !important;
+    max-height: 240px !important;
   }
 
   /* Mobile Responsive Hero Content Scaling & Spacing (Hero Page Only) */
   .hero-section {
-    padding-top: 4.5rem !important;
-    padding-bottom: 3rem !important;
+    min-height: auto !important;
+    padding-top: 4.25rem !important;
+    padding-bottom: 235px !important;
   }
 
   .hero-content-col {
