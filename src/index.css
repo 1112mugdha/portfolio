@@ -463,6 +463,83 @@ p {
   align-items: start;
 }
 
+/* =========================================================================
+   EXPERIENCE DETAIL PAGE FORCED SPACING & HIGHLIGHT STYLES
+   ========================================================================= */
+.exp-back-nav {
+  margin-bottom: 28px !important;
+}
+
+.exp-role-badge-wrap {
+  margin-bottom: 32px !important;
+}
+
+.exp-company-highlight-container {
+  display: inline-block !important;
+  width: fit-content !important;
+  background-color: #D7F23A !important; /* Luminous Lime Green Accent */
+  color: #171515 !important;
+  padding: 10px 16px !important;
+  border: 2px solid #171515 !important;
+  box-shadow: 4px 4px 0px 0px #171515 !important;
+  margin-bottom: 40px !important;
+}
+
+.exp-company-name-text {
+  font-family: 'Space Grotesk', sans-serif !important;
+  font-weight: 800 !important;
+  font-size: clamp(1.85rem, 4vw, 2.75rem) !important;
+  text-transform: uppercase !important;
+  letter-spacing: -0.02em !important;
+  color: #171515 !important;
+  line-height: 1.1 !important;
+  margin: 0 !important;
+}
+
+.exp-about-block {
+  margin-bottom: 40px !important;
+}
+
+.exp-about-heading {
+  margin-bottom: 32px !important;
+}
+
+.exp-about-paragraph {
+  margin-bottom: 40px !important;
+  line-height: 1.65 !important;
+  font-size: 1.025rem !important;
+  color: #171515 !important;
+}
+
+.exp-what-heading {
+  margin-bottom: 24px !important;
+}
+
+.exp-bullet-list {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 16px !important;
+}
+
+.exp-bullet-item {
+  display: flex !important;
+  align-items: flex-start !important;
+  gap: 12px !important;
+  line-height: 1.65 !important;
+  font-size: 1rem !important;
+  color: #423E3B !important;
+}
+
+.exp-work-section-container {
+  margin-top: 48px !important;
+  padding-top: 32px !important;
+  border-top: 1.5px solid #171515 !important;
+}
+
+.exp-work-heading-block {
+  margin-bottom: 20px !important;
+}
+
 @media (min-width: 768px) {
   .about-grid-layout {
     grid-template-columns: 320px 1fr;
