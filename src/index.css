@@ -432,31 +432,31 @@ p {
 /* Mobile Butterfly Floating Animations */
 @keyframes butterflyFloatMobile1 {
   0%, 100% {
-    transform: translate(50px, 15px) rotate(0deg);
+    transform: translate(80px, 50px) rotate(0deg);
   }
   25% {
-    transform: translate(90px, -10px) rotate(5deg);
+    transform: translate(110px, 38px) rotate(5deg);
   }
   50% {
-    transform: translate(120px, 10px) rotate(-4deg);
+    transform: translate(140px, 52px) rotate(-4deg);
   }
   75% {
-    transform: translate(75px, -15px) rotate(3deg);
+    transform: translate(95px, 42px) rotate(3deg);
   }
 }
 
 @keyframes butterflyFloatMobile2 {
   0%, 100% {
-    transform: translate(270px, 15px) rotate(0deg);
+    transform: translate(310px, 45px) rotate(0deg);
   }
   25% {
-    transform: translate(240px, -15px) rotate(-6deg);
+    transform: translate(280px, 34px) rotate(-6deg);
   }
   50% {
-    transform: translate(210px, 5px) rotate(4deg);
+    transform: translate(250px, 48px) rotate(4deg);
   }
   75% {
-    transform: translate(250px, -10px) rotate(-3deg);
+    transform: translate(295px, 36px) rotate(-3deg);
   }
 }
 

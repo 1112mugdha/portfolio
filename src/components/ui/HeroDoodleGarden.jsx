@@ -5,17 +5,13 @@ const Tulip = ({ x, h, curve = 0, color = '#E96F98' }) => {
   const topY = 160 - h;
   return (
     <g stroke="#171515" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round">
-      {/* Thin curved stem from baseline Y=160 */}
       <path d={`M ${x} 160 Q ${x + curve} ${160 - h / 2} ${x} ${topY + 12}`} fill="none" />
-
-      {/* Unfilled transparent leaf 1 */}
       <path
         d={`M ${x} ${160 - h * 0.4} Q ${x - 7} ${160 - h * 0.4 - 4} ${x - 9} ${160 - h * 0.4 - 9} Q ${x - 2} ${160 - h * 0.4 - 6} ${x} ${160 - h * 0.4 - 2}`}
         fill="none"
         stroke="#171515"
         strokeWidth="1.1"
       />
-      {/* Unfilled transparent leaf 2 for tall stems */}
       {h > 50 && (
         <path
           d={`M ${x} ${160 - h * 0.68} Q ${x + 7} ${160 - h * 0.68 - 4} ${x + 9} ${160 - h * 0.68 - 9} Q ${x + 2} ${160 - h * 0.68 - 6} ${x} ${160 - h * 0.68 - 2}`}
@@ -24,8 +20,6 @@ const Tulip = ({ x, h, curve = 0, color = '#E96F98' }) => {
           strokeWidth="1.1"
         />
       )}
-
-      {/* U-shaped Tulip Cup completely filled with Pink or Lime */}
       <path
         d={`M ${x - 5} ${topY} C ${x - 6} ${topY + 7} ${x - 4} ${topY + 13} ${x} ${topY + 13} C ${x + 4} ${topY + 13} ${x + 6} ${topY + 7} ${x + 5} ${topY} C ${x + 2} ${topY + 3} ${x} ${topY + 1} ${x - 2} ${topY + 3} Z`}
         fill={color}
@@ -44,8 +38,6 @@ const Daisy = ({ x, h, curve = 0, color = '#D7F23A' }) => {
   return (
     <g stroke="#171515" strokeWidth="1.1" strokeLinecap="round" strokeLinejoin="round">
       <path d={`M ${x} 160 Q ${x + curve} ${160 - h / 2} ${x} ${topY}`} fill="none" />
-
-      {/* Unfilled leaf */}
       <path
         d={`M ${x} ${160 - h * 0.45} Q ${x + 6} ${160 - h * 0.45 - 3} ${x + 8} ${160 - h * 0.45 - 7} Q ${x + 2} ${160 - h * 0.45 - 5} ${x} ${160 - h * 0.45 - 1}`}
         fill="none"
@@ -60,16 +52,12 @@ const Daisy = ({ x, h, curve = 0, color = '#D7F23A' }) => {
           strokeWidth="1.1"
         />
       )}
-
-      {/* 6 rounded petals */}
       <circle cx={x} cy={topY - 4.5} r="2.2" fill="none" stroke="#171515" />
       <circle cx={x + 4} cy={topY - 2} r="2.2" fill="none" stroke="#171515" />
       <circle cx={x + 4} cy={topY + 2.5} r="2.2" fill="none" stroke="#171515" />
       <circle cx={x} cy={topY + 4.5} r="2.2" fill="none" stroke="#171515" />
       <circle cx={x - 4} cy={topY + 2.5} r="2.2" fill="none" stroke="#171515" />
       <circle cx={x - 4} cy={topY - 2} r="2.2" fill="none" stroke="#171515" />
-
-      {/* Small Lime/Pink Center */}
       <circle cx={x} cy={topY} r="2" fill={color} stroke="#171515" strokeWidth="0.9" />
     </g>
   );
@@ -117,31 +105,7 @@ const BudFlower = ({ x, h, curve = 0, color = '#E96F98' }) => {
   );
 };
 
-// Type 5 — Simple 5-Petal Flower (Clean cute 5-petal flower)
-const FivePetal = ({ x, h, curve = 0, color = '#E96F98' }) => {
-  const topY = 160 - h;
-  return (
-    <g stroke="#171515" strokeWidth="1.1" strokeLinecap="round" strokeLinejoin="round">
-      <path d={`M ${x} 160 Q ${x + curve} ${160 - h / 2} ${x} ${topY}`} fill="none" />
-      {h > 45 && (
-        <path
-          d={`M ${x} ${160 - h * 0.45} Q ${x - 6} ${160 - h * 0.45 - 3} ${x - 8} ${160 - h * 0.45 - 7} Q ${x - 2} ${160 - h * 0.45 - 5} ${x} ${160 - h * 0.45 - 1}`}
-          fill="none"
-          stroke="#171515"
-          strokeWidth="1.1"
-        />
-      )}
-      <path d={`M ${x} ${topY - 4} C ${x - 2} ${topY - 3} ${x - 2} ${topY - 1.5} ${x} ${topY}`} fill="none" />
-      <path d={`M ${x + 4} ${topY - 1} C ${x + 3} ${topY} ${x + 1.5} ${topY} ${x} ${topY}`} fill="none" />
-      <path d={`M ${x + 2.5} ${topY + 3.5} C ${x + 1.5} ${topY + 2.5} ${x + 1} ${topY + 1} ${x} ${topY}`} fill="none" />
-      <path d={`M ${x - 2.5} ${topY + 3.5} C ${x - 1.5} ${topY + 2.5} ${x - 1} ${topY + 1} ${x} ${topY}`} fill="none" />
-      <path d={`M ${x - 4} ${topY - 1} C ${x - 3} ${topY} ${x - 1.5} ${topY} ${x} ${topY}`} fill="none" />
-      <circle cx={x} cy={topY} r="1.5" fill={color} stroke="#171515" strokeWidth="0.8" />
-    </g>
-  );
-};
-
-// Type 6 — Simple Little Sprig (Thin stem with 3-4 unfilled leaves)
+// Type 5 — Simple Little Sprig (Thin stem with 3-4 unfilled leaves)
 const Sprig = ({ x, h, curve = 0 }) => {
   const topY = 160 - h;
   return (
@@ -159,105 +123,147 @@ export default function HeroDoodleGarden() {
   return (
     <div className="hero-doodle-garden-container">
       {/* =========================================================================
-         SINGLE RESPONSIVE DOODLE GARDEN & BUTTERFLIES
+         DESKTOP DOODLE GARDEN (Screen Width >= 640px)
          viewBox="0 0 1200 160" — All stems anchored to Y=160.
-         Height capped at max 82px (top Y >= 78px), staying in bottom 25-30% of hero.
+         Height capped at max 85px (top Y >= 75px). NO DOTTED PATH LINES.
          ========================================================================= */}
       <svg
         viewBox="0 0 1200 160"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
-        className="w-full h-auto max-h-[160px] pointer-events-none block"
+        className="hidden sm:block w-full h-auto max-h-[160px] pointer-events-none"
         preserveAspectRatio="none"
       >
-        {/* DASHED FLIGHT TRAILS FOR BUTTERFLIES */}
-        <path d="M 120 95 Q 160 70 200 62 Q 240 54 260 60" stroke="#171515" strokeWidth="0.8" strokeDasharray="2 3" fill="none" opacity="0.45" />
-        <path d="M 720 90 Q 760 72 800 60 Q 840 50 870 58" stroke="#171515" strokeWidth="0.8" strokeDasharray="2 3" fill="none" opacity="0.45" />
-
         {/* Continuous organic garden across width (Anchored at Y=160) */}
         <Tulip x={25} h={52} curve={-3} color="#E96F98" />
-        <Daisy x={55} h={75} curve={4} color="#D7F23A" />
-        <Wildflower x={85} h={35} curve={-2} color="#E96F98" />
-        <Sprig x={115} h={58} curve={3} />
-        <FivePetal x={145} h={82} curve={-4} color="#E96F98" />
-        <BudFlower x={175} h={40} curve={2} color="#D7F23A" />
-        <Tulip x={205} h={68} curve={-2} color="#D7F23A" />
-        <Daisy x={240} h={54} curve={3} color="#E96F98" />
-        <Wildflower x={270} h={32} curve={-1} color="#E96F98" />
-        <FivePetal x={300} h={84} curve={-3} color="#E96F98" />
-        <Sprig x={335} h={48} curve={2} />
-        <BudFlower x={365} h={60} curve={-2} color="#E96F98" />
-        <Tulip x={400} h={78} curve={4} color="#E96F98" />
-        <Daisy x={430} h={44} curve={-2} color="#D7F23A" />
-        <Wildflower x={460} h={66} curve={3} color="#E96F98" />
-        <Sprig x={495} h={36} curve={-1} />
-        <FivePetal x={525} h={85} curve={-4} color="#E96F98" />
-        <BudFlower x={555} h={54} curve={2} color="#D7F23A" />
-        <Tulip x={590} h={72} curve={-3} color="#D7F23A" />
-        <Daisy x={625} h={42} curve={3} color="#E96F98" />
-        <Wildflower x={655} h={80} curve={-2} color="#E96F98" />
-        <Sprig x={690} h={56} curve={4} />
-        <FivePetal x={720} h={38} curve={-2} color="#E96F98" />
-        <BudFlower x={750} h={82} curve={3} color="#E96F98" />
-        <Tulip x={785} h={64} curve={-3} color="#D7F23A" />
-        <Daisy x={820} h={85} curve={4} color="#D7F23A" />
-        <Wildflower x={850} h={32} curve={-1} color="#E96F98" />
-        <Sprig x={880} h={50} curve={2} />
-        <FivePetal x={910} h={74} curve={-3} color="#E96F98" />
-        <BudFlower x={945} h={44} curve={2} color="#D7F23A" />
-        <Tulip x={975} h={80} curve={-4} color="#E96F98" />
-        <Daisy x={1010} h={52} curve={3} color="#D7F23A" />
-        <Wildflower x={1040} h={70} curve={-2} color="#E96F98" />
-        <Sprig x={1075} h={40} curve={1} />
-        <FivePetal x={1105} h={84} curve={-3} color="#E96F98" />
-        <BudFlower x={1140} h={46} curve={2} color="#D7F23A" />
-        <Tulip x={1170} h={65} curve={-2} color="#E96F98" />
+        <Daisy x={58} h={75} curve={4} color="#D7F23A" />
+        <Wildflower x={90} h={35} curve={-2} color="#E96F98" />
+        <Sprig x={122} h={58} curve={3} />
+        <Daisy x={155} h={82} curve={-4} color="#E96F98" />
+        <BudFlower x={188} h={40} curve={2} color="#D7F23A" />
+        <Tulip x={220} h={68} curve={-2} color="#D7F23A" />
+        <Daisy x={255} h={54} curve={3} color="#E96F98" />
+        <Wildflower x={288} h={32} curve={-1} color="#E96F98" />
+        <Tulip x={322} h={84} curve={-3} color="#E96F98" />
+        <Sprig x={358} h={48} curve={2} />
+        <BudFlower x={390} h={60} curve={-2} color="#E96F98" />
+        <Tulip x={425} h={78} curve={4} color="#E96F98" />
+        <Daisy x={460} h={44} curve={-2} color="#D7F23A" />
+        <Wildflower x={492} h={66} curve={3} color="#E96F98" />
+        <Sprig x={525} h={36} curve={-1} />
+        <Daisy x={558} h={85} curve={-4} color="#E96F98" />
+        <BudFlower x={592} h={54} curve={2} color="#D7F23A" />
+        <Tulip x={625} h={72} curve={-3} color="#D7F23A" />
+        <Daisy x={660} h={42} curve={3} color="#E96F98" />
+        <Wildflower x={692} h={80} curve={-2} color="#E96F98" />
+        <Sprig x={725} h={56} curve={4} />
+        <Tulip x={758} h={38} curve={-2} color="#E96F98" />
+        <BudFlower x={790} h={82} curve={3} color="#E96F98" />
+        <Tulip x={825} h={64} curve={-3} color="#D7F23A" />
+        <Daisy x={860} h={85} curve={4} color="#D7F23A" />
+        <Wildflower x={892} h={32} curve={-1} color="#E96F98" />
+        <Sprig x={925} h={50} curve={2} />
+        <Daisy x={958} h={74} curve={-3} color="#E96F98" />
+        <BudFlower h={44} x={992} curve={2} color="#D7F23A" />
+        <Tulip x={1025} h={80} curve={-4} color="#E96F98" />
+        <Daisy x={1060} h={52} curve={3} color="#D7F23A" />
+        <Wildflower x={1092} h={70} curve={-2} color="#E96F98" />
+        <Sprig x={1125} h={40} curve={1} />
+        <Tulip x={1158} h={65} curve={-2} color="#E96F98" />
 
         {/* =========================================================================
-           EXACTLY 2 TINY ANIMATED BUTTERFLIES WITH DASHED TRAILS
-           Hovering strictly in middle-lower area (Y=50px to Y=65px) so they are NEVER cut off!
+           EXACTLY 2 TINY ANIMATED BUTTERFLIES (NO DASHED PATH LINES)
+           Grouped body + left wing + right wing moving together
            ========================================================================= */}
         
-        {/* BUTTERFLY 1: Left / Center Region */}
+        {/* DESKTOP BUTTERFLY 1 */}
         <g className="butterfly-group-1" transform="translate(240, 58)">
           <g transform="translate(0, 0)">
-            {/* Body */}
             <path d="M 0 -6 L 0 5" stroke="#171515" strokeWidth="1.2" strokeLinecap="round" />
             <path d="M 0 -6 C -2 -9 -3 -11 -4 -12" stroke="#171515" strokeWidth="0.9" strokeLinecap="round" fill="none" />
             <path d="M 0 -6 C 2 -9 3 -11 4 -12" stroke="#171515" strokeWidth="0.9" strokeLinecap="round" fill="none" />
-            
-            {/* Left Wing (Hinge at (0, -1)) */}
             <g className="butterfly-wing-l">
               <path d="M 0 -1 C -6 -7 -10 1 -3 3 C -8 5 -6 11 0 2 Z" stroke="#171515" strokeWidth="1" fill="#E96F98" fillOpacity="0.85" strokeLinejoin="round" />
             </g>
-            
-            {/* Right Wing (Hinge at (0, -1)) */}
             <g className="butterfly-wing-r">
               <path d="M 0 -1 C 6 -7 10 1 3 3 C 8 5 6 11 0 2 Z" stroke="#171515" strokeWidth="1" fill="#E96F98" fillOpacity="0.85" strokeLinejoin="round" />
             </g>
           </g>
         </g>
 
-        {/* BUTTERFLY 2: Center / Right Region */}
+        {/* DESKTOP BUTTERFLY 2 */}
         <g className="butterfly-group-2" transform="translate(820, 52)">
           <g transform="translate(0, 0)">
-            {/* Body */}
             <path d="M 0 -6 L 0 5" stroke="#171515" strokeWidth="1.2" strokeLinecap="round" />
             <path d="M 0 -6 C -2 -9 -3 -11 -4 -12" stroke="#171515" strokeWidth="0.9" strokeLinecap="round" fill="none" />
             <path d="M 0 -6 C 2 -9 3 -11 4 -12" stroke="#171515" strokeWidth="0.9" strokeLinecap="round" fill="none" />
-            
-            {/* Left Wing (Hinge at (0, -1)) */}
             <g className="butterfly-wing-l">
               <path d="M 0 -1 C -6 -7 -10 1 -3 3 C -8 5 -6 11 0 2 Z" stroke="#171515" strokeWidth="1" fill="#D7F23A" fillOpacity="0.85" strokeLinejoin="round" />
             </g>
-            
-            {/* Right Wing (Hinge at (0, -1)) */}
             <g className="butterfly-wing-r">
               <path d="M 0 -1 C 6 -7 10 1 3 3 C 8 5 6 11 0 2 Z" stroke="#171515" strokeWidth="1" fill="#D7F23A" fillOpacity="0.85" strokeLinejoin="round" />
             </g>
           </g>
         </g>
+      </svg>
 
+      {/* =========================================================================
+         DEDICATED OPTIMIZED MOBILE DOODLE GARDEN (Screen Width < 640px)
+         viewBox="0 0 420 160" — Larger, clearer, readable flowers with leaves.
+         All stems anchored to Y=160. NO DOTTED PATH LINES.
+         ========================================================================= */}
+      <svg
+        viewBox="0 0 420 160"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        className="block sm:hidden w-full h-auto max-h-[160px] pointer-events-none"
+        preserveAspectRatio="none"
+      >
+        <Tulip x={20} h={56} curve={-2} color="#E96F98" />
+        <Daisy x={48} h={78} curve={3} color="#D7F23A" />
+        <Wildflower x={76} h={38} curve={-1} color="#E96F98" />
+        <Sprig x={102} h={52} curve={2} />
+        <Daisy x={130} h={82} curve={-3} color="#E96F98" />
+        <BudFlower x={158} h={44} curve={1} color="#D7F23A" />
+        <Tulip x={185} h={72} curve={-2} color="#E96F98" />
+        <Daisy x={215} h={50} curve={3} color="#D7F23A" />
+        <Wildflower x={242} h={84} curve={-2} color="#E96F98" />
+        <Sprig x={270} h={40} curve={1} />
+        <Tulip x={298} h={76} curve={-3} color="#D7F23A" />
+        <Daisy x={326} h={52} curve={3} color="#E96F98" />
+        <Wildflower x={354} h={68} curve={-2} color="#E96F98" />
+        <BudFlower x={382} h={45} curve={2} color="#D7F23A" />
+        <Tulip x={402} h={60} curve={-2} color="#E96F98" />
+
+        {/* MOBILE BUTTERFLY 1 */}
+        <g className="butterfly-group-mobile-1" transform="translate(80, 50)">
+          <g transform="translate(0, 0)">
+            <path d="M 0 -6 L 0 5" stroke="#171515" strokeWidth="1.2" strokeLinecap="round" />
+            <path d="M 0 -6 C -2 -9 -3 -11 -4 -12" stroke="#171515" strokeWidth="0.9" strokeLinecap="round" fill="none" />
+            <path d="M 0 -6 C 2 -9 3 -11 4 -12" stroke="#171515" strokeWidth="0.9" strokeLinecap="round" fill="none" />
+            <g className="butterfly-wing-l">
+              <path d="M 0 -1 C -6 -7 -10 1 -3 3 C -8 5 -6 11 0 2 Z" stroke="#171515" strokeWidth="1" fill="#E96F98" fillOpacity="0.85" strokeLinejoin="round" />
+            </g>
+            <g className="butterfly-wing-r">
+              <path d="M 0 -1 C 6 -7 10 1 3 3 C 8 5 6 11 0 2 Z" stroke="#171515" strokeWidth="1" fill="#E96F98" fillOpacity="0.85" strokeLinejoin="round" />
+            </g>
+          </g>
+        </g>
+
+        {/* MOBILE BUTTERFLY 2 */}
+        <g className="butterfly-group-mobile-2" transform="translate(310, 45)">
+          <g transform="translate(0, 0)">
+            <path d="M 0 -6 L 0 5" stroke="#171515" strokeWidth="1.2" strokeLinecap="round" />
+            <path d="M 0 -6 C -2 -9 -3 -11 -4 -12" stroke="#171515" strokeWidth="0.9" strokeLinecap="round" fill="none" />
+            <path d="M 0 -6 C 2 -9 3 -11 4 -12" stroke="#171515" strokeWidth="0.9" strokeLinecap="round" fill="none" />
+            <g className="butterfly-wing-l">
+              <path d="M 0 -1 C -6 -7 -10 1 -3 3 C -8 5 -6 11 0 2 Z" stroke="#171515" strokeWidth="1" fill="#D7F23A" fillOpacity="0.85" strokeLinejoin="round" />
+            </g>
+            <g className="butterfly-wing-r">
+              <path d="M 0 -1 C 6 -7 10 1 3 3 C 8 5 6 11 0 2 Z" stroke="#171515" strokeWidth="1" fill="#D7F23A" fillOpacity="0.85" strokeLinejoin="round" />
+            </g>
+          </g>
+        </g>
       </svg>
     </div>
   );
