@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import ExperienceFolder from '../components/ui/ExperienceFolder';
 import FolderCard from '../components/ui/FolderCard';
+import HeroDoodleGarden from '../components/ui/HeroDoodleGarden';
 import { projectsData } from '../data/projects';
 import { personalData } from '../data/personal';
 import { experienceData } from '../data/experience';
@@ -39,6 +40,9 @@ export default function Home() {
             Computation & Media student exploring design, visual systems, and creative technology.
           </p>
         </div>
+
+        {/* Hand-Drawn Doodle Garden with 2 Animated Butterflies (Sitting at bottom of Hero) */}
+        <HeroDoodleGarden />
       </section>
 
       {/* 2. ABOUT ME SECTION — FULL WIDTH INTENTIONAL LAYOUT (NO PORTRAIT) */}

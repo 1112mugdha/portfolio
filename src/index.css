@@ -336,6 +336,97 @@ p {
   flex-direction: column;
   gap: 1.75rem;
   max-width: 800px;
+  position: relative;
+  z-index: 5;
+}
+
+/* Hero Hand-Drawn Doodle Garden Container */
+.hero-doodle-garden-container {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  pointer-events: none;
+  z-index: 10;
+  overflow: hidden;
+}
+
+/* Butterfly Floating & Fluttering Keyframes */
+@keyframes butterflyFloat1 {
+  0%, 100% {
+    transform: translate(190px, 40px) rotate(0deg);
+  }
+  25% {
+    transform: translate(198px, 26px) rotate(5deg);
+  }
+  50% {
+    transform: translate(206px, 34px) rotate(-3deg);
+  }
+  75% {
+    transform: translate(195px, 24px) rotate(4deg);
+  }
+}
+
+@keyframes butterflyFloat2 {
+  0%, 100% {
+    transform: translate(730px, 35px) rotate(0deg);
+  }
+  30% {
+    transform: translate(720px, 22px) rotate(-6deg);
+  }
+  60% {
+    transform: translate(710px, 32px) rotate(4deg);
+  }
+  85% {
+    transform: translate(724px, 20px) rotate(-3deg);
+  }
+}
+
+@keyframes wingFlutterLeft {
+  0%, 100% {
+    transform: scaleX(1);
+  }
+  50% {
+    transform: scaleX(0.25);
+  }
+}
+
+@keyframes wingFlutterRight {
+  0%, 100% {
+    transform: scaleX(1);
+  }
+  50% {
+    transform: scaleX(0.25);
+  }
+}
+
+.butterfly-group-1 {
+  animation: butterflyFloat1 7.5s ease-in-out infinite;
+}
+
+.butterfly-group-2 {
+  animation: butterflyFloat2 9s ease-in-out infinite;
+}
+
+.butterfly-wing-left {
+  transform-origin: 20px 22px;
+  animation: wingFlutterLeft 0.35s ease-in-out infinite;
+}
+
+.butterfly-wing-right {
+  transform-origin: 20px 22px;
+  animation: wingFlutterRight 0.35s ease-in-out infinite;
+}
+
+/* Respect user's preferred reduced motion setting */
+@media (prefers-reduced-motion: reduce) {
+  .butterfly-group-1,
+  .butterfly-group-2,
+  .butterfly-wing-left,
+  .butterfly-wing-right {
+    animation: none !important;
+  }
 }
 
 /* Assignments Horizontal Scrollable Row — Equal Card Heights & Alignment */
