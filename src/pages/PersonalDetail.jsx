@@ -59,7 +59,7 @@ export default function PersonalDetail() {
 
       {isBrandConcepts ? (
         /* =========================================================================
-           BRAND CONCEPTS — INSTAGRAM-STYLE CAROUSEL / SLIDESHOW (1 BOARD AT A TIME)
+           BRAND CONCEPTS — CAROUSEL WITH PHOTO SEQUENTIAL GALLERY NAVIGATION SYSTEM
            ========================================================================= */
         <div className="detail-major-section-block flex flex-col items-center">
           
@@ -75,21 +75,20 @@ export default function PersonalDetail() {
             )}
           </div>
 
-          {/* Carousel Frame Container */}
-          <div className="relative w-full max-w-4xl bg-[#FAF4EB] border-1.5 border-[#171515] p-2 sm:p-3 shadow-sm min-h-[320px] sm:min-h-[440px] flex items-center justify-center">
+          {/* Photo Sequential Gallery Component Navigation: Left Arrow + Image Frame + Right Arrow */}
+          <div className="photo-essay-carousel">
             
-            {/* Left Previous Button */}
+            {/* Left Arrow Button (Matching Photo Sequential Gallery System) */}
             <button 
               onClick={prevSlide}
-              className="absolute left-3 z-20 bg-[#171515] text-[#F7F3EA] hover:bg-[#E96F98] hover:text-[#171515] transition-colors py-2 px-3 font-heading font-bold text-xs uppercase tracking-wider border border-[#171515] shadow-md flex items-center gap-1 cursor-pointer"
+              className="photo-essay-arrow-left"
               aria-label="Previous brand concept"
             >
-              <span>←</span>
-              <span className="hidden sm:inline">PREVIOUS</span>
+              ←
             </button>
 
-            {/* Displayed Brand Board Image — EXACTLY ONE AT A TIME */}
-            <div className="w-full flex justify-center items-center overflow-hidden">
+            {/* Displayed Brand Board Image Frame */}
+            <div className="photo-essay-image-frame">
               <img 
                 key={category.items[slideIndex].id}
                 src={category.items[slideIndex].image} 
@@ -98,14 +97,13 @@ export default function PersonalDetail() {
               />
             </div>
 
-            {/* Right Next Button */}
+            {/* Right Arrow Button (Matching Photo Sequential Gallery System) */}
             <button 
               onClick={nextSlide}
-              className="absolute right-3 z-20 bg-[#171515] text-[#F7F3EA] hover:bg-[#E96F98] hover:text-[#171515] transition-colors py-2 px-3 font-heading font-bold text-xs uppercase tracking-wider border border-[#171515] shadow-md flex items-center gap-1 cursor-pointer"
+              className="photo-essay-arrow-right"
               aria-label="Next brand concept"
             >
-              <span className="hidden sm:inline">NEXT</span>
-              <span>→</span>
+              →
             </button>
 
           </div>
