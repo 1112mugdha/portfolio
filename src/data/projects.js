@@ -3,28 +3,8 @@ import { getAssetPath } from '../utils/assetPath';
 // Assignments / Work Projects Data
 export const projectsData = [
   {
-    id: 'movie-posters',
-    number: '01',
-    title: 'MOVIE POSTERS',
-    category: 'Poster Design / Visual Design',
-    year: '2025',
-    featured: true,
-    shortDescription: 'A visual design project exploring movie posters through typography, composition, imagery, and visual storytelling.',
-    about: 'A collection of poster design explorations created to experiment with typography, composition, visual hierarchy, imagery, and different visual moods. Each poster explores a different approach to communicating an idea through layout and visual storytelling.',
-    idea: 'The projects focus on turning simple concepts into visually engaging posters. I experimented with type as a visual element, image placement, colour palettes, scale, and composition to create distinct visual identities for each piece.',
-    process: 'The process involved exploring different layouts, typography combinations, imagery, colour palettes, and compositions before developing the final posters. I focused on creating designs that feel visually strong while still communicating the central idea clearly.',
-    finalWork: 'The final collection includes three poster explorations with distinct visual directions, ranging from editorial and photographic compositions to typography-led designs.',
-    tools: ['Canva', 'Adobe Photoshop', 'Adobe Illustrator'],
-    heroImage: getAssetPath('images/assignments/movie-posters/poster-03-sometimes.jpg'),
-    gallery: [
-      { id: 1, title: "DON'T WORRY DARLING", aspect: 'auto', image: getAssetPath('images/assignments/movie-posters/poster-03-sometimes.jpg') },
-      { id: 2, title: 'INSIDE OUT', aspect: 'auto', image: getAssetPath('images/assignments/movie-posters/poster-01-fleur.png') },
-      { id: 3, title: 'LA LA LAND', aspect: 'auto', image: getAssetPath('images/assignments/movie-posters/poster-02-matcha.png') }
-    ]
-  },
-  {
     id: 'cactus',
-    number: '02',
+    number: '01',
     title: 'CACTUS',
     category: 'Branding & Visual Identity',
     year: '2025',
@@ -80,7 +60,7 @@ export const projectsData = [
   },
   {
     id: 'photo-essay',
-    number: '03',
+    number: '02',
     title: 'PHOTO ESSAY',
     category: 'Photography / Editorial',
     year: '2025',
@@ -139,7 +119,7 @@ export const projectsData = [
   },
   {
     id: 'pygame',
-    number: '04',
+    number: '03',
     title: 'PYGAME',
     subTitle: 'SKY HOPPER',
     category: 'Creative Coding / Game Design',
@@ -168,7 +148,7 @@ export const projectsData = [
   },
   {
     id: 'character-design',
-    number: '05',
+    number: '04',
     title: 'CHARACTER DESIGN',
     category: 'Illustration / Concept Art',
     year: '2025',
@@ -182,6 +162,26 @@ export const projectsData = [
     heroImage: getAssetPath('images/assignments/character-design/leo-character-sheet.jpg'),
     gallery: [
       { id: 1, title: 'LEO — FULL CHARACTER DESIGN SHEET', aspect: 'auto', image: getAssetPath('images/assignments/character-design/leo-character-sheet.jpg') }
+    ]
+  },
+  {
+    id: 'movie-posters',
+    number: '05',
+    title: 'MOVIE POSTERS',
+    category: 'Poster Design / Visual Design',
+    year: '2025',
+    featured: true,
+    shortDescription: 'A visual design project exploring movie posters through typography, composition, imagery, and visual storytelling.',
+    about: 'A collection of poster design explorations created to experiment with typography, composition, visual hierarchy, imagery, and different visual moods. Each poster explores a different approach to communicating an idea through layout and visual storytelling.',
+    idea: 'The projects focus on turning simple concepts into visually engaging posters. I experimented with type as a visual element, image placement, colour palettes, scale, and composition to create distinct visual identities for each piece.',
+    process: 'The process involved exploring different layouts, typography combinations, imagery, colour palettes, and compositions before developing the final posters. I focused on creating designs that feel visually strong while still communicating the central idea clearly.',
+    finalWork: 'The final collection includes three poster explorations with distinct visual directions, ranging from editorial and photographic compositions to typography-led designs.',
+    tools: ['Canva', 'Adobe Photoshop', 'Adobe Illustrator'],
+    heroImage: getAssetPath('images/assignments/movie-posters/poster-03-sometimes.jpg'),
+    gallery: [
+      { id: 1, title: "DON'T WORRY DARLING", aspect: 'auto', image: getAssetPath('images/assignments/movie-posters/poster-03-sometimes.jpg') },
+      { id: 2, title: 'INSIDE OUT', aspect: 'auto', image: getAssetPath('images/assignments/movie-posters/poster-01-fleur.png') },
+      { id: 3, title: 'LA LA LAND', aspect: 'auto', image: getAssetPath('images/assignments/movie-posters/poster-02-matcha.png') }
     ]
   },
   {
