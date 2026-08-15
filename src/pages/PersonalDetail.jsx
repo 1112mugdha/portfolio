@@ -79,7 +79,7 @@ export default function PersonalDetail() {
       {isBrandConcepts ? (
         /* =========================================================================
            BRAND CONCEPTS — 2-COLUMN SIDE-BY-SIDE LAYOUT (DESKTOP) & STACKED (MOBILE)
-           Left Column: Concept Number, Highlighted Brand Name, Category, Description & Indicators
+           Left Column: Concept Number, Bold Pink Brand Name, Category, Description & Indicators
            Right Column: Previous Arrow (Left) + Contained Image Frame + Next Arrow (Right)
            ========================================================================= */
         <div className="detail-major-section-block">
@@ -94,15 +94,13 @@ export default function PersonalDetail() {
               </div>
 
               <div>
-                {/* Highlighted Main Brand Name of current concept */}
-                <div className="exp-company-highlight-container mb-3" style={{ marginBottom: '0.75rem' }}>
-                  <h2 className="exp-company-name-text" style={{ fontSize: 'clamp(1.35rem, 2.5vw, 1.85rem)' }}>
-                    {category.items[slideIndex].title}
-                  </h2>
-                </div>
+                {/* Bold Pink Brand Name for current concept (subordinate to main page title) */}
+                <h2 className="font-heading font-extrabold text-xl sm:text-2xl uppercase tracking-wider text-[#E96F98] mb-2">
+                  {category.items[slideIndex].title}
+                </h2>
 
                 {category.items[slideIndex].category && (
-                  <p className="font-mono text-xs font-bold text-[#E96F98] uppercase tracking-wider mb-3">
+                  <p className="font-mono text-xs font-bold text-[#171515] uppercase tracking-wider mb-3">
                     {category.items[slideIndex].category}
                   </p>
                 )}
