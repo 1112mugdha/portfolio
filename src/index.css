@@ -343,22 +343,22 @@ p {
 /* Hero Hand-Drawn Doodle Garden Container */
 .hero-doodle-garden-container {
   position: absolute;
-  bottom: 10px; /* Lifted slightly higher above bottom horizontal line on desktop */
+  bottom: 0;
   left: 0;
   right: 0;
   width: 100%;
-  height: 120px;
-  max-height: 120px;
+  height: 140px;
+  max-height: 140px;
   pointer-events: none;
   z-index: 10;
-  overflow: hidden;
+  overflow: visible;
 }
 
 @media (max-width: 639px) {
   .hero-doodle-garden-container {
-    bottom: 6px;
-    height: 110px;
-    max-height: 110px;
+    bottom: 0;
+    height: 145px;
+    max-height: 145px;
   }
 
   /* Mobile Responsive Hero Content Scaling & Spacing (Hero Page Only) */

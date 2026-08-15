@@ -125,6 +125,7 @@ export default function HeroDoodleGarden() {
       {/* =========================================================================
          EXACTLY ONE SINGLE RESPONSIVE SVG IN THE ENTIRE DOM
          viewBox="0 0 1200 160" — All stems anchored to Y=160.
+         Explicit baseline line at Y=160 ensures zero gaps & zero floating stems.
          ========================================================================= */}
       <svg
         viewBox="0 0 1200 160"
@@ -133,6 +134,9 @@ export default function HeroDoodleGarden() {
         className="w-full h-full pointer-events-none block"
         preserveAspectRatio="none"
       >
+        {/* Ground Baseline Line at Y=160 connecting all stems */}
+        <line x1="0" y1="160" x2="1200" y2="160" stroke="#171515" strokeWidth="1.2" strokeLinecap="square" />
+
         {/* Continuous organic garden across width (Anchored at Y=160) */}
         <Tulip x={25} h={52} curve={-3} color="#E96F98" />
         <Daisy x={58} h={75} curve={4} color="#D7F23A" />
