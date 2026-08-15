@@ -410,12 +410,12 @@ p {
 }
 
 .butterfly-wing-left {
-  transform-origin: 20px 22px;
+  transform-origin: center center;
   animation: wingFlutterLeft 0.35s ease-in-out infinite;
 }
 
 .butterfly-wing-right {
-  transform-origin: 20px 22px;
+  transform-origin: center center;
   animation: wingFlutterRight 0.35s ease-in-out infinite;
 }
 
