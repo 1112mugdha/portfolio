@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { useParams, Link, Navigate, useSearchParams } from 'react-router-dom';
 import ImagePlaceholder from '../components/ui/ImagePlaceholder';
 import { personalData } from '../data/personal';
@@ -6,6 +6,7 @@ import { personalData } from '../data/personal';
 export default function PersonalDetail() {
   const { categoryId } = useParams();
   const [searchParams, setSearchParams] = useSearchParams();
+  const conceptInfoRef = useRef(null);
   
   const category = personalData.find(c => c.id === categoryId);
   if (!category) {
@@ -27,8 +28,22 @@ export default function PersonalDetail() {
     ? 0
     : parsedSlide;
 
+  const scrollToConceptInfo = () => {
+    if (conceptInfoRef.current) {
+      const elementTop = conceptInfoRef.current.getBoundingClientRect().top + window.pageYOffset;
+      const offset = 90;
+      window.scrollTo({
+        top: Math.max(0, elementTop - offset),
+        behavior: 'smooth'
+      });
+    }
+  };
+
   const updateSlideIndex = (newIndex) => {
     setSearchParams({ slide: (newIndex + 1).toString() }, { replace: false });
+    setTimeout(() => {
+      scrollToConceptInfo();
+    }, 30);
   };
 
   const nextSlide = () => {
@@ -86,7 +101,7 @@ export default function PersonalDetail() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
             
             {/* LEFT COLUMN: Text Info, Case Study Breakdown & Indicators */}
-            <div className="lg:col-span-5 flex flex-col gap-4 text-left">
+            <div ref={conceptInfoRef} className="lg:col-span-5 flex flex-col gap-4 text-left">
               <div className="flex items-center gap-2">
                 <span className="bg-[#E96F98] text-[#171515] px-3 py-1 border border-[#171515] font-mono text-xs font-bold">
                   CONCEPT {String(slideIndex + 1).padStart(2, '0')} / {String(category.items.length).padStart(2, '0')}
