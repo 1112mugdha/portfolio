@@ -21,39 +21,91 @@ export default function ProjectDetail() {
   const cactusGalleryDeliverables = [
     {
       id: 'brand-identity',
-      title: 'Brand Identity',
+      title: '01 — BRAND IDENTITY',
       description: 'Logo, brand mark, colour palette and typography',
       image: getAssetPath('images/assignments/cactus/cactus-brandboard-official.png')
     },
     {
       id: 'website-concept',
-      title: 'Website Concept',
+      title: '02 — WEBSITE CONCEPT',
       description: 'Applying the Cactus visual identity across digital touchpoints',
       image: getAssetPath('images/assignments/cactus/cactus-site.png')
     },
     {
       id: 'visual-direction',
-      title: 'Visual Direction',
+      title: '03 — VISUAL DIRECTION',
       description: 'Moodboard and visual exploration',
       image: getAssetPath('images/assignments/cactus/cactus-mood.png')
     },
     {
       id: 'packaging',
-      title: 'Packaging',
+      title: '04 — PACKAGING',
       description: 'Sustainable packaging and product presentation',
       image: getAssetPath('images/assignments/cactus/cactus-packaging.png')
     },
     {
       id: 'brand-touchpoints',
-      title: 'Brand Touchpoints',
+      title: '05 — BRAND TOUCHPOINTS',
       description: 'Product tags and supporting brand details',
       image: getAssetPath('images/assignments/cactus/cactus-tag.png')
     },
     {
       id: 'clothing-application',
-      title: 'Clothing Application',
+      title: '06 — CLOTHING APPLICATION',
       description: 'Extending the identity onto apparel and fabric',
       image: getAssetPath('images/assignments/cactus/cactus-clothing.png')
+    }
+  ];
+
+  // Movie Posters deliverables for sequential gallery format
+  const moviePostersDeliverables = [
+    {
+      id: 'poster-dont-worry-darling',
+      title: '01 — DON\'T WORRY DARLING',
+      description: 'A minimalist poster design exploring vintage colors and retro-thriller typography.',
+      image: getAssetPath('images/assignments/movie-posters/poster-03-sometimes.jpg')
+    },
+    {
+      id: 'poster-inside-out',
+      title: '02 — INSIDE OUT',
+      description: 'A botanical typographic poster design inspired by emotional color harmonies.',
+      image: getAssetPath('images/assignments/movie-posters/poster-01-fleur.png')
+    },
+    {
+      id: 'poster-la-la-land',
+      title: '03 — LA LA LAND',
+      description: 'A graphic film poster design featuring matcha green and soft pastel hues.',
+      image: getAssetPath('images/assignments/movie-posters/poster-02-matcha.png')
+    }
+  ];
+
+  // Miscellaneous Collection deliverables for sequential gallery format
+  const miscCollectionDeliverables = [
+    {
+      id: 'magazine-cover',
+      title: '01 — MAGAZINE COVER',
+      description: 'A magazine cover design exploring editorial typography and visual hierarchy.',
+      image: getAssetPath('images/assignments/others/magazine-cover.png')
+    },
+    {
+      id: 'editorial-magazine-spread',
+      title: '02 — EDITORIAL MAGAZINE SPREAD',
+      description: 'An open magazine spread featuring typography and editorial layout.',
+      image: getAssetPath('images/assignments/others/magazine-page-1.jpg'),
+      secondImage: getAssetPath('images/assignments/others/magazine-page-2.jpg'),
+      isSpread: true
+    },
+    {
+      id: 'creative-typography-poster',
+      title: '03 — CREATIVE TYPOGRAPHY POSTER',
+      description: 'A standalone poster exploring expressive typography and composition.',
+      image: getAssetPath('images/assignments/others/matcha-typography.png')
+    },
+    {
+      id: 'typography-experiment',
+      title: '04 — TYPOGRAPHY EXPERIMENT',
+      description: 'An experimental typography composition exploring scale, layout, and visual rhythm.',
+      image: getAssetPath('images/assignments/others/quote-typography.png')
     }
   ];
 
@@ -193,57 +245,8 @@ export default function ProjectDetail() {
             </div>
           </div>
 
-          {/* Bottom Section: 3-Column Equal Grid of Poster Explorations */}
-          <div className="detail-major-section-block">
-            <h2 className="font-heading font-extrabold text-xl uppercase tracking-tight text-[#171515] mb-8 flex items-center gap-3">
-              <span className="w-3.5 h-3.5 bg-[#E96F98] border border-[#171515] inline-block"></span>
-              POSTER EXPLORATIONS
-            </h2>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
-              {/* Poster 1 */}
-              <div className="flex flex-col gap-2.5 items-center w-full">
-                <p className="text-xs font-mono font-bold text-[#171515] uppercase tracking-wider mb-0.5 text-center">
-                  DON'T WORRY DARLING
-                </p>
-                <div className="border-1.5 border-[#171515] bg-[#FAF4EB] p-1 shadow-sm w-full">
-                  <img 
-                    src={getAssetPath('images/assignments/movie-posters/poster-03-sometimes.jpg')} 
-                    alt="Don't Worry Darling Poster"
-                    className="movie-poster-gallery-img"
-                  />
-                </div>
-              </div>
-
-              {/* Poster 2 */}
-              <div className="flex flex-col gap-2.5 items-center w-full">
-                <p className="text-xs font-mono font-bold text-[#171515] uppercase tracking-wider mb-0.5 text-center">
-                  INSIDE OUT
-                </p>
-                <div className="border-1.5 border-[#171515] bg-[#FAF4EB] p-1 shadow-sm w-full">
-                  <img 
-                    src={getAssetPath('images/assignments/movie-posters/poster-01-fleur.png')} 
-                    alt="Inside Out Poster"
-                    className="movie-poster-gallery-img"
-                  />
-                </div>
-              </div>
-
-              {/* Poster 3 */}
-              <div className="flex flex-col gap-2.5 items-center w-full">
-                <p className="text-xs font-mono font-bold text-[#171515] uppercase tracking-wider mb-0.5 text-center">
-                  LA LA LAND
-                </p>
-                <div className="border-1.5 border-[#171515] bg-[#FAF4EB] p-1 shadow-sm w-full">
-                  <img 
-                    src={getAssetPath('images/assignments/movie-posters/poster-02-matcha.png')} 
-                    alt="La La Land Poster"
-                    className="movie-poster-gallery-img"
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
+          {/* Sequential Gallery for Movie Posters */}
+          <ProjectGallery items={moviePostersDeliverables} title="POSTER EXPLORATIONS" imgClassName="movie-poster-gallery-img" />
         </div>
       ) : project.id === 'cactus' ? (
         /* =========================================================================
@@ -302,7 +305,7 @@ export default function ProjectDetail() {
             </div>
           </div>
 
-          {/* Project Deliverables Gallery */}
+          {/* Project Deliverables Sequential Gallery */}
           <ProjectGallery items={cactusGalleryDeliverables} title="BRAND SYSTEM & DELIVERABLES" imgClassName="cactus-gallery-img" />
         </div>
       ) : project.id === 'photo-essay' ? (
@@ -351,7 +354,7 @@ export default function ProjectDetail() {
                 <span className="w-3.5 h-3.5 bg-[#E96F98] border border-[#171515] inline-block"></span>
                 PHOTO SEQUENTIAL GALLERY
               </h2>
-              <span className="font-mono text-xs font-bold text-[#57534E]">
+              <span className="font-mono text-xs font-bold text-[#171515] bg-[#FAF4EB] px-3.5 py-1.5 border border-[#171515]">
                 {photoIndex + 1} / {photoEssayDeliverables.length}
               </span>
             </div>
@@ -515,98 +518,7 @@ export default function ProjectDetail() {
             </div>
           </div>
 
-          <div className="detail-major-section-block">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-start justify-items-center">
-              
-              {/* Item 1 — MAGAZINE COVER */}
-              <div className="w-full max-w-[480px] flex flex-col gap-3">
-                <div className="pb-1.5 border-b-1.5 border-[#171515]">
-                  <h3 className="font-heading font-extrabold text-xs uppercase tracking-wider text-[#171515]">
-                    01 — MAGAZINE COVER
-                  </h3>
-                  <p className="font-body text-xs text-[#57534E] leading-tight mt-1">
-                    A magazine cover design exploring editorial typography and visual hierarchy.
-                  </p>
-                </div>
-
-                <div className="border-1.5 border-[#171515] bg-[#FAF4EB] p-2 shadow-sm flex items-center justify-center min-h-[280px] sm:min-h-[360px] w-full">
-                  <img 
-                    src={getAssetPath('images/assignments/others/magazine-cover.png')} 
-                    alt="Magazine Cover"
-                    className="others-standalone-img"
-                  />
-                </div>
-              </div>
-
-              {/* Item 2 — EDITORIAL MAGAZINE SPREAD */}
-              <div className="w-full max-w-[480px] flex flex-col gap-3">
-                <div className="pb-1.5 border-b-1.5 border-[#171515]">
-                  <h3 className="font-heading font-extrabold text-xs uppercase tracking-wider text-[#171515]">
-                    02 — EDITORIAL MAGAZINE SPREAD
-                  </h3>
-                  <p className="font-body text-xs text-[#57534E] leading-tight mt-1">
-                    An open magazine spread featuring typography and editorial layout.
-                  </p>
-                </div>
-
-                <div className="border-1.5 border-[#171515] bg-[#FAF4EB] p-2 shadow-sm flex items-center justify-center min-h-[280px] sm:min-h-[360px] w-full">
-                  <div className="magazine-spread-container">
-                    <img 
-                      src={getAssetPath('images/assignments/others/magazine-page-1.jpg')} 
-                      alt="Magazine Spread Page 1"
-                      className="magazine-spread-page"
-                    />
-                    <img 
-                      src={getAssetPath('images/assignments/others/magazine-page-2.jpg')} 
-                      alt="Magazine Spread Page 2"
-                      className="magazine-spread-page"
-                    />
-                  </div>
-                </div>
-              </div>
-
-              {/* Item 3 — CREATIVE TYPOGRAPHY POSTER */}
-              <div className="w-full max-w-[480px] flex flex-col gap-3">
-                <div className="pb-1.5 border-b-1.5 border-[#171515]">
-                  <h3 className="font-heading font-extrabold text-xs uppercase tracking-wider text-[#171515]">
-                    03 — CREATIVE TYPOGRAPHY POSTER
-                  </h3>
-                  <p className="font-body text-xs text-[#57534E] leading-tight mt-1">
-                    A standalone poster exploring expressive typography and composition.
-                  </p>
-                </div>
-
-                <div className="border-1.5 border-[#171515] bg-[#FAF4EB] p-2 shadow-sm flex items-center justify-center min-h-[280px] sm:min-h-[360px] w-full">
-                  <img 
-                    src={getAssetPath('images/assignments/others/matcha-typography.png')} 
-                    alt="Creative Typography Poster"
-                    className="others-standalone-img"
-                  />
-                </div>
-              </div>
-
-              {/* Item 4 — TYPOGRAPHY EXPERIMENT */}
-              <div className="w-full max-w-[480px] flex flex-col gap-3">
-                <div className="pb-1.5 border-b-1.5 border-[#171515]">
-                  <h3 className="font-heading font-extrabold text-xs uppercase tracking-wider text-[#171515]">
-                    04 — TYPOGRAPHY EXPERIMENT
-                  </h3>
-                  <p className="font-body text-xs text-[#57534E] leading-tight mt-1">
-                    An experimental typography composition exploring scale, layout, and visual rhythm.
-                  </p>
-                </div>
-
-                <div className="border-1.5 border-[#171515] bg-[#FAF4EB] p-2 shadow-sm flex items-center justify-center min-h-[280px] sm:min-h-[360px] w-full">
-                  <img 
-                    src={getAssetPath('images/assignments/others/quote-typography.png')} 
-                    alt="Typography Experiment"
-                    className="others-standalone-img"
-                  />
-                </div>
-              </div>
-
-            </div>
-          </div>
+          <ProjectGallery items={miscCollectionDeliverables} title="MISCELLANEOUS COLLECTION & DELIVERABLES" imgClassName="others-standalone-img" />
         </div>
       ) : (
         /* Standard Fallback Gallery */

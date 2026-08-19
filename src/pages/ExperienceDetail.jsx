@@ -2,6 +2,7 @@ import React from 'react';
 import { useParams, Link, Navigate } from 'react-router-dom';
 import FolderCard from '../components/ui/FolderCard';
 import ImagePlaceholder from '../components/ui/ImagePlaceholder';
+import ProjectGallery from '../components/ui/ProjectGallery';
 import { experienceData } from '../data/experience';
 
 export default function ExperienceDetail() {
@@ -49,42 +50,12 @@ export default function ExperienceDetail() {
           </h1>
         </div>
 
-        {/* Compact 2-Column Grid Gallery */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-10 my-6 justify-items-center">
-          {currentItems.map((item, idx) => (
-            <div 
-              key={item.id || idx} 
-              className={`w-full ${isOutreach ? 'max-w-[340px]' : 'max-w-[380px]'} flex flex-col gap-2 group`}
-            >
-              {/* Creatives Designed shows title; Outreach Visits has NO title, caption, or text */}
-              {isCreatives && item.title && (
-                <div className="pb-1 border-b-1.5 border-[#171515]">
-                  <h3 className="font-heading font-extrabold text-xs uppercase tracking-wider text-[#171515]">
-                    {item.title}
-                  </h3>
-                </div>
-              )}
-
-              {/* Compact Photo / Poster Frame */}
-              <div className="border border-[#171515] bg-[#FAF4EB] p-1.5 shadow-sm flex items-center justify-center min-h-[200px] sm:min-h-[240px] w-full transition-transform group-hover:scale-[1.015]">
-                {item.image.endsWith('.svg') ? (
-                  <ImagePlaceholder
-                    src={item.image}
-                    title={item.title || 'Outreach Photo'}
-                    label={isCreatives ? 'DESIGN POSTER' : 'OUTREACH PHOTO'}
-                    aspectRatio={item.aspect || '4/3'}
-                  />
-                ) : (
-                  <img 
-                    src={item.image} 
-                    alt={`Outreach Photograph ${idx + 1}`} 
-                    className={isCreatives ? "white-volunteers-creative-thumb" : "white-volunteers-outreach-thumb"}
-                  />
-                )}
-              </div>
-            </div>
-          ))}
-        </div>
+        {/* Sequential Gallery View */}
+        <ProjectGallery 
+          items={currentItems} 
+          title={folderTitle} 
+          imgClassName={isCreatives ? "white-volunteers-creative-thumb" : "white-volunteers-outreach-thumb"} 
+        />
 
         {/* Bottom PREV / NEXT Navigation Bar for White Volunteers Sub-Folders */}
         <div className="assignment-bottom-nav">
@@ -181,40 +152,14 @@ export default function ExperienceDetail() {
       {/* MODI BUILDERS: WORK CREATED SECTION */}
       {exp.workCreated && (
         <div className="exp-work-section-container">
-          <div className="exp-work-heading-block">
-            <h2 className="font-heading font-extrabold text-xl sm:text-2xl uppercase tracking-tight text-[#171515] mb-2 flex items-center gap-3">
-              <span className="w-3.5 h-3.5 bg-[#E96F98] border border-[#171515] inline-block"></span>
-              WORK CREATED
-            </h2>
-            {exp.workCreatedSubtitle && (
-              <p className="font-body text-sm sm:text-base text-[#57534E] leading-relaxed mt-2">
+          {exp.workCreatedSubtitle && (
+            <div className="mb-4">
+              <p className="font-body text-sm sm:text-base text-[#57534E] leading-relaxed">
                 {exp.workCreatedSubtitle}
               </p>
-            )}
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-start justify-items-center">
-            {exp.workCreated.map((item) => (
-              <div 
-                key={item.id} 
-                className="w-full max-w-[460px] flex flex-col gap-3"
-              >
-                <div className="pb-1.5 border-b-1.5 border-[#171515]">
-                  <h3 className="font-heading font-extrabold text-xs uppercase tracking-wider text-[#171515]">
-                    {item.title}
-                  </h3>
-                </div>
-
-                <div className="border-1.5 border-[#171515] bg-[#FAF4EB] p-2 shadow-sm flex items-center justify-center min-h-[300px] sm:min-h-[380px] w-full">
-                  <img 
-                    src={item.image} 
-                    alt={item.title}
-                    className="modi-builders-work-img"
-                  />
-                </div>
-              </div>
-            ))}
-          </div>
+            </div>
+          )}
+          <ProjectGallery items={exp.workCreated} title="WORK CREATED" imgClassName="modi-builders-work-img" />
         </div>
       )}
 
