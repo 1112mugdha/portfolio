@@ -52,13 +52,13 @@ img {
   height: auto;
 }
 
-/* Typography Hierarchy */
-h1, h2, h3, h4, h5, h6, .font-heading {
-  font-family: 'Space Grotesk', -apple-system, sans-serif;
+/* Typography Hierarchy — Adobe Fonts Sweet & Salty Display Font */
+h1, h2, h3, h4, h5, h6, .font-heading, .font-display {
+  font-family: sweet-and-salty, "Sweet & Salty", "Sweet and Salty", sans-serif;
   font-weight: 700;
   color: #171515;
-  letter-spacing: -0.02em;
-  line-height: 1.15;
+  letter-spacing: 0.025em;
+  line-height: 1.12;
 }
 
 p {
@@ -618,10 +618,10 @@ p {
 }
 
 .hero-heading {
-  font-family: 'Space Grotesk', sans-serif;
-  font-weight: 800;
-  font-size: clamp(3.25rem, 6.8vw, 6.25rem);
-  letter-spacing: -0.035em;
+  font-family: sweet-and-salty, "Sweet & Salty", "Sweet and Salty", sans-serif;
+  font-weight: 700;
+  font-size: clamp(3.45rem, 7.2vw, 6.45rem);
+  letter-spacing: 0.035em;
   text-transform: uppercase;
   line-height: 1.02;
   color: #171515;
@@ -684,9 +684,10 @@ p {
 }
 
 .section-title {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: clamp(1.75rem, 3.2vw, 2.35rem);
-  font-weight: 800;
+  font-family: sweet-and-salty, "Sweet & Salty", "Sweet and Salty", sans-serif;
+  font-size: clamp(1.85rem, 3.4vw, 2.55rem);
+  font-weight: 700;
+  letter-spacing: 0.03em;
   text-transform: uppercase;
   color: #171515;
 }
@@ -722,11 +723,11 @@ p {
 }
 
 .exp-company-name-text {
-  font-family: 'Space Grotesk', sans-serif !important;
-  font-weight: 800 !important;
-  font-size: clamp(1.85rem, 4vw, 2.75rem) !important;
+  font-family: sweet-and-salty, "Sweet & Salty", "Sweet and Salty", sans-serif !important;
+  font-weight: 700 !important;
+  font-size: clamp(1.95rem, 4.2vw, 2.9rem) !important;
   text-transform: uppercase !important;
-  letter-spacing: -0.02em !important;
+  letter-spacing: 0.025em !important;
   color: #171515 !important;
   line-height: 1.1 !important;
   margin: 0 !important;
@@ -960,9 +961,10 @@ p {
 }
 
 .folder-company-title {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 1.35rem;
-  font-weight: 800;
+  font-family: sweet-and-salty, "Sweet & Salty", "Sweet and Salty", sans-serif;
+  font-size: 1.45rem;
+  font-weight: 700;
+  letter-spacing: 0.025em;
   text-transform: uppercase;
   color: #171515;
   margin-top: 0.5rem;
