@@ -79,13 +79,13 @@ export default function PersonalDetail() {
       {isBrandConcepts ? (
         /* =========================================================================
            BRAND CONCEPTS — 2-COLUMN SIDE-BY-SIDE LAYOUT (DESKTOP) & STACKED (MOBILE)
-           Left Column: Concept Number, Bold Pink Brand Name, Category, Description & Indicators
+           Left Column: Concept Number, Bold Pink Brand Name, Category, Description & 3-4 Case Study Points
            Right Column: Previous Arrow (Left) + Contained Image Frame + Next Arrow (Right)
            ========================================================================= */
         <div className="detail-major-section-block">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
             
-            {/* LEFT COLUMN: Text Info & Indicators */}
+            {/* LEFT COLUMN: Text Info, Case Study Breakdown & Indicators */}
             <div className="lg:col-span-5 flex flex-col gap-4 text-left">
               <div className="flex items-center gap-2">
                 <span className="bg-[#E96F98] text-[#171515] px-3 py-1 border border-[#171515] font-mono text-xs font-bold">
@@ -105,11 +105,30 @@ export default function PersonalDetail() {
                   </p>
                 )}
                 {category.items[slideIndex].description && (
-                  <p className="font-body text-sm sm:text-base text-[#57534E] leading-relaxed">
+                  <p className="font-body text-sm text-[#57534E] leading-relaxed mb-4">
                     {category.items[slideIndex].description}
                   </p>
                 )}
               </div>
+
+              {/* Structured 3-4 Case Study Points per Brand Concept */}
+              {category.items[slideIndex].details && (
+                <div className="flex flex-col gap-3.5 my-1">
+                  {category.items[slideIndex].details.map((point, idx) => (
+                    <div 
+                      key={idx} 
+                      className={`pl-3.5 py-0.5 border-l-2 ${idx % 2 === 0 ? 'border-[#171515]' : 'border-[#E96F98]'}`}
+                    >
+                      <h3 className="font-heading font-bold text-xs uppercase tracking-wider text-[#171515] mb-1">
+                        {point.heading}
+                      </h3>
+                      <p className="font-body text-xs sm:text-sm text-[#57534E] leading-relaxed">
+                        {point.content}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              )}
 
               {/* Indicator Pills & Progress */}
               <div className="flex items-center gap-2 mt-2 pt-4 border-t border-[#171515]/15">
@@ -163,20 +182,25 @@ export default function PersonalDetail() {
         </div>
       ) : (
         /* =========================================================================
-           OTHERS — 3-ITEM HORIZONTAL GALLERY LAYOUT (TITLES DIRECTLY ABOVE IMAGES)
+           OTHERS — 3-ITEM HORIZONTAL GALLERY LAYOUT WITH EXPANDED CASE STUDY DETAILS
            ========================================================================= */
         <div className="detail-major-section-block">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 sm:gap-10 items-start justify-items-center">
             {category.items.map((item) => (
-              <div key={item.id} className="flex flex-col gap-3 w-full max-w-[340px] group">
+              <div key={item.id} className="flex flex-col gap-4 w-full max-w-[340px] group">
                 
-                {/* Clean Image Title Label & One-line Description directly ABOVE image */}
+                {/* Clean Image Title Label & Category */}
                 <div>
                   <h3 className="font-heading font-extrabold text-xs uppercase tracking-wider text-[#171515]">
                     {item.title}
                   </h3>
+                  {item.category && (
+                    <p className="font-mono text-[11px] font-bold text-[#E96F98] uppercase tracking-wider mt-0.5">
+                      {item.category}
+                    </p>
+                  )}
                   {item.description && (
-                    <p className="font-body text-xs text-[#57534E] leading-tight mt-1 truncate max-w-full block" title={item.description}>
+                    <p className="font-body text-xs text-[#57534E] leading-relaxed mt-1.5">
                       {item.description}
                     </p>
                   )}
@@ -199,6 +223,25 @@ export default function PersonalDetail() {
                     />
                   )}
                 </div>
+
+                {/* Structured Case Study Points for Other Personal Projects */}
+                {item.details && (
+                  <div className="flex flex-col gap-3 pt-3 border-t border-[#171515]/15">
+                    {item.details.map((point, idx) => (
+                      <div 
+                        key={idx} 
+                        className={`pl-3 py-0.5 border-l-2 ${idx % 2 === 0 ? 'border-[#171515]' : 'border-[#E96F98]'}`}
+                      >
+                        <h4 className="font-heading font-bold text-[11px] uppercase tracking-wider text-[#171515] mb-0.5">
+                          {point.heading}
+                        </h4>
+                        <p className="font-body text-xs text-[#57534E] leading-relaxed">
+                          {point.content}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+                )}
 
               </div>
             ))}
