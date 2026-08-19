@@ -146,7 +146,7 @@ export default function PersonalDetail() {
             </div>
 
             {/* RIGHT COLUMN: Previous Arrow + Image Frame + Next Arrow */}
-            <div className="lg:col-span-7 flex items-center justify-center">
+            <div className="lg:col-span-7 flex items-center justify-center lg:sticky lg:top-24">
               <div className="photo-essay-carousel w-full justify-center">
                 {/* Left Arrow Button (Vertically centered against image frame) */}
                 <button 
