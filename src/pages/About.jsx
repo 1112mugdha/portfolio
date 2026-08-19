@@ -35,10 +35,10 @@ export default function About() {
           </h2>
           <div className="font-body text-base text-[#171515] leading-relaxed flex flex-col gap-3">
             <p>
-              I’m a Computation & Media student who enjoys working at the intersection of design, technology, and storytelling. I like exploring ideas through visual design, illustration, branding, photography, interactive media, and creative coding, and I’m always curious about how different mediums can come together to communicate an idea.
+              I’m a Computation & Media student who enjoys working at the intersection of design, technology, and storytelling. I like exploring ideas through visual design, illustration, branding, photography, interactive media, and creative coding, and I’m always curious about how different mediums can come together to communicate an idea. I’m still exploring what I’m most drawn to, and I like that my interests are still evolving as I try new things.
             </p>
             <p>
-              A lot of my work starts with simply wanting to make something and figuring things out along the way. Whether I’m designing a visual identity, creating characters, experimenting with an interface, or building something with code, I enjoy the process of turning rough ideas into something tangible.
+              A lot of my work starts with simply wanting to make something and figuring things out along the way. Whether I’m designing a visual identity, creating characters, experimenting with an interface, or exploring a new idea, I enjoy the process of turning rough ideas into something tangible.
             </p>
           </div>
         </div>
