@@ -52,14 +52,13 @@ img {
   height: auto;
 }
 
-/* Typography Hierarchy — Adobe Fonts Sweet & Salty Display Font */
-h1, h2, h3, h4, h5, h6, .font-heading, .font-display {
-  font-family: sweet-and-salty, sans-serif !important;
-  font-style: normal !important;
-  font-weight: 400 !important;
+/* Typography Hierarchy */
+h1, h2, h3, h4, h5, h6, .font-heading {
+  font-family: 'Space Grotesk', -apple-system, sans-serif;
+  font-weight: 700;
   color: #171515;
-  letter-spacing: 0.035em;
-  line-height: 1.1;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
 }
 
 p {
@@ -619,15 +618,14 @@ p {
 }
 
 .hero-heading {
-  font-family: sweet-and-salty, sans-serif !important;
-  font-style: normal !important;
-  font-weight: 400 !important;
-  font-size: clamp(3.5rem, 7.3vw, 6.5rem) !important;
-  letter-spacing: 0.04em !important;
-  text-transform: uppercase !important;
-  line-height: 1.02 !important;
-  color: #171515 !important;
-  white-space: nowrap !important;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 800;
+  font-size: clamp(3.25rem, 6.8vw, 6.25rem);
+  letter-spacing: -0.035em;
+  text-transform: uppercase;
+  line-height: 1.02;
+  color: #171515;
+  white-space: nowrap;
 }
 
 .hero-sub-text {
@@ -686,13 +684,11 @@ p {
 }
 
 .section-title {
-  font-family: sweet-and-salty, sans-serif !important;
-  font-style: normal !important;
-  font-weight: 400 !important;
-  font-size: clamp(1.85rem, 3.4vw, 2.55rem) !important;
-  letter-spacing: 0.035em !important;
-  text-transform: uppercase !important;
-  color: #171515 !important;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(1.75rem, 3.2vw, 2.35rem);
+  font-weight: 800;
+  text-transform: uppercase;
+  color: #171515;
 }
 
 /* 7. ABOUT SECTION ENHANCEMENTS */
@@ -726,12 +722,11 @@ p {
 }
 
 .exp-company-name-text {
-  font-family: sweet-and-salty, sans-serif !important;
-  font-style: normal !important;
-  font-weight: 400 !important;
-  font-size: clamp(1.95rem, 4.2vw, 2.9rem) !important;
+  font-family: 'Space Grotesk', sans-serif !important;
+  font-weight: 800 !important;
+  font-size: clamp(1.85rem, 4vw, 2.75rem) !important;
   text-transform: uppercase !important;
-  letter-spacing: 0.03em !important;
+  letter-spacing: -0.02em !important;
   color: #171515 !important;
   line-height: 1.1 !important;
   margin: 0 !important;
@@ -965,15 +960,13 @@ p {
 }
 
 .folder-company-title {
-  font-family: sweet-and-salty, sans-serif !important;
-  font-style: normal !important;
-  font-weight: 400 !important;
-  font-size: 1.45rem !important;
-  letter-spacing: 0.03em !important;
-  text-transform: uppercase !important;
-  color: #171515 !important;
-  margin-top: 0.5rem !important;
-  line-height: 1.2 !important;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.35rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: #171515;
+  margin-top: 0.5rem;
+  line-height: 1.2;
 }
 
 .folder-role-text {
