@@ -82,7 +82,7 @@ export default function ImagePlaceholder({
           <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', zIndex: 10 }}>
             <div className="brand-logo-mark">C</div>
             <div>
-              <div style={{ fontFamily: 'Space Grotesk, sans-serif', fontWeight: 800, fontSize: '1.25rem', color: '#171515', textTransform: 'uppercase' }}>
+              <div style={{ fontFamily: 'mudstone-sans, sans-serif', fontWeight: 800, fontSize: '1.25rem', color: '#171515', textTransform: 'uppercase' }}>
                 CACTUS
               </div>
               <div style={{ fontSize: '0.7rem', color: '#57534E', fontFamily: 'monospace' }}>VISUAL IDENTITY</div>
@@ -109,7 +109,7 @@ export default function ImagePlaceholder({
             <span style={{ fontFamily: 'monospace', fontSize: '0.65rem', color: '#171515' }}>05 / CHARACTERS</span>
           </div>
           <div style={{ zIndex: 10 }}>
-            <div style={{ fontFamily: 'Space Grotesk, sans-serif', fontWeight: 800, fontSize: '1.25rem', color: '#171515', textTransform: 'uppercase' }}>
+            <div style={{ fontFamily: 'mudstone-sans, sans-serif', fontWeight: 800, fontSize: '1.25rem', color: '#171515', textTransform: 'uppercase' }}>
               CHARACTER DESIGN
             </div>
             <div style={{ fontSize: '0.7rem', color: '#57534E', fontFamily: 'monospace' }}>CONCEPT ART & SILHOUETTES</div>

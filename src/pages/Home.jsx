@@ -142,7 +142,7 @@ export default function Home() {
 
           {/* Interests Pills */}
           <div className="interests-wrapper max-w-3xl">
-            <span style={{ fontFamily: 'Space Grotesk, sans-serif', fontWeight: 700, fontSize: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.08em', color: '#57534E' }}>
+            <span style={{ fontFamily: 'mudstone-sans, sans-serif', fontWeight: 700, fontSize: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.08em', color: '#57534E' }}>
               CREATIVE INTERESTS
             </span>
             <div className="tags-flex-container">

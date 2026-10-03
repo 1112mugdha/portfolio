@@ -27,7 +27,7 @@ class ErrorBoundary extends Component {
     if (this.state.hasError) {
       return (
         <div style={{ padding: '4rem 2rem', textAlign: 'center', backgroundColor: '#F7F3EA', color: '#171515' }}>
-          <h2 style={{ fontFamily: 'Space Grotesk, sans-serif', fontSize: '1.75rem', marginBottom: '1rem' }}>
+          <h2 style={{ fontFamily: 'mudstone-sans, sans-serif', fontSize: '1.75rem', marginBottom: '1rem' }}>
             Application Error Caught
           </h2>
           <p style={{ color: '#57534E', marginBottom: '1.5rem' }}>
@@ -35,7 +35,7 @@ class ErrorBoundary extends Component {
           </p>
           <button 
             onClick={() => window.location.reload()}
-            style={{ padding: '0.75rem 1.5rem', backgroundColor: '#171515', color: '#F7F3EA', border: 'none', cursor: 'pointer', fontFamily: 'Space Grotesk, sans-serif', fontWeight: 700 }}
+            style={{ padding: '0.75rem 1.5rem', backgroundColor: '#171515', color: '#F7F3EA', border: 'none', cursor: 'pointer', fontFamily: 'mudstone-sans, sans-serif', fontWeight: 700 }}
           >
             RELOAD PAGE
           </button>
