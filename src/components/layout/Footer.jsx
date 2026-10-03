@@ -7,8 +7,9 @@ export default function Footer() {
   const engineRef = useRef(null);
   const [bodyTransforms, setBodyTransforms] = useState({});
   const [reducedMotion, setReducedMotion] = useState(false);
+  const hasDroppedRef = useRef(false);
 
-  // 1. Contact cards data
+  // 1. Three Contact Boxes
   const contactBoxes = [
     {
       id: 'card-personal-email',
@@ -16,8 +17,8 @@ export default function Footer() {
       value: 'mugdhapatnaik1112@gmail.com',
       href: 'mailto:mugdhapatnaik1112@gmail.com',
       badgeColor: '#E96F98',
-      initialPos: { xRatio: 0.22, yRatio: 0.72 },
-      size: { width: 250, height: 68 },
+      initialPos: { xRatio: 0.20, startY: -140 },
+      size: { width: 240, height: 68 },
     },
     {
       id: 'card-college-email',
@@ -25,8 +26,8 @@ export default function Footer() {
       value: 'sc24ucom006@mahindrauniversity.edu.in',
       href: 'mailto:sc24ucom006@mahindrauniversity.edu.in',
       badgeColor: '#D7F23A',
-      initialPos: { xRatio: 0.50, yRatio: 0.72 },
-      size: { width: 290, height: 68 },
+      initialPos: { xRatio: 0.50, startY: -200 },
+      size: { width: 280, height: 68 },
     },
     {
       id: 'card-linkedin',
@@ -35,24 +36,24 @@ export default function Footer() {
       href: 'https://www.linkedin.com/in/mugdha-patnaik-073b872a3/',
       isExternal: true,
       badgeColor: '#171515',
-      initialPos: { xRatio: 0.78, yRatio: 0.72 },
-      size: { width: 180, height: 68 },
+      initialPos: { xRatio: 0.80, startY: -160 },
+      size: { width: 170, height: 68 },
     },
   ];
 
-  // 2. Dashboard graphics stickers & logo
+  // 2. Logo & Dashboard Graphics Stickers
   const graphicsItems = [
-    { id: 'logo', src: 'images/nav_logo_m.png', isLogo: true, size: { width: 95, height: 50 }, xRatio: 0.50, yRatio: 0.25 },
-    { id: 'psp1', src: 'images/stickers/pink_sparkle_large.png', size: { width: 36, height: 38 }, xRatio: 0.12, yRatio: 0.28 },
-    { id: 'lsp1', src: 'images/stickers/lime_sparkle_1.png', size: { width: 26, height: 28 }, xRatio: 0.28, yRatio: 0.22 },
-    { id: 'bsp1', src: 'images/stickers/black_8point_star.png', size: { width: 32, height: 35 }, xRatio: 0.38, yRatio: 0.30 },
-    { id: 'bfl1', src: 'images/stickers/black_flower_medium.png', size: { width: 28, height: 28 }, xRatio: 0.62, yRatio: 0.26 },
-    { id: 'psp2', src: 'images/stickers/pink_double_sparkle.png', size: { width: 34, height: 34 }, xRatio: 0.74, yRatio: 0.20 },
-    { id: 'lsp2', src: 'images/stickers/lime_wide_sparkle.png', size: { width: 38, height: 36 }, xRatio: 0.88, yRatio: 0.28 },
-    { id: 'bfl2', src: 'images/stickers/black_flower_large.png', size: { width: 32, height: 31 }, xRatio: 0.16, yRatio: 0.50 },
-    { id: 'pfl1', src: 'images/stickers/pink_flower_medium.png', size: { width: 26, height: 25 }, xRatio: 0.36, yRatio: 0.52 },
-    { id: 'lfl1', src: 'images/stickers/lime_flower_medium.png', size: { width: 30, height: 29 }, xRatio: 0.64, yRatio: 0.52 },
-    { id: 'bsp2', src: 'images/stickers/black_cross_sparkle.png', size: { width: 32, height: 32 }, xRatio: 0.84, yRatio: 0.50 },
+    { id: 'logo', src: 'images/nav_logo_m.png', isLogo: true, size: { width: 95, height: 50 }, xRatio: 0.50, startY: -260 },
+    { id: 'psp1', src: 'images/stickers/pink_sparkle_large.png', size: { width: 36, height: 38 }, xRatio: 0.10, startY: -120 },
+    { id: 'lsp1', src: 'images/stickers/lime_sparkle_1.png', size: { width: 26, height: 28 }, xRatio: 0.28, startY: -180 },
+    { id: 'bsp1', src: 'images/stickers/black_8point_star.png', size: { width: 32, height: 35 }, xRatio: 0.38, startY: -220 },
+    { id: 'bfl1', src: 'images/stickers/black_flower_medium.png', size: { width: 28, height: 28 }, xRatio: 0.62, startY: -150 },
+    { id: 'psp2', src: 'images/stickers/pink_double_sparkle.png', size: { width: 34, height: 34 }, xRatio: 0.74, startY: -190 },
+    { id: 'lsp2', src: 'images/stickers/lime_wide_sparkle.png', size: { width: 38, height: 36 }, xRatio: 0.88, startY: -130 },
+    { id: 'bfl2', src: 'images/stickers/black_flower_large.png', size: { width: 32, height: 31 }, xRatio: 0.15, startY: -240 },
+    { id: 'pfl1', src: 'images/stickers/pink_flower_medium.png', size: { width: 26, height: 25 }, xRatio: 0.35, startY: -210 },
+    { id: 'lfl1', src: 'images/stickers/lime_flower_medium.png', size: { width: 30, height: 29 }, xRatio: 0.65, startY: -230 },
+    { id: 'bsp2', src: 'images/stickers/black_cross_sparkle.png', size: { width: 32, height: 32 }, xRatio: 0.84, startY: -170 },
   ];
 
   useEffect(() => {
@@ -67,80 +68,94 @@ export default function Footer() {
     if (!container) return;
 
     const width = container.clientWidth || window.innerWidth;
-    const height = container.clientHeight || 500;
+    const height = container.clientHeight || 420;
 
     const { Engine, World, Bodies, Body, Sleeping } = Matter;
 
-    // Initialize Matter Physics Engine with sleeping enabled so objects start completely still
+    // 1. Create Matter Engine with gravity & sleeping enabled
     const engine = Engine.create({
       gravity: { x: 0, y: 0.85, scale: 0.001 },
       enableSleeping: true,
     });
     engineRef.current = engine;
 
-    // Static Boundaries (Walls & Floor)
+    // Static Boundaries (Walls & Floor) for compact footer height
     const wallOptions = { isStatic: true, friction: 0.8, restitution: 0.35 };
     const floor = Bodies.rectangle(width / 2, height + 25, width * 2, 50, wallOptions);
     const leftWall = Bodies.rectangle(-25, height / 2, 50, height * 2, wallOptions);
     const rightWall = Bodies.rectangle(width + 25, height / 2, 50, height * 2, wallOptions);
-    const ceiling = Bodies.rectangle(width / 2, -150, width * 2, 50, wallOptions);
+    const ceiling = Bodies.rectangle(width / 2, -300, width * 2, 50, wallOptions);
 
     World.add(engine.world, [floor, leftWall, rightWall, ceiling]);
 
     const bodiesMap = {};
 
-    // 1. Create Contact Cards as physical bodies
+    // 2. Add Contact Cards as physics bodies starting above footer top
     contactBoxes.forEach((card) => {
       const isMobile = width < 768;
       const cardWidth = isMobile ? Math.min(card.size.width, width * 0.88) : card.size.width;
       const cardHeight = card.size.height;
       const posX = Math.max(cardWidth / 2 + 10, Math.min(width - cardWidth / 2 - 10, width * card.initialPos.xRatio));
-      const posY = height * (isMobile ? card.initialPos.yRatio * 0.85 : card.initialPos.yRatio);
+      const posY = card.initialPos.startY; // Start above top boundary
 
       const body = Bodies.rectangle(posX, posY, cardWidth, cardHeight, {
         chamfer: { radius: 8 },
         friction: 0.5,
-        frictionAir: 0.02,
+        frictionAir: 0.015,
         restitution: 0.3,
         density: 0.002,
         angularDamping: 0.15,
-        isSleeping: true, // Start COMPLETELY STILL!
+        isSleeping: true, // Sleep initially until footer enters viewport
       });
-      body.pluginId = card.id;
       bodiesMap[card.id] = body;
       World.add(engine.world, body);
     });
 
-    // 2. Create Logo & Stickers as physical bodies
+    // 3. Add Logo & Stickers as physics bodies starting above footer top
     graphicsItems.forEach((item) => {
       const posX = Math.max(30, Math.min(width - 30, width * item.xRatio));
-      const posY = height * item.yRatio;
+      const posY = item.startY; // Start above top boundary
 
       let body;
       if (item.isLogo) {
         body = Bodies.rectangle(posX, posY, item.size.width, item.size.height, {
           chamfer: { radius: 10 },
           friction: 0.4,
-          frictionAir: 0.02,
+          frictionAir: 0.015,
           restitution: 0.4,
           density: 0.0015,
-          isSleeping: true, // Start COMPLETELY STILL!
+          isSleeping: true,
         });
       } else {
         body = Bodies.circle(posX, posY, Math.max(item.size.width, item.size.height) / 2, {
           friction: 0.3,
           frictionAir: 0.015,
-          restitution: 0.5,
+          restitution: 0.45,
           density: 0.001,
-          isSleeping: true, // Start COMPLETELY STILL!
+          isSleeping: true,
         });
       }
-      body.pluginId = item.id;
       bodiesMap[item.id] = body;
       World.add(engine.world, body);
     });
 
-    // 3. Custom Pointer Drag & Throw Controller with Instant Sleep Settlement
+    // 4. Trigger Automatic Initial Fall ONCE when Footer enters Viewport
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting && !hasDroppedRef.current) {
+          hasDroppedRef.current = true;
+          // Wake up all bodies to initiate automatic drop under gravity
+          Object.values(bodiesMap).forEach((b) => {
+            Sleeping.set(b, false);
+          });
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    observer.observe(container);
+
+    // 5. Pointer Drag & Throw Controller
     let activeDrag = null;
 
     const handlePointerDown = (e) => {
@@ -152,11 +167,8 @@ export default function Footer() {
       if (!body) return;
 
       e.preventDefault();
-
-      // Wake up body when grabbed
       Sleeping.set(body, false);
 
-      const rect = container.getBoundingClientRect();
       const clientX = e.clientX;
       const clientY = e.clientY;
 
@@ -184,12 +196,10 @@ export default function Footer() {
       const currentX = e.clientX - rect.left;
       const currentY = e.clientY - rect.top;
 
-      // Keep position history for throwing velocity calculation
       const now = Date.now();
       activeDrag.history.push({ x: e.clientX, y: e.clientY, time: now });
       if (activeDrag.history.length > 5) activeDrag.history.shift();
 
-      // Move body smoothly to pointer location while dragging
       Body.setPosition(activeDrag.body, { x: currentX, y: currentY });
       Body.setVelocity(activeDrag.body, { x: 0, y: 0 });
     };
@@ -209,9 +219,8 @@ export default function Footer() {
       const dist = Math.hypot(dx, dy);
       const duration = Date.now() - activeDrag.startTime;
 
-      // Check if it's a CLICK vs DRAG
+      // Click vs Drag discrimination
       if (dist < 6 && duration < 250 && activeDrag.card) {
-        // Simple click/tap -> trigger link!
         const card = activeDrag.card;
         if (card.isExternal) {
           window.open(card.href, '_blank', 'noopener,noreferrer');
@@ -234,11 +243,9 @@ export default function Footer() {
         throwVy = ((last.y - prev.y) / dt) * 16;
       }
 
-      // Clamp velocities for clean, satisfying throw physics
       const clampedVx = Math.max(-18, Math.min(18, throwVx));
       const clampedVy = Math.max(-18, Math.min(18, throwVy));
 
-      // Apply throw velocity & rotation
       Sleeping.set(activeDrag.body, false);
       Body.setVelocity(activeDrag.body, { x: clampedVx, y: clampedVy });
       Body.setAngularVelocity(activeDrag.body, Math.max(-0.15, Math.min(0.15, clampedVx * 0.01)));
@@ -251,7 +258,7 @@ export default function Footer() {
     container.addEventListener('pointerup', handlePointerUp);
     container.addEventListener('pointercancel', handlePointerUp);
 
-    // 4. Physics Animation Loop with Auto-Sleep for Zero Jitter / Zero Vibration
+    // 6. Physics Render Loop Syncing DOM Elements with Matter.js Bodies & Auto-Sleeping
     let animationFrameId;
 
     const renderLoop = () => {
@@ -261,7 +268,7 @@ export default function Footer() {
       Object.keys(bodiesMap).forEach((id) => {
         const b = bodiesMap[id];
 
-        // Enforce absolute resting sleep state when body slows down
+        // Auto-sleep resting bodies when velocity drops below threshold to prevent vibration
         if (!b.isSleeping && b.speed < 0.15 && Math.abs(b.angularSpeed) < 0.05) {
           Body.setVelocity(b, { x: 0, y: 0 });
           Body.setAngularVelocity(b, 0);
@@ -281,7 +288,7 @@ export default function Footer() {
 
     renderLoop();
 
-    // 5. Responsive Resize Handler
+    // 7. Responsive Window Resize Handler
     const handleResize = () => {
       if (!containerRef.current) return;
       const newWidth = containerRef.current.clientWidth;
@@ -294,6 +301,7 @@ export default function Footer() {
     window.addEventListener('resize', handleResize);
 
     return () => {
+      observer.disconnect();
       cancelAnimationFrame(animationFrameId);
       window.removeEventListener('resize', handleResize);
       container.removeEventListener('pointerdown', handlePointerDown);
@@ -310,13 +318,13 @@ export default function Footer() {
       className="footer-element relative bg-[#FAF4EB] border-t-1.5 border-[#171515] overflow-hidden select-none"
       id="footer"
     >
-      <div className="page-container py-6">
-        {/* Main 2D Interactive Physics Playground Container */}
+      <div className="page-container py-4">
+        {/* Compact Footer Physics Playground Container */}
         <div
           ref={containerRef}
-          className="relative w-full h-[480px] sm:h-[520px] overflow-hidden rounded-xl border border-[#171515]/20 bg-[#FAF4EB]"
+          className="relative w-full h-[420px] sm:h-[440px] overflow-hidden rounded-xl border border-[#171515]/20 bg-[#FAF4EB]"
         >
-          {/* Render All Contact Cards as Physical Objects */}
+          {/* Render All Contact Cards as Physics Objects */}
           {contactBoxes.map((card) => {
             const transform = bodyTransforms[card.id];
             const posX = transform ? transform.x : 0;
@@ -356,7 +364,7 @@ export default function Footer() {
             );
           })}
 
-          {/* Render Logo & Stickers as Physical Objects */}
+          {/* Render Logo & Stickers as Physics Objects */}
           {graphicsItems.map((item) => {
             const transform = bodyTransforms[item.id];
             const posX = transform ? transform.x : 0;
