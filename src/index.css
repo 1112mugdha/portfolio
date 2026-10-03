@@ -404,14 +404,25 @@ p {
 }
 
 /* Draggable Graphic Stickers */
-.draggable-sticker {
-  transition: transform 0.15s ease, opacity 0.15s ease;
+.hero-stickers-desktop {
+  display: block;
+}
+
+.hero-stickers-mobile {
+  display: none;
 }
 
 @media (max-width: 767px) {
-  .sticker-desktop-only {
+  .hero-stickers-desktop {
     display: none !important;
   }
+  .hero-stickers-mobile {
+    display: block !important;
+  }
+}
+
+.draggable-sticker {
+  transition: transform 0.15s ease, opacity 0.15s ease;
 }
 
 .draggable-sticker:hover {

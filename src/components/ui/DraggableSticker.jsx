@@ -4,15 +4,10 @@ import { getAssetPath } from '../../utils/assetPath';
 export default function DraggableSticker({
   src,
   initialPos,
-  mobilePos,
   size = { width: 44, height: 44 },
-  alt = "Sticker",
-  hideOnMobile = false
+  alt = "Sticker"
 }) {
-  const [pos, setPos] = useState(() => {
-    const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
-    return (isMobile && mobilePos) ? mobilePos : initialPos;
-  });
+  const [pos, setPos] = useState(initialPos);
   const [isDragging, setIsDragging] = useState(false);
   const [dragOffset, setDragOffset] = useState({ x: 0, y: 0 });
 
@@ -62,7 +57,7 @@ export default function DraggableSticker({
       onPointerMove={handlePointerMove}
       onPointerUp={handlePointerUp}
       onPointerCancel={handlePointerUp}
-      className={`draggable-sticker ${hideOnMobile ? 'sticker-desktop-only' : ''} ${isDragging ? 'is-dragging' : ''}`}
+      className={`draggable-sticker ${isDragging ? 'is-dragging' : ''}`}
       style={{
         position: 'absolute',
         left: `${pos.x}px`,
