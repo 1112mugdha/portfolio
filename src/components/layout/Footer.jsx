@@ -9,50 +9,47 @@ export default function Footer() {
   const [reducedMotion, setReducedMotion] = useState(false);
   const hasDroppedRef = useRef(false);
 
-  // 1. Three Contact Boxes
+  // 1. Three Compact Physical Contact Cards (ONLY label visible, embedded links)
   const contactBoxes = [
     {
       id: 'card-personal-email',
       label: 'PERSONAL EMAIL ↗',
-      value: 'mugdhapatnaik1112@gmail.com',
       href: 'mailto:mugdhapatnaik1112@gmail.com',
       badgeColor: '#E96F98',
-      initialPos: { xRatio: 0.20, startY: -140 },
-      size: { width: 240, height: 68 },
+      initialPos: { xRatio: 0.22, startY: -130 },
+      size: { width: 185, height: 54 },
     },
     {
       id: 'card-college-email',
       label: 'COLLEGE EMAIL ↗',
-      value: 'sc24ucom006@mahindrauniversity.edu.in',
       href: 'mailto:sc24ucom006@mahindrauniversity.edu.in',
       badgeColor: '#D7F23A',
       initialPos: { xRatio: 0.50, startY: -200 },
-      size: { width: 280, height: 68 },
+      size: { width: 185, height: 54 },
     },
     {
       id: 'card-linkedin',
       label: 'LINKEDIN ↗',
-      value: 'LinkedIn',
       href: 'https://www.linkedin.com/in/mugdha-patnaik-073b872a3/',
       isExternal: true,
       badgeColor: '#171515',
-      initialPos: { xRatio: 0.80, startY: -160 },
-      size: { width: 170, height: 68 },
+      initialPos: { xRatio: 0.78, startY: -160 },
+      size: { width: 145, height: 54 },
     },
   ];
 
-  // 2. Logo & Dashboard Graphics Stickers
+  // 2. Logo & Dashboard Decorative Graphics
   const graphicsItems = [
-    { id: 'logo', src: 'images/nav_logo_m.png', isLogo: true, size: { width: 95, height: 50 }, xRatio: 0.50, startY: -260 },
-    { id: 'psp1', src: 'images/stickers/pink_sparkle_large.png', size: { width: 36, height: 38 }, xRatio: 0.10, startY: -120 },
-    { id: 'lsp1', src: 'images/stickers/lime_sparkle_1.png', size: { width: 26, height: 28 }, xRatio: 0.28, startY: -180 },
-    { id: 'bsp1', src: 'images/stickers/black_8point_star.png', size: { width: 32, height: 35 }, xRatio: 0.38, startY: -220 },
-    { id: 'bfl1', src: 'images/stickers/black_flower_medium.png', size: { width: 28, height: 28 }, xRatio: 0.62, startY: -150 },
-    { id: 'psp2', src: 'images/stickers/pink_double_sparkle.png', size: { width: 34, height: 34 }, xRatio: 0.74, startY: -190 },
-    { id: 'lsp2', src: 'images/stickers/lime_wide_sparkle.png', size: { width: 38, height: 36 }, xRatio: 0.88, startY: -130 },
-    { id: 'bfl2', src: 'images/stickers/black_flower_large.png', size: { width: 32, height: 31 }, xRatio: 0.15, startY: -240 },
-    { id: 'pfl1', src: 'images/stickers/pink_flower_medium.png', size: { width: 26, height: 25 }, xRatio: 0.35, startY: -210 },
-    { id: 'lfl1', src: 'images/stickers/lime_flower_medium.png', size: { width: 30, height: 29 }, xRatio: 0.65, startY: -230 },
+    { id: 'logo', src: 'images/nav_logo_m.png', isLogo: true, size: { width: 90, height: 48 }, xRatio: 0.46, startY: -250 },
+    { id: 'psp1', src: 'images/stickers/pink_sparkle_large.png', size: { width: 36, height: 38 }, xRatio: 0.12, startY: -110 },
+    { id: 'lsp1', src: 'images/stickers/lime_sparkle_1.png', size: { width: 26, height: 28 }, xRatio: 0.30, startY: -170 },
+    { id: 'bsp1', src: 'images/stickers/black_8point_star.png', size: { width: 32, height: 35 }, xRatio: 0.40, startY: -220 },
+    { id: 'bfl1', src: 'images/stickers/black_flower_medium.png', size: { width: 28, height: 28 }, xRatio: 0.60, startY: -140 },
+    { id: 'psp2', src: 'images/stickers/pink_double_sparkle.png', size: { width: 34, height: 34 }, xRatio: 0.72, startY: -190 },
+    { id: 'lsp2', src: 'images/stickers/lime_wide_sparkle.png', size: { width: 38, height: 36 }, xRatio: 0.88, startY: -120 },
+    { id: 'bfl2', src: 'images/stickers/black_flower_large.png', size: { width: 32, height: 31 }, xRatio: 0.16, startY: -240 },
+    { id: 'pfl1', src: 'images/stickers/pink_flower_medium.png', size: { width: 26, height: 25 }, xRatio: 0.36, startY: -210 },
+    { id: 'lfl1', src: 'images/stickers/lime_flower_medium.png', size: { width: 30, height: 29 }, xRatio: 0.66, startY: -230 },
     { id: 'bsp2', src: 'images/stickers/black_cross_sparkle.png', size: { width: 32, height: 32 }, xRatio: 0.84, startY: -170 },
   ];
 
@@ -68,35 +65,35 @@ export default function Footer() {
     if (!container) return;
 
     const width = container.clientWidth || window.innerWidth;
-    const height = container.clientHeight || 420;
+    const height = container.clientHeight || 400;
 
     const { Engine, World, Bodies, Body, Sleeping } = Matter;
 
-    // 1. Create Matter Engine with gravity & sleeping enabled
+    // Initialize Matter Physics Engine with real 2D gravity & sleeping enabled
     const engine = Engine.create({
-      gravity: { x: 0, y: 0.85, scale: 0.001 },
+      gravity: { x: 0, y: 0.95, scale: 0.001 },
       enableSleeping: true,
     });
     engineRef.current = engine;
 
-    // Static Boundaries (Walls & Floor) for compact footer height
-    const wallOptions = { isStatic: true, friction: 0.8, restitution: 0.35 };
-    const floor = Bodies.rectangle(width / 2, height + 25, width * 2, 50, wallOptions);
-    const leftWall = Bodies.rectangle(-25, height / 2, 50, height * 2, wallOptions);
-    const rightWall = Bodies.rectangle(width + 25, height / 2, 50, height * 2, wallOptions);
-    const ceiling = Bodies.rectangle(width / 2, -300, width * 2, 50, wallOptions);
+    // Fixed Boundaries (Walls & Floor)
+    const wallOptions = { isStatic: true, friction: 0.8, restitution: 0.3 };
+    const floor = Bodies.rectangle(width / 2, height + 20, width * 2, 40, wallOptions);
+    const leftWall = Bodies.rectangle(-20, height / 2, 40, height * 2, wallOptions);
+    const rightWall = Bodies.rectangle(width + 20, height / 2, 40, height * 2, wallOptions);
+    const ceiling = Bodies.rectangle(width / 2, -300, width * 2, 40, wallOptions);
 
     World.add(engine.world, [floor, leftWall, rightWall, ceiling]);
 
     const bodiesMap = {};
 
-    // 2. Add Contact Cards as physics bodies starting above footer top
+    // 1. Add Contact Cards as Physical Bodies starting above top boundary
     contactBoxes.forEach((card) => {
       const isMobile = width < 768;
-      const cardWidth = isMobile ? Math.min(card.size.width, width * 0.88) : card.size.width;
+      const cardWidth = isMobile ? Math.min(card.size.width, width * 0.85) : card.size.width;
       const cardHeight = card.size.height;
       const posX = Math.max(cardWidth / 2 + 10, Math.min(width - cardWidth / 2 - 10, width * card.initialPos.xRatio));
-      const posY = card.initialPos.startY; // Start above top boundary
+      const posY = card.initialPos.startY;
 
       const body = Bodies.rectangle(posX, posY, cardWidth, cardHeight, {
         chamfer: { radius: 8 },
@@ -104,17 +101,17 @@ export default function Footer() {
         frictionAir: 0.015,
         restitution: 0.3,
         density: 0.002,
-        angularDamping: 0.15,
+        angularDamping: 0.12,
         isSleeping: true, // Sleep initially until footer enters viewport
       });
       bodiesMap[card.id] = body;
       World.add(engine.world, body);
     });
 
-    // 3. Add Logo & Stickers as physics bodies starting above footer top
+    // 2. Add Logo & Stickers as Physical Bodies starting above top boundary
     graphicsItems.forEach((item) => {
       const posX = Math.max(30, Math.min(width - 30, width * item.xRatio));
-      const posY = item.startY; // Start above top boundary
+      const posY = item.startY;
 
       let body;
       if (item.isLogo) {
@@ -139,12 +136,12 @@ export default function Footer() {
       World.add(engine.world, body);
     });
 
-    // 4. Trigger Automatic Initial Fall ONCE when Footer enters Viewport
+    // 3. Trigger Automatic Drop ONCE when Footer enters Viewport
     const observer = new IntersectionObserver(
       (entries) => {
         if (entries[0].isIntersecting && !hasDroppedRef.current) {
           hasDroppedRef.current = true;
-          // Wake up all bodies to initiate automatic drop under gravity
+          // Wake up bodies to initiate automatic drop under real 2D gravity
           Object.values(bodiesMap).forEach((b) => {
             Sleeping.set(b, false);
           });
@@ -155,7 +152,7 @@ export default function Footer() {
 
     observer.observe(container);
 
-    // 5. Pointer Drag & Throw Controller
+    // 4. Pointer Drag & Throw Controller
     let activeDrag = null;
 
     const handlePointerDown = (e) => {
@@ -258,7 +255,7 @@ export default function Footer() {
     container.addEventListener('pointerup', handlePointerUp);
     container.addEventListener('pointercancel', handlePointerUp);
 
-    // 6. Physics Render Loop Syncing DOM Elements with Matter.js Bodies & Auto-Sleeping
+    // 5. Physics Render Loop Syncing DOM Elements with Matter.js Bodies & Auto-Sleeping
     let animationFrameId;
 
     const renderLoop = () => {
@@ -269,7 +266,7 @@ export default function Footer() {
         const b = bodiesMap[id];
 
         // Auto-sleep resting bodies when velocity drops below threshold to prevent vibration
-        if (!b.isSleeping && b.speed < 0.15 && Math.abs(b.angularSpeed) < 0.05) {
+        if (!b.isSleeping && b.speed < 0.12 && Math.abs(b.angularSpeed) < 0.04) {
           Body.setVelocity(b, { x: 0, y: 0 });
           Body.setAngularVelocity(b, 0);
           Sleeping.set(b, true);
@@ -288,14 +285,14 @@ export default function Footer() {
 
     renderLoop();
 
-    // 7. Responsive Window Resize Handler
+    // 6. Responsive Window Resize Handler
     const handleResize = () => {
       if (!containerRef.current) return;
       const newWidth = containerRef.current.clientWidth;
       const newHeight = containerRef.current.clientHeight;
 
-      Body.setPosition(floor, { x: newWidth / 2, y: newHeight + 25 });
-      Body.setPosition(rightWall, { x: newWidth + 25, y: newHeight / 2 });
+      Body.setPosition(floor, { x: newWidth / 2, y: newHeight + 20 });
+      Body.setPosition(rightWall, { x: newWidth + 20, y: newHeight / 2 });
     };
 
     window.addEventListener('resize', handleResize);
@@ -318,13 +315,13 @@ export default function Footer() {
       className="footer-element relative bg-[#FAF4EB] border-t-1.5 border-[#171515] overflow-hidden select-none"
       id="footer"
     >
-      <div className="page-container py-4">
-        {/* Compact Footer Physics Playground Container */}
+      <div className="page-container py-3">
+        {/* Fixed Height Physics Playground Box (~50vh) */}
         <div
           ref={containerRef}
-          className="relative w-full h-[420px] sm:h-[440px] overflow-hidden rounded-xl border border-[#171515]/20 bg-[#FAF4EB]"
+          className="relative w-full h-[50vh] min-h-[380px] max-h-[460px] overflow-hidden rounded-xl border border-[#171515]/20 bg-[#FAF4EB]"
         >
-          {/* Render All Contact Cards as Physics Objects */}
+          {/* Render Contact Cards as Physical Outlined Boxes */}
           {contactBoxes.map((card) => {
             const transform = bodyTransforms[card.id];
             const posX = transform ? transform.x : 0;
@@ -335,7 +332,7 @@ export default function Footer() {
               <div
                 key={card.id}
                 data-physics-id={card.id}
-                className="absolute p-3 bg-[#FAF4EB] border-1.5 border-[#171515] rounded-lg shadow-[3px_3px_0px_#171515] cursor-grab active:cursor-grabbing hover:border-[#E96F98] transition-colors select-none flex flex-col justify-center"
+                className="absolute p-3 bg-[#FAF4EB] border-1.5 border-[#171515] rounded-lg shadow-[3px_3px_0px_#171515] cursor-grab active:cursor-grabbing hover:border-[#E96F98] transition-colors select-none flex items-center justify-between"
                 style={{
                   width: `${card.size.width}px`,
                   height: `${card.size.height}px`,
@@ -348,23 +345,18 @@ export default function Footer() {
                   zIndex: 20,
                 }}
               >
-                <div className="flex items-center justify-between mb-1 pointer-events-none">
-                  <span className="font-heading font-bold text-xs uppercase tracking-widest text-[#171515] flex items-center gap-1.5">
-                    <span
-                      className="w-2 h-2 rounded-full border border-[#171515] inline-block"
-                      style={{ backgroundColor: card.badgeColor }}
-                    />
-                    {card.label}
-                  </span>
-                </div>
-                <p className="font-body text-xs text-[#171515] font-medium break-all pointer-events-none leading-tight">
-                  {card.value}
-                </p>
+                <span className="font-heading font-bold text-xs uppercase tracking-wider text-[#171515] flex items-center gap-2 pointer-events-none">
+                  <span
+                    className="w-2 h-2 rounded-full border border-[#171515] inline-block"
+                    style={{ backgroundColor: card.badgeColor }}
+                  />
+                  {card.label}
+                </span>
               </div>
             );
           })}
 
-          {/* Render Logo & Stickers as Physics Objects */}
+          {/* Render Logo & Stickers as Physical Objects */}
           {graphicsItems.map((item) => {
             const transform = bodyTransforms[item.id];
             const posX = transform ? transform.x : 0;
