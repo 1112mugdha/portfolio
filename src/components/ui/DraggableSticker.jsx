@@ -1,8 +1,18 @@
 import React, { useState } from 'react';
 import { getAssetPath } from '../../utils/assetPath';
 
-export default function DraggableSticker({ src, initialPos, size = { width: 44, height: 44 }, alt = "Sticker" }) {
-  const [pos, setPos] = useState(initialPos);
+export default function DraggableSticker({
+  src,
+  initialPos,
+  mobilePos,
+  size = { width: 44, height: 44 },
+  alt = "Sticker",
+  hideOnMobile = false
+}) {
+  const [pos, setPos] = useState(() => {
+    const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
+    return (isMobile && mobilePos) ? mobilePos : initialPos;
+  });
   const [isDragging, setIsDragging] = useState(false);
   const [dragOffset, setDragOffset] = useState({ x: 0, y: 0 });
 
@@ -52,7 +62,7 @@ export default function DraggableSticker({ src, initialPos, size = { width: 44, 
       onPointerMove={handlePointerMove}
       onPointerUp={handlePointerUp}
       onPointerCancel={handlePointerUp}
-      className={`draggable-sticker ${isDragging ? 'is-dragging' : ''}`}
+      className={`draggable-sticker ${hideOnMobile ? 'sticker-desktop-only' : ''} ${isDragging ? 'is-dragging' : ''}`}
       style={{
         position: 'absolute',
         left: `${pos.x}px`,
