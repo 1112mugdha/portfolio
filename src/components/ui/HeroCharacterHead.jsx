@@ -39,16 +39,16 @@ export default function HeroCharacterHead() {
 
       const rect = containerRef.current.getBoundingClientRect();
 
-      // Center point between eyes in viewport space (approx 50.6% width, 41% height)
+      // Center point between eyes in viewport space (approx 50.6% width, 40.9% height)
       const eyeCenterX = rect.left + rect.width * 0.506;
-      const eyeCenterY = rect.top + rect.height * 0.41;
+      const eyeCenterY = rect.top + rect.height * 0.409;
 
       const dx = e.clientX - eyeCenterX;
       const dy = e.clientY - eyeCenterY;
       const dist = Math.sqrt(dx * dx + dy * dy);
 
-      // Subtle movement range: Max 6.5px offset so eyeballs NEVER leave the eye whites
-      const maxDistance = 6.5;
+      // Subtle movement range: Max 5.5px offset so eyeballs NEVER leave the eye whites
+      const maxDistance = 5.5;
       const factor = Math.min(dist / 380, 1);
       const angle = Math.atan2(dy, dx);
 

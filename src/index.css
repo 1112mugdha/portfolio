@@ -319,12 +319,12 @@ p {
   color: #171515;
 }
 
-/* 5. HERO SECTION — EXACTLY ONE SCREEN HEIGHT WITH CHARACTER AT BOTTOM */
+/* 5. HERO SECTION — EXACTLY ONE SCREEN HEIGHT WITH LEFT-ALIGNED TEXT & CHARACTER AT BOTTOM */
 .hero-section {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start; /* LEFT ALIGNED TEXT COMPOSITION */
   position: relative;
   height: calc(100vh - 76px);
   min-height: calc(100svh - 76px);
@@ -345,8 +345,9 @@ p {
   width: 100%;
   position: relative;
   z-index: 5;
-  text-align: left;
+  text-align: left; /* LEFT ALIGNED TEXT BLOCK */
   flex-shrink: 0;
+  margin-left: 0;
 }
 
 .hero-character-bottom-wrapper {
@@ -363,19 +364,20 @@ p {
 .hero-character-head-container {
   position: relative;
   height: 100%;
-  max-height: 54vh;
+  max-height: 52vh;
+  width: auto;
   aspect-ratio: 811 / 723;
   margin: 0 auto;
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
+  display: block;
 }
 
 img.hero-character-head-img {
-  width: 100%;
+  width: auto;
   height: 100%;
+  max-height: 100%;
   object-fit: contain;
   display: block;
+  margin: 0 auto;
 }
 
 /* Layer containing the exact provided separate eyeballs */
@@ -390,8 +392,8 @@ img.hero-character-head-img {
 
 .hero-single-eyeball {
   position: absolute;
-  width: 6.8%;
-  height: 7.6%;
+  width: 9.8%;
+  height: 10.4%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -423,7 +425,7 @@ img.hero-character-head-img {
   }
 
   .hero-character-head-container {
-    max-height: 48vh !important;
+    max-height: 46vh !important;
     width: auto !important;
   }
 }
