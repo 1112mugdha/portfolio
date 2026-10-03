@@ -1556,28 +1556,47 @@ a:not(p a),
 label,
 time {
   font-family: 'mudstone-sans', 'Space Grotesk', -apple-system, sans-serif !important;
-  letter-spacing: 0.03em;
+  letter-spacing: 0.075em; /* Noticeably more open: ~1.5–2px letter spacing */
 }
 
-/* Subtle 3-5% size boost for headings & key Mudstone text */
+/* 7-8% size boost & ~1.5-2px open letter spacing for Mudstone Sans text */
 .hero-heading {
-  font-size: clamp(3.4rem, 7.1vw, 6.5rem) !important;
-  letter-spacing: -0.02em !important;
+  font-size: clamp(3.5rem, 7.3vw, 6.7rem) !important;
+  letter-spacing: 0.015em !important;
 }
 
 .section-title {
-  font-size: clamp(1.82rem, 3.3vw, 2.45rem) !important;
-  letter-spacing: -0.015em !important;
+  font-size: clamp(1.88rem, 3.4vw, 2.52rem) !important;
+  letter-spacing: 0.02em !important;
 }
 
 .nav-brand-logo {
-  font-size: 1.55rem !important;
-  letter-spacing: -0.02em !important;
+  font-size: 1.62rem !important;
+  letter-spacing: 0.01em !important;
 }
 
 .nav-link-anchor {
-  font-size: 0.855rem !important;
+  font-size: 0.89rem !important;
+  letter-spacing: 0.11em !important;
+}
+
+.btn-cta-primary {
+  font-size: 0.94rem !important;
   letter-spacing: 0.09em !important;
+}
+
+.btn-cta-secondary {
+  font-size: 0.88rem !important;
+  letter-spacing: 0.09em !important;
+}
+
+.badge-eyebrow-pink,
+.badge-group-project,
+.badge-category,
+.tag-pill-element,
+.section-num-label,
+.section-caption-tag {
+  letter-spacing: 0.11em !important;
 }
 
 /* Body / Paragraph text remains in original paragraph font (Inter) */
