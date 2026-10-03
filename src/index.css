@@ -393,8 +393,8 @@ img.hero-character-head-img {
 
 .hero-single-eyeball {
   position: absolute;
-  width: 5.2%; /* Reduced to ~45-50% for natural iris scaling */
-  height: 6.8%;
+  width: 5.8%; /* Increased by ~12% for perfect iris balance */
+  height: 7.6%;
   display: flex;
   align-items: center;
   justify-content: center;
