@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import ExperienceFolder from '../components/ui/ExperienceFolder';
 import FolderCard from '../components/ui/FolderCard';
 import HeroCharacterHead from '../components/ui/HeroCharacterHead';
+import DraggableSticker from '../components/ui/DraggableSticker';
 import { projectsData } from '../data/projects';
 import { personalData } from '../data/personal';
 import { experienceData } from '../data/experience';
@@ -18,10 +19,30 @@ export default function Home() {
     'COOKING / BAKING'
   ];
 
+  const initialStickers = [
+    { id: 'sp1', src: 'images/stickers/sparkle_1.png', initialPos: { x: 50, y: 160 }, size: { width: 44, height: 52 }, alt: "Pink Sparkle" },
+    { id: 'sp2', src: 'images/stickers/sparkle_2.png', initialPos: { x: 620, y: 50 }, size: { width: 34, height: 36 }, alt: "Black Sparkle" },
+    { id: 'sp3', src: 'images/stickers/sparkle_7.png', initialPos: { x: 860, y: 110 }, size: { width: 46, height: 54 }, alt: "Star Burst Sparkle" },
+    { id: 'fl1', src: 'images/stickers/flower_1.png', initialPos: { x: 120, y: 310 }, size: { width: 42, height: 42 }, alt: "Pink Flower" },
+    { id: 'fl2', src: 'images/stickers/flower_3.png', initialPos: { x: 920, y: 310 }, size: { width: 38, height: 38 }, alt: "Black Flower" },
+    { id: 'fl3', src: 'images/stickers/flower_5.png', initialPos: { x: 260, y: 440 }, size: { width: 32, height: 32 }, alt: "Black Pink Flower" }
+  ];
+
   return (
     <div>
       {/* 1. HERO SECTION */}
       <section className="hero-section">
+        {/* Independently Draggable Sparkle & Flower Graphic Stickers */}
+        {initialStickers.map((sticker) => (
+          <DraggableSticker
+            key={sticker.id}
+            src={sticker.src}
+            initialPos={sticker.initialPos}
+            size={sticker.size}
+            alt={sticker.alt}
+          />
+        ))}
+
         <div className="hero-content-col">
           {/* MUGDHA PATNAIK Heading */}
           <h1 className="hero-heading">

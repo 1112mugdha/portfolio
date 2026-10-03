@@ -47,8 +47,8 @@ export default function HeroCharacterHead() {
       const dy = e.clientY - eyeCenterY;
       const dist = Math.sqrt(dx * dx + dy * dy);
 
-      // Subtle movement range: Max 5px offset so irises NEVER leave the blank eye whites
-      const maxDistance = 5.0;
+      // Subtle movement range: Max 5.2px offset so irises NEVER leave the blank eye whites
+      const maxDistance = 5.2;
       const factor = Math.min(dist / 380, 1);
       const angle = Math.atan2(dy, dx);
 
@@ -94,37 +94,6 @@ export default function HeroCharacterHead() {
       className="hero-character-head-container select-none"
       aria-label="Mugdha Patnaik Character Avatar"
     >
-      {/* 3 Small Minimal Graphic Sparkles around Character Hair */}
-      {/* Sparkle 1: Top-Left Hair (Black) */}
-      <svg
-        className="hero-sparkle hero-sparkle-1"
-        viewBox="0 0 20 20"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path d="M 10 0 C 10 6 6 10 0 10 C 6 10 10 14 10 20 C 10 14 14 10 20 10 C 14 10 10 6 10 0 Z" fill="#171515" />
-      </svg>
-
-      {/* Sparkle 2: Top-Right Hair (Soft Pink Accent) */}
-      <svg
-        className="hero-sparkle hero-sparkle-2"
-        viewBox="0 0 20 20"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path d="M 10 0 C 10 6 6 10 0 10 C 6 10 10 14 10 20 C 10 14 14 10 20 10 C 14 10 10 6 10 0 Z" fill="#E96F98" />
-      </svg>
-
-      {/* Sparkle 3: Mid-Left Hair (Black) */}
-      <svg
-        className="hero-sparkle hero-sparkle-3"
-        viewBox="0 0 20 20"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path d="M 10 0 C 10 6 6 10 0 10 C 6 10 10 14 10 20 C 10 14 14 10 20 10 C 14 10 10 6 10 0 Z" fill="#171515" />
-      </svg>
-
       {/* 1. Base Character Head Asset (Exact head provided by user with completely blank eye whites) */}
       <img
         src={getAssetPath('images/character_head_blank.png')}

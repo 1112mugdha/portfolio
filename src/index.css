@@ -364,41 +364,27 @@ p {
 .hero-character-head-container {
   position: relative;
   height: 100%;
-  max-height: 60vh; /* Increased by ~6% as requested */
+  max-height: 70vh; /* Increased by 15-20% as requested */
   width: auto;
   aspect-ratio: 667 / 504;
   margin-right: auto;
   margin-left: auto;
   display: block;
-  transform: translateY(14px); /* Positioned slightly lower so hair extends toward/off bottom edge */
+  transform: translateY(18px); /* Lower position emerging naturally from bottom */
 }
 
-/* 3 Small Minimal Graphic Sparkles around Character Hair */
-.hero-sparkle {
-  position: absolute;
-  pointer-events: none;
-  z-index: 7;
+/* Draggable Graphic Stickers */
+.draggable-sticker {
+  transition: transform 0.15s ease, opacity 0.15s ease;
 }
 
-.hero-sparkle-1 {
-  width: 16px;
-  height: 16px;
-  top: 6%;
-  left: 14%;
+.draggable-sticker:hover {
+  transform: scale(1.08);
 }
 
-.hero-sparkle-2 {
-  width: 15px;
-  height: 15px;
-  top: 14%;
-  right: 11%;
-}
-
-.hero-sparkle-3 {
-  width: 12px;
-  height: 12px;
-  top: 44%;
-  left: 7%;
+.draggable-sticker.is-dragging {
+  transform: scale(1.15);
+  opacity: 0.92;
 }
 
 img.hero-character-head-img {
@@ -422,8 +408,8 @@ img.hero-character-head-img {
 
 .hero-single-eyeball {
   position: absolute;
-  width: 5.8%; /* Increased by ~12% for perfect iris balance */
-  height: 7.6%;
+  width: 6.4%; /* Increased by 8-12% as requested */
+  height: 8.4%;
   display: flex;
   align-items: center;
   justify-content: center;
