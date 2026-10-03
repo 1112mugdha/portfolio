@@ -364,13 +364,29 @@ p {
 .hero-character-head-container {
   position: relative;
   height: 100%;
-  max-height: 70vh; /* Increased by 15-20% as requested */
+  max-height: 82vh; /* Increased by 15-20% as requested */
   width: auto;
   aspect-ratio: 667 / 504;
   margin-right: auto;
   margin-left: auto;
   display: block;
-  transform: translateY(18px); /* Lower position emerging naturally from bottom */
+  transform: translateY(22px); /* Lower position emerging naturally from bottom edge */
+}
+
+/* Subtle interface hint text */
+.hero-hint-text {
+  position: absolute;
+  bottom: 1.75rem;
+  right: max(2rem, 4vw);
+  font-family: 'Inter', -apple-system, sans-serif;
+  font-size: 0.78rem;
+  font-weight: 400;
+  color: #171515;
+  opacity: 0.65;
+  letter-spacing: 0.02em;
+  pointer-events: none;
+  user-select: none;
+  z-index: 10;
 }
 
 /* Draggable Graphic Stickers */

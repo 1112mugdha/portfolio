@@ -55,6 +55,9 @@ export default function Home() {
           </p>
         </div>
 
+        {/* Subtle interface hint text */}
+        <span className="hero-hint-text">move things around :)</span>
+
         {/* Large Original Character Head Emerging from Bottom of Hero */}
         <div className="hero-character-bottom-wrapper">
           <HeroCharacterHead />
