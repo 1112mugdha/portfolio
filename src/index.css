@@ -353,7 +353,7 @@ p {
 .hero-character-bottom-wrapper {
   width: 100%;
   display: flex;
-  justify-content: flex-end; /* RIGHT / LOWER AREA OF HERO */
+  justify-content: center; /* BOTTOM CENTER OF HERO VIEWPORT */
   align-items: flex-end;
   flex: 1;
   position: relative;
@@ -367,7 +367,7 @@ p {
   max-height: 56vh;
   width: auto;
   aspect-ratio: 667 / 504;
-  margin-right: max(2rem, 5vw);
+  margin-right: auto;
   margin-left: auto;
   display: block;
 }
@@ -378,6 +378,7 @@ img.hero-character-head-img {
   max-height: 100%;
   object-fit: contain;
   display: block;
+  margin: 0 auto;
 }
 
 /* Layer containing the exact provided separate irises */
@@ -392,8 +393,8 @@ img.hero-character-head-img {
 
 .hero-single-eyeball {
   position: absolute;
-  width: 10.8%;
-  height: 13.9%;
+  width: 5.2%; /* Reduced to ~45-50% for natural iris scaling */
+  height: 6.8%;
   display: flex;
   align-items: center;
   justify-content: center;
