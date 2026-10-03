@@ -7,6 +7,7 @@ import { getAssetPath } from '../utils/assetPath';
 export default function ProjectDetail() {
   const { projectId } = useParams();
   const [photoIndex, setPhotoIndex] = useState(0);
+  const [inTheMakingIndex, setInTheMakingIndex] = useState(0);
 
   const project = projectsData.find(p => p.id === projectId);
   if (!project) {
@@ -16,6 +17,42 @@ export default function ProjectDetail() {
   const currentIndex = projectsData.findIndex(p => p.id === projectId);
   const prevProject = currentIndex > 0 ? projectsData[currentIndex - 1] : null;
   const nextProject = currentIndex >= 0 && currentIndex < projectsData.length - 1 ? projectsData[currentIndex + 1] : null;
+
+  // In The Making video deliverables for single-video carousel
+  const inTheMakingVideos = [
+    {
+      id: 'trailer',
+      title: '01 — CONCEPT TRAILER',
+      caption: 'Overview of the In The Making concept.',
+      src: getAssetPath('images/assignments/in-the-making/trailer.mp4')
+    },
+    {
+      id: 'explore',
+      title: '02 — EXPLORE',
+      caption: 'Exploring recipes and the cooking experience.',
+      src: getAssetPath('images/assignments/in-the-making/explore.mp4')
+    },
+    {
+      id: 'deconstruct',
+      title: '03 — DECONSTRUCT',
+      caption: 'Breaking a dish down into its visual components.',
+      src: getAssetPath('images/assignments/in-the-making/deconstruct.mp4')
+    },
+    {
+      id: 'hands-free',
+      title: '04 — HANDS-FREE INSTRUCTIONS',
+      caption: 'Visualizing hands-free guidance while cooking.',
+      src: getAssetPath('images/assignments/in-the-making/hands free_instructions.mp4')
+    }
+  ];
+
+  const nextInTheMakingVideo = () => {
+    setInTheMakingIndex((prev) => (prev + 1) % inTheMakingVideos.length);
+  };
+
+  const prevInTheMakingVideo = () => {
+    setInTheMakingIndex((prev) => (prev - 1 + inTheMakingVideos.length) % inTheMakingVideos.length);
+  };
 
   // Exact 6 Cactus gallery deliverables matching files on disk in public/images/assignments/cactus/
   const cactusGalleryDeliverables = [
@@ -202,22 +239,9 @@ export default function ProjectDetail() {
          ========================================================================= */}
       {project.id === 'in-the-making' ? (
         <div>
-          {/* Important Concept Disclaimer Box */}
-          <div className="mb-8 p-5 bg-[#FAF4EB] border-1.5 border-[#171515] shadow-sm">
-            <div className="flex items-center gap-2 mb-2">
-              <span className="w-3 h-3 bg-[#E96F98] border border-[#171515] inline-block"></span>
-              <h3 className="font-heading font-bold text-xs sm:text-sm uppercase tracking-widest text-[#171515]">
-                CONCEPT & EXPERIENCE DESIGN PROJECT
-              </h3>
-            </div>
-            <p className="font-body text-sm text-[#171515] leading-relaxed">
-              <strong>Note:</strong> <em>In The Making</em> is an original concept and experience design project for an augmented reality (AR) cooking assistant. The videos and media presented below are <strong>AI-generated visualizations and visual prototypes</strong> created to explore and communicate how the interaction flow and spatial experience could look and feel in action — they are not recordings of an implemented or functional AR software system.
-            </p>
-          </div>
-
           {/* Top Section: Structured Project Details */}
-          <div className="flex flex-col gap-8 max-w-4xl my-6">
-            {/* About the Project */}
+          <div className="flex flex-col gap-8 max-w-4xl my-8">
+            {/* ABOUT THE PROJECT */}
             <div className="exp-about-block border-l-3 border-[#171515] pl-6 py-1">
               <h2 className="exp-about-heading font-heading font-bold text-xs sm:text-sm uppercase tracking-widest text-[#171515]">
                 ABOUT THE PROJECT
@@ -226,26 +250,16 @@ export default function ProjectDetail() {
                 Recipes often tell people things like <em>“cook until golden brown,”</em> <em>“knead until smooth,”</em> or <em>“whisk until pale and fluffy.”</em> For beginner and intermediate cooks, <strong>“until”</strong> is often a guess. Without visual reference points, it is easy to undercook, burn, or lose confidence during preparation.
               </p>
               <p className="exp-about-paragraph font-body text-base text-[#171515]">
-                <strong>In The Making</strong> is a concept for an AR cooking assistant that turns vague recipe instructions into clear, step-by-step visual targets. By providing spatial reference cues directly over ingredients and cookware, it eliminates guesswork and makes cooking an intuitive learning experience.
+                <strong>In The Making</strong> is an experience design concept for an AR cooking assistant that provides real-time visual target cues and spatial guidance directly over cookware and ingredients, eliminating kitchen guesswork.
               </p>
             </div>
 
-            {/* The Idea & Concept */}
-            <div className="border-l-3 border-[#171515] pl-6 py-1">
-              <h2 className="exp-about-heading font-heading font-bold text-xs sm:text-sm uppercase tracking-widest text-[#171515]">
-                THE CORE CONCEPT
-              </h2>
-              <p className="exp-about-paragraph font-body text-base text-[#171515]">
-                Instead of requiring users to look back and forth between a phone screen or cookbook, the AR system projects contextual guidance directly into the user’s field of vision. It provides real-time visual comparisons—showing what the food should look like at each key stage—giving cooks instant confirmation when a step is completed correctly.
-              </p>
-            </div>
-
-            {/* Tools / Discipline */}
+            {/* TOOLS USED */}
             <div className="border-l-3 border-[#E96F98] pl-6 py-1">
               <h2 className="exp-what-heading font-heading font-bold text-xs sm:text-sm uppercase tracking-widest text-[#171515]">
                 TOOLS & DISCIPLINES
               </h2>
-              <div className="flex flex-wrap gap-2">
+              <div className="flex flex-wrap gap-2 mt-2">
                 {project.tools?.map((tool) => (
                   <span key={tool} className="tag-pill-element text-xs py-1 px-3">
                     {tool}
@@ -255,89 +269,103 @@ export default function ProjectDetail() {
             </div>
           </div>
 
-          {/* 7-Stage Cooking Experience Breakdown */}
-          <div className="detail-major-section-block my-10">
+          {/* THE EXPERIENCE — 7 STAGES */}
+          <div className="detail-major-section-block my-12">
             <h2 className="font-heading font-extrabold text-xl uppercase tracking-tight text-[#171515] mb-6 flex items-center gap-3">
               <span className="w-3.5 h-3.5 bg-[#D7F23A] border border-[#171515] inline-block"></span>
               THE EXPERIENCE — 7 STAGES
             </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="flex flex-col gap-6 max-w-4xl">
               {[
-                { stage: '01', title: 'EXPLORE', desc: 'Discover recipes with interactive spatial previews, ingredient visualizers, and complexity indicators.' },
-                { stage: '02', title: 'DECONSTRUCT', desc: 'Break down complex recipes into clear visual components, prep order, and parallel timing steps.' },
-                { stage: '03', title: 'UNDERSTAND', desc: 'Preview technique nuances and key visual cues (texture, color, consistency) before starting.' },
-                { stage: '04', title: 'COOK', desc: 'Hands-free, step-by-step augmented guidance projected directly onto your workspace as you prepare.' },
-                { stage: '05', title: 'KNOW WHEN', desc: 'Real-time visual target comparisons showing exact visual states (e.g., golden brown, soft peaks).' },
-                { stage: '06', title: 'FIX', desc: 'Instant spatial troubleshooting and correction tips for over/under-cooked or mis-measured steps.' },
-                { stage: '07', title: 'FINISH', desc: 'Plating assistance, timing completion summary, and saving personal cooking notes.' }
-              ].map((item) => (
-                <div key={item.stage} className="p-4 bg-[#FAF4EB] border-1.5 border-[#171515] shadow-sm flex flex-col gap-1.5">
-                  <div className="flex items-center justify-between border-b border-[#171515]/20 pb-1.5">
-                    <span className="font-heading font-bold text-sm tracking-wider text-[#171515]">
-                      STAGE {item.stage} — {item.title}
-                    </span>
-                    <span className="w-2.5 h-2.5 bg-[#E96F98] border border-[#171515]"></span>
-                  </div>
-                  <p className="font-body text-sm text-[#57534E] leading-snug">
-                    {item.desc}
+                { number: '01', title: 'EXPLORE', desc: 'Discovering recipes with spatial preview and ingredient visualizers.' },
+                { number: '02', title: 'DECONSTRUCT', desc: 'Breaking recipes into interactive visual components and step-by-step prep order.' },
+                { number: '03', title: 'UNDERSTAND', desc: 'Clarifying technique nuances and key visual cues before starting.' },
+                { number: '04', title: 'COOK', desc: 'Step-by-step hands-free augmented guidance during preparation.' },
+                { number: '05', title: 'KNOW WHEN', desc: 'Real-time visual target comparisons showing exact visual states (e.g. golden brown).' },
+                { number: '06', title: 'FIX', desc: 'Real-time spatial troubleshooting for over/under-cooked or mis-measured steps.' },
+                { number: '07', title: 'FINISH', desc: 'Plating assistance, timing completion summary, and recipe log.' }
+              ].map((stage) => (
+                <div key={stage.number} className="border-l-3 border-[#171515] pl-5 py-0.5">
+                  <h3 className="font-heading font-bold text-sm tracking-wider uppercase text-[#171515]">
+                    {stage.number} — {stage.title}
+                  </h3>
+                  <p className="font-body text-sm text-[#57534E] mt-1 leading-relaxed">
+                    {stage.desc}
                   </p>
                 </div>
               ))}
             </div>
           </div>
 
-          {/* Visualizing the Concept — Videos Section */}
-          <div className="detail-major-section-block my-10">
-            <div className="flex items-center justify-between mb-4">
+          {/* VISUALIZING THE CONCEPT — ONE VIDEO CAROUSEL */}
+          <div className="detail-major-section-block my-12">
+            <div className="flex items-center justify-between mb-2">
               <h2 className="font-heading font-extrabold text-xl uppercase tracking-tight text-[#171515] flex items-center gap-3">
                 <span className="w-3.5 h-3.5 bg-[#E96F98] border border-[#171515] inline-block"></span>
-                VISUALIZING THE CONCEPT — AI PROTOTYPES
+                VISUALIZING THE CONCEPT
               </h2>
+              <span className="font-mono text-xs font-bold text-[#171515] bg-[#FAF4EB] px-3.5 py-1.5 border border-[#171515]">
+                {String(inTheMakingIndex + 1).padStart(2, '0')} / {String(inTheMakingVideos.length).padStart(2, '0')}
+              </span>
             </div>
+
             <p className="font-body text-sm text-[#57534E] mb-6">
-              The following video prototypes demonstrate the proposed interaction design, spatial HUD elements, and hands-free cooking assistant workflow:
+              These AI-generated videos visualize how the proposed experience could work.
             </p>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {project.videos?.map((vid) => (
-                <div key={vid.id} className="border-1.5 border-[#171515] bg-[#FAF4EB] p-3 shadow-sm flex flex-col gap-2">
-                  <div className="border-b border-[#171515]/20 pb-2">
-                    <h3 className="font-heading font-bold text-xs sm:text-sm uppercase tracking-wider text-[#171515]">
-                      {vid.title}
-                    </h3>
-                    <p className="font-body text-xs text-[#57534E]">
-                      {vid.subtitle}
-                    </p>
-                  </div>
-                  <div className="w-full bg-[#171515] rounded overflow-hidden">
-                    <video 
-                      controls 
-                      preload="metadata"
-                      className="w-full h-auto max-h-[380px] object-contain"
-                    >
-                      <source src={vid.src} type="video/mp4" />
-                      Your browser does not support the video tag.
-                    </video>
-                  </div>
-                  <div className="text-right">
-                    <span className="font-mono text-[10px] text-[#78716C] uppercase tracking-widest">
-                      AI VISUALIZATION PROTOTYPE
-                    </span>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Designing the Experience */}
-          <div className="detail-major-section-block my-10 max-w-4xl">
-            <div className="border-l-3 border-[#171515] pl-6 py-1">
-              <h2 className="exp-about-heading font-heading font-bold text-xs sm:text-sm uppercase tracking-widest text-[#171515]">
-                DESIGNING THE EXPERIENCE
-              </h2>
-              <p className="exp-about-paragraph font-body text-base text-[#171515] leading-relaxed">
-                The core interaction design focuses on non-intrusive spatial UI. In a kitchen environment, hands are often wet, dirty, or occupied. The interface relies on passive visual overlays, glanceable status indicators, and voice/gesture cues so cooks never need to touch a screen while preparing food.
+            {/* Caption Bar ALWAYS rendered ABOVE the video frame (matching Photo Essay) */}
+            <div className="w-full mb-3 pb-2 border-b border-[#171515]/20 text-center px-2">
+              <p className="font-heading font-bold text-xs uppercase tracking-wider text-[#171515]">
+                {inTheMakingVideos[inTheMakingIndex].title}
               </p>
+              <p className="font-body text-xs text-[#57534E] mt-0.5">
+                {inTheMakingVideos[inTheMakingIndex].caption}
+              </p>
+            </div>
+
+            {/* Active Video Carousel Frame */}
+            <div className="photo-essay-carousel w-full justify-center">
+              <button 
+                onClick={prevInTheMakingVideo}
+                className="photo-essay-arrow-left"
+                aria-label="Previous video"
+              >
+                ←
+              </button>
+
+              <div className="border-1.5 border-[#171515] bg-[#FAF4EB] p-2 shadow-sm flex items-center justify-center w-full max-w-4xl overflow-hidden">
+                <video 
+                  key={inTheMakingVideos[inTheMakingIndex].src}
+                  controls 
+                  preload="metadata"
+                  className="w-full h-auto max-h-[500px] object-contain block mx-auto bg-[#171515]"
+                >
+                  <source src={inTheMakingVideos[inTheMakingIndex].src} type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+
+              <button 
+                onClick={nextInTheMakingVideo}
+                className="photo-essay-arrow-right"
+                aria-label="Next video"
+              >
+                →
+              </button>
+            </div>
+
+            {/* Indicator Pills / Progress Bar */}
+            <div className="flex items-center justify-center gap-2 mt-4 pt-3 border-t border-[#171515]/15">
+              {inTheMakingVideos.map((vid, idx) => (
+                <button
+                  key={idx}
+                  onClick={() => setInTheMakingIndex(idx)}
+                  className={`h-3 transition-all border border-[#171515] cursor-pointer ${
+                    idx === inTheMakingIndex ? 'w-8 bg-[#171515]' : 'w-3 bg-[#FAF4EB] hover:bg-[#D7F23A]'
+                  }`}
+                  aria-label={`Go to video ${idx + 1}`}
+                />
+              ))}
             </div>
           </div>
         </div>
