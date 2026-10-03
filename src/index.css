@@ -17,7 +17,7 @@ html {
 
 body {
   background-color: #F7F3EA;
-  color: #171515;
+  color: #232020;
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   line-height: 1.6;
   min-height: 100vh;
@@ -56,7 +56,7 @@ img {
 h1, h2, h3, h4, h5, h6, .font-heading {
   font-family: 'mudstone-sans', 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
   font-weight: 700;
-  color: #171515;
+  color: #232020;
   letter-spacing: -0.035em;
   line-height: 1.12;
 }
@@ -116,7 +116,7 @@ p {
   font-weight: 800;
   font-size: 1.5rem;
   letter-spacing: -0.04em;
-  color: #171515;
+  color: #232020;
   text-transform: uppercase;
   transition: opacity 0.2s ease;
 }
@@ -143,7 +143,7 @@ p {
   font-size: 0.825rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: #171515;
+  color: #232020;
   position: relative;
   padding: 0.4rem 0;
   white-space: nowrap;
@@ -155,7 +155,7 @@ p {
 }
 
 .nav-link-anchor.active {
-  color: #171515;
+  color: #232020;
 }
 
 .nav-link-anchor.active::after {
@@ -189,7 +189,7 @@ p {
 .hamburger-line {
   width: 20px;
   height: 2px;
-  background-color: #171515;
+  background-color: #232020;
   transition: all 0.3s ease;
 }
 
@@ -211,7 +211,7 @@ p {
   font-weight: 700;
   font-size: 1.25rem;
   letter-spacing: 0.05em;
-  color: #171515;
+  color: #232020;
 }
 
 .mobile-nav-item.active {
@@ -228,7 +228,7 @@ p {
   font-weight: 700;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  background-color: #171515;
+  background-color: #232020;
   color: #F7F3EA !important;
   padding: 0.85rem 1.75rem;
   border: 1.5px solid #171515;
@@ -275,7 +275,7 @@ p {
   letter-spacing: 0.08em;
   text-transform: uppercase;
   background-color: #E96F98;
-  color: #171515;
+  color: #232020;
   padding: 0.35rem 0.85rem;
   border: 1.5px solid #171515;
 }
@@ -288,7 +288,7 @@ p {
   letter-spacing: 0.08em;
   text-transform: uppercase;
   background-color: #D7F23A;
-  color: #171515;
+  color: #232020;
   padding: 0.25rem 0.65rem;
   border: 1.5px solid #171515;
 }
@@ -301,7 +301,7 @@ p {
   letter-spacing: 0.06em;
   text-transform: uppercase;
   background-color: #E96F98;
-  color: #171515;
+  color: #232020;
   padding: 0.25rem 0.6rem;
   border: 1px solid #171515;
 }
@@ -316,7 +316,7 @@ p {
   padding: 0.35rem 0.75rem;
   background-color: #FFFFFF;
   border: 1.5px solid #171515;
-  color: #171515;
+  color: #232020;
 }
 
 /* 5. HERO SECTION — EXACTLY ONE SCREEN HEIGHT (100svh) WITH LEFT TEXT & RIGHT/LOWER CHARACTER */
@@ -378,12 +378,12 @@ p {
   position: absolute;
   bottom: 1.75rem;
   right: max(2rem, 4vw);
-  font-family: 'mudstone-sans', sans-serif;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
   font-size: 0.78rem;
   font-weight: 400;
-  color: #E96F98; /* Website exact pink */
-  opacity: 0.9;
-  letter-spacing: 0.02em;
+  color: #DF7B9A !important; /* Softened, subtle pink */
+  opacity: 0.85;
+  letter-spacing: 0.025em;
   pointer-events: none;
   user-select: none;
   z-index: 10;
@@ -749,7 +749,7 @@ img.hero-character-head-img {
   letter-spacing: -0.045em;
   text-transform: uppercase;
   line-height: 1.02;
-  color: #171515;
+  color: #232020;
   white-space: nowrap;
 }
 
@@ -803,7 +803,7 @@ img.hero-character-head-img {
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  background-color: #171515;
+  background-color: #232020;
   color: #F7F3EA;
   padding: 0.2rem 0.5rem;
 }
@@ -814,7 +814,7 @@ img.hero-character-head-img {
   font-weight: 700;
   letter-spacing: -0.035em;
   text-transform: uppercase;
-  color: #171515;
+  color: #232020;
 }
 
 /* 7. ABOUT SECTION ENHANCEMENTS */
@@ -933,7 +933,7 @@ img.hero-character-head-img {
   border-left: 3.5px solid #E96F98;
   padding-left: 1.25rem;
   font-size: 1.05rem;
-  color: #171515;
+  color: #232020;
   line-height: 1.65;
 }
 
@@ -968,7 +968,7 @@ img.hero-character-head-img {
   font-family: 'mudstone-sans', 'Space Grotesk', sans-serif;
   font-weight: 700;
   font-size: 1rem;
-  color: #171515;
+  color: #232020;
 }
 
 .education-degree {
@@ -1070,7 +1070,7 @@ img.hero-character-head-img {
   font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 0.08em;
-  color: #171515;
+  color: #232020;
   text-transform: uppercase;
   transition: background-color 0.2s ease, transform 0.2s ease;
 }
@@ -1090,7 +1090,7 @@ img.hero-character-head-img {
   font-size: 1.35rem;
   font-weight: 800;
   text-transform: uppercase;
-  color: #171515;
+  color: #232020;
   margin-top: 0.5rem;
   line-height: 1.2;
 }
@@ -1114,7 +1114,7 @@ img.hero-character-head-img {
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  color: #171515;
+  color: #232020;
 }
 
 .folder-arrow-icon {
@@ -1164,7 +1164,7 @@ img.hero-character-head-img {
   font-size: 0.8rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: #171515;
+  color: #232020;
   background-color: #FAF0F4;
   padding: 0.4rem 0.85rem;
   border: 1px solid #171515;
@@ -1199,7 +1199,7 @@ img.hero-character-head-img {
   font-weight: 800;
   font-size: 1.5rem;
   letter-spacing: -0.03em;
-  color: #171515;
+  color: #232020;
 }
 
 .footer-tagline {
@@ -1221,7 +1221,7 @@ img.hero-character-head-img {
 }
 
 .footer-link-item {
-  color: #171515;
+  color: #232020;
   transition: color 0.2s ease;
 }
 
@@ -1535,7 +1535,6 @@ button,
 .badge-category,
 .tag-pill-element,
 .hero-heading,
-.hero-hint-text,
 .section-title,
 .section-num-label,
 .section-caption-tag,
@@ -1552,11 +1551,33 @@ button,
 .page-subtitle,
 .badge,
 .tag,
-span:not(p span),
+span:not(p span):not(.hero-hint-text),
 a:not(p a),
 label,
 time {
   font-family: 'mudstone-sans', 'Space Grotesk', -apple-system, sans-serif !important;
+  letter-spacing: 0.03em;
+}
+
+/* Subtle 3-5% size boost for headings & key Mudstone text */
+.hero-heading {
+  font-size: clamp(3.4rem, 7.1vw, 6.5rem) !important;
+  letter-spacing: -0.02em !important;
+}
+
+.section-title {
+  font-size: clamp(1.82rem, 3.3vw, 2.45rem) !important;
+  letter-spacing: -0.015em !important;
+}
+
+.nav-brand-logo {
+  font-size: 1.55rem !important;
+  letter-spacing: -0.02em !important;
+}
+
+.nav-link-anchor {
+  font-size: 0.855rem !important;
+  letter-spacing: 0.09em !important;
 }
 
 /* Body / Paragraph text remains in original paragraph font (Inter) */
