@@ -364,13 +364,13 @@ p {
 .hero-character-head-container {
   position: relative;
   height: 100%;
-  max-height: 82vh; /* Increased by 15-20% as requested */
+  max-height: 96vh; /* Increased character size by 15-20% as requested */
   width: auto;
   aspect-ratio: 667 / 504;
   margin-right: auto;
   margin-left: auto;
   display: block;
-  transform: translateY(22px); /* Lower position emerging naturally from bottom edge */
+  transform: translateY(28px); /* Lower position emerging naturally from bottom edge */
 }
 
 /* Subtle interface hint text */
@@ -381,8 +381,8 @@ p {
   font-family: 'Inter', -apple-system, sans-serif;
   font-size: 0.78rem;
   font-weight: 400;
-  color: #171515;
-  opacity: 0.65;
+  color: #E96F98; /* Website exact pink */
+  opacity: 0.9;
   letter-spacing: 0.02em;
   pointer-events: none;
   user-select: none;
