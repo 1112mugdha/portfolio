@@ -7,9 +7,9 @@ export default function Footer() {
   const engineRef = useRef(null);
   const [bodyTransforms, setBodyTransforms] = useState({});
   const [reducedMotion, setReducedMotion] = useState(false);
-  const hasDroppedRef = useRef(false);
+  const hasStartedPhysicsRef = useRef(false);
 
-  // 1. Three Compact Rounded Physical Contact Cards (ONLY label visible, embedded links)
+  // 1. Three Compact Rounded Physical Contact Cards (ONLY name visible, embedded href)
   const contactBoxes = [
     {
       id: 'card-personal-email',
@@ -76,7 +76,7 @@ export default function Footer() {
     });
     engineRef.current = engine;
 
-    // Fixed Boundaries (Walls & Floor) for hard 50vh height container
+    // Fixed Boundaries (Walls & Floor) inside exact 50vh height box
     const wallOptions = { isStatic: true, friction: 0.8, restitution: 0.3 };
     const floor = Bodies.rectangle(width / 2, height + 20, width * 2, 40, wallOptions);
     const leftWall = Bodies.rectangle(-20, height / 2, 40, height * 2, wallOptions);
@@ -136,12 +136,12 @@ export default function Footer() {
       World.add(engine.world, body);
     });
 
-    // 3. Trigger Automatic Drop ONCE when Footer enters Viewport
+    // 3. Trigger Automatic Drop ONCE when Footer enters Viewport via IntersectionObserver
     const observer = new IntersectionObserver(
       (entries) => {
-        if (entries[0].isIntersecting && !hasDroppedRef.current) {
-          hasDroppedRef.current = true;
-          // Wake up bodies to initiate automatic drop under real 2D gravity
+        if (entries[0].isIntersecting && !hasStartedPhysicsRef.current) {
+          hasStartedPhysicsRef.current = true;
+          // Wake up bodies to initiate automatic drop under Matter.js gravity
           Object.values(bodiesMap).forEach((b) => {
             Sleeping.set(b, false);
           });
