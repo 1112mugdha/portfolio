@@ -2,8 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import ExperienceFolder from '../components/ui/ExperienceFolder';
 import FolderCard from '../components/ui/FolderCard';
-import HeroDoodleGarden from '../components/ui/HeroDoodleGarden';
-import HeroCharacterAvatar from '../components/ui/HeroCharacterAvatar';
+import HeroCharacterHead from '../components/ui/HeroCharacterHead';
 import { projectsData } from '../data/projects';
 import { personalData } from '../data/personal';
 import { experienceData } from '../data/experience';
@@ -23,25 +22,22 @@ export default function Home() {
     <div>
       {/* 1. HERO SECTION */}
       <section className="hero-section">
-        <div className="hero-content-flex">
-          <div className="hero-content-col">
-            {/* MUGDHA PATNAIK Heading */}
-            <h1 className="hero-heading">
-              MUGDHA PATNAIK
-            </h1>
+        <div className="hero-content-col">
+          {/* MUGDHA PATNAIK Heading */}
+          <h1 className="hero-heading">
+            MUGDHA PATNAIK
+          </h1>
 
-            {/* Description */}
-            <p className="hero-sub-text">
-              Computation & Media student exploring design, visual systems, and creative technology.
-            </p>
-          </div>
-
-          {/* Interactive Character Avatar Head */}
-          <HeroCharacterAvatar />
+          {/* Description */}
+          <p className="hero-sub-text">
+            Computation & Media student exploring design, visual systems, and creative technology.
+          </p>
         </div>
 
-        {/* Hand-Drawn Doodle Garden with 2 Animated Butterflies (Sitting at bottom of Hero) */}
-        <HeroDoodleGarden />
+        {/* Large Original Character Head Emerging from Bottom of Hero */}
+        <div className="hero-character-bottom-wrapper">
+          <HeroCharacterHead />
+        </div>
       </section>
 
       {/* 2. ABOUT ME SECTION — FULL WIDTH INTENTIONAL LAYOUT (NO PORTRAIT) */}
@@ -164,55 +160,54 @@ export default function Home() {
           </div>
         </div>
 
-        {/* 2-Column Responsive Personal Projects Grid */}
+        {/* 2-Column Responsive Grid for Personal Projects Folders */}
         <div className="experience-grid-two">
-          {personalData.map((item) => (
+          {personalData.map((proj) => (
             <FolderCard
-              key={item.id}
-              number={item.number}
-              title={item.title}
-              category={item.id === 'brand-concepts' ? 'BRANDING & VISUAL IDENTITY' : 'CREATIVE EXPERIMENTS'}
-              description={item.subtitle}
-              to={`/personal/${item.id}`}
-              tabLabel={`${item.number} — PERSONAL PROJECT`}
-              tabColor="lime"
+              key={proj.id}
+              number={proj.number}
+              title={`${proj.number} — ${proj.title}`}
+              category={proj.category}
+              description={proj.description}
+              to={`/personal/${proj.id}`}
+              tabLabel={`${proj.number} — FOLDER`}
+              tabColor="pink"
             />
           ))}
         </div>
 
       </section>
 
-      {/* 5. WORK EXPERIENCE SECTION — DIRECTLY AFTER PERSONAL PROJECTS */}
-      <section id="experience" className="section-block" style={{ borderBottom: 'none' }}>
+      {/* 5. EXPERIENCE SECTION — DIRECTLY AFTER PERSONAL PROJECTS */}
+      <section id="experience" className="section-block">
         
         <div className="section-header-flex">
           <div>
             <div className="section-num-label">
               <span>04 / EXPERIENCE</span>
-              <span className="section-caption-tag">2 INTERNSHIPS</span>
+              <span className="section-caption-tag">2 FOLDERS</span>
             </div>
             <h2 className="section-title">
-              WORK EXPERIENCE
+              EXPERIENCE
             </h2>
           </div>
         </div>
 
-        {/* 2-Column Responsive Experience Grid */}
+        {/* 2-Column Responsive Experience Folders Grid */}
         <div className="experience-grid-two">
           {experienceData.map((exp) => (
             <ExperienceFolder
               key={exp.id}
               number={exp.number}
-              title={exp.title}
+              company={exp.title}
               role={exp.role}
-              shortDescription={exp.shortDescription}
+              about={exp.about}
               to={`/experience/${exp.id}`}
             />
           ))}
         </div>
 
       </section>
-
     </div>
   );
 }
