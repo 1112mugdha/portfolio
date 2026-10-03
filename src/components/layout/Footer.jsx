@@ -1,78 +1,55 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { getAssetPath } from '../../utils/assetPath';
 
 export default function Footer() {
   return (
-    <footer className="footer-element bg-[#FAF4EB] border-t-1.5 border-[#171515] py-8 select-none" id="footer">
+    <footer className="footer-element bg-[#FAF4EB] border-t-1.5 border-[#171515] py-6 select-none" id="footer">
       <div className="page-container max-w-6xl mx-auto px-4 sm:px-6">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+        {/* Main Content Row: Far Left (Name) & Far Right (3 Pill-Shaped Contact UI Buttons) */}
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
           
-          {/* LEFT SIDE: Brand Name + Tiny Sparkle Accent */}
-          <div className="flex items-center gap-3">
-            <Link 
-              to="/" 
-              className="font-heading font-bold text-base sm:text-lg tracking-wider text-[#171515] hover:opacity-80 transition-opacity uppercase"
-            >
-              MUGDHA PATNAIK
-            </Link>
-            {/* Subtle Pink Sparkle */}
-            <img 
-              src={getAssetPath('images/stickers/pink_double_sparkle.png')}
-              alt=""
-              className="w-4 h-4 sm:w-5 sm:h-5 object-contain select-none pointer-events-none opacity-90"
-            />
-          </div>
+          {/* LEFT SIDE: Name in Mudstone Sans */}
+          <Link 
+            to="/" 
+            className="font-heading font-bold text-base sm:text-lg tracking-wider text-[#171515] hover:opacity-80 transition-opacity uppercase"
+          >
+            MUGDHA PATNAIK
+          </Link>
 
-          {/* RIGHT SIDE: 3 Small Rounded Contact Boxes + Subtle Accents */}
-          <div className="flex flex-wrap items-center justify-center gap-3">
-            {/* Lime Sparkle Accent */}
-            <img 
-              src={getAssetPath('images/stickers/lime_sparkle_1.png')}
-              alt=""
-              className="w-3.5 h-3.5 object-contain select-none pointer-events-none opacity-85 hidden sm:inline-block"
-            />
-
-            {/* Personal Email Box (Pink) */}
+          {/* RIGHT SIDE: Three Clean Pill Contact UI Buttons */}
+          <div className="flex flex-wrap items-center justify-center gap-2.5">
+            {/* Personal Email (Pink) */}
             <a 
               href="mailto:mugdhapatnaik1112@gmail.com" 
-              className="inline-flex items-center gap-1.5 px-3.5 py-1.5 bg-[#E96F98] text-[#171515] border-1.5 border-[#171515] rounded-xl font-heading font-bold text-xs uppercase tracking-wider hover:scale-[1.03] active:scale-[0.98] transition-transform shadow-[2px_2px_0px_#171515]"
+              className="inline-flex items-center justify-center px-4 py-1.5 bg-[#E96F98] text-[#171515] border-1.5 border-[#171515] rounded-full font-heading font-bold text-xs uppercase tracking-wider hover:opacity-90 active:scale-[0.98] transition-all"
             >
               PERSONAL EMAIL ↗
             </a>
 
-            {/* College Email Box (Lime) */}
+            {/* Student Email (Neon Lime/Chartreuse) */}
             <a 
               href="mailto:sc24ucom006@mahindrauniversity.edu.in" 
-              className="inline-flex items-center gap-1.5 px-3.5 py-1.5 bg-[#D7F23A] text-[#171515] border-1.5 border-[#171515] rounded-xl font-heading font-bold text-xs uppercase tracking-wider hover:scale-[1.03] active:scale-[0.98] transition-transform shadow-[2px_2px_0px_#171515]"
+              className="inline-flex items-center justify-center px-4 py-1.5 bg-[#D7F23A] text-[#171515] border-1.5 border-[#171515] rounded-full font-heading font-bold text-xs uppercase tracking-wider hover:opacity-90 active:scale-[0.98] transition-all"
             >
-              COLLEGE EMAIL ↗
+              STUDENT EMAIL ↗
             </a>
 
-            {/* LinkedIn Box (Cream) */}
+            {/* LinkedIn (Pink) */}
             <a 
               href="https://www.linkedin.com/in/mugdha-patnaik-073b872a3/" 
               target="_blank" 
               rel="noopener noreferrer" 
-              className="inline-flex items-center gap-1.5 px-3.5 py-1.5 bg-[#FAF4EB] text-[#171515] border-1.5 border-[#171515] rounded-xl font-heading font-bold text-xs uppercase tracking-wider hover:scale-[1.03] active:scale-[0.98] transition-transform shadow-[2px_2px_0px_#171515]"
+              className="inline-flex items-center justify-center px-4 py-1.5 bg-[#E96F98] text-[#171515] border-1.5 border-[#171515] rounded-full font-heading font-bold text-xs uppercase tracking-wider hover:opacity-90 active:scale-[0.98] transition-all"
             >
               LINKEDIN ↗
             </a>
-
-            {/* Black Flower Accent */}
-            <img 
-              src={getAssetPath('images/stickers/black_flower_medium.png')}
-              alt=""
-              className="w-4 h-4 sm:w-5 sm:h-5 object-contain select-none pointer-events-none opacity-90 hidden sm:inline-block"
-            />
           </div>
 
         </div>
 
-        {/* Sub-bar Copyright */}
-        <div className="mt-6 pt-4 border-t border-[#171515]/10 flex items-center justify-between text-xs text-[#171515]/60 font-body">
-          <span>© 2026 Mugdha Patnaik</span>
-          <span>Designed & Built with Care</span>
+        {/* BOTTOM COPYRIGHT LINE: Tiny, Regular Weight, Pink Text, Paragraph/Body Font */}
+        <div className="mt-5 text-center sm:text-left text-xs text-[#E96F98] font-body font-normal tracking-wide">
+          © 2026 MUGDHA PATNAIK · DESIGNED &amp; BUILT WITH LOVE AND CARE :)
         </div>
       </div>
     </footer>
