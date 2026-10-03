@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import ExperienceFolder from '../components/ui/ExperienceFolder';
 import FolderCard from '../components/ui/FolderCard';
 import HeroDoodleGarden from '../components/ui/HeroDoodleGarden';
+import HeroCharacterAvatar from '../components/ui/HeroCharacterAvatar';
 import { projectsData } from '../data/projects';
 import { personalData } from '../data/personal';
 import { experienceData } from '../data/experience';
@@ -22,16 +23,21 @@ export default function Home() {
     <div>
       {/* 1. HERO SECTION */}
       <section className="hero-section">
-        <div className="hero-content-col">
-          {/* MUGDHA PATNAIK Heading */}
-          <h1 className="hero-heading">
-            MUGDHA PATNAIK
-          </h1>
+        <div className="hero-content-flex">
+          <div className="hero-content-col">
+            {/* MUGDHA PATNAIK Heading */}
+            <h1 className="hero-heading">
+              MUGDHA PATNAIK
+            </h1>
 
-          {/* Description */}
-          <p className="hero-sub-text">
-            Computation & Media student exploring design, visual systems, and creative technology.
-          </p>
+            {/* Description */}
+            <p className="hero-sub-text">
+              Computation & Media student exploring design, visual systems, and creative technology.
+            </p>
+          </div>
+
+          {/* Interactive Character Avatar Head */}
+          <HeroCharacterAvatar />
         </div>
 
         {/* Hand-Drawn Doodle Garden with 2 Animated Butterflies (Sitting at bottom of Hero) */}
