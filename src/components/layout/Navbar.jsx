@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
+import { getAssetPath } from '../../utils/assetPath';
 
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -49,9 +50,13 @@ export default function Navbar() {
       <div className="page-container">
         <div className="navbar-inner">
           
-          {/* Logo / Brand Name */}
-          <Link to="/" onClick={handleLogoClick} className="nav-brand-logo">
-            MUGDHA
+          {/* Logo / Brand Image Link */}
+          <Link to="/" onClick={handleLogoClick} className="nav-brand-logo" aria-label="Mugdha Patnaik Homepage">
+            <img
+              src={getAssetPath('images/nav_logo_m.png')}
+              alt="Mugdha Patnaik Logo"
+              className="nav-brand-logo-img"
+            />
           </Link>
 
           {/* Desktop Navigation Links */}

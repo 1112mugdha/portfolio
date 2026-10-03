@@ -112,17 +112,31 @@ p {
 }
 
 .nav-brand-logo {
-  font-family: 'mudstone-sans', 'Space Grotesk', sans-serif;
-  font-weight: 800;
-  font-size: 1.5rem;
-  letter-spacing: -0.04em;
-  color: #232020;
-  text-transform: uppercase;
-  transition: opacity 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
 }
 
 .nav-brand-logo:hover {
-  opacity: 0.8;
+  opacity: 0.85;
+  transform: scale(1.04);
+}
+
+.nav-brand-logo-img {
+  height: 48px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+}
+
+@media (max-width: 640px) {
+  .nav-brand-logo-img {
+    height: 42px;
+  }
 }
 
 .nav-menu-desktop {
