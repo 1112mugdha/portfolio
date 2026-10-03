@@ -3,7 +3,7 @@ import { getAssetPath } from '../../utils/assetPath';
 
 export default function HeroCharacterHead() {
   const containerRef = useRef(null);
-  const [eyeballPos, setEyeballPos] = useState({ x: 0, y: 0 });
+  const [irisPos, setIrisPos] = useState({ x: 0, y: 0 });
 
   const targetPosRef = useRef({ x: 0, y: 0 });
   const currentPosRef = useRef({ x: 0, y: 0 });
@@ -28,7 +28,7 @@ export default function HeroCharacterHead() {
     return () => observer.disconnect();
   }, []);
 
-  // Mouse Tracking Logic for Provided Separate Eyeball Assets
+  // Mouse Tracking Logic for Provided Separate Iris Assets
   useEffect(() => {
     // Disable mouse tracking on mobile / touch devices
     const isTouchDevice = window.matchMedia('(pointer: coarse)').matches;
@@ -39,16 +39,16 @@ export default function HeroCharacterHead() {
 
       const rect = containerRef.current.getBoundingClientRect();
 
-      // Center point between eyes in viewport space (approx 50.6% width, 40.9% height)
-      const eyeCenterX = rect.left + rect.width * 0.506;
-      const eyeCenterY = rect.top + rect.height * 0.409;
+      // Center point between eyes in viewport space (approx 56% width, 56.5% height of container)
+      const eyeCenterX = rect.left + rect.width * 0.56;
+      const eyeCenterY = rect.top + rect.height * 0.565;
 
       const dx = e.clientX - eyeCenterX;
       const dy = e.clientY - eyeCenterY;
       const dist = Math.sqrt(dx * dx + dy * dy);
 
-      // Subtle movement range: Max 5.5px offset so eyeballs NEVER leave the eye whites
-      const maxDistance = 5.5;
+      // Subtle movement range: Max 5px offset so irises NEVER leave the blank eye whites
+      const maxDistance = 5.0;
       const factor = Math.min(dist / 380, 1);
       const angle = Math.atan2(dy, dx);
 
@@ -68,7 +68,7 @@ export default function HeroCharacterHead() {
         currentPosRef.current.x += (targetPosRef.current.x - currentPosRef.current.x) * 0.12;
         currentPosRef.current.y += (targetPosRef.current.y - currentPosRef.current.y) * 0.12;
 
-        setEyeballPos({
+        setIrisPos({
           x: currentPosRef.current.x,
           y: currentPosRef.current.y
         });
@@ -94,38 +94,38 @@ export default function HeroCharacterHead() {
       className="hero-character-head-container select-none"
       aria-label="Mugdha Patnaik Character Avatar"
     >
-      {/* 1. Base Character Head Asset (Exact head provided by user with gold earrings and clean eye whites) */}
+      {/* 1. Base Character Head Asset (Exact head provided by user with completely blank eye whites) */}
       <img
-        src={getAssetPath('images/character_head_clean.png')}
+        src={getAssetPath('images/character_head_blank.png')}
         alt="Mugdha Patnaik Character"
         className="hero-character-head-img"
       />
 
-      {/* 2. Provided Eyeball Assets Layer (Positions left & right separate eyeballs starting perfectly centered) */}
+      {/* 2. Provided Iris Assets Layer (Positions left & right separate irises starting perfectly centered) */}
       <div className="hero-eyeballs-layer">
-        {/* Left Eyeball Asset */}
+        {/* Left Iris Asset */}
         <div
-          className="hero-single-eyeball hero-eyeball-left"
+          className="hero-single-eyeball hero-iris-left"
           style={{
-            transform: `translate(calc(-50% + ${eyeballPos.x}px), calc(-50% + ${eyeballPos.y}px))`
+            transform: `translate(calc(-50% + ${irisPos.x}px), calc(-50% + ${irisPos.y}px))`
           }}
         >
           <img
-            src={getAssetPath('images/eyeball_exact.png')}
+            src={getAssetPath('images/iris_exact.png')}
             alt=""
             className="w-full h-full object-contain"
           />
         </div>
 
-        {/* Right Eyeball Asset */}
+        {/* Right Iris Asset */}
         <div
-          className="hero-single-eyeball hero-eyeball-right"
+          className="hero-single-eyeball hero-iris-right"
           style={{
-            transform: `translate(calc(-50% + ${eyeballPos.x}px), calc(-50% + ${eyeballPos.y}px))`
+            transform: `translate(calc(-50% + ${irisPos.x}px), calc(-50% + ${irisPos.y}px))`
           }}
         >
           <img
-            src={getAssetPath('images/eyeball_exact.png')}
+            src={getAssetPath('images/iris_exact.png')}
             alt=""
             className="w-full h-full object-contain"
           />
