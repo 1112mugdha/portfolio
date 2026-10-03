@@ -240,24 +240,52 @@ export default function ProjectDetail() {
       {project.id === 'in-the-making' ? (
         <div>
           {/* Top Section: Structured Project Details */}
-          <div className="flex flex-col gap-8 max-w-4xl my-8">
-            {/* ABOUT THE PROJECT */}
+          <div className="flex flex-col gap-8 max-w-4xl my-6">
+            {/* ABOUT THE PROJECT Block */}
             <div className="exp-about-block border-l-3 border-[#171515] pl-6 py-1">
               <h2 className="exp-about-heading font-heading font-bold text-xs sm:text-sm uppercase tracking-widest text-[#171515]">
                 ABOUT THE PROJECT
               </h2>
-              <p className="exp-about-paragraph font-body text-base text-[#171515] mb-3">
-                Recipes often tell people things like <em>“cook until golden brown,”</em> <em>“knead until smooth,”</em> or <em>“whisk until pale and fluffy.”</em> For beginner and intermediate cooks, <strong>“until”</strong> is often a guess. Without visual reference points, it is easy to undercook, burn, or lose confidence during preparation.
-              </p>
-              <p className="exp-about-paragraph font-body text-base text-[#171515]">
-                <strong>In The Making</strong> is an experience design concept for an AR cooking assistant that provides real-time visual target cues and spatial guidance directly over cookware and ingredients, eliminating kitchen guesswork.
-              </p>
+              
+              <div className="flex flex-col gap-4 mt-3">
+                <p className="exp-about-paragraph font-body text-base text-[#171515] leading-relaxed">
+                  Recipes often tell people things like <em>“cook until golden brown,”</em> <em>“knead until smooth,”</em> or <em>“whisk until pale and fluffy.”</em> For beginner and intermediate cooks, <strong>“until”</strong> is often a guess. Without visual reference points, it is easy to undercook, burn, or lose confidence during preparation.
+                </p>
+
+                <p className="exp-about-paragraph font-body text-base text-[#171515] leading-relaxed">
+                  <strong>In The Making</strong> is an experience design concept for an AR cooking assistant that provides real-time visual target cues and spatial guidance directly over cookware and ingredients, eliminating kitchen guesswork.
+                </p>
+
+                {/* Integrated 7 Stages Section inside About the Project */}
+                <div className="mt-6 pt-6 border-t border-[#171515]/15">
+                  <h3 className="font-body font-bold text-sm uppercase tracking-wider text-[#171515] mb-4">
+                    THE EXPERIENCE — 7 STAGES
+                  </h3>
+
+                  <div className="flex flex-col gap-4">
+                    {[
+                      { num: '01', title: 'EXPLORE', desc: 'Discover recipes with interactive spatial previews, ingredient visualizers, and complexity indicators.' },
+                      { num: '02', title: 'DECONSTRUCT', desc: 'Break down complex recipes into clear visual components, prep order, and parallel timing steps.' },
+                      { num: '03', title: 'UNDERSTAND', desc: 'Preview technique nuances and key visual cues such as texture, color, and consistency before starting.' },
+                      { num: '04', title: 'COOK', desc: 'Hands-free, step-by-step augmented guidance projected directly onto your workspace as you prepare.' },
+                      { num: '05', title: 'KNOW WHEN', desc: 'Real-time visual target comparisons showing exact visual states, such as golden brown or soft peaks.' },
+                      { num: '06', title: 'FIX', desc: 'Instant spatial troubleshooting and correction tips for over/under-cooked or mis-measured steps.' },
+                      { num: '07', title: 'FINISH', desc: 'Plating assistance, timing completion summary, and saving personal cooking notes.' }
+                    ].map((stage) => (
+                      <div key={stage.num} className="font-body text-sm text-[#171515] leading-relaxed">
+                        <span className="font-bold text-[#171515]">{stage.num} — {stage.title}</span>
+                        <p className="text-[#57534E] mt-0.5">{stage.desc}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
             </div>
 
             {/* TOOLS USED */}
             <div className="border-l-3 border-[#E96F98] pl-6 py-1">
               <h2 className="exp-what-heading font-heading font-bold text-xs sm:text-sm uppercase tracking-widest text-[#171515]">
-                TOOLS & DISCIPLINES
+                TOOLS USED
               </h2>
               <div className="flex flex-wrap gap-2 mt-2">
                 {project.tools?.map((tool) => (
@@ -269,37 +297,9 @@ export default function ProjectDetail() {
             </div>
           </div>
 
-          {/* THE EXPERIENCE — 7 STAGES */}
-          <div className="detail-major-section-block my-12">
-            <h2 className="font-heading font-extrabold text-xl uppercase tracking-tight text-[#171515] mb-6 flex items-center gap-3">
-              <span className="w-3.5 h-3.5 bg-[#D7F23A] border border-[#171515] inline-block"></span>
-              THE EXPERIENCE — 7 STAGES
-            </h2>
-            <div className="flex flex-col gap-6 max-w-4xl">
-              {[
-                { number: '01', title: 'EXPLORE', desc: 'Discovering recipes with spatial preview and ingredient visualizers.' },
-                { number: '02', title: 'DECONSTRUCT', desc: 'Breaking recipes into interactive visual components and step-by-step prep order.' },
-                { number: '03', title: 'UNDERSTAND', desc: 'Clarifying technique nuances and key visual cues before starting.' },
-                { number: '04', title: 'COOK', desc: 'Step-by-step hands-free augmented guidance during preparation.' },
-                { number: '05', title: 'KNOW WHEN', desc: 'Real-time visual target comparisons showing exact visual states (e.g. golden brown).' },
-                { number: '06', title: 'FIX', desc: 'Real-time spatial troubleshooting for over/under-cooked or mis-measured steps.' },
-                { number: '07', title: 'FINISH', desc: 'Plating assistance, timing completion summary, and recipe log.' }
-              ].map((stage) => (
-                <div key={stage.number} className="border-l-3 border-[#171515] pl-5 py-0.5">
-                  <h3 className="font-heading font-bold text-sm tracking-wider uppercase text-[#171515]">
-                    {stage.number} — {stage.title}
-                  </h3>
-                  <p className="font-body text-sm text-[#57534E] mt-1 leading-relaxed">
-                    {stage.desc}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* VISUALIZING THE CONCEPT — ONE VIDEO CAROUSEL */}
-          <div className="detail-major-section-block my-12">
-            <div className="flex items-center justify-between mb-2">
+          {/* VISUALIZING THE CONCEPT — MATCHES PHOTO ESSAY CAROUSEL LAYOUT EXACTLY */}
+          <div className="detail-major-section-block">
+            <div className="flex items-center justify-between mb-4">
               <h2 className="font-heading font-extrabold text-xl uppercase tracking-tight text-[#171515] flex items-center gap-3">
                 <span className="w-3.5 h-3.5 bg-[#E96F98] border border-[#171515] inline-block"></span>
                 VISUALIZING THE CONCEPT
@@ -309,22 +309,19 @@ export default function ProjectDetail() {
               </span>
             </div>
 
-            <p className="font-body text-sm text-[#57534E] mb-6">
+            <p className="font-body text-sm text-[#57534E] mb-4">
               These AI-generated videos visualize how the proposed experience could work.
             </p>
 
-            {/* Caption Bar ALWAYS rendered ABOVE the video frame (matching Photo Essay) */}
+            {/* Caption Bar ALWAYS rendered ABOVE the carousel frame (matching Photo Essay) */}
             <div className="w-full mb-3 pb-2 border-b border-[#171515]/20 text-center px-2">
-              <p className="font-heading font-bold text-xs uppercase tracking-wider text-[#171515]">
-                {inTheMakingVideos[inTheMakingIndex].title}
-              </p>
-              <p className="font-body text-xs text-[#57534E] mt-0.5">
-                {inTheMakingVideos[inTheMakingIndex].caption}
+              <p className="font-mono text-xs font-bold text-[#171515] uppercase tracking-wider">
+                {inTheMakingVideos[inTheMakingIndex].title} — {inTheMakingVideos[inTheMakingIndex].caption}
               </p>
             </div>
 
-            {/* Active Video Carousel Frame */}
-            <div className="photo-essay-carousel w-full justify-center">
+            {/* Active Video Flex Carousel */}
+            <div className="photo-essay-carousel">
               <button 
                 onClick={prevInTheMakingVideo}
                 className="photo-essay-arrow-left"
@@ -333,12 +330,12 @@ export default function ProjectDetail() {
                 ←
               </button>
 
-              <div className="border-1.5 border-[#171515] bg-[#FAF4EB] p-2 shadow-sm flex items-center justify-center w-full max-w-4xl overflow-hidden">
+              <div className="photo-essay-image-frame">
                 <video 
                   key={inTheMakingVideos[inTheMakingIndex].src}
                   controls 
                   preload="metadata"
-                  className="w-full h-auto max-h-[500px] object-contain block mx-auto bg-[#171515]"
+                  className="photo-essay-img"
                 >
                   <source src={inTheMakingVideos[inTheMakingIndex].src} type="video/mp4" />
                   Your browser does not support the video tag.
@@ -352,20 +349,6 @@ export default function ProjectDetail() {
               >
                 →
               </button>
-            </div>
-
-            {/* Indicator Pills / Progress Bar */}
-            <div className="flex items-center justify-center gap-2 mt-4 pt-3 border-t border-[#171515]/15">
-              {inTheMakingVideos.map((vid, idx) => (
-                <button
-                  key={idx}
-                  onClick={() => setInTheMakingIndex(idx)}
-                  className={`h-3 transition-all border border-[#171515] cursor-pointer ${
-                    idx === inTheMakingIndex ? 'w-8 bg-[#171515]' : 'w-3 bg-[#FAF4EB] hover:bg-[#D7F23A]'
-                  }`}
-                  aria-label={`Go to video ${idx + 1}`}
-                />
-              ))}
             </div>
           </div>
         </div>

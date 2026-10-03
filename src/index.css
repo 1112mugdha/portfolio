@@ -1397,7 +1397,8 @@ img.cactus-gallery-overlay-img {
   max-height: calc(100vh - 220px);
 }
 
-img.photo-essay-img {
+img.photo-essay-img,
+video.photo-essay-img {
   width: 100% !important;
   height: 100% !important;
   max-width: calc(100vw - 160px) !important;
