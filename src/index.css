@@ -1700,3 +1700,36 @@ p *,
 .exp-company-highlight-container {
   border-radius: 6px !important;
 }
+
+/* ==========================================================================
+   DESKTOP CUSTOM RECOLORED SYSTEM CURSOR (PINK ARROW & LIME HOVER POINTER)
+   ========================================================================== */
+@media (hover: hover) and (pointer: fine) {
+  html,
+  body,
+  * {
+    cursor: url('/images/cursor-arrow-pink.svg') 2 2, default;
+  }
+
+  a,
+  button,
+  [role="button"],
+  input[type="submit"],
+  input[type="button"],
+  input[type="reset"],
+  .btn-cta-primary,
+  .btn-cta-secondary,
+  .nav-link-anchor,
+  .nav-brand-logo,
+  .mobile-nav-item,
+  .folder-link-wrapper,
+  .draggable-sticker,
+  .tag-pill-element,
+  .badge-category,
+  .badge-group-project,
+  .badge-eyebrow-pink,
+  label,
+  select {
+    cursor: url('/images/cursor-pointer-lime.svg') 7 2, pointer !important;
+  }
+}
