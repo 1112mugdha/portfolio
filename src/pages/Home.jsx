@@ -20,33 +20,33 @@ export default function Home() {
   ];
 
   const initialStickers = [
-    // Pink Sparkles
-    { id: 'psp1', src: 'images/stickers/pink_sparkle_large.png', initialPos: { x: 50, y: 130 }, size: { width: 36, height: 38 }, alt: "Pink Sparkle Large" },
-    { id: 'psp2', src: 'images/stickers/pink_double_sparkle.png', initialPos: { x: 920, y: 70 }, size: { width: 34, height: 34 }, alt: "Pink Double Sparkle" },
-    { id: 'psp3', src: 'images/stickers/pink_dashed_cross.png', initialPos: { x: 440, y: 40 }, size: { width: 28, height: 30 }, alt: "Pink Dashed Cross" },
+    // Top right and upper right area (completely clear of left text block)
+    { id: 'psp1', src: 'images/stickers/pink_sparkle_large.png', initialPos: { x: 580, y: 40 }, size: { width: 36, height: 38 }, alt: "Pink Sparkle Large" },
+    { id: 'psp2', src: 'images/stickers/pink_double_sparkle.png', initialPos: { x: 920, y: 60 }, size: { width: 34, height: 34 }, alt: "Pink Double Sparkle" },
+    { id: 'psp3', src: 'images/stickers/pink_dashed_cross.png', initialPos: { x: 780, y: 140 }, size: { width: 28, height: 30 }, alt: "Pink Dashed Cross" },
     
     // Black Sparkles
-    { id: 'bsp1', src: 'images/stickers/black_8point_star.png', initialPos: { x: 740, y: 50 }, size: { width: 32, height: 35 }, alt: "Black 8 Point Star" },
+    { id: 'bsp1', src: 'images/stickers/black_8point_star.png', initialPos: { x: 740, y: 40 }, size: { width: 32, height: 35 }, alt: "Black 8 Point Star" },
     { id: 'bsp2', src: 'images/stickers/black_double_sparkle.png', initialPos: { x: 670, y: 150 }, size: { width: 30, height: 32 }, alt: "Black Double Sparkle" },
-    { id: 'bsp3', src: 'images/stickers/black_cross_sparkle.png', initialPos: { x: 70, y: 310 }, size: { width: 34, height: 34 }, alt: "Black Cross Sparkle" },
-    { id: 'bsp4', src: 'images/stickers/black_sparkle_circle.png', initialPos: { x: 600, y: 90 }, size: { width: 28, height: 30 }, alt: "Black Sparkle Circle" },
+    { id: 'bsp3', src: 'images/stickers/black_cross_sparkle.png', initialPos: { x: 40, y: 380 }, size: { width: 34, height: 34 }, alt: "Black Cross Sparkle" },
+    { id: 'bsp4', src: 'images/stickers/black_sparkle_circle.png', initialPos: { x: 880, y: 130 }, size: { width: 28, height: 30 }, alt: "Black Sparkle Circle" },
 
     // Lime / Chartreuse Sparkles
-    { id: 'lsp1', src: 'images/stickers/lime_sparkle_1.png', initialPos: { x: 260, y: 40 }, size: { width: 22, height: 24 }, alt: "Lime Sparkle" },
-    { id: 'lsp2', src: 'images/stickers/lime_wide_sparkle.png', initialPos: { x: 860, y: 210 }, size: { width: 38, height: 36 }, alt: "Lime Wide Sparkle" },
-    { id: 'lsp3', src: 'images/stickers/lime_dashed_cross.png', initialPos: { x: 490, y: 160 }, size: { width: 28, height: 29 }, alt: "Lime Dashed Cross" },
+    { id: 'lsp1', src: 'images/stickers/lime_sparkle_1.png', initialPos: { x: 640, y: 90 }, size: { width: 22, height: 24 }, alt: "Lime Sparkle" },
+    { id: 'lsp2', src: 'images/stickers/lime_wide_sparkle.png', initialPos: { x: 860, y: 220 }, size: { width: 38, height: 36 }, alt: "Lime Wide Sparkle" },
+    { id: 'lsp3', src: 'images/stickers/lime_dashed_cross.png', initialPos: { x: 940, y: 270 }, size: { width: 28, height: 29 }, alt: "Lime Dashed Cross" },
 
-    // Pink Flowers
+    // Pink Flowers (Lower sides, well below description text)
     { id: 'pfl1', src: 'images/stickers/pink_flower_large.png', initialPos: { x: 180, y: 440 }, size: { width: 34, height: 33 }, alt: "Pink Flower Large" },
-    { id: 'pfl2', src: 'images/stickers/pink_flower_medium.png', initialPos: { x: 820, y: 460 }, size: { width: 25, height: 24 }, alt: "Pink Flower Medium" },
+    { id: 'pfl2', src: 'images/stickers/pink_flower_medium.png', initialPos: { x: 820, y: 450 }, size: { width: 25, height: 24 }, alt: "Pink Flower Medium" },
 
     // Black Flowers
-    { id: 'bfl1', src: 'images/stickers/black_flower_medium.png', initialPos: { x: 940, y: 350 }, size: { width: 26, height: 26 }, alt: "Black Flower Medium" },
-    { id: 'bfl2', src: 'images/stickers/black_flower_large.png', initialPos: { x: 80, y: 450 }, size: { width: 32, height: 31 }, alt: "Black Flower Large" },
+    { id: 'bfl1', src: 'images/stickers/black_flower_medium.png', initialPos: { x: 930, y: 370 }, size: { width: 26, height: 26 }, alt: "Black Flower Medium" },
+    { id: 'bfl2', src: 'images/stickers/black_flower_large.png', initialPos: { x: 60, y: 460 }, size: { width: 32, height: 31 }, alt: "Black Flower Large" },
 
     // Lime Flowers
-    { id: 'lfl1', src: 'images/stickers/lime_flower_medium.png', initialPos: { x: 310, y: 460 }, size: { width: 30, height: 29 }, alt: "Lime Flower Medium" },
-    { id: 'lfl2', src: 'images/stickers/lime_flower_small.png', initialPos: { x: 700, y: 470 }, size: { width: 24, height: 23 }, alt: "Lime Flower Small" }
+    { id: 'lfl1', src: 'images/stickers/lime_flower_medium.png', initialPos: { x: 300, y: 460 }, size: { width: 30, height: 29 }, alt: "Lime Flower Medium" },
+    { id: 'lfl2', src: 'images/stickers/lime_flower_small.png', initialPos: { x: 700, y: 460 }, size: { width: 24, height: 23 }, alt: "Lime Flower Small" }
   ];
 
   return (

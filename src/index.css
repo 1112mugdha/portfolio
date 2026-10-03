@@ -364,13 +364,13 @@ p {
 .hero-character-head-container {
   position: relative;
   height: 100%;
-  max-height: 96vh; /* Increased character size by 15-20% as requested */
+  max-height: 96vh;
   width: auto;
   aspect-ratio: 667 / 504;
   margin-right: auto;
   margin-left: auto;
   display: block;
-  transform: translateY(28px); /* Lower position emerging naturally from bottom edge */
+  transform: translateY(-10px); /* Lifted upward so full face is clearly visible above bottom edge */
 }
 
 /* Subtle interface hint text */
