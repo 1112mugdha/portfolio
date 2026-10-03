@@ -9,7 +9,7 @@ export default function Footer() {
   const [reducedMotion, setReducedMotion] = useState(false);
   const hasDroppedRef = useRef(false);
 
-  // 1. Three Compact Physical Contact Cards (ONLY label visible, embedded links)
+  // 1. Three Compact Rounded Physical Contact Cards (ONLY label visible, embedded links)
   const contactBoxes = [
     {
       id: 'card-personal-email',
@@ -17,7 +17,7 @@ export default function Footer() {
       href: 'mailto:mugdhapatnaik1112@gmail.com',
       badgeColor: '#E96F98',
       initialPos: { xRatio: 0.22, startY: -130 },
-      size: { width: 185, height: 54 },
+      size: { width: 175, height: 48 },
     },
     {
       id: 'card-college-email',
@@ -25,7 +25,7 @@ export default function Footer() {
       href: 'mailto:sc24ucom006@mahindrauniversity.edu.in',
       badgeColor: '#D7F23A',
       initialPos: { xRatio: 0.50, startY: -200 },
-      size: { width: 185, height: 54 },
+      size: { width: 175, height: 48 },
     },
     {
       id: 'card-linkedin',
@@ -34,13 +34,13 @@ export default function Footer() {
       isExternal: true,
       badgeColor: '#171515',
       initialPos: { xRatio: 0.78, startY: -160 },
-      size: { width: 145, height: 54 },
+      size: { width: 135, height: 48 },
     },
   ];
 
   // 2. Logo & Dashboard Decorative Graphics
   const graphicsItems = [
-    { id: 'logo', src: 'images/nav_logo_m.png', isLogo: true, size: { width: 90, height: 48 }, xRatio: 0.46, startY: -250 },
+    { id: 'logo', src: 'images/nav_logo_m.png', isLogo: true, size: { width: 90, height: 48 }, xRatio: 0.46, startY: -260 },
     { id: 'psp1', src: 'images/stickers/pink_sparkle_large.png', size: { width: 36, height: 38 }, xRatio: 0.12, startY: -110 },
     { id: 'lsp1', src: 'images/stickers/lime_sparkle_1.png', size: { width: 26, height: 28 }, xRatio: 0.30, startY: -170 },
     { id: 'bsp1', src: 'images/stickers/black_8point_star.png', size: { width: 32, height: 35 }, xRatio: 0.40, startY: -220 },
@@ -76,27 +76,27 @@ export default function Footer() {
     });
     engineRef.current = engine;
 
-    // Fixed Boundaries (Walls & Floor)
+    // Fixed Boundaries (Walls & Floor) for hard 50vh height container
     const wallOptions = { isStatic: true, friction: 0.8, restitution: 0.3 };
     const floor = Bodies.rectangle(width / 2, height + 20, width * 2, 40, wallOptions);
     const leftWall = Bodies.rectangle(-20, height / 2, 40, height * 2, wallOptions);
     const rightWall = Bodies.rectangle(width + 20, height / 2, 40, height * 2, wallOptions);
-    const ceiling = Bodies.rectangle(width / 2, -300, width * 2, 40, wallOptions);
+    const ceiling = Bodies.rectangle(width / 2, -350, width * 2, 40, wallOptions);
 
     World.add(engine.world, [floor, leftWall, rightWall, ceiling]);
 
     const bodiesMap = {};
 
-    // 1. Add Contact Cards as Physical Bodies starting above top boundary
+    // 1. Add Contact Cards as physical bodies starting above top boundary
     contactBoxes.forEach((card) => {
       const isMobile = width < 768;
       const cardWidth = isMobile ? Math.min(card.size.width, width * 0.85) : card.size.width;
       const cardHeight = card.size.height;
       const posX = Math.max(cardWidth / 2 + 10, Math.min(width - cardWidth / 2 - 10, width * card.initialPos.xRatio));
-      const posY = card.initialPos.startY;
+      const posY = card.initialPos.startY; // Start above top boundary
 
       const body = Bodies.rectangle(posX, posY, cardWidth, cardHeight, {
-        chamfer: { radius: 8 },
+        chamfer: { radius: 10 },
         friction: 0.5,
         frictionAir: 0.015,
         restitution: 0.3,
@@ -108,10 +108,10 @@ export default function Footer() {
       World.add(engine.world, body);
     });
 
-    // 2. Add Logo & Stickers as Physical Bodies starting above top boundary
+    // 2. Add Logo & Stickers as physical bodies starting above top boundary
     graphicsItems.forEach((item) => {
       const posX = Math.max(30, Math.min(width - 30, width * item.xRatio));
-      const posY = item.startY;
+      const posY = item.startY; // Start above top boundary
 
       let body;
       if (item.isLogo) {
@@ -313,83 +313,84 @@ export default function Footer() {
   return (
     <footer
       className="footer-element relative bg-[#FAF4EB] border-t-1.5 border-[#171515] overflow-hidden select-none"
+      style={{ height: '50vh', boxSizing: 'border-box' }}
       id="footer"
     >
-      <div className="page-container py-3">
-        {/* Fixed Height Physics Playground Box (~50vh) */}
-        <div
-          ref={containerRef}
-          className="relative w-full h-[50vh] min-h-[380px] max-h-[460px] overflow-hidden rounded-xl border border-[#171515]/20 bg-[#FAF4EB]"
-        >
-          {/* Render Contact Cards as Physical Outlined Boxes */}
-          {contactBoxes.map((card) => {
-            const transform = bodyTransforms[card.id];
-            const posX = transform ? transform.x : 0;
-            const posY = transform ? transform.y : 0;
-            const angle = transform ? transform.angle : 0;
+      <div 
+        ref={containerRef}
+        className="relative w-full h-full overflow-hidden bg-[#FAF4EB]"
+        style={{ boxSizing: 'border-box' }}
+      >
+        {/* Render Contact Cards as Compact Rounded Physical Boxes */}
+        {contactBoxes.map((card) => {
+          const transform = bodyTransforms[card.id];
+          const posX = transform ? transform.x : 0;
+          const posY = transform ? transform.y : 0;
+          const angle = transform ? transform.angle : 0;
 
-            return (
-              <div
-                key={card.id}
-                data-physics-id={card.id}
-                className="absolute p-3 bg-[#FAF4EB] border-1.5 border-[#171515] rounded-lg shadow-[3px_3px_0px_#171515] cursor-grab active:cursor-grabbing hover:border-[#E96F98] transition-colors select-none flex items-center justify-between"
-                style={{
-                  width: `${card.size.width}px`,
-                  height: `${card.size.height}px`,
-                  left: 0,
-                  top: 0,
-                  transform: transform
-                    ? `translate3d(${posX - card.size.width / 2}px, ${posY - card.size.height / 2}px, 0px) rotate(${angle}rad)`
-                    : 'translate3d(-999px, -999px, 0px)',
-                  touchAction: 'none',
-                  zIndex: 20,
-                }}
-              >
-                <span className="font-heading font-bold text-xs uppercase tracking-wider text-[#171515] flex items-center gap-2 pointer-events-none">
-                  <span
-                    className="w-2 h-2 rounded-full border border-[#171515] inline-block"
-                    style={{ backgroundColor: card.badgeColor }}
-                  />
-                  {card.label}
-                </span>
-              </div>
-            );
-          })}
-
-          {/* Render Logo & Stickers as Physical Objects */}
-          {graphicsItems.map((item) => {
-            const transform = bodyTransforms[item.id];
-            const posX = transform ? transform.x : 0;
-            const posY = transform ? transform.y : 0;
-            const angle = transform ? transform.angle : 0;
-
-            return (
-              <div
-                key={item.id}
-                data-physics-id={item.id}
-                className="absolute cursor-grab active:cursor-grabbing select-none"
-                style={{
-                  width: `${item.size.width}px`,
-                  height: `${item.size.height}px`,
-                  left: 0,
-                  top: 0,
-                  transform: transform
-                    ? `translate3d(${posX - item.size.width / 2}px, ${posY - item.size.height / 2}px, 0px) rotate(${angle}rad)`
-                    : 'translate3d(-999px, -999px, 0px)',
-                  touchAction: 'none',
-                  zIndex: item.isLogo ? 25 : 15,
-                }}
-              >
-                <img
-                  src={getAssetPath(item.src)}
-                  alt={item.isLogo ? "Mugdha Patnaik Logo" : "Sticker"}
-                  className="w-full h-full object-contain pointer-events-none select-none"
-                  draggable={false}
+          return (
+            <div
+              key={card.id}
+              data-physics-id={card.id}
+              className="absolute px-3.5 py-2.5 bg-[#FAF4EB] border-1.5 border-[#171515] rounded-xl shadow-[3px_3px_0px_#171515] cursor-grab active:cursor-grabbing hover:border-[#E96F98] transition-colors select-none flex items-center justify-between"
+              style={{
+                width: `${card.size.width}px`,
+                height: `${card.size.height}px`,
+                left: 0,
+                top: 0,
+                transform: transform
+                  ? `translate3d(${posX - card.size.width / 2}px, ${posY - card.size.height / 2}px, 0px) rotate(${angle}rad)`
+                  : 'translate3d(-999px, -999px, 0px)',
+                touchAction: 'none',
+                zIndex: 20,
+                boxSizing: 'border-box',
+              }}
+            >
+              <span className="font-heading font-bold text-xs uppercase tracking-wider text-[#171515] flex items-center gap-1.5 pointer-events-none">
+                <span
+                  className="w-2 h-2 rounded-full border border-[#171515] inline-block flex-shrink-0"
+                  style={{ backgroundColor: card.badgeColor }}
                 />
-              </div>
-            );
-          })}
-        </div>
+                {card.label}
+              </span>
+            </div>
+          );
+        })}
+
+        {/* Render Logo & Stickers as Physical Objects */}
+        {graphicsItems.map((item) => {
+          const transform = bodyTransforms[item.id];
+          const posX = transform ? transform.x : 0;
+          const posY = transform ? transform.y : 0;
+          const angle = transform ? transform.angle : 0;
+
+          return (
+            <div
+              key={item.id}
+              data-physics-id={item.id}
+              className="absolute cursor-grab active:cursor-grabbing select-none"
+              style={{
+                width: `${item.size.width}px`,
+                height: `${item.size.height}px`,
+                left: 0,
+                top: 0,
+                transform: transform
+                  ? `translate3d(${posX - item.size.width / 2}px, ${posY - item.size.height / 2}px, 0px) rotate(${angle}rad)`
+                  : 'translate3d(-999px, -999px, 0px)',
+                touchAction: 'none',
+                zIndex: item.isLogo ? 25 : 15,
+                boxSizing: 'border-box',
+              }}
+            >
+              <img
+                src={getAssetPath(item.src)}
+                alt={item.isLogo ? "Mugdha Patnaik Logo" : "Sticker"}
+                className="w-full h-full object-contain pointer-events-none select-none"
+                draggable={false}
+              />
+            </div>
+          );
+        })}
       </div>
     </footer>
   );
