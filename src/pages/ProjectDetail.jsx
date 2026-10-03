@@ -198,9 +198,150 @@ export default function ProjectDetail() {
       </div>
 
       {/* =========================================================================
-         3. SPECIAL CUSTOM CASE STUDY FOR MOVIE POSTERS (05)
+         3. SPECIAL CUSTOM CASE STUDY FOR IN THE MAKING (02)
          ========================================================================= */}
-      {project.id === 'movie-posters' ? (
+      {project.id === 'in-the-making' ? (
+        <div>
+          {/* Important Concept Disclaimer Box */}
+          <div className="mb-8 p-5 bg-[#FAF4EB] border-1.5 border-[#171515] shadow-sm">
+            <div className="flex items-center gap-2 mb-2">
+              <span className="w-3 h-3 bg-[#E96F98] border border-[#171515] inline-block"></span>
+              <h3 className="font-heading font-bold text-xs sm:text-sm uppercase tracking-widest text-[#171515]">
+                CONCEPT & EXPERIENCE DESIGN PROJECT
+              </h3>
+            </div>
+            <p className="font-body text-sm text-[#171515] leading-relaxed">
+              <strong>Note:</strong> <em>In The Making</em> is an original concept and experience design project for an augmented reality (AR) cooking assistant. The videos and media presented below are <strong>AI-generated visualizations and visual prototypes</strong> created to explore and communicate how the interaction flow and spatial experience could look and feel in action — they are not recordings of an implemented or functional AR software system.
+            </p>
+          </div>
+
+          {/* Top Section: Structured Project Details */}
+          <div className="flex flex-col gap-8 max-w-4xl my-6">
+            {/* About the Project */}
+            <div className="exp-about-block border-l-3 border-[#171515] pl-6 py-1">
+              <h2 className="exp-about-heading font-heading font-bold text-xs sm:text-sm uppercase tracking-widest text-[#171515]">
+                ABOUT THE PROJECT
+              </h2>
+              <p className="exp-about-paragraph font-body text-base text-[#171515] mb-3">
+                Recipes often tell people things like <em>“cook until golden brown,”</em> <em>“knead until smooth,”</em> or <em>“whisk until pale and fluffy.”</em> For beginner and intermediate cooks, <strong>“until”</strong> is often a guess. Without visual reference points, it is easy to undercook, burn, or lose confidence during preparation.
+              </p>
+              <p className="exp-about-paragraph font-body text-base text-[#171515]">
+                <strong>In The Making</strong> is a concept for an AR cooking assistant that turns vague recipe instructions into clear, step-by-step visual targets. By providing spatial reference cues directly over ingredients and cookware, it eliminates guesswork and makes cooking an intuitive learning experience.
+              </p>
+            </div>
+
+            {/* The Idea & Concept */}
+            <div className="border-l-3 border-[#171515] pl-6 py-1">
+              <h2 className="exp-about-heading font-heading font-bold text-xs sm:text-sm uppercase tracking-widest text-[#171515]">
+                THE CORE CONCEPT
+              </h2>
+              <p className="exp-about-paragraph font-body text-base text-[#171515]">
+                Instead of requiring users to look back and forth between a phone screen or cookbook, the AR system projects contextual guidance directly into the user’s field of vision. It provides real-time visual comparisons—showing what the food should look like at each key stage—giving cooks instant confirmation when a step is completed correctly.
+              </p>
+            </div>
+
+            {/* Tools / Discipline */}
+            <div className="border-l-3 border-[#E96F98] pl-6 py-1">
+              <h2 className="exp-what-heading font-heading font-bold text-xs sm:text-sm uppercase tracking-widest text-[#171515]">
+                TOOLS & DISCIPLINES
+              </h2>
+              <div className="flex flex-wrap gap-2">
+                {project.tools?.map((tool) => (
+                  <span key={tool} className="tag-pill-element text-xs py-1 px-3">
+                    {tool}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* 7-Stage Cooking Experience Breakdown */}
+          <div className="detail-major-section-block my-10">
+            <h2 className="font-heading font-extrabold text-xl uppercase tracking-tight text-[#171515] mb-6 flex items-center gap-3">
+              <span className="w-3.5 h-3.5 bg-[#D7F23A] border border-[#171515] inline-block"></span>
+              THE EXPERIENCE — 7 STAGES
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {[
+                { stage: '01', title: 'EXPLORE', desc: 'Discover recipes with interactive spatial previews, ingredient visualizers, and complexity indicators.' },
+                { stage: '02', title: 'DECONSTRUCT', desc: 'Break down complex recipes into clear visual components, prep order, and parallel timing steps.' },
+                { stage: '03', title: 'UNDERSTAND', desc: 'Preview technique nuances and key visual cues (texture, color, consistency) before starting.' },
+                { stage: '04', title: 'COOK', desc: 'Hands-free, step-by-step augmented guidance projected directly onto your workspace as you prepare.' },
+                { stage: '05', title: 'KNOW WHEN', desc: 'Real-time visual target comparisons showing exact visual states (e.g., golden brown, soft peaks).' },
+                { stage: '06', title: 'FIX', desc: 'Instant spatial troubleshooting and correction tips for over/under-cooked or mis-measured steps.' },
+                { stage: '07', title: 'FINISH', desc: 'Plating assistance, timing completion summary, and saving personal cooking notes.' }
+              ].map((item) => (
+                <div key={item.stage} className="p-4 bg-[#FAF4EB] border-1.5 border-[#171515] shadow-sm flex flex-col gap-1.5">
+                  <div className="flex items-center justify-between border-b border-[#171515]/20 pb-1.5">
+                    <span className="font-heading font-bold text-sm tracking-wider text-[#171515]">
+                      STAGE {item.stage} — {item.title}
+                    </span>
+                    <span className="w-2.5 h-2.5 bg-[#E96F98] border border-[#171515]"></span>
+                  </div>
+                  <p className="font-body text-sm text-[#57534E] leading-snug">
+                    {item.desc}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Visualizing the Concept — Videos Section */}
+          <div className="detail-major-section-block my-10">
+            <div className="flex items-center justify-between mb-4">
+              <h2 className="font-heading font-extrabold text-xl uppercase tracking-tight text-[#171515] flex items-center gap-3">
+                <span className="w-3.5 h-3.5 bg-[#E96F98] border border-[#171515] inline-block"></span>
+                VISUALIZING THE CONCEPT — AI PROTOTYPES
+              </h2>
+            </div>
+            <p className="font-body text-sm text-[#57534E] mb-6">
+              The following video prototypes demonstrate the proposed interaction design, spatial HUD elements, and hands-free cooking assistant workflow:
+            </p>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {project.videos?.map((vid) => (
+                <div key={vid.id} className="border-1.5 border-[#171515] bg-[#FAF4EB] p-3 shadow-sm flex flex-col gap-2">
+                  <div className="border-b border-[#171515]/20 pb-2">
+                    <h3 className="font-heading font-bold text-xs sm:text-sm uppercase tracking-wider text-[#171515]">
+                      {vid.title}
+                    </h3>
+                    <p className="font-body text-xs text-[#57534E]">
+                      {vid.subtitle}
+                    </p>
+                  </div>
+                  <div className="w-full bg-[#171515] rounded overflow-hidden">
+                    <video 
+                      controls 
+                      preload="metadata"
+                      className="w-full h-auto max-h-[380px] object-contain"
+                    >
+                      <source src={vid.src} type="video/mp4" />
+                      Your browser does not support the video tag.
+                    </video>
+                  </div>
+                  <div className="text-right">
+                    <span className="font-mono text-[10px] text-[#78716C] uppercase tracking-widest">
+                      AI VISUALIZATION PROTOTYPE
+                    </span>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Designing the Experience */}
+          <div className="detail-major-section-block my-10 max-w-4xl">
+            <div className="border-l-3 border-[#171515] pl-6 py-1">
+              <h2 className="exp-about-heading font-heading font-bold text-xs sm:text-sm uppercase tracking-widest text-[#171515]">
+                DESIGNING THE EXPERIENCE
+              </h2>
+              <p className="exp-about-paragraph font-body text-base text-[#171515] leading-relaxed">
+                The core interaction design focuses on non-intrusive spatial UI. In a kitchen environment, hands are often wet, dirty, or occupied. The interface relies on passive visual overlays, glanceable status indicators, and voice/gesture cues so cooks never need to touch a screen while preparing food.
+              </p>
+            </div>
+          </div>
+        </div>
+      ) : project.id === 'movie-posters' ? (
         <div>
           {/* Top Section: Structured Project Details */}
           <div className="flex flex-col gap-8 max-w-4xl my-6">

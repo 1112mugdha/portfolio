@@ -59,8 +59,48 @@ export const projectsData = [
     ]
   },
   {
-    id: 'photo-essay',
+    id: 'in-the-making',
     number: '02',
+    title: 'IN THE MAKING',
+    category: 'VR / AR EXPERIENCE',
+    year: '2025',
+    featured: true,
+    shortDescription: 'An AR cooking assistant concept that turns vague recipe instructions into visual, step-by-step spatial guidance.',
+    about: 'Recipes often tell people things like "cook until golden brown," "knead until smooth," or "whisk until pale and fluffy." For beginner and intermediate cooks, "until" is often a guess. "In The Making" is a concept for an AR cooking assistant that provides visual reference targets and step-by-step spatial guidance to eliminate guesswork in the kitchen.',
+    idea: 'The core concept centers around turning vague cooking states into clear visual feedback. By overlaying real-time AR cues and visual comparisons directly onto cooking ingredients and tools, users can instantly see when a step has reached its target state.',
+    process: 'The project explores interaction design for spatial computing in kitchen environments, mapping out 7 core stages of the cooking experience: Explore, Deconstruct, Understand, Cook, Know When, Fix, and Finish.',
+    tools: ['CONCEPT DESIGN', 'INTERACTION DESIGN', 'EXPERIENCE DESIGN', 'AI VISUALIZATION'],
+    heroVideo: getAssetPath('images/assignments/in-the-making/trailer.mp4'),
+    videos: [
+      {
+        id: 'trailer',
+        title: '01 — CONCEPT TRAILER',
+        subtitle: 'AI Visualization of the AR Cooking Companion Concept',
+        src: getAssetPath('images/assignments/in-the-making/trailer.mp4')
+      },
+      {
+        id: 'explore',
+        title: '02 — SPATIAL EXPLORATION',
+        subtitle: 'Visualizing recipe selection and spatial interface overlays',
+        src: getAssetPath('images/assignments/in-the-making/explore.mp4')
+      },
+      {
+        id: 'deconstruct',
+        title: '03 — DECONSTRUCTING STEPS',
+        subtitle: 'Visualizing step breakdown and component timing',
+        src: getAssetPath('images/assignments/in-the-making/deconstruct.mp4')
+      },
+      {
+        id: 'hands-free',
+        title: '04 — HANDS-FREE INSTRUCTIONS',
+        subtitle: 'Visualizing hands-free interaction while cooking',
+        src: getAssetPath('images/assignments/in-the-making/hands free_instructions.mp4')
+      }
+    ]
+  },
+  {
+    id: 'photo-essay',
+    number: '03',
     title: 'PHOTO ESSAY',
     category: 'Photography / Editorial',
     year: '2025',
@@ -119,7 +159,7 @@ export const projectsData = [
   },
   {
     id: 'pygame',
-    number: '03',
+    number: '04',
     title: 'PYGAME',
     subTitle: 'SKY HOPPER',
     category: 'Creative Coding / Game Design',
@@ -148,7 +188,7 @@ export const projectsData = [
   },
   {
     id: 'character-design',
-    number: '04',
+    number: '05',
     title: 'CHARACTER DESIGN',
     category: 'Illustration / Concept Art',
     year: '2025',
@@ -166,7 +206,7 @@ export const projectsData = [
   },
   {
     id: 'movie-posters',
-    number: '05',
+    number: '06',
     title: 'MOVIE POSTERS',
     category: 'Poster Design / Visual Design',
     year: '2025',
@@ -186,7 +226,7 @@ export const projectsData = [
   },
   {
     id: 'others',
-    number: '06',
+    number: '07',
     title: 'OTHERS',
     category: 'Miscellaneous Assignments',
     year: '2025',

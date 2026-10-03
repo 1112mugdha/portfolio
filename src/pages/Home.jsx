@@ -182,7 +182,7 @@ export default function Home() {
           <div>
             <div className="section-num-label">
               <span>02 / COURSEWORK</span>
-              <span className="section-caption-tag">6 FOLDERS</span>
+              <span className="section-caption-tag">{projectsData.length} FOLDERS</span>
             </div>
             <h2 className="section-title">
               ASSIGNMENTS
