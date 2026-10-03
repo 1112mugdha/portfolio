@@ -39,17 +39,17 @@ export default function Home() {
   ];
 
   const mobileStickers = [
-    // EXACTLY 5 Mobile Movable Graphics:
-    // 1. ONE Pink Sparkle
-    { id: 'mob_psp1', src: 'images/stickers/pink_sparkle_large.png', initialPos: { x: 260, y: 25 }, size: { width: 32, height: 34 }, alt: "Pink Sparkle" },
-    // 2. ONE Lime Sparkle
-    { id: 'mob_lsp1', src: 'images/stickers/lime_sparkle_1.png', initialPos: { x: 18, y: 220 }, size: { width: 22, height: 24 }, alt: "Lime Sparkle" },
-    // 3. ONE Black Sparkle
-    { id: 'mob_bsp1', src: 'images/stickers/black_8point_star.png', initialPos: { x: 300, y: 130 }, size: { width: 28, height: 30 }, alt: "Black Sparkle" },
-    // 4. ONE Small Black Flower with Pink Center (Lower Left)
-    { id: 'mob_bfl1', src: 'images/stickers/black_flower_medium.png', initialPos: { x: 22, y: 350 }, size: { width: 26, height: 26 }, alt: "Black Flower 1" },
-    // 5. ONE Additional Small Black Flower with Pink Center (Lower Right)
-    { id: 'mob_bfl2', src: 'images/stickers/black_flower_medium.png', initialPos: { x: 280, y: 360 }, size: { width: 26, height: 26 }, alt: "Black Flower 2" }
+    // EXACTLY 5 Mobile Movable Graphics (percentage positions relative to mobile hero container):
+    // 1. ONE Pink Sparkle (upper/right area beside title)
+    { id: 'mob_psp1', src: 'images/stickers/pink_sparkle_large.png', initialPos: { left: '68%', top: '5%' }, size: { width: 32, height: 34 }, alt: "Pink Sparkle" },
+    // 2. ONE Lime Sparkle (middle/left area below description text)
+    { id: 'mob_lsp1', src: 'images/stickers/lime_sparkle_1.png', initialPos: { left: '6%', top: '34%' }, size: { width: 22, height: 24 }, alt: "Lime Sparkle" },
+    // 3. ONE Black Sparkle (middle/right area)
+    { id: 'mob_bsp1', src: 'images/stickers/black_8point_star.png', initialPos: { left: '76%', top: '22%' }, size: { width: 28, height: 30 }, alt: "Black Sparkle" },
+    // 4. ONE Small Black Flower with Pink Center (lower/left open area)
+    { id: 'mob_bfl1', src: 'images/stickers/black_flower_medium.png', initialPos: { left: '6%', top: '58%' }, size: { width: 26, height: 26 }, alt: "Black Flower 1" },
+    // 5. ONE Additional Small Black Flower with Pink Center (lower/right open area)
+    { id: 'mob_bfl2', src: 'images/stickers/black_flower_medium.png', initialPos: { left: '74%', top: '55%' }, size: { width: 26, height: 26 }, alt: "Black Flower 2" }
   ];
 
   return (

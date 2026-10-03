@@ -51,6 +51,9 @@ export default function DraggableSticker({
     } catch (err) {}
   };
 
+  const leftStyle = pos.left !== undefined ? pos.left : `${pos.x}px`;
+  const topStyle = pos.top !== undefined ? pos.top : `${pos.y}px`;
+
   return (
     <div
       onPointerDown={handlePointerDown}
@@ -60,8 +63,8 @@ export default function DraggableSticker({
       className={`draggable-sticker ${isDragging ? 'is-dragging' : ''}`}
       style={{
         position: 'absolute',
-        left: `${pos.x}px`,
-        top: `${pos.y}px`,
+        left: leftStyle,
+        top: topStyle,
         width: `${size.width}px`,
         height: `${size.height}px`,
         cursor: isDragging ? 'grabbing' : 'grab',
