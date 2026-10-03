@@ -364,13 +364,13 @@ p {
 .hero-character-head-container {
   position: relative;
   height: 100%;
-  max-height: 96vh;
+  max-height: 100%;
   width: auto;
   aspect-ratio: 667 / 504;
   margin-right: auto;
   margin-left: auto;
   display: block;
-  transform: translateY(-10px); /* Lifted upward so full face is clearly visible above bottom edge */
+  transform: translateY(0); /* Touches exact bottom edge of dashboard viewport with 0px gap */
 }
 
 /* Subtle interface hint text */
@@ -758,7 +758,7 @@ img.hero-character-head-img {
   color: #57534E;
   font-weight: 500;
   line-height: 1.6;
-  max-width: 640px;
+  max-width: 535px; /* Natural wrap after 'visual systems,' into exactly 2 lines */
 }
 
 /* 6. EDITORIAL SECTION HEADERS & RHYTHM (WITH STICKY NAVBAR SCROLL MARGIN) */
