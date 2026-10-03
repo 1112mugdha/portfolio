@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 export default function FolderCard({ 
   number = '01', 
   title, 
+  organization,
   category, 
   description, 
   to = '#',
@@ -34,6 +35,12 @@ export default function FolderCard({
           <h3 className="folder-company-title">
             {title}
           </h3>
+
+          {organization && (
+            <div className="folder-organization-subtitle">
+              {organization}
+            </div>
+          )}
           
           <p className="folder-role-text">
             {description || 'Experience details and key responsibilities will go here.'}
@@ -43,7 +50,7 @@ export default function FolderCard({
         {/* Action Footer */}
         <div className="folder-action-bar">
           <span>OPEN FOLDER</span>
-          <span>→</span>
+          <span className="folder-arrow-icon">→</span>
         </div>
       </div>
     </Link>

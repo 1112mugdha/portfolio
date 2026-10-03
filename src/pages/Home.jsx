@@ -262,8 +262,10 @@ export default function Home() {
             <ExperienceFolder
               key={exp.id}
               number={exp.number}
-              company={exp.title}
+              title={exp.title}
               role={exp.role}
+              organization={exp.title}
+              shortDescription={exp.shortDescription}
               about={exp.about}
               to={`/experience/${exp.id}`}
             />

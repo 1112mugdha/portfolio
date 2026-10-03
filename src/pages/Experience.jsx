@@ -23,6 +23,7 @@ export default function Experience() {
             number={exp.number}
             title={exp.title}
             role={exp.role}
+            organization={exp.title}
             shortDescription={exp.shortDescription}
             to={`/experience/${exp.id}`}
           />
