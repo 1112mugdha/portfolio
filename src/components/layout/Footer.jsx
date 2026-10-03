@@ -9,14 +9,15 @@ export default function Footer() {
         {/* MAIN ROW: MUGDHA on Far Left, Contact Buttons on Far Right */}
         <div className="footer-main-row">
           
-          {/* MUGDHA - Far Left */}
+          {/* MUGDHA - Far Left (Font size increased by +4-5px to 26px) */}
           <div className="footer-name">
             <Link 
               to="/" 
-              className="font-heading font-bold text-xl sm:text-2xl tracking-wider text-[#171515] hover:opacity-80 transition-opacity uppercase"
+              className="font-heading font-bold text-2xl sm:text-3xl tracking-wider text-[#171515] hover:opacity-80 transition-opacity uppercase"
               style={{
                 fontFamily: 'Mudstone Sans, sans-serif',
                 fontWeight: 'bold',
+                fontSize: '26px',
                 color: '#171515',
                 textDecoration: 'none',
                 letterSpacing: '0.05em',
@@ -28,7 +29,7 @@ export default function Footer() {
 
           {/* CONTACT GROUP - Far Right (Horizontal Pill Boxes on Desktop, Vertical Column on Mobile) */}
           <div className="footer-contact-group">
-            {/* PERSONAL EMAIL BOX (Pink) */}
+            {/* PERSONAL EMAIL BOX (Pink - Text size unchanged at 13px) */}
             <a 
               href="mailto:mugdhapatnaik1112@gmail.com" 
               className="footer-contact-item"
@@ -50,7 +51,7 @@ export default function Footer() {
               PERSONAL EMAIL ↗
             </a>
 
-            {/* STUDENT EMAIL BOX (Neon Lime / Chartreuse) */}
+            {/* STUDENT EMAIL BOX (Neon Lime / Chartreuse - Text size unchanged at 13px) */}
             <a 
               href="mailto:sc24ucom006@mahindrauniversity.edu.in" 
               className="footer-contact-item"
@@ -72,7 +73,7 @@ export default function Footer() {
               STUDENT EMAIL ↗
             </a>
 
-            {/* LINKEDIN BOX (Pink) */}
+            {/* LINKEDIN BOX (Pink - Text size unchanged at 13px) */}
             <a 
               href="https://www.linkedin.com/in/mugdha-patnaik-073b872a3/" 
               target="_blank" 
@@ -99,12 +100,12 @@ export default function Footer() {
 
         </div>
 
-        {/* LINE 1: COPYRIGHT */}
+        {/* LINE 1: COPYRIGHT (Font size increased by +4-5px to 16.5px) */}
         <div 
           className="footer-copyright"
           style={{
             marginTop: '20px',
-            fontSize: '12.5px',
+            fontSize: '16.5px',
             color: '#E96F98',
             fontFamily: 'system-ui, -apple-system, sans-serif',
             fontWeight: 'normal',
@@ -113,12 +114,12 @@ export default function Footer() {
           © 2026 MUGDHA PATNAIK
         </div>
 
-        {/* LINE 2: DESIGNED & BUILT WITH LOVE <3 (SEPARATE LINE UNDER COPYRIGHT) */}
+        {/* LINE 2: DESIGNED & BUILT WITH LOVE <3 (Font size increased by +4-5px to 16.5px) */}
         <div 
           className="footer-credit"
           style={{
             marginTop: '3px',
-            fontSize: '12.5px',
+            fontSize: '16.5px',
             color: '#E96F98',
             fontFamily: 'system-ui, -apple-system, sans-serif',
             fontWeight: 'normal',
