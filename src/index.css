@@ -912,6 +912,7 @@ img.hero-character-head-img {
   display: flex !important;
   flex-direction: column !important;
   gap: 16px !important;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
 }
 
 .exp-bullet-item {
@@ -920,8 +921,16 @@ img.hero-character-head-img {
   gap: 12px !important;
   line-height: 1.65 !important;
   font-size: 1rem !important;
-  color: #423E3B !important;
+  color: #232020 !important;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+  letter-spacing: normal !important;
 }
+
+.exp-bullet-item span {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+  letter-spacing: normal !important;
+}
+
 
 .exp-work-section-container {
   margin-top: 48px !important;
