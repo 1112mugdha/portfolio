@@ -20,12 +20,12 @@ export default function Personal() {
           <FolderCard
             key={category.id}
             number={category.number}
-            title={category.title}
+            title={`${category.number} — ${category.title}`}
             category={category.id === 'brand-concepts' ? 'BRANDING & VISUAL IDENTITY' : 'CREATIVE EXPERIMENTS'}
-            description={category.subtitle}
+            description={category.description}
             to={`/personal/${category.id}`}
-            tabLabel={`${category.number} — PERSONAL PROJECT`}
-            tabColor="lime"
+            tabLabel={`${category.number} — FOLDER`}
+            tabColor="pink"
           />
         ))}
       </div>

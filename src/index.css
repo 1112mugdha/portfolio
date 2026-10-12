@@ -857,14 +857,31 @@ img.hero-character-head-img {
 }
 
 /* =========================================================================
-   EXPERIENCE DETAIL PAGE FORCED SPACING & HIGHLIGHT STYLES
+   EXPERIENCE & DETAIL FOLDER PAGE SHARED SECTION SPACING & DIVIDERS SYSTEM
    ========================================================================= */
+
+/* 1. VISIBLE SHORT SUBTLE PINK DIVIDER (GLOBAL FOLDER SYSTEM) */
+.detail-section-divider,
+.section-divider {
+  display: block !important;
+  width: 80px !important;
+  height: 1.5px !important;
+  background-color: #E96F98 !important;
+  margin-top: 36px !important;
+  margin-bottom: 40px !important;
+  margin-left: 0 !important;
+  margin-right: auto !important;
+  border: none !important;
+  opacity: 1 !important;
+  clear: both !important;
+}
+
 .exp-back-nav {
   margin-bottom: 28px !important;
 }
 
 .exp-role-badge-wrap {
-  margin-bottom: 32px !important;
+  margin-bottom: 24px !important;
 }
 
 .exp-company-highlight-container {
@@ -875,7 +892,7 @@ img.hero-character-head-img {
   padding: 10px 16px !important;
   border: 2px solid #171515 !important;
   box-shadow: 4px 4px 0px 0px #171515 !important;
-  margin-bottom: 40px !important;
+  margin-bottom: 32px !important;
 }
 
 .exp-company-name-text {
@@ -890,22 +907,19 @@ img.hero-character-head-img {
 }
 
 .exp-about-block {
-  margin-bottom: 40px !important;
+  margin-bottom: 24px !important;
 }
 
-.exp-about-heading {
-  margin-bottom: 32px !important;
+.exp-about-heading,
+.exp-what-heading {
+  margin-bottom: 20px !important;
 }
 
 .exp-about-paragraph {
-  margin-bottom: 40px !important;
+  margin-bottom: 0px !important;
   line-height: 1.65 !important;
   font-size: 1.025rem !important;
   color: #171515 !important;
-}
-
-.exp-what-heading {
-  margin-bottom: 24px !important;
 }
 
 .exp-bullet-list {
@@ -931,15 +945,42 @@ img.hero-character-head-img {
   letter-spacing: normal !important;
 }
 
-
 .exp-work-section-container {
-  margin-top: 48px !important;
-  padding-top: 32px !important;
+  margin-top: 56px !important;
+  padding-top: 36px !important;
   border-top: 1.5px solid #171515 !important;
 }
 
 .exp-work-heading-block {
+  margin-bottom: 24px !important;
+}
+
+/* 3. MAJOR SECTION BLOCK & CAROUSEL HIERARCHY SPACING */
+.detail-major-section-block {
+  margin-top: 48px !important;
+  margin-bottom: 56px !important;
+}
+
+.gallery-section-header {
   margin-bottom: 20px !important;
+}
+
+.gallery-counter-badge {
+  margin-bottom: 18px !important;
+}
+
+.gallery-item-caption {
+  margin-bottom: 28px !important;
+}
+
+.photo-essay-carousel {
+  margin-bottom: 36px !important;
+}
+
+/* 4. TOOLS USED SECTION SPACING */
+.tools-used-section {
+  margin-top: 32px !important;
+  margin-bottom: 36px !important;
 }
 
 @media (min-width: 768px) {
@@ -1684,8 +1725,13 @@ p,
 p *,
 .about-bio-text p,
 .project-description p,
-.experience-description p {
+.experience-description p,
+.exp-bullet-text,
+p.exp-bullet-text {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+  letter-spacing: normal !important;
+  text-transform: none !important;
+  font-weight: 400 !important;
 }
 
 

@@ -206,16 +206,16 @@ export default function ProjectDetail() {
       </div>
 
       {/* 2. Project Title Header (Matching Experience Page Template & Spacing) */}
-      <div className="exp-header-border-block border-b-1.5 border-[#171515] mb-8">
+      <div className="exp-header-border-block border-b-1.5 border-[#171515] pb-6 mb-6">
         {/* Category Badge (margin-bottom: 32px) */}
-        <div className="exp-role-badge-wrap flex flex-wrap items-center gap-3">
+        <div className="exp-role-badge-wrap flex flex-wrap items-center gap-3 mb-6">
           <span className="font-mono text-xs font-bold bg-[#FAF4EB] text-[#171515] px-3.5 py-1.5 border border-[#171515]">
             ASSIGNMENT {project.number} — {project.category}
           </span>
         </div>
 
         {/* Highlighted Main Assignment Name Label (e.g. CACTUS) */}
-        <div className="exp-company-highlight-container">
+        <div className="exp-company-highlight-container mb-6">
           <h1 className="exp-company-name-text">
             {project.title}
           </h1>
@@ -228,11 +228,14 @@ export default function ProjectDetail() {
         )}
 
         {project.shortDescription && (
-          <p className="exp-about-paragraph font-body text-base text-[#57534E] max-w-2xl leading-relaxed mb-6">
+          <p className="exp-about-paragraph font-body text-base text-[#57534E] max-w-2xl leading-relaxed mt-4">
             {project.shortDescription}
           </p>
         )}
       </div>
+
+      {/* PINK DIVIDER AFTER INTRO DESCRIPTION BEFORE FIRST CONTENT SECTION */}
+      <div className="detail-section-divider" />
 
       {/* =========================================================================
          3. SPECIAL CUSTOM CASE STUDY FOR IN THE MAKING (02)
@@ -240,10 +243,10 @@ export default function ProjectDetail() {
       {project.id === 'in-the-making' ? (
         <div>
           {/* Top Section: Structured Project Details */}
-          <div className="flex flex-col gap-8 max-w-4xl my-6">
+          <div className="flex flex-col max-w-4xl my-6">
             {/* ABOUT THE PROJECT Block */}
             <div className="exp-about-block border-l-3 border-[#171515] pl-6 py-1">
-              <h2 className="exp-about-heading font-heading font-bold text-xs sm:text-sm uppercase tracking-widest text-[#171515]">
+              <h2 className="exp-about-heading font-heading font-bold text-xs sm:text-sm uppercase tracking-widest text-[#171515] mb-3">
                 ABOUT THE PROJECT
               </h2>
               
@@ -255,35 +258,41 @@ export default function ProjectDetail() {
                 <p className="exp-about-paragraph font-body text-base text-[#171515] leading-relaxed">
                   <strong>In The Making</strong> is an experience design concept for an AR cooking assistant that provides real-time visual target cues and spatial guidance directly over cookware and ingredients, eliminating kitchen guesswork.
                 </p>
-
-                {/* Integrated 7 Stages Section inside About the Project */}
-                <div className="mt-6 pt-6 border-t border-[#171515]/15">
-                  <h3 className="font-body font-bold text-sm uppercase tracking-wider text-[#171515] mb-4">
-                    THE EXPERIENCE — 7 STAGES
-                  </h3>
-
-                  <div className="flex flex-col gap-4">
-                    {[
-                      { num: '01', title: 'EXPLORE', desc: 'Discover recipes with interactive spatial previews, ingredient visualizers, and complexity indicators.' },
-                      { num: '02', title: 'DECONSTRUCT', desc: 'Break down complex recipes into clear visual components, prep order, and parallel timing steps.' },
-                      { num: '03', title: 'UNDERSTAND', desc: 'Preview technique nuances and key visual cues such as texture, color, and consistency before starting.' },
-                      { num: '04', title: 'COOK', desc: 'Hands-free, step-by-step augmented guidance projected directly onto your workspace as you prepare.' },
-                      { num: '05', title: 'KNOW WHEN', desc: 'Real-time visual target comparisons showing exact visual states, such as golden brown or soft peaks.' },
-                      { num: '06', title: 'FIX', desc: 'Instant spatial troubleshooting and correction tips for over/under-cooked or mis-measured steps.' },
-                      { num: '07', title: 'FINISH', desc: 'Plating assistance, timing completion summary, and saving personal cooking notes.' }
-                    ].map((stage) => (
-                      <div key={stage.num} className="font-body text-sm text-[#171515] leading-relaxed">
-                        <span className="font-bold text-[#171515]">{stage.num} — {stage.title}</span>
-                        <p className="text-[#57534E] mt-0.5">{stage.desc}</p>
-                      </div>
-                    ))}
-                  </div>
-                </div>
               </div>
             </div>
 
+            {/* PINK DIVIDER */}
+            <div className="detail-section-divider" />
+
+            {/* Standalone 7 Stages Section */}
+            <div className="exp-about-block border-l-3 border-[#171515] pl-6 py-1">
+              <h3 className="font-heading font-bold text-sm sm:text-base uppercase tracking-wider text-[#171515] mb-6">
+                THE EXPERIENCE — 7 STAGES
+              </h3>
+
+              <div className="flex flex-col gap-6">
+                {[
+                  { num: '01', title: 'EXPLORE', desc: 'Discover recipes with interactive spatial previews, ingredient visualizers, and complexity indicators.' },
+                  { num: '02', title: 'DECONSTRUCT', desc: 'Break down complex recipes into clear visual components, prep order, and parallel timing steps.' },
+                  { num: '03', title: 'UNDERSTAND', desc: 'Preview technique nuances and key visual cues such as texture, color, and consistency before starting.' },
+                  { num: '04', title: 'COOK', desc: 'Hands-free, step-by-step augmented guidance projected directly onto your workspace as you prepare.' },
+                  { num: '05', title: 'KNOW WHEN', desc: 'Real-time visual target comparisons showing exact visual states, such as golden brown or soft peaks.' },
+                  { num: '06', title: 'FIX', desc: 'Instant spatial troubleshooting and correction tips for over/under-cooked or mis-measured steps.' },
+                  { num: '07', title: 'FINISH', desc: 'Plating assistance, timing completion summary, and saving personal cooking notes.' }
+                ].map((stage) => (
+                  <div key={stage.num} className="font-body text-sm text-[#171515] leading-relaxed pb-3 border-b border-[#171515]/10 last:border-0">
+                    <span className="font-heading font-bold text-xs sm:text-sm text-[#171515] uppercase tracking-wider block mb-1.5">{stage.num} — {stage.title}</span>
+                    <p className="font-body text-sm text-[#57534E] leading-relaxed m-0">{stage.desc}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* PINK DIVIDER */}
+            <div className="detail-section-divider" />
+
             {/* TOOLS USED */}
-            <div className="border-l-3 border-[#E96F98] pl-6 py-1">
+            <div className="tools-used-section border-l-3 border-[#E96F98] pl-6 py-1">
               <h2 className="exp-what-heading font-heading font-bold text-xs sm:text-sm uppercase tracking-widest text-[#171515]">
                 TOOLS USED
               </h2>
@@ -297,30 +306,37 @@ export default function ProjectDetail() {
             </div>
           </div>
 
+          {/* PINK DIVIDER */}
+          <div className="detail-section-divider" />
+
           {/* VISUALIZING THE CONCEPT — MATCHES PHOTO ESSAY CAROUSEL LAYOUT EXACTLY */}
           <div className="detail-major-section-block">
-            <div className="flex items-center justify-between mb-4">
-              <h2 className="font-heading font-extrabold text-xl uppercase tracking-tight text-[#171515] flex items-center gap-3">
-                <span className="w-3.5 h-3.5 bg-[#E96F98] border border-[#171515] inline-block"></span>
+            {/* 1. Section Heading */}
+            <div className="gallery-section-header mb-4">
+              <h2 className="font-heading font-extrabold text-xl sm:text-2xl uppercase tracking-tight text-[#171515] flex items-center gap-3">
+                <span className="w-3.5 h-3.5 bg-[#E96F98] border border-[#171515] inline-block shrink-0"></span>
                 VISUALIZING THE CONCEPT
               </h2>
-              <span className="font-mono text-xs font-bold text-[#171515] bg-[#FAF4EB] px-3.5 py-1.5 border border-[#171515]">
+            </div>
+
+            {/* 2. Counter Badge */}
+            <div className="gallery-counter-badge mb-4">
+              <span className="inline-block font-mono text-xs font-bold text-[#171515] bg-[#FAF4EB] px-3.5 py-1.5 border border-[#171515]">
                 {String(inTheMakingIndex + 1).padStart(2, '0')} / {String(inTheMakingVideos.length).padStart(2, '0')}
               </span>
             </div>
 
-            <p className="font-body text-sm text-[#57534E] mb-4">
-              These AI-generated videos visualize how the proposed experience could work.
-            </p>
-
-            {/* Caption Bar ALWAYS rendered ABOVE the carousel frame (matching Photo Essay) */}
-            <div className="w-full mb-3 pb-2 border-b border-[#171515]/20 text-center px-2">
-              <p className="font-mono text-xs font-bold text-[#171515] uppercase tracking-wider">
+            {/* 3. Caption / Description */}
+            <div className="gallery-item-caption pb-3 border-b-1.5 border-[#171515] mb-6">
+              <p className="font-mono text-xs font-bold text-[#171515] uppercase tracking-wider mb-1">
                 {inTheMakingVideos[inTheMakingIndex].title} — {inTheMakingVideos[inTheMakingIndex].caption}
+              </p>
+              <p className="font-body text-xs sm:text-sm text-[#57534E] mt-1 leading-relaxed">
+                These AI-generated videos visualize how the proposed experience could work.
               </p>
             </div>
 
-            {/* Active Video Flex Carousel */}
+            {/* 4. Active Video Flex Carousel */}
             <div className="photo-essay-carousel">
               <button 
                 onClick={prevInTheMakingVideo}
@@ -355,7 +371,7 @@ export default function ProjectDetail() {
       ) : project.id === 'movie-posters' ? (
         <div>
           {/* Top Section: Structured Project Details */}
-          <div className="flex flex-col gap-8 max-w-4xl my-6">
+          <div className="flex flex-col max-w-4xl my-6">
             <div className="exp-about-block border-l-3 border-[#171515] pl-6 py-1">
               <h2 className="exp-about-heading font-heading font-bold text-xs sm:text-sm uppercase tracking-widest text-[#171515]">
                 ABOUT THE PROJECT
@@ -365,6 +381,8 @@ export default function ProjectDetail() {
               </p>
             </div>
 
+            <div className="detail-section-divider" />
+
             <div className="border-l-3 border-[#171515] pl-6 py-1">
               <h2 className="exp-about-heading font-heading font-bold text-xs sm:text-sm uppercase tracking-widest text-[#171515]">
                 THE IDEA
@@ -373,6 +391,8 @@ export default function ProjectDetail() {
                 {project.idea}
               </p>
             </div>
+
+            <div className="detail-section-divider" />
 
             <div className="border-l-3 border-[#171515] pl-6 py-1">
               <h2 className="exp-about-heading font-heading font-bold text-xs sm:text-sm uppercase tracking-widest text-[#171515]">
@@ -383,7 +403,9 @@ export default function ProjectDetail() {
               </p>
             </div>
 
-            <div className="border-l-3 border-[#E96F98] pl-6 py-1">
+            <div className="detail-section-divider" />
+
+            <div className="tools-used-section border-l-3 border-[#E96F98] pl-6 py-1">
               <h2 className="exp-what-heading font-heading font-bold text-xs sm:text-sm uppercase tracking-widest text-[#171515]">
                 TOOLS USED
               </h2>
@@ -396,6 +418,9 @@ export default function ProjectDetail() {
               </div>
             </div>
           </div>
+
+          {/* PINK DIVIDER */}
+          <div className="detail-section-divider" />
 
           {/* Sequential Gallery for Movie Posters */}
           <ProjectGallery items={moviePostersDeliverables} title="POSTER EXPLORATIONS" imgClassName="movie-poster-gallery-img" />
@@ -406,7 +431,7 @@ export default function ProjectDetail() {
            ========================================================================= */
         <div>
           {/* Project Information Case Study */}
-          <div className="flex flex-col gap-8 max-w-4xl my-6">
+          <div className="flex flex-col max-w-4xl my-6">
             <div className="exp-about-block border-l-3 border-[#171515] pl-6 py-1">
               <h2 className="exp-about-heading font-heading font-bold text-xs sm:text-sm uppercase tracking-widest text-[#171515]">
                 ABOUT THE PROJECT
@@ -415,6 +440,8 @@ export default function ProjectDetail() {
                 {project.about}
               </p>
             </div>
+
+            <div className="detail-section-divider" />
 
             <div className="border-l-3 border-[#171515] pl-6 py-1">
               <h2 className="exp-about-heading font-heading font-bold text-xs sm:text-sm uppercase tracking-widest text-[#171515]">
@@ -425,6 +452,8 @@ export default function ProjectDetail() {
               </p>
             </div>
 
+            <div className="detail-section-divider" />
+
             <div className="border-l-3 border-[#171515] pl-6 py-1">
               <h2 className="exp-about-heading font-heading font-bold text-xs sm:text-sm uppercase tracking-widest text-[#171515]">
                 PROCESS & BRAND SYSTEM
@@ -433,6 +462,8 @@ export default function ProjectDetail() {
                 {project.process}
               </p>
             </div>
+
+            <div className="detail-section-divider" />
 
             <div className="border-l-3 border-[#171515] pl-6 py-1">
               <h2 className="exp-about-heading font-heading font-bold text-xs sm:text-sm uppercase tracking-widest text-[#171515]">
@@ -443,7 +474,9 @@ export default function ProjectDetail() {
               </p>
             </div>
 
-            <div className="border-l-3 border-[#E96F98] pl-6 py-1">
+            <div className="detail-section-divider" />
+
+            <div className="tools-used-section border-l-3 border-[#E96F98] pl-6 py-1">
               <h2 className="exp-what-heading font-heading font-bold text-xs sm:text-sm uppercase tracking-widest text-[#171515]">
                 TOOLS USED
               </h2>
@@ -456,6 +489,9 @@ export default function ProjectDetail() {
               </div>
             </div>
           </div>
+
+          {/* PINK DIVIDER */}
+          <div className="detail-section-divider" />
 
           {/* Project Deliverables Sequential Gallery */}
           <ProjectGallery items={cactusGalleryDeliverables} title="BRAND SYSTEM & DELIVERABLES" imgClassName="cactus-gallery-img" />
@@ -466,7 +502,7 @@ export default function ProjectDetail() {
            ========================================================================= */
         <div>
           {/* Project Overview */}
-          <div className="flex flex-col gap-8 max-w-4xl my-6">
+          <div className="flex flex-col max-w-4xl my-6">
             <div className="exp-about-block border-l-3 border-[#171515] pl-6 py-1">
               <h2 className="exp-about-heading font-heading font-bold text-xs sm:text-sm uppercase tracking-widest text-[#171515]">
                 ABOUT THE ESSAY
@@ -475,6 +511,8 @@ export default function ProjectDetail() {
                 {project.about}
               </p>
             </div>
+
+            <div className="detail-section-divider" />
 
             <div className="border-l-3 border-[#171515] pl-6 py-1">
               <h2 className="exp-about-heading font-heading font-bold text-xs sm:text-sm uppercase tracking-widest text-[#171515]">
@@ -485,7 +523,9 @@ export default function ProjectDetail() {
               </p>
             </div>
 
-            <div className="border-l-3 border-[#E96F98] pl-6 py-1">
+            <div className="detail-section-divider" />
+
+            <div className="tools-used-section border-l-3 border-[#E96F98] pl-6 py-1">
               <h2 className="exp-what-heading font-heading font-bold text-xs sm:text-sm uppercase tracking-widest text-[#171515]">
                 TOOLS USED
               </h2>
@@ -499,26 +539,34 @@ export default function ProjectDetail() {
             </div>
           </div>
 
+          {/* PINK DIVIDER */}
+          <div className="detail-section-divider" />
+
           {/* Interactive Carousel Viewer */}
           <div className="detail-major-section-block">
-            <div className="flex items-center justify-between mb-4">
-              <h2 className="font-heading font-extrabold text-xl uppercase tracking-tight text-[#171515] flex items-center gap-3">
-                <span className="w-3.5 h-3.5 bg-[#E96F98] border border-[#171515] inline-block"></span>
+            {/* 1. Section Heading */}
+            <div className="gallery-section-header mb-4">
+              <h2 className="font-heading font-extrabold text-xl sm:text-2xl uppercase tracking-tight text-[#171515] flex items-center gap-3">
+                <span className="w-3.5 h-3.5 bg-[#E96F98] border border-[#171515] inline-block shrink-0"></span>
                 PHOTO SEQUENTIAL GALLERY
               </h2>
-              <span className="font-mono text-xs font-bold text-[#171515] bg-[#FAF4EB] px-3.5 py-1.5 border border-[#171515]">
+            </div>
+
+            {/* 2. Counter Badge */}
+            <div className="gallery-counter-badge mb-4">
+              <span className="inline-block font-mono text-xs font-bold text-[#171515] bg-[#FAF4EB] px-3.5 py-1.5 border border-[#171515]">
                 {photoIndex + 1} / {photoEssayDeliverables.length}
               </span>
             </div>
 
-            {/* Caption Bar ALWAYS rendered ABOVE the carousel frame */}
-            <div className="w-full mb-3 pb-2 border-b border-[#171515]/20 text-center px-2">
-              <p className="font-mono text-xs font-bold text-[#171515] uppercase tracking-wider">
+            {/* 3. Caption Bar */}
+            <div className="gallery-item-caption pb-3 border-b-1.5 border-[#171515] mb-6 text-center">
+              <p className="font-mono text-xs sm:text-sm font-bold text-[#171515] uppercase tracking-wider">
                 {photoEssayDeliverables[photoIndex].alt}
               </p>
             </div>
 
-            {/* Active Photograph Flex Carousel */}
+            {/* 4. Active Photograph Flex Carousel */}
             <div className="photo-essay-carousel">
               <button 
                 onClick={prevPhoto}
@@ -551,7 +599,7 @@ export default function ProjectDetail() {
            6. SPECIAL CUSTOM CASE STUDY FOR PYGAME (03)
            ========================================================================= */
         <div>
-          <div className="flex flex-col gap-8 max-w-4xl my-6">
+          <div className="flex flex-col max-w-4xl my-6">
             <div className="exp-about-block border-l-3 border-[#171515] pl-6 py-1">
               <h2 className="exp-about-heading font-heading font-bold text-xs sm:text-sm uppercase tracking-widest text-[#171515]">
                 ABOUT THE GAME
@@ -560,6 +608,8 @@ export default function ProjectDetail() {
                 {project.about}
               </p>
             </div>
+
+            <div className="detail-section-divider" />
 
             <div className="border-l-3 border-[#171515] pl-6 py-1">
               <h2 className="exp-about-heading font-heading font-bold text-xs sm:text-sm uppercase tracking-widest text-[#171515]">
@@ -570,7 +620,9 @@ export default function ProjectDetail() {
               </p>
             </div>
 
-            <div className="border-l-3 border-[#E96F98] pl-6 py-1">
+            <div className="detail-section-divider" />
+
+            <div className="tools-used-section border-l-3 border-[#E96F98] pl-6 py-1">
               <h2 className="exp-what-heading font-heading font-bold text-xs sm:text-sm uppercase tracking-widest text-[#171515]">
                 TOOLS USED
               </h2>
@@ -583,6 +635,9 @@ export default function ProjectDetail() {
               </div>
             </div>
           </div>
+
+          {/* PINK DIVIDER */}
+          <div className="detail-section-divider" />
 
           {/* Embedded Pygame HTML5 Canvas Frame */}
           {(project.gameEmbed?.src || project.demoIframe) && (
@@ -606,7 +661,7 @@ export default function ProjectDetail() {
            7. SPECIAL CUSTOM CASE STUDY FOR CHARACTER DESIGN (04)
            ========================================================================= */
         <div>
-          <div className="flex flex-col gap-8 max-w-4xl my-6">
+          <div className="flex flex-col max-w-4xl my-6">
             <div className="exp-about-block border-l-3 border-[#171515] pl-6 py-1">
               <h2 className="exp-about-heading font-heading font-bold text-xs sm:text-sm uppercase tracking-widest text-[#171515]">
                 ABOUT THE CHARACTER
@@ -615,6 +670,8 @@ export default function ProjectDetail() {
                 {project.about}
               </p>
             </div>
+
+            <div className="detail-section-divider" />
 
             <div className="border-l-3 border-[#171515] pl-6 py-1">
               <h2 className="exp-about-heading font-heading font-bold text-xs sm:text-sm uppercase tracking-widest text-[#171515]">
@@ -625,7 +682,9 @@ export default function ProjectDetail() {
               </p>
             </div>
 
-            <div className="border-l-3 border-[#E96F98] pl-6 py-1">
+            <div className="detail-section-divider" />
+
+            <div className="tools-used-section border-l-3 border-[#E96F98] pl-6 py-1">
               <h2 className="exp-what-heading font-heading font-bold text-xs sm:text-sm uppercase tracking-widest text-[#171515]">
                 TOOLS USED
               </h2>
@@ -638,6 +697,9 @@ export default function ProjectDetail() {
               </div>
             </div>
           </div>
+
+          {/* PINK DIVIDER */}
+          <div className="detail-section-divider" />
 
           {/* Full Character Turnaround Sheet */}
           <div className="detail-major-section-block">
@@ -669,6 +731,9 @@ export default function ProjectDetail() {
               </p>
             </div>
           </div>
+
+          {/* SUBTLE PINK DIVIDER */}
+          <div className="section-divider" />
 
           <ProjectGallery items={miscCollectionDeliverables} title="MISCELLANEOUS COLLECTION & DELIVERABLES" imgClassName="others-standalone-img" />
         </div>

@@ -103,21 +103,24 @@ export default function ExperienceDetail() {
       </div>
 
       {/* Experience Header */}
-      <div className="exp-header-border-block border-b-1.5 border-[#171515]">
+      <div className="exp-header-border-block border-b-1.5 border-[#171515] pb-6 mb-6">
         {/* Role Badge (margin-bottom: 32px) */}
-        <div className="exp-role-badge-wrap flex flex-wrap items-center gap-3">
+        <div className="exp-role-badge-wrap flex flex-wrap items-center gap-3 mb-6">
           <span className="font-mono text-xs font-bold bg-[#FAF4EB] text-[#171515] px-3.5 py-1.5 border border-[#171515]">
             EXPERIENCE {exp.number} — {exp.role}
           </span>
         </div>
         
         {/* Highlighted Company Name Label */}
-        <div className="exp-company-highlight-container">
+        <div className="exp-company-highlight-container mb-2">
           <h1 className="exp-company-name-text">
             {exp.title}
           </h1>
         </div>
       </div>
+
+      {/* PINK DIVIDER AFTER INTRO HEADER */}
+      <div className="detail-section-divider" />
 
       {/* Content Breakdown */}
       <div className="max-w-4xl">
@@ -127,25 +130,31 @@ export default function ExperienceDetail() {
           <h2 className="exp-about-heading font-heading font-bold text-xs sm:text-sm uppercase tracking-widest text-[#171515]">
             ABOUT THE ROLE
           </h2>
-          <p className="exp-about-paragraph font-body text-base text-[#171515]">
+          <p className="exp-about-paragraph font-body text-base text-[#171515] mt-2">
             {exp.about}
           </p>
         </div>
+
+        {/* SUBTLE PINK DIVIDER */}
+        <div className="detail-section-divider" />
 
         {/* WHAT I DID */}
         <div className="border-l-3 border-[#E96F98] pl-6 py-1">
           <h2 className="exp-what-heading font-heading font-bold text-xs sm:text-sm uppercase tracking-widest text-[#171515]">
             WHAT I DID
           </h2>
-          <ul className="exp-bullet-list font-body">
+          <ul className="exp-bullet-list font-body mt-3 flex flex-col gap-3">
             {exp.whatIDid.map((item, idx) => (
-              <li key={idx} className="exp-bullet-item">
+              <li key={idx} className="exp-bullet-item flex items-start gap-3">
                 <span className="w-2 h-2 bg-[#171515] rounded-full mt-2 shrink-0" />
-                <span>{item}</span>
+                <p className="exp-bullet-text font-body text-base text-[#171515] leading-relaxed m-0 p-0">{item}</p>
               </li>
             ))}
           </ul>
         </div>
+
+        {/* SUBTLE PINK DIVIDER */}
+        <div className="detail-section-divider" />
 
       </div>
 

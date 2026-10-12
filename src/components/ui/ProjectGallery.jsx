@@ -24,33 +24,36 @@ export default function ProjectGallery({
 
   return (
     <div className="detail-major-section-block">
-      {/* Gallery Header & Counter */}
-      <div className="flex items-center justify-between mb-6">
-        <h3 className="font-heading font-extrabold text-xl uppercase tracking-tight text-[#171515] flex items-center gap-3">
-          <span className="w-3.5 h-3.5 bg-[#E96F98] border border-[#171515] inline-block"></span>
+      {/* 1. Section Heading */}
+      <div className="gallery-section-header mb-4">
+        <h3 className="font-heading font-extrabold text-xl sm:text-2xl uppercase tracking-tight text-[#171515] flex items-center gap-3">
+          <span className="w-3.5 h-3.5 bg-[#E96F98] border border-[#171515] inline-block shrink-0"></span>
           {title}
         </h3>
-        {isMulti && (
-          <span className="font-mono text-xs font-bold text-[#171515] bg-[#FAF4EB] px-3.5 py-1.5 border border-[#171515]">
-            {currentIndex + 1} / {items.length}
-          </span>
-        )}
       </div>
 
-      <div className="flex flex-col gap-4">
-        {/* Title & Description ALWAYS rendered ABOVE the image frame */}
-        {currentItem.title && (
-          <div className="pb-2 border-b-1.5 border-[#171515]">
-            <h4 className="font-heading font-extrabold text-xs uppercase tracking-wider text-[#171515]">
-              {currentItem.title}
-            </h4>
-            {currentItem.description && (
-              <p className="font-body text-xs text-[#57534E] mt-0.5">
-                {currentItem.description}
-              </p>
-            )}
-          </div>
-        )}
+      {/* 2. Counter Badge */}
+      {isMulti && (
+        <div className="gallery-counter-badge mb-4">
+          <span className="inline-block font-mono text-xs font-bold text-[#171515] bg-[#FAF4EB] px-3.5 py-1.5 border border-[#171515]">
+            {currentIndex + 1} / {items.length}
+          </span>
+        </div>
+      )}
+
+      {/* 3. Caption / Description */}
+      {currentItem.title && (
+        <div className="gallery-item-caption pb-3 border-b-1.5 border-[#171515] mb-6">
+          <h4 className="font-heading font-extrabold text-sm uppercase tracking-wider text-[#171515]">
+            {currentItem.title}
+          </h4>
+          {currentItem.description && (
+            <p className="font-body text-sm text-[#57534E] mt-1.5 leading-relaxed">
+              {currentItem.description}
+            </p>
+          )}
+        </div>
+      )}
 
         {/* Sequential Gallery Frame with Left/Right Previous/Next Navigation */}
         <div className="photo-essay-carousel w-full justify-center">
@@ -121,6 +124,5 @@ export default function ProjectGallery({
           </div>
         )}
       </div>
-    </div>
   );
 }

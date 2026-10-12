@@ -69,7 +69,7 @@ export default function PersonalDetail() {
       </div>
 
       {/* Header Block (Matching Experience Page Template & Spacing) */}
-      <div className="exp-header-border-block border-b-1.5 border-[#171515] mb-8">
+      <div className="exp-header-border-block border-b-1.5 border-[#171515] mb-6">
         {/* Collection Badge */}
         <div className="exp-role-badge-wrap flex flex-wrap items-center gap-3">
           <span className="font-mono text-xs font-bold bg-[#FAF4EB] text-[#171515] px-3.5 py-1.5 border border-[#171515]">
@@ -90,6 +90,9 @@ export default function PersonalDetail() {
           </p>
         )}
       </div>
+
+      {/* PINK DIVIDER */}
+      <div className="detail-section-divider" />
 
       {isBrandConcepts ? (
         /* =========================================================================

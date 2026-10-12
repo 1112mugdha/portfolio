@@ -6,8 +6,9 @@ export const personalData = [
     id: 'brand-concepts',
     number: '01',
     title: 'BRAND CONCEPTS',
-    subtitle: 'Exploring visual identities, branding systems, and creative directions for imagined brands.',
-    shortDescription: 'Exploring visual identities, branding systems, and creative directions for imagined brands.',
+    subtitle: 'A collection of branding and visual identity concepts exploring different creative directions, colour palettes, typography, packaging, and brand applications.',
+    description: 'A collection of branding and visual identity concepts exploring different creative directions, colour palettes, typography, packaging, and brand applications.',
+    shortDescription: 'A collection of branding and visual identity concepts exploring different creative directions, colour palettes, typography, packaging, and brand applications.',
     items: [
       { 
         id: 'bc-1', 
@@ -140,8 +141,9 @@ export const personalData = [
     id: 'others',
     number: '02',
     title: 'OTHERS',
-    subtitle: 'A collection of visual design experiments across invitations, menus, and illustrated print designs.',
-    shortDescription: 'A collection of visual design experiments across invitations, menus, and illustrated print designs.',
+    subtitle: 'A collection of additional creative projects, experiments, and visual explorations across different mediums.',
+    description: 'A collection of additional creative projects, experiments, and visual explorations across different mediums.',
+    shortDescription: 'A collection of additional creative projects, experiments, and visual explorations across different mediums.',
     items: [
       { 
         id: 'ot-1', 

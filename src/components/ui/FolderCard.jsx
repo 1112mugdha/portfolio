@@ -42,9 +42,11 @@ export default function FolderCard({
             </div>
           )}
           
-          <p className="folder-role-text">
-            {description || 'Experience details and key responsibilities will go here.'}
-          </p>
+          {description && (
+            <p className="folder-role-text">
+              {description}
+            </p>
+          )}
         </div>
 
         {/* Action Footer */}
