@@ -12,7 +12,32 @@ export const personalData = [
     items: [
       { 
         id: 'bc-1', 
-        title: '01 — DAISY GARDEN', 
+        title: '01 — DOUGH BOY', 
+        category: 'Brand Identity & Packaging', 
+        description: 'A playful bakery brand built around a cheeky cookie-loving mascot, bold lettering, and a classic red-and-cream visual identity.',
+        image: getAssetPath('/images/personal/brand-concepts/01-dough-boy.jpg'),
+        details: [
+          {
+            heading: 'CONCEPT & MASCOT',
+            content: 'Dough Boy is a playful bakery and cafe brand concept centered on freshly baked cookies, quality coffee, and approachable indulgence. Anchored by a cheeky, cookie-loving mascot in a beanie and the punchy tagline "Cookies • Coffee • Good Stuff," the brand creates a welcoming, high-energy neighborhood destination.'
+          },
+          {
+            heading: 'VISUAL DIRECTION & PALETTE',
+            content: 'The visual identity pairs bold diner-inspired lettering with a warm cream and vibrant retro red color palette. Repeating chocolate chip cookie patterns and expressive character art give the brand an instantly recognizable, punchy aesthetic across packaging and social media.'
+          },
+          {
+            heading: 'PACKAGING & DELIVERABLES',
+            content: 'The packaging system features custom gable pastry boxes, branded takeaway paper bags, and coffee cup sleeves. Playful store posters ("Need a cookie?", "We bake. You eat.", "Cookie + coffee = best decision") reinforce the humorous, confident brand voice throughout the retail space.'
+          },
+          {
+            heading: 'MERCHANDISE & BRAND TOUCHPOINTS',
+            content: 'Brand applications extend into customer loyalty punch cards ("Buy 9, Get 1 Free"), branded notebooks, graphic t-shirts ("Baked with Attitude"), and digital social presence (@doughboy.cafe) to build an active, engaged community around the bakery.'
+          }
+        ]
+      },
+      { 
+        id: 'bc-2', 
+        title: '02 — DAISY GARDEN', 
         category: 'Brand Identity & Stationery', 
         description: 'A stationery brand concept inspired by handwritten notes, playful florals, and thoughtful paper goods.',
         image: getAssetPath('/images/personal/brand-concepts/01-daisy-garden.jpg'),
@@ -36,8 +61,8 @@ export const personalData = [
         ]
       },
       { 
-        id: 'bc-2', 
-        title: '02 — PLAYDATE', 
+        id: 'bc-3', 
+        title: '03 — PLAYDATE', 
         category: 'Children’s Toy Brand Identity', 
         description: 'A kids’ toy brand concept creating playful, imaginative toys designed with more thoughtful and sustainable materials.',
         image: getAssetPath('/images/personal/brand-concepts/02-playdate.jpg'),
@@ -61,8 +86,8 @@ export const personalData = [
         ]
       },
       { 
-        id: 'bc-3', 
-        title: '03 — CIAO!', 
+        id: 'bc-4', 
+        title: '04 — CIAO!', 
         category: 'Gourmet Italian Food Branding', 
         description: 'An Italian gourmet food brand concept bringing together pasta, sauces, olive oils, and the joy of Italian dining.',
         image: getAssetPath('/images/personal/brand-concepts/03-ciao-pasta.jpg'),
@@ -86,8 +111,8 @@ export const personalData = [
         ]
       },
       { 
-        id: 'bc-4', 
-        title: '04 — HOLY SIP', 
+        id: 'bc-5', 
+        title: '05 — HOLY SIP', 
         category: 'Cold-Pressed Juice Beverage Branding', 
         description: 'A fresh juice brand concept serving vibrant, refreshing juices in reusable glass bottles.',
         image: getAssetPath('/images/personal/brand-concepts/04-holy-sip.jpg'),
@@ -111,8 +136,8 @@ export const personalData = [
         ]
       },
       { 
-        id: 'bc-5', 
-        title: '05 — FLEUR', 
+        id: 'bc-6', 
+        title: '06 — FLEUR', 
         category: 'Floral & Botanical Brand Identity', 
         description: 'A modern florist brand concept bringing together fresh blooms, thoughtful arrangements, and an elegant floral identity.',
         image: getAssetPath('/images/personal/brand-concepts/05-fleur.jpg'),
