@@ -380,9 +380,9 @@ p {
 
 .hero-character-head-container {
   position: relative;
-  height: clamp(260px, 45vh, 420px);
+  height: clamp(340px, 54vh, 680px);
   max-height: 100%;
-  max-width: min(560px, 80vw);
+  max-width: min(880px, 80vw);
   width: auto;
   aspect-ratio: 667 / 504;
   margin-right: auto;
@@ -493,7 +493,9 @@ img.hero-character-head-img {
   }
 
   .hero-character-head-container {
+    height: auto !important;
     max-height: 46vh !important;
+    max-width: 85vw !important;
     margin-right: auto !important;
     margin-left: auto !important;
   }
