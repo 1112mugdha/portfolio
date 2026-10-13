@@ -333,32 +333,29 @@ p {
   color: #232020;
 }
 
-/* 5. HERO SECTION — FULL-HEIGHT INTENTIONAL DASHBOARD */
+/* 5. HERO SECTION — EXACTLY ONE SCREEN HEIGHT (100svh) WITH LEFT TEXT & RIGHT/LOWER CHARACTER */
 .hero-section {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: flex-start;
   position: relative;
-  width: 100%;
-  box-sizing: border-box;
-  background-color: #F7F3EA;
+  height: calc(100vh - 76px);
+  min-height: calc(100svh - 76px);
+  max-height: calc(100vh - 76px);
+  padding-top: 2.25rem;
+  padding-bottom: 0;
   border-bottom: 1.5px solid #171515;
   overflow: hidden;
-  /* Dynamically fills the exact viewport height minus navbar */
-  height: calc(100vh - 80px);
-  height: calc(100dvh - 80px);
-  min-height: 520px;
-  max-height: 1050px;
-  padding-top: clamp(1.5rem, 3.5vh, 2.75rem);
-  padding-bottom: 0;
+  background-color: #F7F3EA;
+  box-sizing: border-box;
 }
 
 .hero-content-col {
   display: flex;
   flex-direction: column;
-  gap: clamp(0.75rem, 1.8vh, 1.15rem);
-  max-width: min(720px, 60vw);
+  gap: 1rem;
+  max-width: 760px;
   width: 100%;
   position: relative;
   z-index: 5;
@@ -373,7 +370,6 @@ p {
   justify-content: center; /* BOTTOM CENTER OF HERO VIEWPORT */
   align-items: flex-end;
   flex: 1;
-  min-height: 0; /* CRUCIAL: allows flex shrinking on compact laptop screens */
   position: relative;
   z-index: 6;
   overflow: hidden;
@@ -381,9 +377,8 @@ p {
 
 .hero-character-head-container {
   position: relative;
-  height: clamp(260px, min(52vh, 44vw), 460px);
+  height: 100%;
   max-height: 100%;
-  max-width: min(580px, 52vw);
   width: auto;
   aspect-ratio: 667 / 504;
   margin-right: auto;
@@ -395,8 +390,8 @@ p {
 /* Subtle interface hint text */
 .hero-hint-text {
   position: absolute;
-  bottom: 1.5rem;
-  right: clamp(1.5rem, 3vw, 3rem);
+  bottom: 1.75rem;
+  right: max(2rem, 4vw);
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
   font-size: 0.78rem;
   font-weight: 400;
@@ -479,6 +474,26 @@ img.hero-character-head-img {
   left: 66.39%;
 }
 
+@media (max-width: 768px) {
+  .hero-section {
+    height: auto !important;
+    min-height: min(85vh, 600px) !important;
+    max-height: none !important;
+    padding-top: 2rem !important;
+    padding-bottom: 0 !important;
+  }
+
+  .hero-character-bottom-wrapper {
+    margin-top: 1rem !important;
+    justify-content: center !important;
+  }
+
+  .hero-character-head-container {
+    max-height: 46vh !important;
+    margin-right: auto !important;
+    margin-left: auto !important;
+  }
+}
 
 /* Hero Hand-Drawn Doodle Garden Container */
 .hero-doodle-garden-container {
@@ -520,29 +535,13 @@ img.hero-character-head-img {
 
   /* Mobile Responsive Hero Content Scaling & Spacing (Hero Page Only) */
   .hero-section {
-    height: auto !important;
     min-height: auto !important;
-    max-height: none !important;
     padding-top: 4.25rem !important;
     padding-bottom: 30px !important;
   }
 
   .hero-content-col {
     gap: 1.5rem !important;
-    max-width: 100% !important;
-  }
-
-  .hero-character-bottom-wrapper {
-    margin-top: 1rem !important;
-    justify-content: center !important;
-  }
-
-  .hero-character-head-container {
-    height: auto !important;
-    max-height: 46vh !important;
-    max-width: 85vw !important;
-    margin-right: auto !important;
-    margin-left: auto !important;
   }
 
   .hero-section .badge-eyebrow-pink {
@@ -555,7 +554,7 @@ img.hero-character-head-img {
     margin-top: 0 !important;
     white-space: normal !important;
     word-break: break-word !important;
-    font-size: clamp(3.0rem, 13.5vw, 4.4rem) !important;
+    font-size: clamp(3.2rem, 13.5vw, 4.4rem) !important;
     line-height: 0.98 !important;
     letter-spacing: -0.035em !important;
   }
@@ -569,12 +568,11 @@ img.hero-character-head-img {
 /* Desktop Only Hero Heading Refinement (Bold Heavy Weight & Tight Compact Tracking) */
 @media (min-width: 769px) {
   .hero-section .hero-heading {
-    font-size: clamp(2.5rem, min(4.5vw, 6.5vh), 4.25rem) !important;
+    font-size: clamp(3.85rem, 7.3vw, 5.75rem) !important;
     margin-top: 0.75rem;
     line-height: 1.02;
-    letter-spacing: -0.035em !important;
+    letter-spacing: -0.045em !important;
     font-weight: 700 !important;
-    white-space: nowrap !important;
   }
 }
 
@@ -778,8 +776,8 @@ img.hero-character-head-img {
 .hero-heading {
   font-family: 'mudstone-sans', 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
   font-weight: 700;
-  font-size: clamp(2.5rem, min(4.5vw, 6.5vh), 4.25rem);
-  letter-spacing: -0.035em;
+  font-size: clamp(3.25rem, 6.8vw, 6.25rem);
+  letter-spacing: -0.045em;
   text-transform: uppercase;
   line-height: 1.02;
   color: #232020;
@@ -787,10 +785,10 @@ img.hero-character-head-img {
 }
 
 .hero-sub-text {
-  font-size: clamp(0.875rem, min(1.05vw, 1.8vh), 1.0625rem) !important;
+  font-size: 1.0625rem !important;
   color: #57534E;
   font-weight: 500;
-  line-height: 1.55;
+  line-height: 1.6;
   max-width: 535px; /* Natural wrap after 'visual systems,' into exactly 2 lines */
 }
 
@@ -1657,8 +1655,8 @@ time {
 
 /* 15-20% Mudstone Sans Font Size Increase for Bold, Chunky Visual Prominence */
 .hero-heading {
-  font-size: clamp(2.5rem, min(4.5vw, 6.5vh), 4.25rem) !important;
-  letter-spacing: -0.035em !important;
+  font-size: clamp(4.0rem, 8.4vw, 7.8rem) !important;
+  letter-spacing: 0.015em !important;
 }
 
 .section-title {
