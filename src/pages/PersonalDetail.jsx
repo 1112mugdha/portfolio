@@ -94,178 +94,110 @@ export default function PersonalDetail() {
       {/* PINK DIVIDER */}
       <div className="detail-section-divider" />
 
-      {isBrandConcepts ? (
-        /* =========================================================================
-           BRAND CONCEPTS — 2-COLUMN SIDE-BY-SIDE LAYOUT (DESKTOP) & STACKED (MOBILE)
-           Left Column: Concept Number, Bold Pink Brand Name, Category, Description & 3-4 Case Study Points
-           Right Column: Previous Arrow (Left) + Contained Image Frame + Next Arrow (Right)
-           ========================================================================= */
-        <div className="detail-major-section-block">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
-            
-            {/* LEFT COLUMN: Text Info, Case Study Breakdown & Indicators */}
-            <div ref={conceptInfoRef} className="lg:col-span-5 flex flex-col gap-4 text-left">
-              <div className="flex items-center gap-2">
-                <span className="bg-[#E96F98] text-[#171515] px-3 py-1 border border-[#171515] font-mono text-xs font-bold">
-                  CONCEPT {String(slideIndex + 1).padStart(2, '0')} / {String(category.items.length).padStart(2, '0')}
-                </span>
-              </div>
-
-              <div>
-                {/* Bold Pink Brand Name for current concept (subordinate to main page title) */}
-                <h2 className="font-heading font-extrabold text-xl sm:text-2xl uppercase tracking-wider text-[#E96F98] mb-2">
-                  {category.items[slideIndex].title}
-                </h2>
-
-                {category.items[slideIndex].category && (
-                  <p className="font-mono text-xs font-bold text-[#171515] uppercase tracking-wider mb-3">
-                    {category.items[slideIndex].category}
-                  </p>
-                )}
-                {category.items[slideIndex].description && (
-                  <p className="font-body text-sm text-[#57534E] leading-relaxed mb-4">
-                    {category.items[slideIndex].description}
-                  </p>
-                )}
-              </div>
-
-              {/* Structured 3-4 Case Study Points per Brand Concept */}
-              {category.items[slideIndex].details && (
-                <div className="flex flex-col gap-3.5 my-1">
-                  {category.items[slideIndex].details.map((point, idx) => (
-                    <div 
-                      key={idx} 
-                      className={`pl-3.5 py-0.5 border-l-2 ${idx % 2 === 0 ? 'border-[#171515]' : 'border-[#E96F98]'}`}
-                    >
-                      <h3 className="font-heading font-bold text-xs uppercase tracking-wider text-[#171515] mb-1">
-                        {point.heading}
-                      </h3>
-                      <p className="font-body text-xs sm:text-sm text-[#57534E] leading-relaxed">
-                        {point.content}
-                      </p>
-                    </div>
-                  ))}
-                </div>
-              )}
-
-              {/* Indicator Pills & Progress */}
-              <div className="flex items-center gap-2 mt-2 pt-4 border-t border-[#171515]/15">
-                {category.items.map((item, idx) => (
-                  <button
-                    key={idx}
-                    onClick={() => updateSlideIndex(idx)}
-                    className={`h-3 transition-all border border-[#171515] cursor-pointer ${
-                      idx === slideIndex ? 'w-8 bg-[#171515]' : 'w-3 bg-[#FAF4EB] hover:bg-[#D7F23A]'
-                    }`}
-                    aria-label={`Go to brand concept ${idx + 1}`}
-                  />
-                ))}
-              </div>
-            </div>
-
-            {/* RIGHT COLUMN: Previous Arrow + Image Frame + Next Arrow */}
-            <div className="lg:col-span-7 flex items-center justify-center lg:sticky lg:top-24">
-              <div className="photo-essay-carousel w-full justify-center">
-                {/* Left Arrow Button (Vertically centered against image frame) */}
-                <button 
-                  onClick={prevSlide}
-                  className="photo-essay-arrow-left"
-                  aria-label="Previous brand concept"
-                >
-                  ←
-                </button>
-
-                {/* Displayed Brand Board Image Frame (Bounded & Proportional) */}
-                <div className="brand-concept-image-frame max-w-full overflow-hidden">
-                  <img 
-                    key={category.items[slideIndex].id}
-                    src={category.items[slideIndex].image} 
-                    alt={category.items[slideIndex].title}
-                    className="brand-concept-carousel-img transition-opacity duration-300 ease-in-out"
-                  />
-                </div>
-
-                {/* Right Arrow Button (Vertically centered against image frame) */}
-                <button 
-                  onClick={nextSlide}
-                  className="photo-essay-arrow-right"
-                  aria-label="Next brand concept"
-                >
-                  →
-                </button>
-              </div>
-            </div>
-
-          </div>
+      {/* Detail Major Section Block with Ref for smooth scrolling */}
+      <div ref={conceptInfoRef} className="personal-concept-container">
+        
+        {/* Item Counter */}
+        <div className="personal-concept-counter">
+          {isBrandConcepts 
+            ? `CONCEPT ${String(slideIndex + 1).padStart(2, '0')} / ${String(category.items.length).padStart(2, '0')}`
+            : `PROJECT ${String(slideIndex + 1).padStart(2, '0')} / ${String(category.items.length).padStart(2, '0')}`
+          }
         </div>
-      ) : (
-        /* =========================================================================
-           OTHERS — 3-ITEM HORIZONTAL GALLERY LAYOUT WITH EXPANDED CASE STUDY DETAILS
-           ========================================================================= */
-        <div className="detail-major-section-block">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 sm:gap-10 items-start justify-items-center">
-            {category.items.map((item) => (
-              <div key={item.id} className="flex flex-col gap-4 w-full max-w-[340px] group">
-                
-                {/* Clean Image Title Label & Category */}
-                <div>
-                  <h3 className="font-heading font-extrabold text-xs uppercase tracking-wider text-[#171515]">
-                    {item.title}
-                  </h3>
-                  {item.category && (
-                    <p className="font-mono text-[11px] font-bold text-[#E96F98] uppercase tracking-wider mt-0.5">
-                      {item.category}
-                    </p>
-                  )}
-                  {item.description && (
-                    <p className="font-body text-xs text-[#57534E] leading-relaxed mt-1.5">
-                      {item.description}
-                    </p>
-                  )}
-                </div>
 
-                {/* Contained Image Frame with subtle border & background */}
-                <div className="border-1.5 border-[#171515] bg-[#FAF4EB] p-2 shadow-sm flex items-center justify-center min-h-[340px] sm:min-h-[410px] w-full">
-                  {item.image.endsWith('.svg') ? (
-                    <ImagePlaceholder
-                      src={item.image}
-                      title={item.title}
-                      label={item.category}
-                      aspectRatio={item.aspect || '4/3'}
-                    />
-                  ) : (
-                    <img 
-                      src={item.image} 
-                      alt={item.title} 
-                      className="others-gallery-img"
-                    />
-                  )}
-                </div>
+        {/* Main Title */}
+        <h2 className="personal-concept-title">
+          {category.items[slideIndex]?.title}
+        </h2>
 
-                {/* Structured Case Study Points for Other Personal Projects */}
-                {item.details && (
-                  <div className="flex flex-col gap-3 pt-3 border-t border-[#171515]/15">
-                    {item.details.map((point, idx) => (
-                      <div 
-                        key={idx} 
-                        className={`pl-3 py-0.5 border-l-2 ${idx % 2 === 0 ? 'border-[#171515]' : 'border-[#E96F98]'}`}
-                      >
-                        <h4 className="font-heading font-bold text-[11px] uppercase tracking-wider text-[#171515] mb-0.5">
-                          {point.heading}
-                        </h4>
-                        <p className="font-body text-xs text-[#57534E] leading-relaxed">
-                          {point.content}
-                        </p>
-                      </div>
-                    ))}
-                  </div>
-                )}
+        {/* Category */}
+        {category.items[slideIndex]?.category && (
+          <p className="personal-concept-category">
+            {category.items[slideIndex]?.category}
+          </p>
+        )}
 
-              </div>
+        {/* Short Description */}
+        {category.items[slideIndex]?.description && (
+          <p className="personal-concept-description">
+            {category.items[slideIndex]?.description}
+          </p>
+        )}
+
+        {/* Pink Divider between overview and case study sections */}
+        <div className="detail-section-divider" />
+
+        {/* Case Study Sections with Pink Dividers between distinct sections */}
+        {category.items[slideIndex]?.details && category.items[slideIndex].details.map((point, idx) => (
+          <React.Fragment key={idx}>
+            <div className="personal-detail-section">
+              <h3 className="personal-section-heading">
+                {point.heading}
+              </h3>
+              <p className="personal-section-paragraph">
+                {point.content}
+              </p>
+            </div>
+            {/* Pink Divider between sections and before the carousel */}
+            <div className="detail-section-divider" />
+          </React.Fragment>
+        ))}
+
+        {/* Carousel Section with Previous/Next Arrows and Image Frame */}
+        <div className="personal-carousel-wrapper">
+          <div className="photo-essay-carousel w-full justify-center">
+            {/* Left Arrow Button */}
+            <button 
+              onClick={prevSlide}
+              className="photo-essay-arrow-left"
+              aria-label="Previous item"
+            >
+              ←
+            </button>
+
+            {/* Displayed Image Frame */}
+            <div className={isBrandConcepts ? "brand-concept-image-frame" : "others-concept-image-frame"}>
+              {category.items[slideIndex]?.image?.endsWith('.svg') ? (
+                <ImagePlaceholder
+                  src={category.items[slideIndex].image}
+                  title={category.items[slideIndex].title}
+                  label={category.items[slideIndex].category}
+                  aspectRatio={category.items[slideIndex].aspect || '3/4'}
+                />
+              ) : (
+                <img 
+                  key={category.items[slideIndex]?.id || slideIndex}
+                  src={category.items[slideIndex]?.image} 
+                  alt={category.items[slideIndex]?.title}
+                  className={isBrandConcepts ? "brand-concept-carousel-img" : "others-concept-carousel-img"}
+                />
+              )}
+            </div>
+
+            {/* Right Arrow Button */}
+            <button 
+              onClick={nextSlide}
+              className="photo-essay-arrow-right"
+              aria-label="Next item"
+            >
+              →
+            </button>
+          </div>
+
+          {/* Indicator Pills & Progress */}
+          <div className="personal-indicator-pills">
+            {category.items.map((item, idx) => (
+              <button
+                key={idx}
+                onClick={() => updateSlideIndex(idx)}
+                className={`personal-indicator-pill ${idx === slideIndex ? 'active' : ''}`}
+                aria-label={`Go to slide ${idx + 1}`}
+              />
             ))}
           </div>
         </div>
-      )}
+
+      </div>
 
       {/* Bottom PREV / NEXT Navigation Bar for Personal Projects */}
       <div className="assignment-bottom-nav">
