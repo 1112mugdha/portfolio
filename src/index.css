@@ -102,13 +102,15 @@ p {
   -webkit-backdrop-filter: blur(12px);
   border-bottom: 1.5px solid #171515;
   width: 100%;
+  height: 80px;
+  box-sizing: border-box;
 }
 
 .navbar-inner {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 80px;
+  height: 100%;
 }
 
 .nav-brand-logo {
@@ -340,9 +342,9 @@ p {
   justify-content: space-between;
   align-items: flex-start;
   position: relative;
-  height: calc(100vh - 76px);
-  min-height: calc(100svh - 76px);
-  max-height: calc(100vh - 76px);
+  height: calc(100vh - 80px);
+  min-height: calc(100svh - 80px);
+  max-height: calc(100vh - 80px);
   padding-top: 2.25rem;
   padding-bottom: 0;
   border-bottom: 1.5px solid #171515;
@@ -370,6 +372,7 @@ p {
   justify-content: center; /* BOTTOM CENTER OF HERO VIEWPORT */
   align-items: flex-end;
   flex: 1;
+  min-height: 0;
   position: relative;
   z-index: 6;
   overflow: hidden;
@@ -377,8 +380,9 @@ p {
 
 .hero-character-head-container {
   position: relative;
-  height: 100%;
+  height: clamp(260px, 45vh, 420px);
   max-height: 100%;
+  max-width: min(560px, 80vw);
   width: auto;
   aspect-ratio: 667 / 504;
   margin-right: auto;
@@ -435,7 +439,7 @@ p {
 }
 
 img.hero-character-head-img {
-  width: auto;
+  width: 100%;
   height: 100%;
   max-height: 100%;
   object-fit: contain;
