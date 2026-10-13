@@ -1635,31 +1635,132 @@ img.brand-concept-carousel-img {
   margin: 0 auto !important;
 }
 
-/* Others Image Frame (Portrait 3:4 Posters & Menus) */
+/* =========================================================================
+   OTHERS SPECIFIC COMPACT SPACING & REFINED VERTICAL RHYTHM
+   ========================================================================= */
+
+.personal-others-page .exp-header-border-block {
+  margin-bottom: 20px !important;
+}
+
+.personal-others-page .exp-about-paragraph {
+  margin-bottom: 20px !important;
+}
+
+/* Tighter, balanced pink divider margins for Others */
+.personal-others-page .detail-section-divider {
+  margin-top: 18px !important;
+  margin-bottom: 20px !important;
+}
+
+.personal-others-container {
+  max-width: 780px !important;
+}
+
+.personal-others-container .personal-concept-counter {
+  font-size: 0.8rem !important;
+  margin-bottom: 6px !important;
+}
+
+.personal-others-container .personal-concept-title {
+  font-size: clamp(1.4rem, 2.2vw, 1.85rem) !important;
+  margin-bottom: 6px !important;
+  line-height: 1.2 !important;
+}
+
+.personal-others-container .personal-concept-category {
+  font-size: 0.825rem !important;
+  margin-bottom: 8px !important;
+}
+
+.personal-others-container .personal-concept-description {
+  font-size: 0.925rem !important;
+  line-height: 1.6 !important;
+  margin-bottom: 0 !important;
+}
+
+.personal-others-container .personal-detail-section {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+/* Noticeably smaller gap between heading and paragraph than between sections */
+.personal-others-container .personal-section-heading {
+  font-size: 0.975rem !important;
+  margin-bottom: 6px !important;
+  line-height: 1.25 !important;
+}
+
+.personal-others-container .personal-section-paragraph {
+  font-size: 0.925rem !important;
+  line-height: 1.62 !important;
+  margin-bottom: 0 !important;
+}
+
+/* Compact carousel wrapper and indicators */
+.personal-others-container .personal-carousel-wrapper {
+  margin-top: 14px !important;
+  margin-bottom: 28px !important;
+}
+
+.personal-others-container .personal-indicator-pills {
+  margin-top: 14px !important;
+  gap: 6px !important;
+}
+
+.personal-others-page .assignment-bottom-nav {
+  margin-top: 1.5rem !important;
+  padding-top: 1.25rem !important;
+  padding-bottom: 1.25rem !important;
+}
+
+/* Others Image Frame (Compact Portrait 3:4 Posters & Menus) */
 .others-concept-image-frame {
   border: 1.5px solid #171515 !important;
   background-color: #FAF4EB !important;
-  padding: 8px !important;
+  padding: 6px !important;
   box-shadow: 2px 2px 0px #171515 !important;
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
-  width: 100% !important;
-  max-width: 480px !important;
-  max-height: 650px !important;
+  width: auto !important;
+  max-width: 330px !important;
+  max-height: 450px !important;
   box-sizing: border-box !important;
   overflow: hidden !important;
   flex: 0 1 auto !important;
+  margin: 0 auto !important;
 }
 
 img.others-concept-carousel-img {
-  width: 100% !important;
+  width: auto !important;
   max-width: 100% !important;
   height: auto !important;
-  max-height: 630px !important;
+  max-height: 436px !important;
   object-fit: contain !important;
   display: block !important;
   margin: 0 auto !important;
+}
+
+@media (max-width: 768px) and (min-width: 641px) {
+  .others-concept-image-frame {
+    max-width: 300px !important;
+    max-height: 410px !important;
+  }
+  img.others-concept-carousel-img {
+    max-height: 396px !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .others-concept-image-frame {
+    max-width: min(280px, 78vw) !important;
+    max-height: 380px !important;
+    padding: 5px !important;
+  }
+  img.others-concept-carousel-img {
+    max-height: 368px !important;
+  }
 }
 
 /* Indicator Pills Container & Buttons */

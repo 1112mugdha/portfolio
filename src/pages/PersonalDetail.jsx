@@ -57,7 +57,7 @@ export default function PersonalDetail() {
   };
 
   return (
-    <div className="py-6 max-w-6xl mx-auto">
+    <div className={`py-6 max-w-6xl mx-auto ${!isBrandConcepts ? 'personal-others-page' : ''}`}>
       {/* Back Link (28px bottom margin) */}
       <div className="exp-back-nav mt-3">
         <Link 
@@ -95,7 +95,7 @@ export default function PersonalDetail() {
       <div className="detail-section-divider" />
 
       {/* Detail Major Section Block with Ref for smooth scrolling */}
-      <div ref={conceptInfoRef} className="personal-concept-container">
+      <div ref={conceptInfoRef} className={`personal-concept-container ${!isBrandConcepts ? 'personal-others-container' : ''}`}>
         
         {/* Item Counter */}
         <div className="personal-concept-counter">
